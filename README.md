@@ -1,4 +1,4 @@
-## New P5.js website, under development
+# New P5.js website, under development
 
 Insert build instructions for beginners here
 
@@ -7,7 +7,7 @@ Insert build instructions for beginners here
 
 
 
-# Current version based on the NPM-build-boilerplate:
+## Current version based on the NPM-build-boilerplate:
 https://github.com/damonbauer/npm-build-boilerplate
 
 
