@@ -1,0 +1,22 @@
+@import 'normalize';
+@import 'fonts';
+@import 'variables';
+
+ 
+
+body {
+  background-color: $background-color-main;
+}
+
+img{
+	max-width: 25%;
+}
+
+h1{
+	font-family: "AvenirNextLTW01-Medium", sans-serif;
+	color: $brand-color-main;
+}
+
+p{
+	font-family: "inconsolatamedium", sans-serif;
+}

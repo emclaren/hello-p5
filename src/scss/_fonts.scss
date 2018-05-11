@@ -1,0 +1,26 @@
+   
+/*Explore the proper way to add these fonts, as they are load differently on the local/live sites for p5.js
+
+/* while local dev */
+@font-face{
+    font-family: 'AvenirNextLTW01-Medium';
+    src: url('../assets/fonts/AvenirNextLTW01-Medium.eot?#iefix');
+    src: url('../assets/fonts/AvenirNextLTW01-Medium.eot?#iefix') format("eot"),
+    url('../assets/fonts/AvenirNextLTW01-Medium.woff') format("woff"),
+    url('../assets/fonts/AvenirNextLTW01-Medium.ttf') format("truetype"),
+    url('../assets/fonts/AvenirNextLTW01-Medium.svg#a89d6ad1-a04f-4a8f-b140-e55478dbea80') format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* always */
+@font-face {
+    font-family: 'inconsolatamedium';
+    src: url('/../dist/assets/fonts/inconsolata.eot');
+    src: url('/../dist/assets/fonts/inconsolata.eot?#iefix') format('embedded-opentype'),
+    url('/../dist/assets/fonts/inconsolata.woff') format('woff'),
+    url('/../dist/assets/fonts/inconsolata.ttf') format('truetype'),
+    url('/../dist/assets/fonts/inconsolata.svg#inconsolatamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
