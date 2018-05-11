@@ -7,7 +7,6 @@ Insert build instructions for beginners here
 
 
 
-
 # Current version based on the NPM-build-boilerplate:
 https://github.com/damonbauer/npm-build-boilerplate
 
