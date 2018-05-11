@@ -1,4 +1,4 @@
-# New P5.js website, under development
+# New Hello P5.js website, under development
 
 Insert build instructions for beginners here
 
