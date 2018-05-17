@@ -9,13 +9,58 @@
 </head>
 
 <body>
-	<h1>Hello P5.js</h1>
-	<p>Repo set-up for the hello p5.js page</p>
-	<img src="dist/assets/images/pic.jpg">
+	<header>
+	<a href="https://p5js.org/">
+		<img src="dist/assets/images/p5js.svg">
+		</a>
+		<nav>
+			<ul>
+				<li>Download</li>
+				<li>Start</li>
+				<li>Reference</li>
+				<li>Community</li>
+				<li>Learn</li>
+				<li>EN/ES</li>
+			</ul>
+		</nav>
+	</header>
 
-	<p>Look...a P5 Canvas</p>
-	<script src="dist/js/app.min.js"></script>
-	<script src="dist/js/p5/p5.js"></script>
-	<script src="dist/js/p5/sketch.js"></script>
-</body>
-</html>
+	
+
+	<div   class="container">
+		<div  id="video-overlay" class="video-overlay" >
+		<video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+			<!-- Video files -->
+			<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+				<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+					<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+						<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440">
+
+							<!-- Caption files -->
+							<track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+							default>
+							<track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+
+								<!-- Fallback for browsers that don't support the <video> element -->
+								<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
+							</video>
+
+							<div class="actions">
+								<button type="button" class="btn js-play">Play</button>
+								<button type="button" class="btn js-pause">Pause</button>
+								<button type="button" class="btn js-stop">Stop</button>
+								<button type="button" class="btn js-rewind">Rewind</button>
+								<button type="button" class="btn js-forward">Forward</button>
+							</div>
+						</div>
+
+
+
+
+
+
+						<script src="dist/js/app.min.js"></script>
+						<script src="dist/js/p5/p5.js"></script>
+						<script src="dist/js/p5/sketch.js"></script>
+					</body>
+					</html>

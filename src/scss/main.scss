@@ -6,6 +6,7 @@
 
 body {
   background-color: $background-color-main;
+  font-family: "inconsolatamedium", sans-serif;
 }
 
 img{
@@ -17,6 +18,60 @@ h1{
 	color: $brand-color-main;
 }
 
-p{
-	font-family: "inconsolatamedium", sans-serif;
+
+header{
+	display:flex;
+	width:100%;
+	justify-content:space-around;
+	
+}
+header img{
+	display:inline-block;
+}
+
+nav{
+	display:inline-bock;
+	li{
+		font-family: "AvenirNextLTW01-Medium", sans-serif;
+		list-style-type:none;	
+		display: inline-block;
+		color: $brand-color-main;
+	}
+	
+}
+
+
+
+
+/* This is for the plyr demo */
+.container {
+  margin: 0 auto;
+  z-index:10;
+  position:relative;
+}
+.plyr {
+  border-radius: 4px;
+  margin-bottom: 15px;
+  z-index:10;
+}
+
+video{
+	width:100%;
+}
+
+
+// this is for the sketch
+
+// .p5Canvas{
+//    position:absolute;
+//     // top: 0;
+//     // left: 0;
+//     z-index: 0;
+// }
+
+canvas{
+
+	position: absolute; 
+	top: 0px; 
+	left: 0px;
 }
