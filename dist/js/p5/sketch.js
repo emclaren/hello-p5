@@ -11,16 +11,17 @@ var ydirection = 1; // Top to Bottom
 function setup() {
  var canvas = createCanvas(windowWidth, windowWidth/1.85);
  canvas.parent('video-overlay');
- noStroke();
+ // noStroke();
  ellipseMode(RADIUS);
   // Set the starting position of the shape
   xpos = width / 2;
   ypos = height / 2;
+
 }
 
 function draw() {
-  clear();
-
+  // clear();
+  // console.log("p5 setup")
   // Update the position of the shape
   xpos = xpos + xspeed * xdirection;
   ypos = ypos + yspeed * ydirection;
@@ -36,4 +37,8 @@ function draw() {
 
   // Draw the shape
   ellipse(xpos, ypos, rad, rad);
+}
+
+function mousePressed(){
+  clear();
 }

@@ -10,7 +10,8 @@ body {
 }
 
 img{
-	max-width: 25%;
+	max-width: 50%;
+	margin:1rem 0;
 }
 
 h1{
@@ -30,7 +31,10 @@ header img{
 }
 
 nav{
-	display:inline-bock;
+	display:flex;
+	ul{
+		align-self:center;
+	}
 	li{
 		font-family: "AvenirNextLTW01-Medium", sans-serif;
 		list-style-type:none;	
@@ -59,6 +63,10 @@ video{
 	width:100%;
 }
 
+.plyr__control--overlaid{
+	background: $brand-color-main;
+	z-index:500;
+}
 
 // this is for the sketch
 
@@ -70,7 +78,7 @@ video{
 // }
 
 canvas{
-
+ z-index: 300;
 	position: absolute; 
 	top: 0px; 
 	left: 0px;
