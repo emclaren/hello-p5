@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Hello P5.js</title>
+	<link rel="icon" href="favicon.ico"> 
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.3.7/plyr.css">
+	<link rel="stylesheet" href="dist/css/main.css">
+</head>
+
+<body>
+	<header>
+	<a href="https://p5js.org/">
+		<img src="dist/assets/images/p5js.svg">
+		</a>
+		<nav>
+			<ul>
+				<li>Download</li>
+				<li>Start</li>
+				<li>Reference</li>
+				<li>Community</li>
+				<li>Learn</li>
+				<li>EN/ES</li>
+			</ul>
+		</nav>
+	</header>
+
+	
+
+	<div   class="container">
+		
+		<video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+			<!-- Video files -->
+		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440">
+
+							<!-- Caption files -->
+		<track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+							default>
+		<track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+
+								<!-- Fallback for browsers that don't support the <video> element -->
+		<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
+							</video>
+<div  id="video-overlay" class="video-overlay" ></div>
+						</div>
+
+
+
+						
+						<script src="dist/js/app.min.js"></script>
+
+						<script src="https://cdn.plyr.io/3.3.7/plyr.js"></script>
+
+						<script>const player = new Plyr('#player');</script>
+
+
+						<script src="dist/js/p5/p5.js"></script>
+					
+
+						<script src="dist/js/p5/sketch.js"></script>
+
+
+					</body>
+					</html>
