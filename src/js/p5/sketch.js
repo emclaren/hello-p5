@@ -1,8 +1,10 @@
+ 
+ //begin example sketch   
 
 var rad = 60; // Width of the shape
 var xpos, ypos; // Starting position of shape
 
-var xspeed = 10; // Speed of the shape
+var xspeed = 20; // Speed of the shape
 var yspeed = 3; // Speed of the shape
 
 var xdirection = 1; // Left or Right
@@ -12,16 +14,26 @@ function setup() {
  var canvas = createCanvas(windowWidth, windowWidth/1.85);
  canvas.parent('video-overlay');
  // noStroke();
- ellipseMode(RADIUS);
-  // Set the starting position of the shape
-  xpos = width / 2;
+  xpos = width / 3;
   ypos = height / 2;
-
 }
 
+
+
+video.addEventListener('play', function() 
+{
+
+
+  console.log("i played");
+
+
+}, false);
 function draw() {
-  // clear();
-  // console.log("p5 setup")
+   ellipseMode(RADIUS);
+  // Set the starting position of the shape
+
+  clear();
+    fill(255,0,100);
   // Update the position of the shape
   xpos = xpos + xspeed * xdirection;
   ypos = ypos + yspeed * ydirection;
@@ -39,6 +51,7 @@ function draw() {
   ellipse(xpos, ypos, rad, rad);
 }
 
-function mousePressed(){
-  clear();
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowWidth/1.85);
 }

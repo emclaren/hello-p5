@@ -1,4 +1,4 @@
-//plyr demo
+//plyr setup code
 document.addEventListener('DOMContentLoaded', () => { 
   // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
   const player = new Plyr('#player');
@@ -8,30 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(selector).addEventListener(type, callback, false);
   }
 
-  // Play
-  on('.js-play', 'click', () => { 
-    player.play();
-  });
-
-  // Pause
-  on('.js-pause', 'click', () => { 
-    player.pause();
-  });
-
-  // Stop
-  on('.js-stop', 'click', () => { 
-    player.stop();
-  });
-
-  // Rewind
-  on('.js-rewind', 'click', () => { 
-    player.rewind();
-  });
-
-  // Forward
-  on('.js-forward', 'click', () => { 
-    player.forward();
-  });
 });
 
 
@@ -39,10 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-//timeupdate demo
+//timeupdate demo - logs time of video being played
 
 var video = document.getElementById('player');
-
 
 if(typeof(window.MediaController) === 'function')
 {
@@ -54,25 +29,21 @@ else
 {
   controller = null;
 }
-    
-    
-
-
 
 video.addEventListener('play', function() 
 {
 
 
-  console.log("i played");
-  p5js();
+  console.log("Video started playing");
+
 
 }, false);
-    
+
 video.addEventListener('pause', function()
 {
-
+ console.log("Video paused ");
 }, false);
-    
+
 video.addEventListener('ended', function()
 {
   if(controller)
@@ -85,7 +56,7 @@ video.addEventListener('ended', function()
 
   }
 }, false);
-    
+
 video.addEventListener('timeupdate', function()
 {
   console.log(video.currentTime)
@@ -93,25 +64,3 @@ video.addEventListener('timeupdate', function()
 }, false);
 
 
-
-
-
-function p5js(){
-    console.log("this is the p5js function");
-    function setup() {
-      console.log("this is the setup function");
-                 var canvas = createCanvas(windowWidth, windowWidth/1.85);
-           canvas.parent('video-overlay');
-           // noStroke();
-           background(AAAAAA);
-           ellipseMode(RADIUS);
-            // Set the starting position of the shape
-            xpos = width / 2;
-            ypos = height / 2;
-
-    }
-
-    function draw() {
-      ellipse(200, 200, 200, 200);
-    }
-}
