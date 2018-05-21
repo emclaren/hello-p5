@@ -1,4 +1,4 @@
-# New P5.js website, under development
+# New Hello P5.js website, under development
 
 Insert build instructions for beginners here
 
@@ -12,7 +12,7 @@ https://github.com/damonbauer/npm-build-boilerplate
 
 
 
-NPM-build-Boilerplate info:
+## NPM-build-Boilerplate info:
 ## Includes the following 
 [autoprefixer](https://github.com/postcss/autoprefixer), 
 [browser-sync](https://github.com/Browsersync/browser-sync), 
