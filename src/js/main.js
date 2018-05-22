@@ -41,6 +41,7 @@ video.addEventListener('play', function()
 
 video.addEventListener('pause', function()
 {
+
  console.log("Video paused ");
 }, false);
 
@@ -57,9 +58,21 @@ video.addEventListener('ended', function()
   }
 }, false);
 
-video.addEventListener('timeupdate', function()
-{
-  console.log(video.currentTime)
+// video.addEventListener('timeupdate', function()
+// {
+//   console.log(video.currentTime)
+
+//   if (video.currentTime>1){
+//     console.log("GREATER THAN 2");
+//    ypos=mouseY;
+//    xpos=mouseX;
+
+//   }
+//   else if(video.currentTime<1){
+//     console.log("greater than 1");
+   
+
+//   }
   
 }, false);
 

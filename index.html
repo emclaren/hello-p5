@@ -15,13 +15,17 @@
 		<img src="dist/assets/images/p5js.svg">
 		</a>
 		<nav>
-			<ul>
-				<li>Download</li>
-				<li>Start</li>
-				<li>Reference</li>
-				<li>Community</li>
-				<li>Learn</li>
-				<li>EN/ES</li>
+			<ul id="menu" class= "top_menu">
+				<li><a href="">Download</a> </li>
+				<li> * </li>
+				<li><a href="">Start</a></li>
+				<li> * </li>
+				<li><a href="">Reference</a> </li>
+				<li> * </li>
+				<li><a href="">Community</a></li>
+				<li> * </li>
+				<li><a href="">Learn</a></li>
+			<!-- 	<li>ES</li> -->
 			</ul>
 		</nav>
 	</header>
@@ -32,15 +36,18 @@
 		
 		<video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
 			<!-- Video files -->
-		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
-		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+			<source src="dist/assets/images/helloworld.mp4" type="video/mp4" size="576">
+		<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576"> -->
+		<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
 		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
-		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440">
+		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440"> -->
 
 							<!-- Caption files -->
-		<track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+		<track kind="captions" label="English" srclang="en" src="hello-p5-subtitles.en.vtt"
 							default>
-		<track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+		<track kind="captions" label="Français" srclang="fr" src="hello-p5-subtitles.fr.vtt">
+		<track kind="captions" label="Español" srclang="es" src="hello-p5-subtitles.es.vtt"
+							default>
 
 								<!-- Fallback for browsers that don't support the <video> element -->
 		<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
@@ -52,9 +59,12 @@
 
 						
 						<script src="dist/js/app.min.js"></script>
+						<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
+					<!-- 	
 
 						<script src="https://cdn.plyr.io/3.3.7/plyr.js"></script>
 
+ -->
 						<script>const player = new Plyr('#player');</script>
 
 
