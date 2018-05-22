@@ -43,7 +43,22 @@ nav{
 	}
 	
 }
+#menu.topmenu{
+	    list-style: none;
+    font-family: AvenirNextLTW01-Medium;
+    width: 100%;
+    margin: 0 0 1em;
+    padding: 0;
+    height: 100%;
+    font-size: 1.3em;
+}
 
+ #menu li a:link, #menu li a:visited {
+    color: #ed225d;
+    text-decoration: none;
+    user-select: none;
+       font-size: 1.3em;
+}
 
 
 
@@ -71,10 +86,26 @@ video{
 	background: $brand-color-hover;
 
 }
-plyr__controls plyr--no-transition{
+.plyr__controls {
+	z-index:500 !important;
+}
+.plyr__menu__container{
 	z-index:500;
 }
 
+.plyr__video-wrapper{
+	background: $brand-color-main;
+}
+.plyr:-webkit-full-screen {
+	background: $brand-color-main;
+}
+
+.plyr__poster{
+	background: $brand-color-main;
+}
+.plyr--stopped .plyr__poster {
+    opacity: 0;
+}
 // this is for the sketch
 
 // .p5Canvas{
