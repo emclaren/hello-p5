@@ -1,32 +1,39 @@
  
- //begin example sketch   
+ //Example sketch  
 
 var rad = 60; // Width of the shape
 var xpos, ypos; // Starting position of shape
 
-var xspeed = 0; // Speed of the shape
-var yspeed = 0; // Speed of the shape
+var xspeed = 10; // Speed of the shape
+var yspeed = 10; // Speed of the shape
 
 var xdirection = 1; // Left or Right
 var ydirection = 1; // Top to Bottom
 
+
+
 function setup() {
  var canvas = createCanvas(windowWidth, windowWidth/1.85);
  canvas.parent('video-overlay');
- // noStroke();
   xpos = width / 3;
   ypos = height / 2;
+     fill(255,0,100);
 }
 
 
 
 function draw() {
+ frameRate(60);
 
-  // Set the starting position of the shape
-  // background(255,200,100);
   clear();
-    fill(255,0,100);
-  // Update the position of the shape
+
+console.log(video.currentTime);
+
+if(video.currentTime>1){
+  // Draw the shape
+     ellipseMode(RADIUS);
+ 
+    // Update the position of the shape
   xpos = xpos + xspeed * xdirection;
   ypos = ypos + yspeed * ydirection;
 
@@ -38,13 +45,17 @@ function draw() {
   if (ypos > height - rad || ypos < rad) {
     ydirection *= -1;
   }
-console.log(video.currentTime);
-
-if(video.currentTime>.05){
-  // Draw the shape
-     ellipseMode(RADIUS);
-  ellipse(xpos, ypos, rad, rad);
+ ellipse(xpos, ypos, rad, rad);
 }
+if(video.currentTime>1.5){
+  
+  fill(random(255),random(255), random(255));
+  }
+if(video.currentTime>3.2){
+// frameRate(0)
+}
+
+
 }
 
 

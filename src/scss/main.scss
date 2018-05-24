@@ -2,8 +2,9 @@
 @import 'fonts';
 @import 'variables';
 
- 
 
+//Main Styles
+ 
 body {
   background-color: $background-color-main;
   font-family: "inconsolatamedium", sans-serif;
@@ -41,8 +42,9 @@ nav{
 		display: inline-block;
 		color: $brand-color-main;
 	}
-	
 }
+
+
 #menu.topmenu{
 	    list-style: none;
     font-family: AvenirNextLTW01-Medium;
@@ -62,7 +64,10 @@ nav{
 
 
 
-/* This is for the plyr demo */
+
+
+//Video Styling 
+
 .container {
   margin: 0 auto;
   z-index:10;
@@ -71,7 +76,6 @@ nav{
 .plyr {
   border-radius: 4px;
   margin-bottom: 15px;
-  // z-index:10;
 }
 
 video{
@@ -106,17 +110,18 @@ video{
 .plyr--stopped .plyr__poster {
     opacity: 0;
 }
-// this is for the sketch
 
-// .p5Canvas{
-//    position:absolute;
-//     // top: 0;
-//     // left: 0;
-//     z-index: 0;
-// }
+.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
+background:$brand-color-main;
+
+}
+
+
+
+//Styling for the P5 overlay.
 
 canvas{
- z-index: 300;
+ z-index: 300; // 300 make 2147483647 for full screen
 	position: absolute; 
 	top: 0px; 
 	left: 0px;

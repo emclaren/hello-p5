@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<!-- Site Header - To do: 1. Confirm links to use. 2. Add language Link 3. Maybe make this shrink once it's played-->
 	<header>
 	<a href="https://p5js.org/">
 		<img src="dist/assets/images/p5js.svg">
@@ -25,54 +26,44 @@
 				<li><a href="">Community</a></li>
 				<li> * </li>
 				<li><a href="">Learn</a></li>
-			<!-- 	<li>ES</li> -->
+				<li><a href="">ES</a></li>
 			</ul>
 		</nav>
 	</header>
 
-	
-
-	<div   class="container">
-		
-		<video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+	<div class="container">
+		<video controls crossorigin playsinline poster="dist/assets/images/poster.jpg" id="player">
 			<!-- Video files -->
+			<!-- To do: Make video & add the files -->
 			<source src="dist/assets/images/helloworld.mp4" type="video/mp4" size="576">
-		<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576"> -->
-		<!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
-		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
-		<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440"> -->
+			<!-- <source src="" type="video/mp4" size="576"> -->
+			<!-- <source src="" type="video/mp4" size="720">
+			<source src="" type="video/mp4" size="1080">
+			<source src="" type="video/mp4" size="1440"> -->
 
-							<!-- Caption files -->
-		<track kind="captions" label="English" srclang="en" src="hello-p5-subtitles.en.vtt"
+			<!-- Caption files -->
+			<!-- To do: once videos are complete, redo captions. -->
+			<track kind="captions" label="English" srclang="en" src="hello-p5-subtitles.en.vtt"
 							default>
-		<track kind="captions" label="Français" srclang="fr" src="hello-p5-subtitles.fr.vtt">
-		<track kind="captions" label="Español" srclang="es" src="hello-p5-subtitles.es.vtt"
+			<track kind="captions" label="Français" srclang="fr" src="hello-p5-subtitles.fr.vtt">
+			<track kind="captions" label="Español" srclang="es" src="hello-p5-subtitles.es.vtt"
 							default>
 
-								<!-- Fallback for browsers that don't support the <video> element -->
-		<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
-							</video>
-<div  id="video-overlay" class="video-overlay" ></div>
-						</div>
-
-
+			<!-- Fallback for browsers that don't support the <video> element -->
+			<!-- Create this link just in case -->
+			<a href="Place URL HERE" download>Download</a>
+		</video>
+		<!-- Empty div to attach P5 Canvas to -->
+		<div id="video-overlay" class="video-overlay" >
+		</div>
+	</div>
 
 						
-						<script src="dist/js/app.min.js"></script>
-						<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
-					<!-- 	
+	<script src="dist/js/app.min.js"></script>
+	<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
+	<script>const player = new Plyr('#player');</script>
+	<script src="dist/js/p5/p5.js"></script>
+	<script src="dist/js/p5/sketch.js"></script>
 
-						<script src="https://cdn.plyr.io/3.3.7/plyr.js"></script>
-
- -->
-						<script>const player = new Plyr('#player');</script>
-
-
-						<script src="dist/js/p5/p5.js"></script>
-					
-
-						<script src="dist/js/p5/sketch.js"></script>
-
-
-					</body>
-					</html>
+	</body>
+</html>
