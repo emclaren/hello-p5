@@ -1,24 +1,17 @@
-//plyr setup code
+//plyr bare minimum setup code
 document.addEventListener('DOMContentLoaded', () => { 
-  // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
   const player = new Plyr('#player');
-
-  // Bind event listener
   function on(selector, type, callback) {
-    document.querySelector(selector).addEventListener(type, callback, false);
+  document.querySelector(selector).addEventListener(type, callback, false);
   }
-
 });
 
 
 
 
 
-
 //timeupdate demo - logs time of video being played
-
 var video = document.getElementById('player');
-
 if(typeof(window.MediaController) === 'function')
 {
   var controller = new MediaController();
@@ -33,17 +26,16 @@ else
 video.addEventListener('play', function() 
 {
 
-
   console.log("Video started playing");
 
 
 }, false);
 
-video.addEventListener('pause', function()
-{
+// video.addEventListener('pause', function()
+// {
 
- console.log("Video paused ");
-}, false);
+//  console.log("Video paused ");
+// }, false);
 
 video.addEventListener('ended', function()
 {
@@ -58,21 +50,21 @@ video.addEventListener('ended', function()
   }
 }, false);
 
-// video.addEventListener('timeupdate', function()
-// {
-//   console.log(video.currentTime)
+video.addEventListener('timeupdate', function()
+{
+  // console.log(video.currentTime)
 
-//   if (video.currentTime>1){
-//     console.log("GREATER THAN 2");
-//    ypos=mouseY;
-//    xpos=mouseX;
+  // if (video.currentTime>1){
+  //   console.log("GREATER THAN 2");
+  //  ypos=mouseY;
+  //  xpos=mouseX;
 
-//   }
-//   else if(video.currentTime<1){
-//     console.log("greater than 1");
+  // }
+  // else if(video.currentTime<1){
+  //   console.log("greater than 1");
    
 
-//   }
+  // }
   
 }, false);
 
