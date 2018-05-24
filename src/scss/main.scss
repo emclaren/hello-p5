@@ -12,6 +12,7 @@ body {
 	background-color: $background-color-main;
 	font-family: "inconsolatamedium", sans-serif;
 	min-height:100vh;
+	max-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -74,7 +75,7 @@ nav.mobile-nav{
 }
 
 #menu li a:link, #menu li a:visited {
-	color: #ed225d;
+	color: $brand-color-main;
 	text-decoration: none;
 	user-select: none;
 	font-size: 1.3em;
