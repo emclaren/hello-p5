@@ -83,7 +83,31 @@ nav.mobile-nav{
 
 //header media query
 
-@media only screen and (min-width: 800px) {
+// @media only screen and (min-width: 800px) {
+// 	body{
+// 		display:block;
+// 	}
+// 	nav.desktop-nav{
+// 		display:flex;
+// 	}
+
+// 	nav.mobile-nav{
+// 		display:none;
+// 	}
+
+// 	header img{
+// 		display:inline-block;
+// 		max-width: 50%;
+// 		margin: 1rem ;
+// 	}
+// }
+
+
+
+@media (orientation: landscape) {
+	body{
+		display:block;
+	}
 	nav.desktop-nav{
 		display:flex;
 	}
@@ -95,10 +119,9 @@ nav.mobile-nav{
 	header img{
 		display:inline-block;
 		max-width: 50%;
-		margin:1rem ;
+		margin: 1rem ;
 	}
 }
-
 
 
 
