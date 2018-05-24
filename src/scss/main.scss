@@ -4,16 +4,21 @@
 
 
 //Main Styles
- 
-body {
-  background-color: $background-color-main;
-  font-family: "inconsolatamedium", sans-serif;
+* {
+	box-sizing: border-box;
 }
 
-img{
-	max-width: 50%;
-	margin:1rem 0;
+body {
+	background-color: $background-color-main;
+	font-family: "inconsolatamedium", sans-serif;
+	min-height:100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
 }
+
+
 
 h1{
 	font-family: "AvenirNextLTW01-Medium", sans-serif;
@@ -25,16 +30,21 @@ header{
 	display:flex;
 	width:100%;
 	justify-content:space-around;
+	text-align:center;
 	
 }
 header img{
 	display:inline-block;
+	max-width: 30%;
+	margin:0 auto;
 }
 
 nav{
 	display:flex;
 	ul{
 		align-self:center;
+		padding:0;
+		margin:0 auto;
 	}
 	li{
 		font-family: "AvenirNextLTW01-Medium", sans-serif;
@@ -45,21 +55,47 @@ nav{
 }
 
 
-#menu.topmenu{
-	    list-style: none;
-    font-family: AvenirNextLTW01-Medium;
-    width: 100%;
-    margin: 0 0 1em;
-    padding: 0;
-    height: 100%;
-    font-size: 1.3em;
+nav.desktop-nav{
+	display:none;
 }
 
- #menu li a:link, #menu li a:visited {
-    color: #ed225d;
-    text-decoration: none;
-    user-select: none;
-       font-size: 1.3em;
+nav.mobile-nav{
+	text-align:center;
+}
+
+#menu.topmenu{
+	list-style: none;
+	font-family: AvenirNextLTW01-Medium;
+	width: 100%;
+	margin: 0 0 1em;
+	padding: 0;
+	height: 100%;
+	font-size: 1.3em;
+}
+
+#menu li a:link, #menu li a:visited {
+	color: #ed225d;
+	text-decoration: none;
+	user-select: none;
+	font-size: 1.3em;
+}
+
+//header media query
+
+@media only screen and (min-width: 800px) {
+	nav.desktop-nav{
+		display:flex;
+	}
+
+	nav.mobile-nav{
+		display:none;
+	}
+
+	header img{
+		display:inline-block;
+		max-width: 50%;
+		margin:1rem ;
+	}
 }
 
 
@@ -69,13 +105,20 @@ nav{
 //Video Styling 
 
 .container {
-  margin: 0 auto;
-  z-index:10;
-  position:relative;
+	margin: 0 auto;
+	z-index:10;
+	position:relative;
+
+	//to position in the middle of screen on mobile
+	// position: fixed;
+	// top: 50%;
+	// left: 50%;
+	/* bring your own prefixes */
+	// transform: translate(0, -50%);
 }
 .plyr {
-  border-radius: 4px;
-  margin-bottom: 15px;
+	// border-radius: 4px;
+	margin-bottom: 15px;
 }
 
 video{
@@ -108,11 +151,11 @@ video{
 	background: $brand-color-main;
 }
 .plyr--stopped .plyr__poster {
-    opacity: 0;
+	opacity: 0;
 }
 
 .plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
-background:$brand-color-main;
+	background:$brand-color-main;
 
 }
 
@@ -121,7 +164,7 @@ background:$brand-color-main;
 //Styling for the P5 overlay.
 
 canvas{
- z-index: 300; // 300 make 2147483647 for full screen
+	z-index: 300; // 300 make 2147483647 for full screen
 	position: absolute; 
 	top: 0px; 
 	left: 0px;
