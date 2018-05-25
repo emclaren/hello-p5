@@ -1,4 +1,5 @@
 @import 'normalize';
+@import 'plyr';
 @import 'fonts';
 @import 'variables';
 
@@ -183,12 +184,16 @@ video{
 
 }
 
+.plyr:-webkit-full-screen{
+	z-index:-2 !important
+}
+
 
 
 //Styling for the P5 overlay.
 
 canvas{
-	z-index: 300; // 300 make 2147483647 for full screen
+	// z-index: 2147483647; // 300 make 2147483647 for full screen
 	position: absolute; 
 	top: 0px; 
 	left: 0px;

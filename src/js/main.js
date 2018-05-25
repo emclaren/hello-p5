@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
 //timeupdate demo - logs time of video being played
 var video = document.getElementById('player');
 if(typeof(window.MediaController) === 'function')
