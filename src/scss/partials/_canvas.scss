@@ -1,0 +1,71 @@
+//Video Styling 
+
+.container {
+	margin: 0 auto;
+	z-index:10;
+	position:relative;
+
+	//to position in the middle of screen on mobile
+	// position: fixed;
+	// top: 50%;
+	// left: 50%;
+	/* bring your own prefixes */
+	// transform: translate(0, -50%);
+}
+.plyr {
+	// border-radius: 4px;
+	margin-bottom: 15px;
+}
+
+video{
+	width:100%;
+}
+
+.plyr__control--overlaid{
+	background: $brand-color-main;
+	z-index:500;
+}
+.plyr__control--overlaid:hover{
+	background: $brand-color-hover;
+
+}
+.plyr__controls {
+	z-index:500 !important;
+}
+.plyr__menu__container{
+	z-index:500;
+}
+
+.plyr__video-wrapper{
+	background: $brand-color-main;
+}
+.plyr:-webkit-full-screen {
+	background: $brand-color-main;
+}
+
+.plyr__poster{
+	background: $brand-color-main;
+}
+.plyr--stopped .plyr__poster {
+	opacity: 0;
+}
+
+.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
+	background:$brand-color-main;
+
+}
+
+.plyr:-webkit-full-screen{
+	z-index:-2 !important
+}
+
+
+
+//Styling for the P5 overlay.
+
+canvas{
+	// z-index: 2147483647; // 300 make 2147483647 for full screen
+	position: absolute; 
+	top: 0px; 
+	left: 0px;
+}
