@@ -1,7 +1,13 @@
-@import 'normalize';
-@import 'plyr';
-@import 'fonts';
-@import 'variables';
+
+@import 'partials/normalize';
+@import 'partials/plyr';
+@import 'partials/fonts';
+@import 'partials/variables';
+@import 'partials/breakpoints';
+@import 'partials/base';
+@import 'partials/header';
+@import 'partials/canvas';
+
 
 
 //Main Styles
@@ -268,3 +274,7 @@ canvas{
 	top: 0px; 
 	left: 0px;
 }
+
+
+
+
