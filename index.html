@@ -10,7 +10,7 @@
 
 <body>
 <!-- Site Header - To do: 1. Confirm links to use. 2. Add language Link 3. Maybe make this shrink once it's played-->
-	<header>
+	<header class="header">
 	<a href="https://p5js.org/">
 		<img src="dist/assets/images/p5js.svg">
 		</a>
@@ -32,34 +32,19 @@
 
 	</header>
 
-	<div class="container">
-		<video controls crossorigin playsinline poster="dist/assets/images/poster.jpg" id="player">
-			<!-- Video files -->
-			<!-- To do: Make video & add the files -->
-			<source src="dist/assets/images/helloworld.mp4" type="video/mp4" size="576">
-			<!-- <source src="" type="video/mp4" size="576"> -->
-			<!-- <source src="" type="video/mp4" size="720">
-			<source src="" type="video/mp4" size="1080">
-			<source src="" type="video/mp4" size="1440"> -->
 
-			<!-- Caption files -->
-			<!-- To do: once videos are complete, redo captions. -->
-			<track kind="captions" label="English" srclang="en" src="hello-p5-subtitles.en.vtt"
-							default>
-			<track kind="captions" label="Français" srclang="fr" src="hello-p5-subtitles.fr.vtt">
-			<track kind="captions" label="Español" srclang="es" src="hello-p5-subtitles.es.vtt"
-							default>
-
-			<!-- Fallback for browsers that don't support the <video> element -->
-			<!-- Create this link just in case -->
-			<a href="Place URL HERE" download>Download</a>
-		</video>
-		<!-- Empty div to attach P5 Canvas to -->
-		<div id="video-overlay" class="video-overlay" >
+<div class="container">
+<div class="plyr__video-embed" id="player">
+    <iframe src="https://player.vimeo.com/video/76979871?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen allowtransparency allow="autoplay"></iframe>
+    	<div id="video-overlay" class="video-overlay" >
 		</div>
-	</div>
+</div>
 
-	<nav class="mobile-nav">
+
+
+
+
+	<!-- <nav class="mobile-nav">
 			<ul id="menu" class= "top_menu">
 				<li><a href="">Download</a> </li>
 				<li> * </li>
@@ -72,7 +57,7 @@
 				<li><a href="">Learn</a></li>
 				<li><a href="">ES</a></li>
 			</ul>
-		</nav>
+		</nav> -->
 
 	<script src="dist/js/app.js"></script>
 	<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
