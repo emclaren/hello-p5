@@ -17,6 +17,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	height:100vh;
 
 }
 
@@ -31,10 +32,44 @@ h1{
 header{
 	display:flex;
 	width:100%;
+	background-color:green;
 	justify-content:space-around;
 	text-align:center;
+	height:100px;
+	line-height:50px;
+	position:fixed;
+	top:0;
+  	transition: all .5s ease;
+	
 	
 }
+
+
+header.color {
+  color:yellow;
+}
+
+header.hide{
+	// position:fixed;
+	top:-100px;
+}
+
+header.hide.active{
+	top:0;
+	//box-shadow: 0px 5px 5px 0px #cccccc;
+}
+
+.wrapper{
+	padding:0 15px 15px;
+	box-sizing: border-box;
+	text-align:left;
+	width:700px;
+	margin:70px auto 0;
+}
+
+
+
+
 header img{
 	display:inline-block;
 	max-width: 30%;
@@ -82,6 +117,13 @@ nav.mobile-nav{
 	font-size: 1.3em;
 }
 
+
+
+
+
+
+
+
 //header media query
 
 // @media only screen and (min-width: 800px) {
@@ -128,22 +170,31 @@ nav.mobile-nav{
 
 
 //Video Styling 
-
 .container {
 	margin: 0 auto;
 	z-index:10;
 	position:relative;
-
+	top: 100px;
+	transform: translate(0,0);
+	transition: all .5s ease;
 	//to position in the middle of screen on mobile
 	// position: fixed;
 	// top: 50%;
 	// left: 50%;
+	// width:100%;
 	/* bring your own prefixes */
 	// transform: translate(0, -50%);
 }
+.container.hide{
+		transition: all .5s ease;
+	top: 50%;
+
+	transform: translate(0,-50%);
+
+}
 .plyr {
 	// border-radius: 4px;
-	margin-bottom: 15px;
+	// margin-bottom: 15px;
 }
 
 video{
@@ -187,7 +238,6 @@ video{
 .plyr:-webkit-full-screen{
 	z-index:-2 !important
 }
-
 
 
 //Styling for the P5 overlay.
