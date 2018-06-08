@@ -1,8 +1,15 @@
+
+var header = document.querySelector('.header');
+var container = document.querySelector('.container');
+
+
+
+
 //plyr bare minimum setup code
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player');
   function on(selector, type, callback) {
-  document.querySelector(selector).addEventListener(type, callback, false);
+    document.querySelector(selector).addEventListener(type, callback, false);
   }
 });
 
@@ -29,27 +36,31 @@ video.addEventListener('play', function()
 {
 
   console.log("Video started playing");
-
+  header.classList.add('hide');
+  container.classList.add('hide');
 
 }, false);
 
-// video.addEventListener('pause', function()
-// {
-
-//  console.log("Video paused ");
-// }, false);
+video.addEventListener('pause', function()
+{
+   header.classList.remove('hide');
+   container.classList.remove('hide');
+ console.log("Video paused ");
+}, false);
 
 video.addEventListener('ended', function()
 {
-  if(controller)
-  {
-    controller.pause();
-  }
-  else
-  {
-    video.pause();
 
-  }
+ if(controller)
+ {
+
+  controller.pause();
+}
+else
+{
+  video.pause();
+
+}
 }, false);
 
 video.addEventListener('timeupdate', function()
@@ -64,7 +75,7 @@ video.addEventListener('timeupdate', function()
   // }
   // else if(video.currentTime<1){
   //   console.log("greater than 1");
-   
+
 
   // }
   
