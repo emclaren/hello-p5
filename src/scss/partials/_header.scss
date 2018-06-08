@@ -1,0 +1,87 @@
+// Header Styling
+
+header{
+	display:flex;
+	width:100%;
+	justify-content:space-around;
+	text-align:center;
+}
+
+
+#logo_image{
+	display:inline-block;
+	max-width: 30%;
+	margin:0 auto;
+	@include landscape(){
+		display:inline-block;
+		max-width: 50%;
+		margin: 1rem ;
+	} 
+}
+
+nav{
+	display:flex;
+	.top_menu{
+		align-self:center;
+		padding:0;
+		margin:0 auto;
+	}
+	li{
+		font-family: "AvenirNextLTW01-Medium", sans-serif;
+		list-style-type:none;	
+		display: inline-block;
+		color: $brand-color-main;
+	}
+
+	li a:link, li a:visited {
+		color: $brand-color-main;
+		text-decoration: none;
+		user-select: none;
+		font-size: 1.3em;
+	}
+
+
+	li a:link, li a:visited {
+		text-decoration:none;
+		outline:none!important
+	}
+
+	li a:active, li a:hover, li a:focus{
+		outline:0;
+		text-decoration:none;
+		padding-bottom:.11em;
+		border-bottom:.11em dashed;
+		border-bottom-color:$brand-color-main;
+	}
+	.separator-design-element{
+		width:.33em;
+		height:.33em;
+		margin:0 .09em .18em;
+		background-size:.33em;
+		pointer-events:none;
+		//Find out why there is an svg in the p5js repo
+		// display:inline-block; 
+		// text-indent:-100%;
+		// overflow:hidden; 
+		// background:transparent url("data:image/svg+xml;
+		// base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI4IDI4Ij48cGF0aCBkPSJNMTYuOSAxMC4zbDguNS0yLjYgMS43IDUuMiAtOC41IDIuOSA1LjMgNy41IC00LjQgMy4yIC01LjYtNy4zTDguNSAyNi4zbC00LjMtMy4zIDUuMy03LjJMMC45IDEyLjZsMS43LTUuMiA4LjYgMi44VjEuNGg1LjhWMTAuM3oiIHN0eWxlPSJmaWxsOiNFRDIyNUQ7c3Ryb2tlOiNFRDIyNUQiLz48L3N2Zz4=");
+	}
+
+	&.desktop-nav{
+		display:none;
+		@include landscape() {
+			display:flex;
+		}
+	}
+
+	&.mobile-nav{
+		text-align:center;
+		@include landscape() {
+			display:none;
+		}
+	}
+}
+
+
+
+
