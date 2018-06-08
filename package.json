@@ -48,7 +48,7 @@
     "stylelint": "^7.8.0"
   },
   "dependencies": {
-    "plyr": "^3.3.7"
+    "plyr": "^3.3.10"
   },
   "babel": {
     "presets": [

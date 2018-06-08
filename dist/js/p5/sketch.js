@@ -73,22 +73,9 @@ function setup() {
  // noStroke();
   xpos = width / 3;
   ypos = height / 2;
-  frameRate(0)
+  frameRate(0);
+
 }
-
-
-
-
-  video.addEventListener('pause', function() 
-{
-  frameRate(0)
-}, false);
-
-  video.addEventListener('play', function() 
-{
-  frameRate(60)
-}, false);
-
 
 
 
@@ -99,7 +86,9 @@ function draw() {
   // Set the starting position of the shape
 
   clear();
-    fill(255,0,100);
+
+    // stroke(255,255,255);
+    strokeWeight(5);
   // Update the position of the shape
   xpos = xpos + xspeed * xdirection;
   ypos = ypos + yspeed * ydirection;
@@ -117,10 +106,11 @@ function draw() {
   ellipse(xpos, ypos, rad, rad);
 
 
-
-
 }
 
+function mousePressed(){
+  fill(random(255), random(255), random(255));
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowWidth/1.85);
