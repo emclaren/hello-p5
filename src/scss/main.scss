@@ -32,7 +32,7 @@ h1{
 header{
 	display:flex;
 	width:100%;
-	background-color:green;
+	background-color:white;
 	justify-content:space-around;
 	text-align:center;
 	height:100px;
@@ -40,6 +40,7 @@ header{
 	position:fixed;
 	top:0;
   	transition: all .5s ease;
+  	z-index:100;
 	
 	
 }
@@ -51,7 +52,16 @@ header.color {
 
 header.hide{
 	// position:fixed;
-	top:-100px;
+	height:50px;
+	img{
+		max-height:40px;
+		transition: all .5s ease;
+
+	}
+#menu li a:link, #menu li a:visited {
+	transition: all .5s ease;
+	font-size: 1.1em;
+}
 }
 
 header.hide.active{
@@ -74,6 +84,7 @@ header img{
 	display:inline-block;
 	max-width: 30%;
 	margin:0 auto;
+	
 }
 
 nav{
@@ -115,6 +126,7 @@ nav.mobile-nav{
 	text-decoration: none;
 	user-select: none;
 	font-size: 1.3em;
+	transition: all .5s ease;
 }
 
 
@@ -161,7 +173,9 @@ nav.mobile-nav{
 
 	header img{
 		display:inline-block;
-		max-width: 50%;
+		max-width: 45%;
+		transition: all .5s ease;
+		max-height:100%;
 		margin: 1rem ;
 	}
 }
@@ -177,6 +191,9 @@ nav.mobile-nav{
 	top: 100px;
 	transform: translate(0,0);
 	transition: all .5s ease;
+		top: 50%;
+// bottom:0;
+	transform: translate(0,-50%);
 	//to position in the middle of screen on mobile
 	// position: fixed;
 	// top: 50%;
@@ -195,6 +212,9 @@ nav.mobile-nav{
 .plyr {
 	// border-radius: 4px;
 	// margin-bottom: 15px;
+	max-height:100vh;
+	// min-height:100vh;
+
 }
 
 video{

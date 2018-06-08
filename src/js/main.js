@@ -17,8 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
 //timeupdate demo - logs time of video being played
 var video = document.getElementById('player');
 if(typeof(window.MediaController) === 'function')
@@ -36,18 +34,23 @@ video.addEventListener('play', function()
 {
 
   console.log("Video started playing");
-  header.classList.add('hide');
-  container.classList.add('hide');
 
 }, false);
 
 video.addEventListener('pause', function()
 {
-   header.classList.remove('hide');
+   // header.classList.remove('hide');
    container.classList.remove('hide');
  console.log("Video paused ");
 }, false);
 
+video.addEventListener('playing', function()
+{
+    header.classList.add('hide');
+  container.classList.add('hide');
+
+ console.log("testing playing");
+}, false);
 video.addEventListener('ended', function()
 {
 
