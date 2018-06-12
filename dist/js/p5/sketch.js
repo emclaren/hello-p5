@@ -71,8 +71,8 @@ function setup() {
  var canvas = createCanvas(windowWidth, windowWidth/1.85);
  canvas.parent('video-overlay');
  // noStroke();
-  xpos = width / 3;
-  ypos = height / 2;
+  xpos = 5;
+  ypos = 5;
   frameRate(0);
 
 }
@@ -80,8 +80,6 @@ function setup() {
 
 
 function draw() {
-
-
    ellipseMode(RADIUS);
   // Set the starting position of the shape
 
