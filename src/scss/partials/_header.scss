@@ -1,20 +1,18 @@
 // Header Styling
 
 header{
-	display:flex;
+	
 	width:100%;
 	background-color:white;
 	justify-content:space-around;
 	text-align:center;
-	
-	line-height:50px;
 	position:fixed;
 	top:0;
 	transition: all .5s ease;
 	z-index:100;
-	@include breakpoint(lg) {
-
-		height:100px;
+	@include breakpoint(md) {
+	display:flex;
+	height:100px;
 	}
 	
 }
@@ -22,8 +20,8 @@ header{
 
 
 header.hide{
-	// position:fixed;
-	@include breakpoint(lg) {
+
+	@include breakpoint(md) {
 		height:50px;
 		img{
 			max-height:40px;
@@ -39,8 +37,8 @@ header.hide{
 
 header.hide.active{
 	@include breakpoint(lg) {
-	top:0;
-}
+		top:0;
+	}
 }
 
 .wrapper{
@@ -55,10 +53,12 @@ header.hide.active{
 
 
 header img{
-	display:inline-block;
+	max-width: 25%;
+	margin:1rem auto;
+	@include breakpoint(lg) {
+	margin:0 auto;	
 	max-width: 30%;
-	margin:0 auto;
-	
+}
 }
 
 nav{
@@ -67,27 +67,25 @@ nav{
 		align-self:center;
 		padding:0;
 		margin:0 auto;
+		max-width: 80%;
+			@include breakpoint(lg) {
+		max-width:100%;	
+		}
 	}
 	li{
 		font-family: "AvenirNextLTW01-Medium", sans-serif;
 		list-style-type:none;	
-		
+		display: inline-block;
 		color: $brand-color-main;
 		@include breakpoint(lg) {
-			display: inline-block;
+			
 		}
 		
 	}
 }
 
 
-nav.desktop-nav{
-	display:none;
-}
 
-nav.mobile-nav{
-	text-align:center;
-}
 
 #menu.topmenu{
 	list-style: none;
@@ -125,9 +123,6 @@ nav.mobile-nav{
 		display:flex;
 	}
 
-	nav.mobile-nav{
-		display:none;
-	}
 
 	header img{
 		display:inline-block;
