@@ -1,20 +1,35 @@
+
 //Video Styling 
-
 .container {
-	margin: 0 auto;
-	z-index:10;
-	position:relative;
-
 	//to position in the middle of screen on mobile
 	// position: fixed;
+	position:relative;
 	// top: 50%;
 	// left: 50%;
-	/* bring your own prefixes */
-	// transform: translate(0, -50%);
+	width:100%;
+	@include breakpoint(lg) {
+		position:relative;
+		margin: 0 auto;
+		z-index:10;
+		top: 100px;
+		transition: all .5s ease;
+		top: 50%;
+		left:0;
+		transform: translate(0,-50%);
+	}
+
 }
+.container.hide{
+		@include breakpoint(lg) {
+	transition: all .5s ease;
+	// top: 50%;
+	transform: translate(0,-50%);
+}
+}
+
+
 .plyr {
-	// border-radius: 4px;
-	margin-bottom: 15px;
+	max-height:100vh;
 }
 
 video{
@@ -61,6 +76,10 @@ video{
 
 
 
+
+
+
+
 //Styling for the P5 overlay.
 
 canvas{
@@ -69,3 +88,7 @@ canvas{
 	top: 0px; 
 	left: 0px;
 }
+
+
+
+

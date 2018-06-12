@@ -21,10 +21,14 @@ body{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	height:100vh;
 	@include landscape() {
 		display:block;
 	}
 }
+
+
+
 
 h1, h2, h3, h4, h5, h6{
 	font-family: "AvenirNextLTW01-Medium", sans-serif;
