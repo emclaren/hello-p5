@@ -9,86 +9,63 @@
 </head>
 
 <body>
-<!-- Site Header - To do: 1. Confirm links to use. 2. Add language Link 3. Maybe make this shrink once it's played should it be a hamburger menu-->
+  <!-- Site Header - To do: 1. Confirm links to use. 2. Add language Link 3. Maybe make this shrink once it's played should it be a hamburger menu-->
 
 
 
-	<header class="header">
-	<a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
-      <nav role="navigation" class="desktop-nav">
-        <ul id="menu" class="top_menu">
-          <li><a href="http://p5js.org/download/">Download</a></li>
-          <li><div class="separator-design-element">*</div></li>
-          
-          <li><a href="http://p5js.org/get-started/">Start</a></li>
-          <li><div class="separator-design-element">*</div></li>
+  <header class="header">
+   <a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
+   <nav role="navigation">
+    <ul id="menu" class="top_menu">
+      <li><a href="http://p5js.org/download/">Download</a></li>
+      <li><div class="separator-design-element">*</div></li>
 
-          <li><a href="http://p5js.org/reference">Reference</a></li>
-          <li><div class="separator-design-element">*</div></li>
+      <li><a href="http://p5js.org/get-started/">Start</a></li>
+      <li><div class="separator-design-element">*</div></li>
 
-          <li><a href="http://p5js.org/libraries/">Libraries</a></li>
-          <li><div class="separator-design-element">*</div></li>
+      <li><a href="http://p5js.org/reference">Reference</a></li>
+      <li><div class="separator-design-element">*</div></li>
 
-          <li><a href="http://p5js.org/learn/">Learn</a></li>
-          <li><div class="separator-design-element">*</div></li>
+      <li><a href="http://p5js.org/libraries/">Libraries</a></li>
+      <li><div class="separator-design-element">*</div></li>
 
-          <li><a href="http://p5js.org/community/">Community</a></li>
-        </ul>
-      </nav>
-	</header>
+      <li><a href="http://p5js.org/learn/">Learn</a></li>
+      <li><div class="separator-design-element">*</div></li>
+
+      <li><a href="http://p5js.org/community/">Community</a></li>
+    </ul>
+  </nav>
+</header>
 
 
 <div class="container">
-<div class="plyr__video-embed" id="player" data-plyr-config='{"debug":true, "fullscreen":"enabled:false", "clickToPlay":false}'>
-<!-- add allowfullscreen  to ifrmae to allow fullscreen  -->
-    <iframe src="https://player.vimeo.com/video/76979871?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen="false" clickToPlay="false" allowtransparency allow="autoplay" ></iframe>
-    	<div id="video-overlay" class="video-overlay" >
-		</div>
+  <div class="plyr__video-embed" id="player" data-plyr-config='{"debug":true, "fullscreen":"enabled:false", "clickToPlay":false}'>
+    <!-- add allowfullscreen  to ifrmae to allow fullscreen  -->
+    <iframe src="https://player.vimeo.com/video/274124748&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media" allowfullscreen="false" clickToPlay="false" allowtransparency allow="autoplay" ></iframe>
+    <div id="video-overlay" class="video-overlay" >
+    </div>
+  </div>
 </div>
-</div>
 
- <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
-
-
-<!-- 
-      <nav role="navigation" class="mobile-nav">
-        <ul id="menu" class=>
-          <li><a href="http://p5js.org/download/">Download</a></li>
-          <li><div class="separator-design-element">*</div></li>
-          
-          <li><a href="http://p5js.org/get-started/">Start</a></li>
-          <li><div class="separator-design-element">*</div></li>
-
-          <li><a href="http://p5js.org/reference">Reference</a></li>
-          <li><div class="separator-design-element">*</div></li>
-
-          <li><a href="http://p5js.org/libraries/">Libraries</a></li>
-          <li><div class="separator-design-element">*</div></li>
-
-          <li><a href="http://p5js.org/learn/">Learn</a></li>
-          <li><div class="separator-design-element">*</div></li>
-
-          <li><a href="http://p5js.org/community/">Community</a></li>
-        </ul>
-      </nav>
-
+<object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
+<!-- <iframe src="https://player.vimeo.com/video/274124748" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/274124748">WingsoverGoldenGateBridge_A</a> from <a href="https://vimeo.com/user86015014">Elgin McLaren</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
  -->
 
+<script src="dist/js/app.js"></script>
 
-	<script src="dist/js/app.js"></script>
-
-	<!-- to do, do our own poyfills -->
-	<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
-	<script>const player = new Plyr('#player');</script>
-
-
-	<script src="dist/js/p5/p5.js"></script>
-
-	<script src="dist/js/p5/p5.dom.js"></script>
-	<script src="dist/js/p5/sketch.js"></script>
+<!-- to do, do our own poyfills -->
+<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
+<script>const player = new Plyr('#player');</script>
 
 
-	</body>
+<script src="dist/js/p5/p5.js"></script>
+
+<script src="dist/js/p5/p5.dom.js"></script>
+<script src="dist/js/p5/sketch.js"></script>
+
+
+</body>
 </html>
 
 
