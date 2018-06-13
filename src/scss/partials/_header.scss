@@ -8,7 +8,6 @@ header{
 	justify-content:space-around;
 	align-items:center;
 	text-align:center;
-
 	top:0;
 	transition: all .5s ease;
 	z-index:100;
@@ -16,15 +15,18 @@ header{
 	@include breakpoint(md) {
 		display:flex;
 		height:100px;
+		text-align:left;
 	}
-
 	.logo{
-		max-width: 25%;
+		max-width: 80px;
 		margin:2rem auto;
+		@include breakpoint(sm) {
+		
+			max-width: 90px;
+		}
 		@include breakpoint(md) {
 			margin:1rem auto;	
 			max-width: 30%;
-
 		}
 	}
 
@@ -32,27 +34,26 @@ header{
 		display:flex;
 		ul{
 			list-style: none;
-			// align-self:center;
+
 			padding:0;
-			margin:0 auto;
+			margin: 0 auto 1rem auto;
 			max-width: 18rem;
 			width: 100%;
 
-
-			// height: 100%;
 			@include breakpoint(md) {
 				max-width:100%;	
 				margin: 1rem 0;
 				display:flex;
 				align-items:center;
-
 			}
 		}
+
 		li{
 			font-family: "AvenirNextLTW01-Medium", sans-serif;
 			list-style-type:none;	
 			display: inline-block;
 			color: $brand-color-main;
+			margin:0 .2rem ;
 			a, a:link, a:visited{
 				color: $brand-color-main;
 				text-decoration: none;
@@ -64,6 +65,13 @@ header{
 					font-size:1.3rem;
 
 				}
+			}
+		}
+		.hide-on-mobile{
+			display:none;
+			@include breakpoint(md) {
+				display:inline-block;
+
 			}
 		}
 
@@ -96,6 +104,7 @@ header.hide.active{
 		top:0;
 	}
 }
+
 
 
 
