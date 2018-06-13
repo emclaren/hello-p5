@@ -1,32 +1,87 @@
 // Header Styling
 
-header{
-	
+header{	
+	display:block;
+	position:fixed;
 	width:100%;
 	background-color:white;
 	justify-content:space-around;
+	align-items:center;
 	text-align:center;
-	position:fixed;
+
 	top:0;
 	transition: all .5s ease;
 	z-index:100;
+
 	@include breakpoint(md) {
-	display:flex;
-	height:100px;
+		display:flex;
+		height:100px;
 	}
-	
+
+	.logo{
+		max-width: 25%;
+		margin:2rem auto;
+		@include breakpoint(md) {
+			margin:1rem auto;	
+			max-width: 30%;
+
+		}
+	}
+
+	nav{
+		display:flex;
+		ul{
+			list-style: none;
+			// align-self:center;
+			padding:0;
+			margin:0 auto;
+			max-width: 18rem;
+			width: 100%;
+
+
+			// height: 100%;
+			@include breakpoint(md) {
+				max-width:100%;	
+				margin: 1rem 0;
+				display:flex;
+				align-items:center;
+
+			}
+		}
+		li{
+			font-family: "AvenirNextLTW01-Medium", sans-serif;
+			list-style-type:none;	
+			display: inline-block;
+			color: $brand-color-main;
+			a, a:link, a:visited{
+				color: $brand-color-main;
+				text-decoration: none;
+				user-select: none;
+				font-size: 1rem;
+
+				transition: all .5s ease;
+				@include breakpoint(lg) {
+					font-size:1.3rem;
+
+				}
+			}
+		}
+
+	}
+
+
 }
 
 
 
+///The .hide class is added to the header when the play button is clicked, this makes the header shrink on play 
+
 header.hide{
-
-	@include breakpoint(md) {
+	@include breakpoint(lg) {
 		height:50px;
-		img{
-			max-height:40px;
+		.logo{
+			max-height:80px;
 			transition: all .5s ease;
-
 		}
 		#menu li a:link, #menu li a:visited {
 			transition: all .5s ease;
@@ -35,103 +90,13 @@ header.hide{
 	}
 }
 
+
 header.hide.active{
 	@include breakpoint(lg) {
 		top:0;
 	}
 }
 
-.wrapper{
-	padding:0 15px 15px;
-	box-sizing: border-box;
-	text-align:left;
-	width:700px;
-	margin:70px auto 0;
-}
-
-
-
-
-header img{
-	max-width: 25%;
-	margin:1rem auto;
-	@include breakpoint(lg) {
-	margin:0 auto;	
-	max-width: 30%;
-}
-}
-
-nav{
-	display:flex;
-	ul{
-		align-self:center;
-		padding:0;
-		margin:0 auto;
-		max-width: 80%;
-			@include breakpoint(lg) {
-		max-width:100%;	
-		}
-	}
-	li{
-		font-family: "AvenirNextLTW01-Medium", sans-serif;
-		list-style-type:none;	
-		display: inline-block;
-		color: $brand-color-main;
-		@include breakpoint(lg) {
-			
-		}
-		
-	}
-}
-
-
-
-
-#menu.topmenu{
-	list-style: none;
-	font-family: AvenirNextLTW01-Medium;
-	width: 100%;
-	margin: 0 0 1em;
-	padding: 0;
-	height: 100%;
-	font-size: 1.3em;
-}
-
-#menu li a:link, #menu li a:visited {
-	color: $brand-color-main;
-	text-decoration: none;
-	user-select: none;
-	font-size: 1.3em;
-	transition: all .5s ease;
-}
-
-
-
-
-
-
-//header media query
-
-
-
-
-@media (orientation: landscape) {
-	body{
-		display:block;
-	}
-	nav.desktop-nav{
-		display:flex;
-	}
-
-
-	header img{
-		display:inline-block;
-		max-width: 45%;
-		transition: all .5s ease;
-		max-height:100%;
-		margin: 1rem ;
-	}
-}
 
 
 
