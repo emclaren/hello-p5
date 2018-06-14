@@ -21,7 +21,6 @@ header{
 		max-width: 80px;
 		margin:2rem auto;
 		@include breakpoint(sm) {
-		
 			max-width: 90px;
 		}
 		@include breakpoint(md) {
@@ -60,13 +59,22 @@ header{
 				user-select: none;
 				font-size: 1rem;
 
-				transition: all .5s ease;
+				// transition: all .5s ease;
 				@include breakpoint(lg) {
 					font-size:1.3rem;
 
 				}
 			}
+			a:active, a:hover, a:focus{
+				outline:0;
+				text-decoration:none;
+				padding-bottom:.11em;
+				border-bottom:.11em dashed;
+				border-bottom-color:$brand-color-main;
+			}
+
 		}
+
 		.hide-on-mobile{
 			display:none;
 			@include breakpoint(md) {
@@ -85,7 +93,7 @@ header{
 ///The .hide class is added to the header when the play button is clicked, this makes the header shrink on play 
 
 header.hide{
-	@include breakpoint(lg) {
+	@include breakpoint(xl) {
 		height:50px;
 		.logo{
 			max-height:80px;
@@ -98,12 +106,13 @@ header.hide{
 	}
 }
 
-
 header.hide.active{
-	@include breakpoint(lg) {
+	@include breakpoint(xl) {
 		top:0;
 	}
 }
+
+
 
 
 
