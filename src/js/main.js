@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //Watch time in video and trigger events
   player.on('timeupdate', event => {
     const instance = event.detail.plyr;
-    if(instance.currentTime>2){
+    if(instance.currentTime>2 && instance.currentTime<5){
       console.log("more than three, less than 5");
       sketch = "sketch1";
     }

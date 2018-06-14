@@ -36,9 +36,11 @@ header{
 
 			padding:0;
 			margin: 0 auto 1rem auto;
-			max-width: 18rem;
+			max-width: 19rem;
 			width: 100%;
-
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			@include breakpoint(md) {
 				max-width:100%;	
 				margin: 1rem 0;
@@ -52,7 +54,7 @@ header{
 			list-style-type:none;	
 			display: inline-block;
 			color: $brand-color-main;
-			margin:0 .2rem ;
+			margin:0 .2rem 1rem;
 			a, a:link, a:visited{
 				color: $brand-color-main;
 				text-decoration: none;
@@ -65,12 +67,25 @@ header{
 
 				}
 			}
+
 			a:active, a:hover, a:focus{
 				outline:0;
 				text-decoration:none;
 				padding-bottom:.11em;
 				border-bottom:.11em dashed;
 				border-bottom-color:$brand-color-main;
+			}
+			&:nth-child(odd){
+				width:5.2rem;
+				@include breakpoint(md) {
+				width:auto;
+				}
+				&:nth-child(3n+1) {
+			    text-align:left;
+	}
+				&:nth-child(3n+2) {
+			    text-align:right;
+			}
 			}
 
 		}
