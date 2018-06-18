@@ -1,12 +1,13 @@
-
 //Target html elements so the class of hide can be added on play
-var header = document.querySelector('.header');
-var container = document.querySelector('.container');
-var myp5 = "hello";
-var myp52;
-// var sketch ;  //I currently have a variable named sketch that changes the contents of the draw function in p5. Is this the best strategy? or should I be using namespacing to create multiple sketches and then importing them. 
+let header = document.querySelector('.header');
+let container = document.querySelector('.container');
+let myp5
+let myp52
+let myp53
 
+var videoCurrentTime;
 
+var videoPreviousTime;
 
 
 //plyr bare minimum setup code
@@ -20,41 +21,41 @@ document.addEventListener('DOMContentLoaded', () => {
 player.on('playing', event => {
     header.classList.add('hide'); //shrink the header on large screens 
     container.classList.add('hide'); //Move the video so it is spaced correctly on large screens
-
   });
 
-// //Watch time in video and trigger events
-player.on('timeupdate', event => {
-  const instance = event.detail.plyr;
-  if(instance.currentTime>2 && instance.currentTime<5){
-
-    console.log("more than three, less than 5");
-     var  myp5 = new p5(sketch);
-     function removeCanvas(){
-  myp5.remove();
-  console.log("remove canvas")
-
-};
 
 
-setTimeout(removeCanvas, 1000);
+    // //Watch time in video and trigger events
+    player.on('timeupdate', event => {
+      const instance = event.detail.plyr;
+      // console.log(instance.currentTime);
+      videoPreviousTime=videoCurrentTime;
+      videoCurrentTime=Math.round(instance.currentTime)
+      console.log(videoCurrentTime + ","+ videoPreviousTime);
+      console.log("math round" +Math.round(instance.currentTime))
+      if(videoCurrentTime != videoPreviousTime){
+        console.log("it's different");
 
-}
+        if(videoCurrentTime == 2){
+          myp5 = new p5(sketch);
 
-    if(instance.currentTime>5){
-      console.log("more than 5");
-      myp52 = new p5(sketch2);
+
+        }
+        if(videoCurrentTime == 5 ){
+        // myp5.background(255,0, 123);
+        myp5.remove();
+        console.log("more than 5");
+        myp52 = new p5(sketch2);
+      }
+
+      if(videoCurrentTime== 7){
+        myp52.remove();
+        myp53 = new p5(sketch3);
+      }
     }
-//     if(instance.currentTime>7){
-//      console.log("more than 5");
-//       var myp53 = new p5(sketch3);
-//     }
+
   });
 });
-
-
-
-// var  myp5 = new p5(sketch);
 
 
 
