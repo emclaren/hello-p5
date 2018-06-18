@@ -1,3 +1,5 @@
+
+
 var sketch = function(p){
 	p.xpos=100;
 	p.ypos=100;
@@ -10,11 +12,10 @@ var sketch = function(p){
 		// p.background(51)
 		// p.createCanvas(width, width*2); //make this mobile friendly
  // p.canvas.parent('video-overlay');
- console.log("hi");
- // xpos = windowWidth/1.3;
+ console.log("hi"); // xpos = windowWidth/1.3;
  // ypos =  windowHeight/3;
-  p.fill(0,133,255);
-  p.background(51);
+ p.fill(0,133,255);
+ p.background(51);
 }
 
 p.draw = function(){
@@ -27,7 +28,15 @@ p.draw = function(){
 	p.ellipse(p.xpos, p.ypos, 100, 100);
 	// p.sleep(3000);
 	 // console.log("hi2");
-}
+
+
+
+
+	 // setTimeout(removeCanvas, 3000);
+
+
+
+	}
 }
 
 
@@ -40,17 +49,12 @@ var sketch2 = function(q){
 		this._pixelDensity = 1;
 		q.createCanvas(700,800)
 		q.background(51)
- // var canvas = createCanvas(windowWidth, windowWidth/1.85); //make this mobile friendly
- // canvas.parent('video-overlay');
- console.log("hi");
- // xpos = windowWidth/1.3;
- // ypos =  windowHeight/3;
 
-}
+	}
 
-q.draw = function(){
-	q.clear();
-	q.strokeWeight(5);
+	q.draw = function(){
+		q.clear();
+		q.strokeWeight(5);
 	// p.ellipseMode(RADIUS);
 	q.fill(0,255,0);
 	q.stroke(255,102,255);
@@ -92,15 +96,24 @@ r.draw = function(){
 }
 
 
+// function removeCanvas(){
+// 	myp5.background(255,0,123);
+// 	console.log("remove canvas")
+// };
+
+
+// setTimeout(removeCanvas, 2000);
+
+  // myp52 = new p5(sketch2);
+// function removeCanvas(){
+//       myp5.remove();
+//       console.log("remove canvas")
+
+//     };
 
 
 // var  myp5 = new p5(sketch);
 
-// function removeCanvas(){
-//   myp5.remove();
-//   console.log("remove canvas")
-
-// };
 
 
 // setTimeout(removeCanvas, 2000);
