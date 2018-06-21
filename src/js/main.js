@@ -36,26 +36,23 @@ player.on('playing', event => {
       if(videoCurrentTime != videoPreviousTime){
         console.log("it's different");
 
-        if(videoCurrentTime == 2){
-          myp5 = new p5(sketch);
+      //   if(videoCurrentTime == 1){
+      //     myp5 = new p5(sketch);
+      //   }
+      //   else if(videoCurrentTime == 5 ){
+      //   myp5.remove();
+      //   console.log("more than 5");
+      //   myp52 = new p5(sketch2);
+      // }
 
-
-        }
-        if(videoCurrentTime == 5 ){
-        // myp5.background(255,0, 123);
-        myp5.remove();
-        console.log("more than 5");
-        myp52 = new p5(sketch2);
-      }
-
-      if(videoCurrentTime== 7){
-        myp52.remove();
-        myp53 = new p5(sketch3);
-      }
+      // if(videoCurrentTime== 8){
+      //   myp52.remove();
+      //   myp53 = new p5(sketch3);
+      // }
     }
 
   });
-});
+  });
 
 
 
