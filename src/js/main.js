@@ -21,8 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 player.on('playing', event => {
     header.classList.add('hide'); //shrink the header on large screens 
     container.classList.add('hide'); //Move the video so it is spaced correctly on large screens
+    myp5.frameRate(60);
   });
 
+player.on('pause', event => {
+ myp5.frameRate(0);
+});
 
 
     // //Watch time in video and trigger events
@@ -36,22 +40,58 @@ player.on('playing', event => {
       if(videoCurrentTime != videoPreviousTime){
         console.log("it's different");
 
-      //   if(videoCurrentTime == 1){
-      //     myp5 = new p5(sketch);
-      //   }
-      //   else if(videoCurrentTime == 5 ){
-      //   myp5.remove();
-      //   console.log("more than 5");
-      //   myp52 = new p5(sketch2);
-      // }
 
-      // if(videoCurrentTime== 8){
-      //   myp52.remove();
-      //   myp53 = new p5(sketch3);
-      // }
-    }
+        switch (videoCurrentTime) {
+          case 0:
+          myp5 = new p5(sketch);
+          break;
+          
+          case 5:
+          myp5.remove();
+          myp5 = new p5(sketch2);
+          break;
+          
+          case 8:
+          myp5.remove();
+          myp5 = new p5(sketch3);
+          break 
 
-  });
+          case 10:
+          myp5.remove();
+          myp5 = new p5(sketch);
+          break
+
+          case 13:
+          myp5.remove();
+          // myp5 = new p5(sketch);
+          break
+
+          case 54:
+          myp5.remove();
+          myp5 = new p5(sketch);
+          break
+
+          case 59:
+          myp5.remove();
+          myp5 = new p5(sketch2);
+          break
+          case 78:
+          myp5.remove();
+          myp5 = new p5(sketch3);
+          break
+          case 80:
+          myp5.remove();
+          break
+
+
+          default:
+    // console.log('this is the default');
+
+  }
+
+}
+
+});
   });
 
 
