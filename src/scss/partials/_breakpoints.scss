@@ -6,10 +6,11 @@ BREAKPOINTS
 @mixin breakpoint($point) {
   
   $bp-xs: "320px";
-  $bp-sm: "480px";
+  $bp-sm: "400px";
   $bp-md: "768px";
   $bp-lg: "992px";
   $bp-xl: "1250px";
+  $bp-landscape:"landscape"; 
 
 
   @if $point == xs {
@@ -28,11 +29,16 @@ BREAKPOINTS
     @media only screen and (min-width: $bp-xl)  { @content; }
   }
 
+
 }
+
+
+
 
 // Landscape
 @mixin landscape() {
     @media screen and (orientation:landscape) { @content; }
 }
+
 
 

@@ -2,7 +2,7 @@
 
 header{	
 	display:block;
-	position:fixed;
+	// position:fixed;
 	width:100%;
 	background-color:white;
 	justify-content:space-around;
@@ -11,42 +11,76 @@ header{
 	top:0;
 	transition: all .5s ease;
 	z-index:100;
-
+	@include landscape() {
+		display:flex;
+		height:60px;
+		text-align:left;	
+		position:absolute;
+	}
 	@include breakpoint(md) {
 		display:flex;
-		height:100px;
+		height:80px;
 		text-align:left;
 	}
+
+
 	.logo{
-		max-width: 80px;
-		margin:2rem auto;
+		max-width: 6rem;
+		margin:1.5rem auto;
+		// background-color:red;
+		// height:100%;
+		display:flex;
 		@include breakpoint(sm) {
 			max-width: 90px;
 		}
-		@include breakpoint(md) {
-			margin:1rem auto;	
-			max-width: 30%;
+
+		@include landscape() {
+			max-width:4rem;
+			margin:1rem auto;
 		}
+		@include breakpoint(md) {
+			
+			max-width: 4rem;
+			margin:1rem auto;
+		}
+		@include breakpoint(lg) {
+			
+			max-width: 5rem;
+	
+		}
+
 	}
 
 	nav{
 		display:flex;
+		// background-color:green;
+		height:100%;
 		ul{
 			list-style: none;
-
+			margin: 0rem auto 1rem auto;
 			padding:0;
-			margin: 0 auto 1rem auto;
+
 			max-width: 19rem;
 			width: 100%;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-			@include breakpoint(md) {
+			@include breakpoint(sm) {
+				margin:1rem auto;
+			}
+			@include landscape(){
 				max-width:100%;	
-				margin: 1rem 0;
 				display:flex;
 				align-items:center;
 			}
+			@include breakpoint(md){
+				max-width:100%;	
+				display:flex;
+				align-items:center;
+			}
+
+
+
 		}
 
 		li{
@@ -55,6 +89,15 @@ header{
 			display: inline-block;
 			color: $brand-color-main;
 			margin:0 .2rem 1rem;
+			@include landscape() {
+				margin:0 .2rem;
+
+			}
+			@include breakpoint(md) {
+				margin:0 .3rem;
+
+			}
+
 			a, a:link, a:visited{
 				color: $brand-color-main;
 				text-decoration: none;
@@ -68,6 +111,7 @@ header{
 				}
 			}
 
+
 			a:active, a:hover, a:focus{
 				outline:0;
 				text-decoration:none;
@@ -78,14 +122,17 @@ header{
 			&:nth-child(odd){
 				width:5.2rem;
 				@include breakpoint(md) {
-				width:auto;
+					width:auto;
+				}
+				@include landscape() {
+					width:auto;
 				}
 				&:nth-child(3n+1) {
-			    text-align:left;
-	}
+					text-align:left;
+				}
 				&:nth-child(3n+2) {
-			    text-align:right;
-			}
+					text-align:right;
+				}
 			}
 
 		}
@@ -99,6 +146,9 @@ header{
 		}
 
 	}
+	#navigation-es{
+		display:none;
+	}
 
 
 }
@@ -108,10 +158,25 @@ header{
 ///The .hide class is added to the header when the play button is clicked, this makes the header shrink on play 
 
 header.hide{
+
+	@include landscape(){
+		height:30px;
+		transition: all .5s ease;
+		.logo{
+			max-width: 3rem;
+			transition: all .5s ease;
+			margin:0 auto;
+
+			
+		}
+		li a{
+			font-size: .8rem;
+		}
+	}
 	@include breakpoint(xl) {
 		height:50px;
 		.logo{
-			max-height:80px;
+			max-width: 4rem;
 			transition: all .5s ease;
 		}
 		#menu li a:link, #menu li a:visited {
