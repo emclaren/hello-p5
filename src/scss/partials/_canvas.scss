@@ -7,6 +7,7 @@
 	// top: 50%;
 	// left: 50%;
 	width:100%;
+	padding-top:3vh;
 	@include breakpoint(xl) {
 		position:relative;
 		margin: 0 auto;
@@ -23,7 +24,7 @@
 		@include breakpoint(lg) {
 	transition: all .5s ease;
 	// top: 50%;
-	transform: translate(0,-50%);
+	// transform: translate(0,-50%);
 }
 }
 
