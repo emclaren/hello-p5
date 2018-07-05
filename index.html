@@ -10,108 +10,102 @@
 </head>
 
 <body>
-  <!-- Site Header - To do: 1. Confirm links to use. 2. Add language Link 3. Maybe make this shrink once it's played should it be a hamburger menu-->
 
 
 
+
+<!-- Site Header - To do:  1. Make language Link -->
+
+
+<!-- MAIN HEADER - English version-->
   <header class="header">
-   <a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
-   <nav role="navigation">
-    <ul id="menu" class="top_menu">
-      <li><a href="http://p5js.org/download/" class="nav-link">Download</a></li>
-      <li><div class="separator-design-element">*</div></li>
+     <a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
+     <nav role="navigation">
+      <ul id="menu" class="top_menu">
+        <li><a href="http://p5js.org/download/" class="nav-link">Download</a></li>
+        <li><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/get-started/" class="nav-link">Start</a></li>
+        <li><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/reference" class="nav-link">Reference</a></li>
+        <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/libraries/" class="nav-link">Libraries</a></li>
+        <li><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/learn/" class="nav-link">Learn</a></li>
+        <li><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/community/"class="nav-link">Community</a></li>
+      </ul>
+    </nav>
 
-      <li><a href="http://p5js.org/get-started/" class="nav-link">Start</a></li>
-      <li><div class="separator-design-element">*</div></li>
+<!-- MAIN HEADER - Spanish version -->
+    <nav role="navigation" id="navigation-es">
+      <ul id="menu" class="top_menu">
+        <li><a href="http://p5js.org/download/" class="nav-link">Descargar</a></li>
+        <li><div class="separator-design-element">*</div></li>
 
-      <li><a href="http://p5js.org/reference" class="nav-link">Reference</a></li>
-      <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/get-started/" class="nav-link">Empezar</a></li>
+        <li><div class="separator-design-element">*</div></li>
 
-      <li><a href="http://p5js.org/libraries/" class="nav-link">Libraries</a></li>
-      <li><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/reference" class="nav-link">Referencia</a></li>
+        <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
 
-      <li><a href="http://p5js.org/learn/" class="nav-link">Learn</a></li>
-      <li><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/libraries/" class="nav-link">Bibliotecas</a></li>
+        <li><div class="separator-design-element">*</div></li>
 
-      <li><a href="http://p5js.org/community/"class="nav-link">Community</a></li>
+        <li><a href="http://p5js.org/learn/" class="nav-link">Aprender</a></li>
+        <li><div class="separator-design-element">*</div></li>
 
-    </ul>
-  </nav>
-  <nav role="navigation" id="navigation-es">
-    <ul id="menu" class="top_menu">
-      <li><a href="http://p5js.org/download/" class="nav-link">Descargar</a></li>
-      <li><div class="separator-design-element">*</div></li>
+        <li><a href="http://p5js.org/community/"class="nav-link">Comunidad</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      <li><a href="http://p5js.org/get-started/" class="nav-link">Empezar</a></li>
-      <li><div class="separator-design-element">*</div></li>
+  <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
+  <div class="container">
 
-      <li><a href="http://p5js.org/reference" class="nav-link">Referencia</a></li>
-      <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
+    <video  id="player" playsinline controls  data-plyr-config='{"debug":true, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
-      <li><a href="http://p5js.org/libraries/" class="nav-link">Bibliotecas</a></li>
-      <li><div class="separator-design-element">*</div></li>
+      <!-- TO DO:Update this so it's pointing to dist folder -->
+      <source src="src/assets/video/p5draft.mp4" type="video/mp4"> 
 
-      <li><a href="http://p5js.org/learn/" class="nav-link">Aprender</a></li>
-      <li><div class="separator-design-element">*</div></li>
+        <!-- CAPTION FILES -->
+        <track kind="captions" label="English captions" src="subtitles/hello-p5-subtitles.en.vtt" srclang="en" default>
 
-      <li><a href="http://p5js.org/community/"class="nav-link">Comunidad</a></li>
-    </ul>
-  </nav>
-</header>
+    </video>
 
-
-<div class="container">
-
-<!-- 
-<div id="player" data-plyr-provider="vimeo" data-plyr-embed-id="76979871">
-
- -->
-
-  <div class="plyr__video-embed" id="player" data-plyr-config='{"debug":true, "fullscreen":"enabled:false", "clickToPlay":false}'>
-   <iframe src="https://player.vimeo.com/video/275946781?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"  ></iframe>
-
-   
-   <div id="video-overlay" class="video-overlay">
-   </div>
- </div>
-</div>
+        <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
+    <div id="video-overlay" class="video-overlay"> </div>
+  </div>
 
 
 
+  <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
+  <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
 
-<object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
+  <!-- TO DO: Make all P5 & Seriously files compile and minify to one file. -->
 
-
-
-
-<script  src="dist/js/p5/p5.js" ></script>
-<script async src="dist/js/p5/p5.dom.js" ></script>
-
-
-<script async src="dist/js/p5/sketch.js" ></script>
-
-
-<!-- 
-<script async src="dist/js/p5/circlesketch.js" ></script>
--->
-
-<script src="dist/js/app.js"></script>
+  <!-- P5 MAIN FILE, DOM FILE, and SKETCH FILES -->
+  <script  src="dist/js/p5/p5.js"></script>
+  <script async src="dist/js/p5/p5.dom.js" ></script>
+  <script async src="dist/js/p5/sketch.js" ></script>
 
 
 
-
-<!-- to do, do our own poyfills -->
-<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
-
-
+  <!-- PLYR JAVASCRIPT FILE, used to give HTML5 video nice controls & captions  -->
+  <!-- TO DO: add our own poyfills -->
+  <script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
 
 
-<script>const player = new Plyr('#player');</script>
-
-<!-- Add Google Analytics -->
+  <!-- SERIOUSLY.JS MAIN FILE AND CHROMA KEY, to remove the green background from videos so sketch canvas is visible-->
+  <script type="text/javascript" src="dist/js/seriously/seriously.js"></script>
+  <script type="text/javascript" src="dist/js/seriously/seriously.chroma.js"></script>
 
 
 
+  <!-- MAIN JAVASCRIPT FILE -->
+  <script src="dist/js/app.js"></script>
+
+
+  <!-- TO DO: Add Google Analytics -->
 </body>
 </html>
 
