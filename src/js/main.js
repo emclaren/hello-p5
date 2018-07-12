@@ -49,17 +49,20 @@ player.on('pause', event => {
 
       switch (videoCurrentTime) {
         case 0:
-        myp5 = new p5(sketch);
+        myp5 = new p5(sketch4);
+        myp52 = new p5(sketch2);
         break;
         
         case 5:
         myp5.remove();
+        myp52.remove();
         myp5 = new p5(sketch3);
         myp52 = new p5(sketch2);
         break; 
 
         case 8:
-        myp5.remove();
+          myp5.remove();
+        myp52.remove();
         // myp52.remove();
         myp5 = new p5(sketch);
         break 
@@ -71,12 +74,15 @@ player.on('pause', event => {
 
         case 13:
         myp5.remove();
+        myp5 = new p5(sketch3);
+        myp52 = new p5(sketch2);
         // myp5 = new p5(sketch);
         break
 
         case 54:
-        myp5.remove();
-        myp5 = new p5(sketch);
+          myp5 = new p5(sketch3);
+        myp52 = new p5(sketch2);
+  
         break
 
         case 59:
