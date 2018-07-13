@@ -16,6 +16,10 @@ let videoPreviousTime;
 
 
 
+
+
+
+
 //plyr bare minimum setup code
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player');
