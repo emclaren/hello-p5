@@ -66,7 +66,7 @@
 <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
 <div class="container">
 
-  <video  id="player" playsinline controls  data-plyr-config='{"debug":true, "fullscreen":"enabled:false", "clickToPlay":false}' >
+  <video  id="player" playsinline controls  data-plyr-config='{"debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
     <!-- TO DO:Update this so it's pointing to dist folder -->
     <source src="src/assets/video/p5draftgs.mp4" type="video/mp4"> 
@@ -92,19 +92,16 @@
 
           <!-- P5 MAIN FILE, DOM FILE, and SKETCH FILES -->
          
-          <script  src="src/js/p5/p5.js"></script>
-          <script async src="src/js/p5/p5.dom.js" ></script>
+
           <script async src="src/js/sketches/sketch.js" ></script>
 
 
 
-          <!-- PLYR JAVASCRIPT FILE, used to give HTML5 video nice controls & captions  -->
-          <!-- <script src="src/js/plyr/plyr.polyfilled.js"></script> -->
 
           <!-- SERIOUSLY.JS MAIN FILE AND CHROMA KEY, to remove the green background from videos so sketch canvas is visible-->
 
-          <script type="text/javascript" src="src/js/seriously/seriously.js"></script>
-          <script type="text/javascript" src="src/js/seriously/seriously.chroma.js"></script>
+          <!-- <script type="text/javascript" src="src/js/seriously/seriously.js"></script> -->
+          <!-- <script type="text/javascript" src="src/js/seriously/seriously.chroma.js"></script>  -->
 
 
 
