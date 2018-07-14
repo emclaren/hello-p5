@@ -1,3 +1,5 @@
+const Plyr = require('plyr');
+
 
 //For targeting html elements so the class of hide can be added on play
 let header = document.querySelector('.header');
@@ -15,7 +17,6 @@ let videoPreviousTime;
 
 
 
-const Plyr= require('plyr');
 
 
 
