@@ -15,8 +15,7 @@ let videoPreviousTime;
 
 
 
-
-
+const Plyr= require('plyr');
 
 
 
