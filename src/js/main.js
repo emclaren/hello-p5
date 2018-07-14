@@ -1,4 +1,17 @@
 const Plyr = require('plyr');
+const p5 = require('p5');
+const seriously = require('./seriously/seriously.js'); //works - appears to load seriously.js
+
+
+// const chroma = require('./seriously/chroma.js'); //This throws an error that says  "Cannot find module 'seriously' from '/Users/SIAT/development/hello-p5/src/js/seriously'""
+// console.log("seriously 2 " + seriously);
+// const chroma = require('./seriously/chroma.js');
+
+
+const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.js');//doesn't throw error but appears to be empty
+const sketchfile = require('./sketches/sketch.js') //doesn't throw error but appears to be empty
+
+
 
 
 //For targeting html elements so the class of hide can be added on play
@@ -14,10 +27,6 @@ let myp53
 // For Keeping track of current video time
 let videoCurrentTime;
 let videoPreviousTime;
-
-
-
-
 
 
 //plyr bare minimum setup code
