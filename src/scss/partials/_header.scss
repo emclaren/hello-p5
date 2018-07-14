@@ -27,8 +27,6 @@ header{
 	.logo{
 		max-width: 6rem;
 		margin:1.5rem auto;
-		// background-color:red;
-		// height:100%;
 		display:flex;
 		@include breakpoint(sm) {
 			max-width: 90px;
@@ -53,13 +51,11 @@ header{
 
 	nav{
 		display:flex;
-		// background-color:green;
 		height:100%;
 		ul{
 			list-style: none;
 			margin: 0rem auto 1rem auto;
 			padding:0;
-
 			max-width: 19rem;
 			width: 100%;
 			display: flex;
@@ -97,7 +93,9 @@ header{
 				margin:0 .3rem;
 
 			}
-
+			.language-link{
+				color: #242424;
+			}
 			a, a:link, a:visited{
 				color: $brand-color-main;
 				text-decoration: none;

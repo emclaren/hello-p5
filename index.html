@@ -10,33 +10,35 @@
 </head>
 
 <body>
-  <!-- Site Header - To do: 1. Confirm links to use. 2. Add language Link 3. Maybe make this shrink once it's played should it be a hamburger menu-->
 
 
+  <!-- Site Header - To do:  1. Make language Link -->
 
+
+  <!-- MAIN HEADER - English version-->
   <header class="header">
    <a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
    <nav role="navigation">
     <ul id="menu" class="top_menu">
       <li><a href="http://p5js.org/download/" class="nav-link">Download</a></li>
       <li><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/get-started/" class="nav-link">Start</a></li>
       <li><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/reference" class="nav-link">Reference</a></li>
       <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/libraries/" class="nav-link">Libraries</a></li>
       <li><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/learn/" class="nav-link">Learn</a></li>
       <li><div class="separator-design-element">*</div></li>
-
-      <li><a href="http://p5js.org/community/"class="nav-link">Community</a></li>
-
+      <li><a href="http://p5js.org/community/" class="nav-link">Community</a></li>
+       <li><a href=""  class="nav-link language-link spanish">ES</a></li>
+        <li>/</li>
+         <li><a href=""  class="nav-link language-link spanish">EN</a></li>
     </ul>
+
   </nav>
+
+  <!-- MAIN HEADER - Spanish version -->
   <nav role="navigation" id="navigation-es">
     <ul id="menu" class="top_menu">
       <li><a href="http://p5js.org/download/" class="nav-link">Descargar</a></li>
@@ -59,61 +61,59 @@
   </nav>
 </header>
 
-
+<!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
 <div class="container">
 
-<!-- 
-<div id="player" data-plyr-provider="vimeo" data-plyr-embed-id="76979871">
+  <video  id="player" playsinline controls  data-plyr-config='{"debug":true, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
- -->
+    <!-- TO DO:Update this so it's pointing to dist folder -->
+    <source src="src/assets/video/p5draftgs.mp4" type="video/mp4"> 
+    <source src="src/assets/video/fingers.webm" type="video/webm"> 
 
-  <div class="plyr__video-embed" id="player" data-plyr-config='{"debug":true, "fullscreen":"enabled:false", "clickToPlay":false}'>
-   <iframe src="https://player.vimeo.com/video/275946781?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"  ></iframe>
+      <!-- CAPTION FILES -->
+      <!-- To do: validate caption files once video is complete- see plyr website for link -->
+      <track kind="captions" label="English" src="captions/hello-p5-english-captions.en.vtt" srclang="en" default>
+        <track kind="captions" label="French" src="captions/hello-p5-spanish-captions.es.vtt" srclang="es">
+          <track kind="captions" label="Spanish" src="captions/hello-p5-french-captions.fr.vtt" srclang="fr">
+          </video>
 
-   
-   <div id="video-overlay" class="video-overlay">
-   </div>
- </div>
-</div>
-
-
-
-
-<object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
+          <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
+          <div id="video-overlay" class="video-overlay"> </div>
+        </div>
 
 
+        <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
+        <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
 
+        <!-- TO DO: Make all P5 & Seriously files compile and minify to one file. -->
 
-<script  src="dist/js/p5/p5.js" ></script>
-<script async src="dist/js/p5/p5.dom.js" ></script>
-
-
-<script async src="dist/js/p5/sketch.js" ></script>
-
-
-<!-- 
-<script async src="dist/js/p5/circlesketch.js" ></script>
--->
-
-<script src="dist/js/app.js"></script>
+        <!-- P5 MAIN FILE, DOM FILE, and SKETCH FILES -->
+        <script  src="dist/js/p5/p5.js"></script>
+        <script async src="dist/js/p5/p5.dom.js" ></script>
+        <script async src="dist/js/p5/sketch.js" ></script>
 
 
 
+        <!-- PLYR JAVASCRIPT FILE, used to give HTML5 video nice controls & captions  -->
+        <!-- TO DO: add our own poyfills -->
 
-<!-- to do, do our own poyfills -->
-<script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
-
-
-
-
-<script>const player = new Plyr('#player');</script>
-
-<!-- Add Google Analytics -->
+        <script src="https://cdn.plyr.io/3.3.7/plyr.polyfilled.js"></script>
 
 
+        <!-- SERIOUSLY.JS MAIN FILE AND CHROMA KEY, to remove the green background from videos so sketch canvas is visible-->
 
-</body>
-</html>
+        <script type="text/javascript" src="dist/js/seriously/seriously.js"></script>
+        <script type="text/javascript" src="dist/js/seriously/seriously.chroma.js"></script>
+
+
+
+        <!-- MAIN JAVASCRIPT FILE -->
+        <script src="dist/js/app.js"></script>
+
+
+        <!-- TO DO: Add Google Analytics -->
+      </body>
+      </html>
 
 
 
