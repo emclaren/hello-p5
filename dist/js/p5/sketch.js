@@ -1,7 +1,7 @@
 const windowWidth = window.innerWidth;
 
 
-//intro sketch 1
+//test sketch 1
 var sketch = function(p){
 	p.xpos=100;
 	p.ypos=100;
@@ -19,44 +19,139 @@ var sketch = function(p){
 		p.stroke(255,255,255);
 		p.ellipse(p.xpos, p.ypos, 100, 100);
 		p.textSize(32);
-		p.text('INSERT INTRO SKETCH HERE!!', 10, 30);
-
-
 	}
 }
 
-
+//canvas overlap sketch
 var sketch2 = function(q){
 	q.xpos=100;
 	q.ypos=100;
-
-
 	q.setup = function(){
-		this._pixelDensity = 1;
-		q.createCanvas(700,800)
-		q.background(51)
-		canvas = q.createCanvas(windowWidth, windowWidth/1.85); //make this mobile friendly
-		canvas.parent('video-overlay');
 
+// var source = document.getElementById('source'),
+				// ctx = source.getContext('2d'),
+
+				// seriously, // the main object that holds the entire composition
+				// reformat, // reformat node
+				// target; // a wrapper object for our target canvas
+
+			// seriously = new Seriously();
+			// reformat = seriously.transform('reformat');
+			// target = seriously.target('#canvas');
+
+			// //set up reformat parameters
+			// reformat.width = target.width;
+			// reformat.height = target.height;
+			// reformat.mode = '#mode';
+
+			// // connect all our nodes in the right order
+			// reformat.source = '#source';
+			// target.source = reformat;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		  // specify multiple formats for different browsers
+
+
+		// width= screen.width;
+		// channel mapping. what is vp9 and dala? what is Webrtc
+
+		// this._pixelDensity = 1;
+		q.pixelDensity(.6);
+		q.canvas= q.createCanvas(windowWidth, windowWidth/1.755, 'webgl');
+		q.canvas.id('newcanvas');
+		q.canvas.parent('video-overlay');
+		q.seriously, // the main object that holds the entire composition
+		q.sourceImage, // a wrapper object for our source image
+		q.target; // a wrapper object for our target canvas
+		q.reformat;
+		q.seriously = new Seriously();
+		q.reformat = q.seriously.transform('reformat');
+
+
+		q.sourceImage = q.seriously.source('#player');// Create a source object by passing a CSS query string.
+		q.target = q.seriously.target('#newcanvas');// now do the same for the target canvas
+
+		
+		q.target.source = q.sourceImage;// connect any node as the source of the target. we only have one.
+		q.target.width= window.innerWidth * .92;
+		q.target.height=window.innerWidth /2;
+
+
+		//set up reformat parameters
+		q.reformat.width = q.target.width;
+		q.reformat.height = q.target.height;
+		q.reformat.mode = "cover";
+
+			// connect all our nodes in the right order
+			q.reformat.source = '#player';
+			// q.target.source = q.reformat;
+
+		// q.target.source =;
+
+		q.chroma = q.seriously.effect('chroma');
+		q.chroma.source =  q.reformat;
+		q.target.source = q.chroma;
+
+		q.r = 76/255;
+		q.g = 249/255;
+		q.b = 43/255;
+		q.chroma.screen = [q.r,q.g,q.b,1];
+
+		q.seriously.go();
 	}
+
+
 
 	q.draw = function(){
-		q.clear();
-		q.strokeWeight(5);
-
-		q.fill(0,255,0);
-		q.stroke(255,102,255);
-		q.ellipse(q.xpos+100, q.ypos+100, 200, 200);
-		q.xpos=q.xpos+1;
-		q.ypos=q.ypos+1;
-		q.textSize(32);
-		q.text('INSERT INTRO SKETCH 2 HERE!!', 10, 30);
-
 
 	}
+
+//   q.resize= function() {
+
+//     q.target.width = window.innerWidth ;
+//     q.target.height = window.innerWidth  /2; 
+//     // reformat.width = target.width;
+//     // reformat.height = target.height;
+//     console.log("I resized");
+//   } 
+
+//  window.onresize = q.resize;
+// }
+
+
+
+// q.devicePixelRatio = window.devicePixelRatio || 1;
+
+q.resize =  function() {
+	q.resizeCanvas(windowWidth, windowWidth/1.755, 'webgl');
+	q.target.width= window.innerWidth * .92;
+	q.target.height=window.innerWidth /2;
+	//set up reformat parameters
+	q.reformat.width = q.target.width;
+	q.reformat.height = q.target.height;
+	q.reformat.mode = "cover";
+
+} 
+
+window.onresize = q.resize;
+
 }
-
-
 
 var sketch3 = function(r){
 	r.xpos=100;
@@ -70,7 +165,8 @@ var sketch3 = function(r){
 	}
 
 	r.draw = function(){
-		r.clear();
+		// r.clear();
+		r.background(255,0,255);
 		r.strokeWeight(5);
 		r.fill(122,255,0);
 		r.stroke(122,102,255);
@@ -82,4 +178,46 @@ var sketch3 = function(r){
 	}
 }
 
+
+
+var sketch4 = function(s){
+
+	s.setup = function(){
+		this._pixelDensity = 1;
+		canvas = s.createCanvas(windowWidth, windowWidth/1.85); //make this mobile friendly
+		canvas.parent('video-overlay');
+s.background("white");
+	
+	}
+
+	s.draw = function(){
+	
+
+		s.noStroke();
+		s.fill('red');
+		s.colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+		s.offset = 30;
+		s.numCurves = 14;
+		s.index = 0;
+		for (s.i = 0; s.i < s.numCurves; s.i++) {
+		// x ranges width of canvas
+		s.index = s.index % s.colors.length;
+		if (s.index == s.colors.length) {
+			s.index = 0;
+		}
+	
+		s.fill(s.colors[s.index])
+		for (s.x = 0; s.x < s.width; s.x++) {
+			// scaled so fewer and higher curves on screen
+			s.y = s.sin(s.x / 100) * -100;
+			s.ellipse(s.x, s.y + 100 + s.offset * s.i, s.offset);
+		}
+		s.index++;
+	}
+}
+
+
+
+
+}
 
