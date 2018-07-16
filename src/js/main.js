@@ -3,9 +3,28 @@ const seriously = require('./seriously/seriously'); //works
 const chroma = require('./seriously/chroma'); //works
 const p5 = require('p5'); //works; 
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//works
+const sketchfile = require('./sketches/sketch.js');
+const names = require('./sketches/sketch.js');
 
-const sketchfile = require('./sketches/sketch');
 
+console.log("sketchfile"+sketchfile);
+console.log("names"+names)
+// console.log("s.s"+sketchfile.sketch);
+// console.log("()"+sketchfile(sketch);
+
+
+
+
+
+
+findSuperman(names());
+
+function findSuperman(values) {
+  
+      console.log('It\'s Superman!');
+  
+    console.log(values[1])
+}
 
 // console.log(sketch);
 
@@ -178,8 +197,8 @@ player.on('pause', event => {
       switch (videoCurrentTime) {
         case 0:
         myp5 = new p5(sketchfile);
-        console.log(myp5);//prints something. 
-        console.log(sketchfile);
+        // console.log(myp5);//prints something. 
+        // console.log(sketchfile);
 
         // console.log(sketchfile.sketch);
         myp52 = new p5(sketch2);
