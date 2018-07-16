@@ -1,22 +1,136 @@
-const Plyr = require('plyr');
-const p5 = require('p5');
-const seriously = require('./seriously/seriously.js'); //works - appears to load seriously.js
+const Plyr = require('plyr'); //works
+const seriously = require('./seriously/seriously'); //works
+const chroma = require('./seriously/chroma'); //works
+const p5 = require('p5'); //works; 
+const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//works
+
+const sketchfile = require('./sketches/sketch');
 
 
-// const chroma = require('./seriously/chroma.js'); //This throws an error that says  "Cannot find module 'seriously' from '/Users/SIAT/development/hello-p5/src/js/seriously'""
-// console.log("seriously 2 " + seriously);
-// const chroma = require('./seriously/chroma.js');
+// console.log(sketch);
 
 
-const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.js');//doesn't throw error but appears to be empty
-const sketchfile = require('./sketches/sketch.js') //doesn't throw error but appears to be empty
-
+// P5 sketches load fine from here, but don't compile when they are imported from another file
+// var sketchfile = require('./sketches/sketch') //doesn't throw error but appears to be empty
 
 
 
-//For targeting html elements so the class of hide can be added on play
+// let windowWidth2 = window.innerWidth;
+
+let windowWidth2 = 500;
+
+// console.log("sketchfile");
+// //test sketch 1
+// var sketch = function(p){
+//     p.xpos=100;
+//     p.ypos=100;
+//     p.setup = function(){
+//         this._pixelDensity = 1;
+
+       
+//         var canvas = p.createCanvas(windowWidth2, windowWidth2/1.85); //make this mobile friendly
+//         canvas.parent('video-overlay');
+//         p.fill(0,133,255);
+//          p.background(200,200,200);
+//             // console.log("setup")
+//     }
+
+//     p.draw = function(){
+//              p.background(200,200,200);
+//              p.createDiv('this is some text');
+//         p.strokeWeight(5);
+//         p.stroke(255,255,255);
+//         p.ellipse(p.xpos, p.ypos, 100, 100);
+//         p.textSize(32);
+//         // console.log("drawing")
+//     }
+// }
+    
+
+
+
+
+var sketch2 = function(q){
+
+ q.xpos=100;
+ q.ypos=100;
+ q.setup = function(){
+     q.pixelDensity(1);
+     q.canvas= q.createCanvas(windowWidth2, windowWidth2/1.755, 'webgl');
+     q.canvas.id('newcanvas');
+     q.canvas.parent('video-overlay');
+     q.seriously, // the main object that holds the entire composition
+     q.sourceImage, // a wrapper object for our source image
+     q.target; // a wrapper object for our target canvas
+     q.reformat;
+     q.seriously = new seriously();
+     q.reformat = q.seriously.transform('reformat');
+
+
+     q.sourceImage = q.seriously.source('#player');// Create a source object by passing a CSS query string.
+     q.target = q.seriously.target('#newcanvas');// now do the same for the target canvas
+
+        
+     q.target.source = q.sourceImage;// connect any node as the source of the target. we only have one.
+     q.target.width= window.innerWidth * .92;
+     q.target.height=window.innerWidth /2;
+
+
+     //set up reformat parameters
+     q.reformat.width = q.target.width;
+     q.reformat.height = q.target.height;
+     q.reformat.mode = "cover";
+
+         // connect all our nodes in the right order
+         q.reformat.source = '#player';
+         q.chroma = q.seriously.effect('chroma');
+         q.chroma.source =  q.reformat;
+         q.target.source = q.chroma;
+
+         q.r = 76/255;
+         q.g = 249/255;
+         q.b = 43/255;
+         q.chroma.screen = [q.r,q.g,q.b,1];
+
+         q.seriously.go();
+     }
+
+
+
+     q.draw = function(){
+
+     }
+
+
+
+q.resize =  function() {
+ q.resizeCanvas(windowWidth2, windowWidth2/1.755, 'webgl');
+ q.target.width= window.innerWidth * .92;
+ q.target.height=window.innerWidth /2;
+ //set up reformat parameters
+ q.reformat.width = q.target.width;
+ q.reformat.height = q.target.height;
+ q.reformat.mode = "cover";
+
+} 
+
+window.onresize = q.resize;
+
+}
+
+
+
+
+
+// }
+// console.log("sketchfile from mainjs" + sketchfile.sketch);
+ 
+
+//For targeting html elements o the class of hide can be added on play
 let header = document.querySelector('.header');
 let container = document.querySelector('.container');
+
+
 
 
 // Sketches - TODO : CLEANUP SKETCHES
@@ -34,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const player = new Plyr('#player');
   function on(selector, type, callback) {
     document.querySelector(selector).addEventListener(type, callback, false);
+
   }
 
 
@@ -62,52 +177,57 @@ player.on('pause', event => {
 
       switch (videoCurrentTime) {
         case 0:
-        myp5 = new p5(sketch4);
+        myp5 = new p5(sketchfile);
+        console.log(myp5);//prints something. 
+        console.log(sketchfile);
+
+        // console.log(sketchfile.sketch);
         myp52 = new p5(sketch2);
+        // myp52 = new p5(sketchfile.sketch2);
         break;
         
         case 5:
         myp5.remove();
-        myp52.remove();
-        myp5 = new p5(sketch3);
-        myp52 = new p5(sketch2);
+        // myp52.remove();
+        // myp5 = new p5(sketch3);
+        // myp52 = new p5(sketch2);
         break; 
 
         case 8:
-          myp5.remove();
-        myp52.remove();
+        //   myp5.remove();
         // myp52.remove();
-        myp5 = new p5(sketch);
+        // myp52.remove();
+        // myp5 = new p5(sketch);
         break 
 
         case 10:
-        myp5.remove();
-        myp5 = new p5(sketch);
+        // myp5.remove();
+        // myp5 = new p5(sketch);
         break
 
         case 13:
-        myp5.remove();
-        myp5 = new p5(sketch3);
-        myp52 = new p5(sketch2);
+        // myp5.remove();
+        // myp5 = new p5(sketch3);
+        // myp52 = new p5(sketch2);
         // myp5 = new p5(sketch);
         break
 
         case 54:
-          myp5 = new p5(sketch3);
-        myp52 = new p5(sketch2);
+        //   myp5 = new p5(sketch3);
+        // myp52 = new p5(sketch2);
   
         break
 
         case 59:
-        myp5.remove();
-        myp5 = new p5(sketch2);
+        // myp5.remove();
+        // myp5 = new p5(sketch2);
         break
         case 78:
-        myp5.remove();
-        myp5 = new p5(sketch3);
+        // myp5.remove();
+        // myp5 = new p5(sketch3);
         break
         case 80:
-        myp5.remove();
+        // myp5.remove();
         break
 
         default:

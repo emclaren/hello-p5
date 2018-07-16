@@ -1145,3 +1145,13 @@
     position:absolute!important;
     width:1px!important
 }
+
+
+//This is a hack because this stopped hiding when I started using the NPM version of plyr with browserify, two progress bars started loarding. I think because the polyfills weren't working properly. 
+.plyr__progress__buffer{
+    display:none;  
+}
+
+.plyr [data-plyr=fullscreen]{
+    display:none;
+}
