@@ -1,6 +1,5 @@
 const Plyr = require('plyr'); //works
-const seriously = require('./seriously/seriously'); //works
-const chroma = require('./seriously/chroma'); //works
+
 const p5 = require('p5'); //works; 
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//works
 const sketchfile = require('./sketches/sketch1.js');
@@ -17,17 +16,16 @@ console.log("sketchfile 2"+ sketchfile2);
 
 
 
-var p5test = new p5(sketchfile);
-var p5test2 = new p5(sketchfile2);
 
-// toy example from https://www.sitepoint.com/getting-started-browserify/
-const names = require('./sketches/sketch.js');
-console.log("names"+names)
-findSuperman(names());
-function findSuperman(values) {
-    console.log(values[1])
-}
 
+
+// // toy example from https://www.sitepoint.com/getting-started-browserify/
+// const names = require('./sketches/sketch.js');
+// console.log("names"+names)
+// findSuperman(names());
+// function findSuperman(values) {
+//     console.log(values[1])
+// }
 
 
 
@@ -39,13 +37,12 @@ let windowWidth2 = 500;
 
 
 
-
 //For targeting html elements o the class of hide can be added on play
 let header = document.querySelector('.header');
 let container = document.querySelector('.container');
 
 // Sketches - TODO : CLEANUP SKETCHES
-let myp5
+let p5test
 let myp52
 let myp53
 
@@ -71,7 +68,7 @@ player.on('playing', event => {
 
 // Triggered when video paused
 player.on('pause', event => {
- myp5.frameRate(0); //pause the p5 sketch
+ p5test.frameRate(0); //pause the p5 sketch
 });
 
 
@@ -88,17 +85,18 @@ player.on('pause', event => {
 
       switch (videoCurrentTime) {
         case 0:
-        myp5 = new p5(sketchfile());
+         p5test = new p5(sketchfile);
         // console.log(myp5);//prints something. 
         // console.log(sketchfile);
 
         // console.log(sketchfile.sketch);
-        myp52 = new p5(sketch2);
+        // myp52 = new p5(sketch2);
         // myp52 = new p5(sketchfile.sketch2);
         break;
         
         case 5:
-        myp5.remove();
+        // p5test.remove();
+        var p5test2 = new p5(sketchfile2);
         // myp52.remove();
         // myp5 = new p5(sketch3);
         // myp52 = new p5(sketch2);

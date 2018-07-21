@@ -93,15 +93,16 @@ header{
 				margin:0 .3rem;
 
 			}
-			.language-link{
+			.language-dropdown{
 				color: #242424;
 			}
-			a, a:link, a:visited{
+			a, a:link, a:visited, &.language-dropdown {
 				color: $brand-color-main;
 				text-decoration: none;
 				user-select: none;
 				font-size: 1rem;
-
+// border-bottom:.11em dashed;
+				// border-bottom-color:$brand-color-main;
 				// transition: all .5s ease;
 				@include breakpoint(lg) {
 					font-size:1.3rem;
@@ -110,7 +111,8 @@ header{
 			}
 
 
-			a:active, a:hover, a:focus{
+			a:active, a:hover, a:focus, &.language-dropdown:active, &.language-dropdown:hover, &.language-dropdown:focus{
+				cursor:pointer;
 				outline:0;
 				text-decoration:none;
 				padding-bottom:.11em;
@@ -167,7 +169,7 @@ header.hide{
 
 			
 		}
-		li a{
+		li a, .language-link{
 			font-size: .8rem;
 		}
 	}
@@ -177,7 +179,7 @@ header.hide{
 			max-width: 4rem;
 			transition: all .5s ease;
 		}
-		#menu li a:link, #menu li a:visited {
+		#menu li a:link, #menu li a:visited, .language-link {
 			transition: all .5s ease;
 			font-size: 1.1em;
 		}
@@ -194,5 +196,9 @@ header.hide.active{
 
 
 
+.language-link:hover{
+background-color:pink;
+width:100%;
+}
 
 
