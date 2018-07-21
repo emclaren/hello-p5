@@ -1,5 +1,5 @@
-
-
+const seriously = require('../seriously/seriously'); //works
+const chroma = require('../seriously/chroma'); //works
 
 var sketch2 = function(q){
 
@@ -10,8 +10,39 @@ var sketch2 = function(q){
      q.canvas= q.createCanvas(500, 500/1.755, 'webgl');
      q.canvas.id('newcanvas');
      q.canvas.parent('video-overlay');
+     q.seriously, // the main object that holds the entire composition
+     q.sourceImage, // a wrapper object for our source image
+     q.target; // a wrapper object for our target canvas
+     q.reformat;
+     q.seriously = new seriously();
+     q.reformat = q.seriously.transform('reformat');
 
- 	   q.background(255,0,0);
+     q.sourceImage = q.seriously.source('#player');// Create a source object by passing a CSS query string.
+     q.target = q.seriously.target('#newcanvas');// now do the same for the target canvas
+
+        
+     q.target.source = q.sourceImage;// connect any node as the source of the target. we only have one.
+     q.target.width= window.innerWidth * .92;
+     q.target.height=window.innerWidth /2;
+
+
+     //set up reformat parameters
+     q.reformat.width = q.target.width;
+     q.reformat.height = q.target.height;
+     q.reformat.mode = "cover";
+
+         // connect all our nodes in the right order
+         q.reformat.source = '#player';
+         q.chroma = q.seriously.effect('chroma');
+         q.chroma.source =  q.reformat;
+         q.target.source = q.chroma;
+
+         q.r = 76/255;
+         q.g = 249/255;
+         q.b = 43/255;
+         q.chroma.screen = [q.r,q.g,q.b,1];
+
+         q.seriously.go();
      }
 
 
@@ -19,15 +50,13 @@ var sketch2 = function(q){
      q.draw = function(){
 
      }
+
+
 }
 
 
 
-
-
 module.exports = sketch2;
-
-
 // //canvas overlap sketch
 // var sketch2 = function(q){
 // 	q.xpos=100;
@@ -305,5 +334,3 @@ module.exports = sketch2;
 // 	}
 	
 // }
-
-

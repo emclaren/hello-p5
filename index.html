@@ -7,13 +7,39 @@
 	<title>Hello P5.js</title>
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" href="dist/css/main.css">
+
+
+
+  <style>
+
+
+.dropdown {
+    position: relative;
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    max-width:160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+
+
+
 </head>
 
 <body>
-
-
   <!-- Site Header - To do:  1. Make language Link -->
-
 
   <!-- MAIN HEADER - English version-->
   <header class="header">
@@ -31,41 +57,39 @@
       <li><a href="http://p5js.org/learn/" class="nav-link">Learn</a></li>
       <li><div class="separator-design-element">*</div></li>
       <li><a href="http://p5js.org/community/" class="nav-link">Community</a></li>
-       <!-- <li class="hide-on-mobile"><div class="separator-design-element">*</div></li> -->
-      <!-- <li><a href=""  class="nav-link language-link english">Language</a></li> -->
-   
-
-
-    </ul>
-
+      <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
+      <li onclick="myFunction()" class="dropbtn nav-link language-dropdown english">Language<div id="languageDropdown" class="dropdown-content">
+        <ul>
+          <li class="language-link">English</li>
+          <li class="language-link">Español</li>
+          <li class="language-link">Français</li>
+        </ul>
+      </div>
   </nav>
 
   <!-- MAIN HEADER - Spanish version -->
-  <nav role="navigation" id="navigation-es">
+<!--   <nav role="navigation" id="navigation-es">
     <ul id="menu" class="top_menu">
       <li><a href="http://p5js.org/download/" class="nav-link">Descargar</a></li>
       <li><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/get-started/" class="nav-link">Empezar</a></li>
       <li><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/reference" class="nav-link">Referencia</a></li>
       <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/libraries/" class="nav-link">Bibliotecas</a></li>
       <li><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/learn/" class="nav-link">Aprender</a></li>
       <li><div class="separator-design-element">*</div></li>
-
       <li><a href="http://p5js.org/community/"class="nav-link">Comunidad</a></li>
     </ul>
-  </nav>
+  </nav> -->
 </header>
+
+
 
 <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
 <div class="container">
-
+  <!-- TO DO:add poster  -->
   <video  id="player" playsinline controls  data-plyr-config='{"debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
     <!-- TO DO:Update this so it's pointing to dist folder -->
@@ -83,38 +107,39 @@
             <div id="video-overlay" class="video-overlay"> </div>
           </div>
 
-
           <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
           <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
 
-          <!-- TO DO: Make all P5 & Seriously files compile and minify to one file. -->
-
-
-          <!-- P5 MAIN FILE, DOM FILE, and SKETCH FILES -->
-         
-
-
-
-          <!-- <script async src="src/js/sketches/sketch.js" ></script> -->
-
-
-
-
-          <!-- SERIOUSLY.JS MAIN FILE AND CHROMA KEY, to remove the green background from videos so sketch canvas is visible-->
-
-          <!-- <script type="text/javascript" src="src/js/seriously/seriously.js"></script> -->
-          <!-- <script type="text/javascript" src="src/js/seriously/seriously.chroma.js"></script>  -->
-
-
-
-
           <script src="dist/js/bundle.js"></script>
 
-          
-          <!-- MAIN JAVASCRIPT FILE -->
-          <!-- <script src="dist/js/app.js"></script> -->
 
 
+<script>
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("languageDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onmouseover = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+</script>
           <!-- TO DO: Add Google Analytics -->
         </body>
         </html>
