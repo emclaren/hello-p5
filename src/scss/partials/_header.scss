@@ -44,7 +44,7 @@ header{
 		@include breakpoint(lg) {
 			
 			max-width: 5rem;
-	
+
 		}
 
 	}
@@ -110,9 +110,8 @@ header{
 				}
 			}
 
-
-			a:active, a:hover, a:focus, &.language-dropdown:active, &.language-dropdown:hover, &.language-dropdown:focus{
-				cursor:pointer;
+			a:active, a:hover, a:focus, {
+				
 				outline:0;
 				text-decoration:none;
 				padding-bottom:.11em;
@@ -134,6 +133,17 @@ header{
 					text-align:right;
 				}
 			}
+
+			&.language-dropdown:active, &.language-dropdown:hover, &.language-dropdown:focus{
+				cursor:pointer;
+
+			}
+			.language-link{
+				margin:.3rem;
+				font-size:1rem;
+				display:block;
+			}
+
 
 		}
 
@@ -197,8 +207,8 @@ header.hide.active{
 
 
 .language-link:hover{
-background-color:pink;
-width:100%;
+	background-color:pink;
+	width:100%;
 }
 
 
