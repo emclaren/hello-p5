@@ -68,52 +68,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-document.getElementById("language-link-spanish").addEventListener("click", myFunction);
+// document.getElementById("language-link-spanish").addEventListener("click", myFunction);
 
-function myFunction() {
-   // console.log(player.captions);
-   player.captions.language="es"
-   // var myNode = document.getElementsByClassName("plyr__captions");
-// while (myNode.firstChild) myNode.removeChild(myNode.firstChild);
-     var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
-       // console.log("hello" +myNode);
-        // while (myNode.firstChild) {
-    // myNode.removeChild(myNode.firstChild);
-     console.log(myNode);
-      // myNode.removeChild(myNode);
-
-
-}
+// function myFunction() {
+//    // console.log(player.captions);
+//    player.captions.language="es"
+//    // var myNode = document.getElementsByClassName("plyr__captions");
+// // while (myNode.firstChild) myNode.removeChild(myNode.firstChild);
+//      var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
+//        // console.log("hello" +myNode);
+//         // while (myNode.firstChild) {
+//     // myNode.removeChild(myNode.firstChild);
+//      console.log(myNode);
+//       // myNode.removeChild(myNode);
 
 
-document.getElementById("language-link-english").addEventListener("click", myFunction2);
-
-function myFunction2() {
-    console.log("clicked english");
-    player.captions.language="en"
-
-   // var myNode = document.getElementsByClassName("plyr__captions");
-        var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
-   console.log(myNode);
-     // removeChild(list.childNodes[0]);
-    // myNode.removeChild(myNode);
-
-    // console.log("hello" + myNode);
-   // while (myNode.firstChild) {
-   //  myNode.removeChild(myNode.firstChild);
-}
+// }
 
 
-document.getElementById("language-link-french").addEventListener("click", myFunction3);
+// document.getElementById("language-link-english").addEventListener("click", myFunction2);
 
-function myFunction3() {
-    console.log("clicked french");
-    player.captions.language="fr"
-       var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
-       console.log("hello" +myNode);
-        console.log(myNode);
-  // myNode.removeChild(myNode);
-}
+// function myFunction2() {
+//     console.log("clicked english");
+//     player.captions.language="en"
+
+//    // var myNode = document.getElementsByClassName("plyr__captions");
+//         var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
+//    console.log(myNode);
+//      // removeChild(list.childNodes[0]);
+//     // myNode.removeChild(myNode);
+
+//     // console.log("hello" + myNode);
+//    // while (myNode.firstChild) {
+//    //  myNode.removeChild(myNode.firstChild);
+// }
+
+
+// document.getElementById("language-link-french").addEventListener("click", myFunction3);
+
+// function myFunction3() {
+//     console.log("clicked french");
+//     player.captions.language="fr"
+//        var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
+//        console.log("hello" +myNode);
+//         console.log(myNode);
+//   // myNode.removeChild(myNode);
+// }
 
 
 // Triggered when video start
