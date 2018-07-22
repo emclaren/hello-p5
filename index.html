@@ -11,25 +11,25 @@
 
 
   <style>
-.language-list-container{
-  width:100% !important;
-}
-.language-list{
-  display:flex;
-  flex-wrap:wrap;
-  width:200px;
-text-align:center;
-margin:0 auto;
-}
+  .language-list-container{
+    width:100% !important;
+  }
+  .language-list{
+    display:flex;
+    flex-wrap:wrap;
+    width:200px;
+    text-align:center;
+    margin:0 auto;
+  }
 
-.language-link {
-  width:auto !important
-}
+  .language-link {
+    width:auto !important
+  }
 
-.language-link:hover {
-  width:auto !important;
-  cursor:pointer;
-}
+  .language-link:hover {
+    width:auto !important;
+    cursor:pointer;
+  }
 
 
 
@@ -60,15 +60,14 @@ margin:0 auto;
       <li><a href="http://p5js.org/community/" id="nav-community" class="nav-link">Community</a></li>
       <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
       <li class="language-list-container">
-    <!--   <li onmouseenter="languageDropdown()"  id="nav-language" class="dropbtn nav-link language-dropdown english nav-language">En / Es / Fr <div id="languageDropdown" class="dropdown-content"> -->
-        <ul class="language-list">
-          <li onclick="languageToggleEnglish()" id="language-link-english" class="language-link">En</li>
-          <li> / </li>
-          <li onclick="languageToggleSpanish()" id="language-link-spanish"  class="language-link " >Es</li>
-             <li> / </li>
-          <li onclick="languageToggleFrench()" id="language-link-french" class="language-link ">Fr</li>
-        </ul>
-      </li>
+          <ul class="language-list">
+            <li  id="language-link-english" class="language-link">En</li>
+            <li> / </li>
+            <li id="language-link-spanish"  class="language-link " >Es</li>
+            <li> / </li>
+            <li id="language-link-french" class="language-link ">Fr</li>
+          </ul>
+        </li>
       </div>
     </nav>
 
@@ -103,57 +102,47 @@ margin:0 auto;
 
             <script src="dist/js/bundle.js"></script>
 
-
-
             <script>
 
 
+             var languageArray;
+
+             var navEnglish=["Download", "Start", "Reference", "Libraries", "Learn", "Community"]
+             var navSpanish = ["Descargar","Empezar","Referencia","Bibliotecas","Aprender","Comunidad"]
+             var navFrench=["Télécharger","Start-fr","Commencer","Bibliothèques","Apprendre","Communauté"]
+
+             document.getElementById('language-link-spanish').onclick=function(){
+              languageArray= navSpanish;
+              languageToggle()   
+            };
+
+            document.getElementById('language-link-english').onclick=function(){
+              languageArray= navEnglish;
+              languageToggle()
+
+            };
+            document.getElementById('language-link-french').onclick=function(){
+              languageArray= navFrench;
+              languageToggle()
+            };
 
 
-var language = "en";
-function languageToggleSpanish(){
-
-  document.getElementById("nav-download").innerHTML = "Descargar";
-  document.getElementById("nav-start").innerHTML = "Empezar";
-  document.getElementById("nav-reference").innerHTML = "Referencia"
-  document.getElementById("nav-libraries").innerHTML = "Bibliotecas"
-  document.getElementById("nav-learn").innerHTML = "Aprender"
-  document.getElementById("nav-community").innerHTML = "Comunidad"
-  // console.log(player.captions)
-  // document.getElementById("nav-language").innerHTML = "lang-es ";
- // player.captions.language="es";
-}
-
-function languageToggleFrench(){
-
-  document.getElementById("nav-download").innerHTML = "Télécharger"
-  document.getElementById("nav-start").innerHTML = "Start-fr"
-  document.getElementById("nav-reference").innerHTML = "Commencer"
-  document.getElementById("nav-libraries").innerHTML = "Bibliothèques"
-  document.getElementById("nav-learn").innerHTML = "Apprendre"
-  document.getElementById("nav-community").innerHTML = "Communauté"
-  // document.getElementById("nav-language").innerHTML = "Language-fr"
-    // player.captions.language="fr";
-}
-
-function languageToggleEnglish(){
-  document.getElementById("nav-download").innerHTML = "Download";
-  document.getElementById("nav-start").innerHTML = "Start";
-  document.getElementById("nav-reference").innerHTML = "Reference";
-  document.getElementById("nav-libraries").innerHTML = "Libraries";
-  document.getElementById("nav-learn").innerHTML = "Learn";
-  document.getElementById("nav-community").innerHTML = "Community";
-  // document.getElementById("nav-language").innerHTML = "Language";
-   // player.captions.language="en";
-
-}
+            function languageToggle(){
+              document.getElementById("nav-download").innerHTML = languageArray[0];
+              document.getElementById("nav-start").innerHTML = languageArray[1];
+              document.getElementById("nav-reference").innerHTML = languageArray[2]
+              document.getElementById("nav-libraries").innerHTML = languageArray[3]
+              document.getElementById("nav-learn").innerHTML = languageArray[4]
+              document.getElementById("nav-community").innerHTML = languageArray[5]
+            }
 
 
 
-</script>
-<!-- TO DO: Add Google Analytics -->
-</body>
-</html>
+
+          </script>
+          <!-- TO DO: Add Google Analytics -->
+        </body>
+        </html>
 
 
 
