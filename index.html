@@ -11,27 +11,28 @@
 
 
   <style>
-
-
-.dropdown {
-    position: relative;
-    display: block;
+.language-list-container{
+  width:100% !important;
+}
+.language-list{
+  display:flex;
+  flex-wrap:wrap;
+  width:200px;
+text-align:center;
+margin:0 auto;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    max-width:160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+.language-link {
+  width:auto !important
+}
+
+.language-link:hover {
+  width:auto !important;
+  cursor:pointer;
 }
 
 
-.dropdown a:hover {background-color: #ddd;}
 
-.show {display: block;}
 </style>
 
 
@@ -46,108 +47,113 @@
    <a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
    <nav role="navigation">
     <ul id="menu" class="top_menu">
-      <li><a href="http://p5js.org/download/" class="nav-link">Download</a></li>
+      <li><a href="http://p5js.org/download/" id="nav-download" class="nav-link ">Download</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/get-started/" class="nav-link">Start</a></li>
+      <li><a href="http://p5js.org/get-started/" id="nav-start" class="nav-link">Start</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/reference" class="nav-link">Reference</a></li>
+      <li><a href="http://p5js.org/reference" id="nav-reference" class="nav-link">Reference</a></li>
       <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/libraries/" class="nav-link">Libraries</a></li>
+      <li><a href="http://p5js.org/libraries/" id="nav-libraries" class="nav-link n">Libraries</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/learn/" class="nav-link">Learn</a></li>
+      <li><a href="http://p5js.org/learn/" id="nav-learn" class="nav-link">Learn</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/community/" class="nav-link">Community</a></li>
+      <li><a href="http://p5js.org/community/" id="nav-community" class="nav-link">Community</a></li>
       <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
-      <li onclick="myFunction()" class="dropbtn nav-link language-dropdown english">Language<div id="languageDropdown" class="dropdown-content">
-        <ul>
-          <li class="language-link">English</li>
-          <li class="language-link">Español</li>
-          <li class="language-link">Français</li>
+      <li class="language-list-container">
+    <!--   <li onmouseenter="languageDropdown()"  id="nav-language" class="dropbtn nav-link language-dropdown english nav-language">En / Es / Fr <div id="languageDropdown" class="dropdown-content"> -->
+        <ul class="language-list">
+          <li onclick="languageToggleEnglish()" id="language-link-english" class="language-link">En</li>
+          <li> / </li>
+          <li onclick="languageToggleSpanish()" id="language-link-spanish"  class="language-link " >Es</li>
+             <li> / </li>
+          <li onclick="languageToggleFrench()" id="language-link-french" class="language-link ">Fr</li>
         </ul>
+      </li>
       </div>
-  </nav>
+    </nav>
 
-  <!-- MAIN HEADER - Spanish version -->
-<!--   <nav role="navigation" id="navigation-es">
-    <ul id="menu" class="top_menu">
-      <li><a href="http://p5js.org/download/" class="nav-link">Descargar</a></li>
-      <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/get-started/" class="nav-link">Empezar</a></li>
-      <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/reference" class="nav-link">Referencia</a></li>
-      <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/libraries/" class="nav-link">Bibliotecas</a></li>
-      <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/learn/" class="nav-link">Aprender</a></li>
-      <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/community/"class="nav-link">Comunidad</a></li>
-    </ul>
-  </nav> -->
-</header>
+    <!-- MAIN HEADER - Spanish version -->
+
+  </header>
 
 
 
-<!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
-<div class="container">
-  <!-- TO DO:add poster  -->
-  <video  id="player" playsinline controls  data-plyr-config='{"debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
+  <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
+  <div class="container">
+    <!-- TO DO:add poster  -->
+    <video  id="player" playsinline controls  data-plyr-config='{"captions":"active:true", "debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
-    <!-- TO DO:Update this so it's pointing to dist folder -->
-    <source src="src/assets/video/p5draftgs.mp4" type="video/mp4"> 
-      <source src="src/assets/video/fingers.webm" type="video/webm"> 
+      <!-- TO DO:Update this so it's pointing to dist folder -->
+      <source src="src/assets/video/p5draftgs.mp4" type="video/mp4"> 
+        <source src="src/assets/video/fingers.webm" type="video/webm"> 
 
-        <!-- CAPTION FILES -->
-        <!-- To do: validate caption files once video is complete- see plyr website for link -->
-        <track kind="captions" label="English" src="captions/hello-p5-english-captions.en.vtt" srclang="en" default>
-          <track kind="captions" label="French" src="captions/hello-p5-spanish-captions.es.vtt" srclang="es">
-            <track kind="captions" label="Spanish" src="captions/hello-p5-french-captions.fr.vtt" srclang="fr">
-            </video>
+          <!-- CAPTION FILES -->
+          <!-- To do: validate caption files once video is complete- see plyr website for link -->
+          <track kind="captions" label="English" src="captions/hello-p5-english-captions.en.vtt" srclang="en" default>
+            <track kind="captions" label="French" src="captions/hello-p5-spanish-captions.es.vtt" srclang="es">
+              <track kind="captions" label="Spanish" src="captions/hello-p5-french-captions.fr.vtt" srclang="fr">
+              </video>
 
-            <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
-            <div id="video-overlay" class="video-overlay"> </div>
-          </div>
+              <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
+              <div id="video-overlay" class="video-overlay"> </div>
+            </div>
 
-          <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
-          <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
+            <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
+            <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
 
-          <script src="dist/js/bundle.js"></script>
-
-
-
-<script>
+            <script src="dist/js/bundle.js"></script>
 
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("languageDropdown").classList.toggle("show");
+
+            <script>
+
+
+
+
+var language = "en";
+function languageToggleSpanish(){
+
+  document.getElementById("nav-download").innerHTML = "Descargar";
+  document.getElementById("nav-start").innerHTML = "Empezar";
+  document.getElementById("nav-reference").innerHTML = "Referencia"
+  document.getElementById("nav-libraries").innerHTML = "Bibliotecas"
+  document.getElementById("nav-learn").innerHTML = "Aprender"
+  document.getElementById("nav-community").innerHTML = "Comunidad"
+  // console.log(player.captions)
+  // document.getElementById("nav-language").innerHTML = "lang-es ";
+ // player.captions.language="es";
 }
 
-// Close the dropdown if the user clicks outside of it
-window.onmouseover = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+function languageToggleFrench(){
 
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
+  document.getElementById("nav-download").innerHTML = "Télécharger"
+  document.getElementById("nav-start").innerHTML = "Start-fr"
+  document.getElementById("nav-reference").innerHTML = "Commencer"
+  document.getElementById("nav-libraries").innerHTML = "Bibliothèques"
+  document.getElementById("nav-learn").innerHTML = "Apprendre"
+  document.getElementById("nav-community").innerHTML = "Communauté"
+  // document.getElementById("nav-language").innerHTML = "Language-fr"
+    // player.captions.language="fr";
 }
+
+function languageToggleEnglish(){
+  document.getElementById("nav-download").innerHTML = "Download";
+  document.getElementById("nav-start").innerHTML = "Start";
+  document.getElementById("nav-reference").innerHTML = "Reference";
+  document.getElementById("nav-libraries").innerHTML = "Libraries";
+  document.getElementById("nav-learn").innerHTML = "Learn";
+  document.getElementById("nav-community").innerHTML = "Community";
+  // document.getElementById("nav-language").innerHTML = "Language";
+   // player.captions.language="en";
+
+}
+
 
 
 </script>
-          <!-- TO DO: Add Google Analytics -->
-        </body>
-        </html>
-
-
-
-
-
+<!-- TO DO: Add Google Analytics -->
+</body>
+</html>
 
 
 

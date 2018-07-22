@@ -4,8 +4,8 @@ const p5 = require('p5'); //works;
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//works
 const sketchfile = require('./sketches/sketch1.js');
 const sketchfile2 = require('./sketches/sketch2.js');
-console.log("sketchfile 1"+ sketchfile);
-console.log("sketchfile 2"+ sketchfile2);
+// console.log("sketchfile 1"+ sketchfile);
+// console.log("sketchfile 2"+ sketchfile2);
 
 // console.log("sketchfile 2"+ sketchfile());
 // console.log("sketchfile 3"+ sketchfile.sketch);
@@ -37,6 +37,7 @@ let windowWidth2 = 500;
 
 
 
+
 //For targeting html elements o the class of hide can be added on play
 let header = document.querySelector('.header');
 let container = document.querySelector('.container');
@@ -57,14 +58,69 @@ document.addEventListener('DOMContentLoaded', () => {
   function on(selector, type, callback) {
     document.querySelector(selector).addEventListener(type, callback, false);
 
-  }
+}
+// console.log(player);
+// console.log(player.captions);
+
+// console.log(player.captions);
+
+
+
+
+
+document.getElementById("language-link-spanish").addEventListener("click", myFunction);
+
+function myFunction() {
+   // console.log(player.captions);
+   player.captions.language="es"
+   // var myNode = document.getElementsByClassName("plyr__captions");
+// while (myNode.firstChild) myNode.removeChild(myNode.firstChild);
+     var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
+       // console.log("hello" +myNode);
+        // while (myNode.firstChild) {
+    // myNode.removeChild(myNode.firstChild);
+     console.log(myNode);
+      // myNode.removeChild(myNode);
+
+
+}
+
+
+document.getElementById("language-link-english").addEventListener("click", myFunction2);
+
+function myFunction2() {
+    console.log("clicked english");
+    player.captions.language="en"
+
+   // var myNode = document.getElementsByClassName("plyr__captions");
+        var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
+   console.log(myNode);
+     // removeChild(list.childNodes[0]);
+    // myNode.removeChild(myNode);
+
+    // console.log("hello" + myNode);
+   // while (myNode.firstChild) {
+   //  myNode.removeChild(myNode.firstChild);
+}
+
+
+document.getElementById("language-link-french").addEventListener("click", myFunction3);
+
+function myFunction3() {
+    console.log("clicked french");
+    player.captions.language="fr"
+       var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
+       console.log("hello" +myNode);
+        console.log(myNode);
+  // myNode.removeChild(myNode);
+}
 
 
 // Triggered when video start
 player.on('playing', event => {
     header.classList.add('hide'); //shrink the header on large screens 
     container.classList.add('hide'); //Move the video so it is spaced correctly on large screens
-  });
+});
 
 // Triggered when video paused
 player.on('pause', event => {
@@ -85,7 +141,7 @@ player.on('pause', event => {
 
       switch (videoCurrentTime) {
         case 0:
-         p5test = new p5(sketchfile);
+        p5test = new p5(sketchfile);
         // console.log(myp5);//prints something. 
         // console.log(sketchfile);
 
@@ -124,7 +180,7 @@ player.on('pause', event => {
         case 54:
         //   myp5 = new p5(sketch3);
         // myp52 = new p5(sketch2);
-  
+
         break
 
         case 59:
@@ -142,12 +198,15 @@ player.on('pause', event => {
         default:
 
 
-      }
-
     }
 
-  });
+}
+
 });
+});
+
+
+
 
 
 
