@@ -52,6 +52,61 @@ let videoCurrentTime;
 let videoPreviousTime;
 
 
+
+
+
+
+
+
+
+
+///Toggle Header Language
+var languageArray
+
+document.getElementById('language-link-spanish').onclick=function(){
+  languageArray= ["Descargar","Empezar","Referencia","Bibliotecas","Aprender","Comunidad"]
+  languageToggle()   
+     player.captions.language="es"
+};
+
+document.getElementById('language-link-english').onclick=function(){
+  languageArray=["Download", "Start", "Reference", "Libraries", "Learn", "Community"]
+  languageToggle()
+};
+
+document.getElementById('language-link-french').onclick=function(){
+  languageArray= ["Télécharger","Start-fr","Commencer","Bibliothèques","Apprendre","Communauté"]
+  languageToggle()
+};
+
+
+function languageToggle(){
+  document.getElementById("nav-download").innerHTML = languageArray[0];
+  document.getElementById("nav-start").innerHTML = languageArray[1];
+  document.getElementById("nav-reference").innerHTML = languageArray[2]
+  document.getElementById("nav-libraries").innerHTML = languageArray[3]
+  document.getElementById("nav-learn").innerHTML = languageArray[4]
+  document.getElementById("nav-community").innerHTML = languageArray[5]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //plyr bare minimum setup code
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player');
@@ -60,60 +115,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }
 // console.log(player);
-// console.log(player.captions);
-
-// console.log(player.captions);
-
-
-
 
 
 // document.getElementById("language-link-spanish").addEventListener("click", myFunction);
 
 // function myFunction() {
 //    // console.log(player.captions);
-//    player.captions.language="es"
+//    // player.captions.language="es"
 //    // var myNode = document.getElementsByClassName("plyr__captions");
 // // while (myNode.firstChild) myNode.removeChild(myNode.firstChild);
-//      var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
+// var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
 //        // console.log("hello" +myNode);
 //         // while (myNode.firstChild) {
 //     // myNode.removeChild(myNode.firstChild);
-//      console.log(myNode);
+//     console.log(myNode);
 //       // myNode.removeChild(myNode);
 
 
-// }
+//   }
 
 
-// document.getElementById("language-link-english").addEventListener("click", myFunction2);
+  document.getElementById('language-link-spanish').onclick=function(){
+  player.captions.language="es";
+  removeCaptions();
 
-// function myFunction2() {
-//     console.log("clicked english");
-//     player.captions.language="en"
-
-//    // var myNode = document.getElementsByClassName("plyr__captions");
-//         var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
-//    console.log(myNode);
-//      // removeChild(list.childNodes[0]);
-//     // myNode.removeChild(myNode);
-
-//     // console.log("hello" + myNode);
-//    // while (myNode.firstChild) {
-//    //  myNode.removeChild(myNode.firstChild);
-// }
+};
 
 
-// document.getElementById("language-link-french").addEventListener("click", myFunction3);
 
-// function myFunction3() {
-//     console.log("clicked french");
-//     player.captions.language="fr"
-//        var myNode = document.getElementsByClassName("plyr__captions").innerHTML = '';
-//        console.log("hello" +myNode);
-//         console.log(myNode);
-//   // myNode.removeChild(myNode);
-// }
+
+
+
+
+document.getElementById('language-link-french').onclick=function(){
+
+     player.captions.language="es"
+     removeCaptions();
+};
+
+
+document.getElementById('language-link-english').onclick=function(){
+
+     player.captions.language="en"
+     removeCaptions();
+};
+
+
+
+function removeCaptions(){
+   var  parentElement = document.getElementsByClassName('plyr__captions')[0];
+    while (parentElement.hasChildNodes()) {
+   parentElement.removeChild(parentElement.firstChild);
+}
+
+}
+
+
+
 
 
 // Triggered when video start
@@ -131,6 +189,16 @@ player.on('pause', event => {
   // //Watch time in video and trigger events
   player.on('timeupdate', event => {
     const instance = event.detail.plyr;
+
+
+
+
+
+// console.log(document.getElementsByClassName('plyr__captions')[0]);
+
+// console.log(document.getElementsByClassName('plyr__captions')[0].firstChild.innerHTML);
+
+
 
     // This part ensures that the counter only looks at seconds instead of milliseconds, this prevents the code from being run multiple times if the currentTime is logged multiple times within a second
     videoPreviousTime=videoCurrentTime;
