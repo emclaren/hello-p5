@@ -7,122 +7,74 @@
 	<title>Hello P5.js</title>
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" href="dist/css/main.css">
+
+
+
 </head>
 
 <body>
-
-
-  <!-- Site Header - To do:  1. Make language Link -->
-
+  <!-- Site Header-->
 
   <!-- MAIN HEADER - English version-->
   <header class="header">
    <a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
    <nav role="navigation">
     <ul id="menu" class="top_menu">
-      <li><a href="http://p5js.org/download/" class="nav-link">Download</a></li>
+      <li><a href="http://p5js.org/download/" id="nav-download" class="nav-link ">Download</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/get-started/" class="nav-link">Start</a></li>
+      <li><a href="http://p5js.org/get-started/" id="nav-start" class="nav-link">Start</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/reference" class="nav-link">Reference</a></li>
+      <li><a href="http://p5js.org/reference" id="nav-reference" class="nav-link">Reference</a></li>
       <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/libraries/" class="nav-link">Libraries</a></li>
+      <li><a href="http://p5js.org/libraries/" id="nav-libraries" class="nav-link n">Libraries</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/learn/" class="nav-link">Learn</a></li>
+      <li><a href="http://p5js.org/learn/" id="nav-learn" class="nav-link">Learn</a></li>
       <li><div class="separator-design-element">*</div></li>
-      <li><a href="http://p5js.org/community/" class="nav-link">Community</a></li>
-       <!-- <li class="hide-on-mobile"><div class="separator-design-element">*</div></li> -->
-      <!-- <li><a href=""  class="nav-link language-link english">Language</a></li> -->
-   
-
-
-    </ul>
-
-  </nav>
-
-  <!-- MAIN HEADER - Spanish version -->
-  <nav role="navigation" id="navigation-es">
-    <ul id="menu" class="top_menu">
-      <li><a href="http://p5js.org/download/" class="nav-link">Descargar</a></li>
-      <li><div class="separator-design-element">*</div></li>
-
-      <li><a href="http://p5js.org/get-started/" class="nav-link">Empezar</a></li>
-      <li><div class="separator-design-element">*</div></li>
-
-      <li><a href="http://p5js.org/reference" class="nav-link">Referencia</a></li>
+      <li><a href="http://p5js.org/community/" id="nav-community" class="nav-link">Community</a></li>
       <li class="hide-on-mobile"><div class="separator-design-element">*</div></li>
-
-      <li><a href="http://p5js.org/libraries/" class="nav-link">Bibliotecas</a></li>
-      <li><div class="separator-design-element">*</div></li>
-
-      <li><a href="http://p5js.org/learn/" class="nav-link">Aprender</a></li>
-      <li><div class="separator-design-element">*</div></li>
-
-      <li><a href="http://p5js.org/community/"class="nav-link">Comunidad</a></li>
-    </ul>
+      <li class="language-list-container">
+        <ul class="language-list">
+          <li  id="language-link-english" class="language-link">En</li>
+          <li> / </li>
+          <li id="language-link-spanish"  class="language-link " >Es</li>
+          <li> / </li>
+          <li id="language-link-french" class="language-link ">Fr</li>
+        </ul>
+      </li>
+    </div>
   </nav>
 </header>
 
+
+
 <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
 <div class="container">
-
-  <video  id="player" playsinline controls  data-plyr-config='{"debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
+  <!-- TO DO:add poster  -->
+  <video  id="player" playsinline controls  data-plyr-config='{"captions":"active:true", "debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
     <!-- TO DO:Update this so it's pointing to dist folder -->
     <source src="src/assets/video/p5draftgs.mp4" type="video/mp4"> 
-      <source src="src/assets/video/fingers.webm" type="video/webm"> 
+    <source src="src/assets/video/fingers.webm" type="video/webm"> 
 
-        <!-- CAPTION FILES -->
-        <!-- To do: validate caption files once video is complete- see plyr website for link -->
-        <track kind="captions" label="English" src="captions/hello-p5-english-captions.en.vtt" srclang="en" default>
-          <track kind="captions" label="French" src="captions/hello-p5-spanish-captions.es.vtt" srclang="es">
-            <track kind="captions" label="Spanish" src="captions/hello-p5-french-captions.fr.vtt" srclang="fr">
-            </video>
+    <!-- CAPTION FILES -->
+    <!-- To do: validate caption files once video is complete- see plyr website for link -->
+    <track kind="captions" label="English" src="captions/hello-p5-english-captions.en.vtt" srclang="en" default>
+    <track kind="captions" label="French" src="captions/hello-p5-spanish-captions.es.vtt" srclang="es">
+    <track kind="captions" label="Spanish" src="captions/hello-p5-french-captions.fr.vtt" srclang="fr">
+  </video>
 
             <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
-            <div id="video-overlay" class="video-overlay"> </div>
-          </div>
+<div id="video-overlay" class="video-overlay"> </div>
+</div>
 
+<!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
+<object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
 
-          <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
-          <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
+<script src="dist/js/bundle.js"></script>
 
-          <!-- TO DO: Make all P5 & Seriously files compile and minify to one file. -->
-
-
-          <!-- P5 MAIN FILE, DOM FILE, and SKETCH FILES -->
-         
-
-
-
-          <!-- <script async src="src/js/sketches/sketch.js" ></script> -->
-
-
-
-
-          <!-- SERIOUSLY.JS MAIN FILE AND CHROMA KEY, to remove the green background from videos so sketch canvas is visible-->
-
-          <!-- <script type="text/javascript" src="src/js/seriously/seriously.js"></script> -->
-          <!-- <script type="text/javascript" src="src/js/seriously/seriously.chroma.js"></script>  -->
-
-
-
-
-          <script src="dist/js/bundle.js"></script>
-
-          
-          <!-- MAIN JAVASCRIPT FILE -->
-          <!-- <script src="dist/js/app.js"></script> -->
-
-
-          <!-- TO DO: Add Google Analytics -->
-        </body>
-        </html>
-
-
-
-
-
+<!-- TO DO: Add Google Analytics -->
+</body>
+</html>
 
 
 

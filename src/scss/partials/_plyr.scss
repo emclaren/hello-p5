@@ -1152,6 +1152,7 @@
     display:none;  
 }
 
-.plyr [data-plyr=fullscreen]{
+.plyr [data-plyr=fullscreen], .plyr [data-plyr=settings] {
     display:none;
+
 }
