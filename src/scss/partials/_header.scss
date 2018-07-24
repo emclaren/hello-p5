@@ -101,17 +101,13 @@ header{
 				text-decoration: none;
 				user-select: none;
 				font-size: 1rem;
-// border-bottom:.11em dashed;
-				// border-bottom-color:$brand-color-main;
-				// transition: all .5s ease;
 				@include breakpoint(lg) {
 					font-size:1.3rem;
 
 				}
 			}
 
-			a:active, a:hover, a:focus, {
-				
+			a:active, a:hover, a:focus,.language-link:hover, .language-link:active, .language-link:focus {
 				outline:0;
 				text-decoration:none;
 				padding-bottom:.11em;
@@ -142,6 +138,10 @@ header{
 				margin:.3rem;
 				font-size:1rem;
 				display:block;
+				@include breakpoint(lg) {
+				font-size:1.3rem;
+
+			}
 			}
 
 
@@ -179,9 +179,7 @@ header.hide{
 
 			
 		}
-		li a, .language-link{
-			font-size: .8rem;
-		}
+
 	}
 	@include breakpoint(xl) {
 		height:50px;
@@ -189,8 +187,7 @@ header.hide{
 			max-width: 4rem;
 			transition: all .5s ease;
 		}
-		#menu li a:link, #menu li a:visited, .language-link {
-			transition: all .5s ease;
+		#menu li a:link, #menu li a:visited, .language-link{
 			font-size: 1.1em;
 		}
 	}
@@ -203,12 +200,40 @@ header.hide.active{
 }
 
 
+  .language-list-container{
+    width:100% !important;
+    margin:0 auto;
+    @include breakpoint(md) {
+    	width:auto !important;
+    }	
+  }
 
 
+  .language-list{
+    display:flex;
+    flex-wrap:wrap;
+    width:200px;
+    text-align:center;
+    margin:0 auto;
+        @include breakpoint(md) {
+    	// display:inline-block;
+    	width:120px !important
+    }	
+            @include breakpoint(lg) {
+    	// display:inline-block;
+    	width:140px !important
+    }	
+  }
 
-.language-link:hover{
-	background-color:pink;
-	width:100%;
-}
+  .language-link {
+    width:auto !important;
+
+  }
+
+  .language-link:hover {
+    width:auto !important;
+    cursor:pointer;
+  }
+
 
 
