@@ -1,39 +1,29 @@
-
-var sketch3 = function(r){
-	r.xpos=100;
-	r.ypos=100;
-
-	r.setup = function(){
-		this._pixelDensity = 1;
-		canvas = r.createCanvas(windowWidth, windowWidth/1.85); //make this mobile friendly
-		canvas.parent('video-overlay');
-
+var sketch2 = function(p) {
+	p.setup = function(){
+		// p.background(200,200,200);
+		p.windowWidth = window.innerWidth ;
+		p.windowHeight = p.windowWidth * .5504
+		 p.canvas= p.createCanvas(p.windowWidth, p.windowHeight, 'webgl');
+		p.canvas.parent('video-overlay');
+		p.fill(0,133,255);
+		p.x = 0;
+		p.y = 0;
 	}
 
-	r.draw = function(){
-		// r.clear();
-		r.background(255,0,255);
-		r.strokeWeight(5);
-		r.fill(122,255,0);
-		r.stroke(122,102,255);
-		r.ellipse(r.xpos+200, r.ypos+200, 200, 200);
-		r.ypos++;
-		r.textSize(32);
-		r.text('INSERT INTRO SKETCH 3 HERE!!', 10, 30);
+	p.draw = function(){
+		p.strokeWeight(5);
+		p.stroke(255,255,255);
 
+		p.background(255,200,200);
+		p.ellipse(p.x, p.y, p.windowWidth*.05, p.windowWidth*.1);
+		console.log("sketch3")
+		p.x=+1;
+		p.y=+1;
 	}
-	r.resize =  function() {
-		r.resizeCanvas(windowWidth, windowWidth/1.755, 'webgl');
-		r.target.width= window.innerWidth * .92;
-		r.target.height=window.innerWidth /2;
-	//set up reformat parameters
-	r.reformat.width = r.target.width;
-	r.reformat.height = r.target.height;
-	r.reformat.mode = "cover";
 
-} 
-
-window.onresize = r.resize;
+   p.windowResized= function windowResized() {
+    p.resizeCanvas(p.windowWidth, p.windowWidth * .5504);
+}
 }
 
-
+module.exports= sketch2;
