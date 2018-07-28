@@ -2,7 +2,8 @@
  
 var circleOnScreen = function(p) {
 	p.setup = function(){
-console.log()
+
+	p.pixelDensity(1);
 		p.windowWidth = window.innerWidth ;
 		p.windowHeight = p.windowWidth * .5504
 		p.canvas= p.createCanvas(p.windowWidth, p.windowHeight);
@@ -28,8 +29,8 @@ console.log()
 	}
 
    p.windowResized= function windowResized() {
-  //  	p.windowWidth = window.innerWidth ;
-		// p.windowHeight = p.windowWidth * .5504
+   	p.windowWidth = window.innerWidth ;
+		p.windowHeight = p.windowWidth * .5504
     p.resizeCanvas(p.windowWidth, p.windowWidth * .5504);
     console.log(p.windowWidth)
 }

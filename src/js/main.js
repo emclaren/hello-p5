@@ -9,10 +9,13 @@ const circleOnScreen = require('./sketches/circleOnScreen.js');
 const p5isAJavascriptLibrary = require('./sketches/p5isAJavascriptLibrary.js');
 const triangles = require('./sketches/triangles.js');
 const seriouslyCanvas = require('./sketches/seriouslyCanvas.js');
+const rainbow = require('./sketches/rainbow.js');
+const sinLines = require('./sketches/sinLines.js');
+const circleExplosion = require('./sketches/circleExplosion.js');
 let scene
 let myp52
 let myp53
-
+let canvasScene
 
 
 
@@ -48,7 +51,14 @@ player.on('pause', event => {
 });
 
 
-const sceneChange =[0,8,28,50];
+const sceneChange =[10,17,26,29, 39,54];
+
+
+// var timing = {time: 0 , sketch:"triangles"; time: 9 , sketch:"circleOnScreen" };
+
+
+
+
 // const sketch = []
 
 // Triggered when user selects a different time in the video
@@ -94,21 +104,32 @@ if(videoCurrentTime != videoPreviousTime){
 
     switch (videoCurrentTime) {
         case sceneChange[0]:
-           scene = new p5(triangles); 
+           scene = new p5(circleExplosion); 
         break; 
 
         case sceneChange[1]:
-        scene1.remove();
-        scene = new p5(p5isAJavascriptLibrary); 
-          // scene = new p5(sketch[1]);  
-
+        scene.remove();
+        
+           scene = new p5(sinLines);  
+           canvasScene = new p5(seriouslyCanvas); 
+      
         break
 
         case sceneChange[2]:
-        scene = new p5(circleOnScreen);  
+        scene.remove();
+           canvasScene.remove()
+         scene = new p5(triangles); 
+          
+        // canvasScene.remove();
+      
         break
 
-        case 59:
+        case sceneChange[3]:
+         scene.remove();
+          scene = new p5(triangles); 
+             scene = new p5(rainbow);  
+         scene.remove();
+        scene= new p5(circleOnScreen);
 
         break
         case 78:
