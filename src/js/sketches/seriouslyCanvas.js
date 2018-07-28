@@ -39,6 +39,9 @@ var seriouslyCanvas = function(q){
          q.r = 76/255;
          q.g = 249/255;
          q.b = 43/255;
+        // q.r = 255/255;
+        //  q.g = 255/255;
+        //  q.b = 255/255;
          q.chroma.screen = [q.r,q.g,q.b,1];
 
          q.seriously.go();

@@ -2,19 +2,13 @@
 <html dir="ltr" lang="en">
 <head>
 	<meta charset="UTF-8">
-
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Hello P5.js</title>
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" href="dist/css/main.css">
-
-
-
 </head>
-
 <body>
-  <!-- Site Header-->
-
+ 
   <!-- MAIN HEADER - English version-->
   <header class="header">
    <a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo"></a>
@@ -52,8 +46,8 @@
   <!-- TO DO:add poster  -->
   <video  id="player" playsinline controls  data-plyr-config='{"captions":"active:true", "debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
-    <!-- TO DO:Update this so it's pointing to dist folder -->
     <source src="dist/assets/video/draftp5video.mp4" type="video/mp4"> 
+      <!-- TO DO: Add a webm version -->
     <source src="src/assets/video/fingers.webm" type="video/webm"> 
 
     <!-- CAPTION FILES -->
@@ -63,7 +57,7 @@
     <track kind="captions" label="Spanish" src="captions/hello-p5-french-captions.fr.vtt" srclang="fr">
   </video>
 
-            <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
+<!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
 <div id="video-overlay" class="video-overlay"> </div>
 </div>
 

@@ -1,11 +1,15 @@
 
 
-var sketch4 = function(s){
+var rainbow = function(s){
 
+	
 	s.setup = function(){
-		this._pixelDensity = 1;
-		canvas = s.createCanvas(windowWidth, windowWidth/1.85); //make this mobile friendly
-		canvas.parent('video-overlay');
+		s.pixelDensity(1);
+		s.windowWidth = window.innerWidth ;
+		s.windowHeight = s.windowWidth * .5504
+
+			s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
+		s.canvas.parent('video-overlay');
 		s.background("white");
 
 	}
@@ -37,17 +41,16 @@ var sketch4 = function(s){
 }
 
 
-s.resize =  function() {
-	s.resizeCanvas(windowWidth, windowWidth/1.755, 'webgl');
-	s.target.width= window.innerWidth * .92;
-	s.target.height=window.innerWidth /2;
-	//set up reformat parameters
-	s.reformat.width = s.target.width;
-	s.reformat.height = s.target.height;
-	s.reformat.mode = "cover";
+	s.resize =  function() {
+	   	p.windowWidth = window.innerWidth ;
+		p.windowHeight = p.windowWidth * .5504
+    s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
+    console.log(s.windowWidth)
 
 } 
 
 window.onresize = s.resize;
 
 }
+
+module.exports= rainbow;
