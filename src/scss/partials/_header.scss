@@ -11,7 +11,7 @@ header{
 	top:0;
 	transition: all .5s ease;
 	z-index:100;
-	@include landscape() {
+	@include breakpoint(md) {
 		display:flex;
 		height:60px;
 		text-align:left;	
@@ -32,7 +32,7 @@ header{
 			max-width: 90px;
 		}
 
-		@include landscape() {
+		@include breakpoint(md) {
 			max-width:4rem;
 			margin:1rem auto;
 		}
@@ -64,7 +64,7 @@ header{
 			@include breakpoint(sm) {
 				margin:1rem auto;
 			}
-			@include landscape(){
+			 @include breakpoint(md){
 				max-width:100%;	
 				display:flex;
 				align-items:center;
@@ -85,7 +85,7 @@ header{
 			display: inline-block;
 			color: $brand-color-main;
 			margin:0 .2rem 1rem;
-			@include landscape() {
+			@include breakpoint(md) {
 				margin:0 .2rem;
 
 			}
@@ -119,7 +119,7 @@ header{
 				@include breakpoint(md) {
 					width:auto;
 				}
-				@include landscape() {
+				 @include breakpoint(md){
 					width:auto;
 				}
 				&:nth-child(3n+1) {
@@ -169,7 +169,7 @@ header{
 
 header.hide{
 
-	@include landscape(){
+	@include breakpoint(md){
 		height:30px;
 		transition: all .5s ease;
 		.logo{

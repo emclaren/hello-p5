@@ -22,7 +22,7 @@ body{
 	flex-direction: column;
 	// justify-content: space-around;
 	height:100vh;
-	@include landscape() {
+	@include breakpoint(md){
 		display:block;
 	}
 }
