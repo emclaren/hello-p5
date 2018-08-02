@@ -30,14 +30,14 @@ s.clear();
 	s.strokeWeight(4-s.m);
 
 	s.stroke(255,s.greenRand,123);
-	console.log("this is the random: "+s.redRand+ " " + s.greenRand + " "+ s.blueRand)
+	// console.log("this is the random number: "+s.redRand+ " " + s.greenRand + " "+ s.blueRand)
 	s.ellipse(s.xPosition, s.yPosition, s.diameter, s.diameter)
 	// s.yPosition = s.random(s.windowHeight);
 	// s.zPosition=s.random(255);
 
 	s.ellipse(s.windowWidth - s.xPosition, s.zPosition, s.diameter, s.diameter)
 	s.diameter++
-	console.log(s.diameter)
+	// console.log(s.diameter)
 	if(s.diameter > 80){
 		s.diameter=0;
 		s.n=s.n*-1;

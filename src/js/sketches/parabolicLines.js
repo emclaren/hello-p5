@@ -8,8 +8,8 @@ s.i = 0;
 
   s.setup = function(){
     s.pixelDensity(1);
-    s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .5504
+    s.windowWidth = window.innerWidth/3 ;
+    s.windowHeight = s.windowHeight 
     s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
       // s.translate(s.windowWidth/2,s.windowHeight/2);

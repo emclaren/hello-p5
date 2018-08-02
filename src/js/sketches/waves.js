@@ -5,8 +5,7 @@ s.waves = [];
 
   s.setup = function(){
     s.pixelDensity(1);
-    s.windowWidth = window.innerWidth*.3625 ;
-    s.windowWidth = window.innerWidth*.3625 ;
+    s.windowWidth = window.innerWidth/3.1 ;
     s.windowHeight = window.innerWidth * .545
     s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
@@ -21,7 +20,8 @@ s.waves = [];
 
 
   s.draw = function(){
-  s.background(0);
+  // s.background(0);
+  s.clear();
   
 
   

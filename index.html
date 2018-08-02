@@ -62,6 +62,8 @@
 <div id="video-overlay" class="video-overlay"> </div>
 </div>
 
+<img src="src/assets/img/loading.gif" id="loading" class="hidden">
+<script>document.getElementById("loading").className="visible";var hide=function(){document.getElementById("loading").className="hidden"};var oldLoad=window.onload;var newLoad=oldLoad?function(){hide.call(this);oldLoad.call(this)}:hide;window.onload=newLoad; </script>
 <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
 <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
 
