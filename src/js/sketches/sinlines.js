@@ -16,7 +16,8 @@ s.i = 0;
 
 
   s.draw = function(){
-  s.background(0);
+  // s.background(0);
+  s.clear();
   s.fill(255);
 
   s.stroke(255);
@@ -25,7 +26,7 @@ s.i = 0;
     s.colorMode(s.HSL,100);
     s.strokeWeight(2);
     s.stroke( s.map(s.t, 0, s.windowWidth, 50, 100) ,100,50);
-    s.line(s.t, s.windowHeight, s.t, s.windowHeight/2-s.sin( s.i+s.t / 50 ) * 100);
+    s.line(s.t, s.windowHeight, s.t, s.windowHeight/1.5-s.sin( s.i+s.t / 50 ) * 100);
   }
 
   s.i+=0.01;

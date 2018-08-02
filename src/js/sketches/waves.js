@@ -5,9 +5,10 @@ s.waves = [];
 
   s.setup = function(){
     s.pixelDensity(1);
-    s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .5502
-    s.canvas= s.createCanvas(s.windowWidth/2.6, s.windowHeight);
+    s.windowWidth = window.innerWidth*.3625 ;
+    s.windowWidth = window.innerWidth*.3625 ;
+    s.windowHeight = window.innerWidth * .545
+    s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
     s.colorMode(s.HSB,360,100,100,100);
     // s.frameRate(30);
@@ -27,6 +28,8 @@ s.waves = [];
   for(s.i = 0; s.i < s.waves.length; s.i++){
     s.waves[s.i].display();
   }
+
+
 
 }
 

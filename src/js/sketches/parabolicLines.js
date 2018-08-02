@@ -39,7 +39,8 @@ s.y2 = function(t){
 
 
   s.draw = function(){
-  s.background(0);
+  // s.background(0);
+  s.clear();
   s.fill(255);
   // translate(width/2,height/2);
 
