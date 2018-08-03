@@ -5,7 +5,7 @@ s.waves = [];
 
   s.setup = function(){
     s.pixelDensity(1);
-    s.windowWidth = window.innerWidth/3.1 ;
+    s.windowWidth = window.innerWidth ;
     s.windowHeight = window.innerWidth * .545
     s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
@@ -66,6 +66,7 @@ s.Wave = function(){
     this.yoffB += 0.01;
     s.endShape(s.CLOSE);
   }
+  // hole();
 }
 
 

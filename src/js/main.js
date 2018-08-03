@@ -19,6 +19,7 @@ const manyDots = require('./sketches/manyDots.js');
 const sinLines = require('./sketches/sinLines.js');
 const parabolicLines = require('./sketches/parabolicLines.js');
 const circleExplosion = require('./sketches/circleExplosion.js');
+const punch = require('./sketches/punch.js');
 let scene
 let scene1
 let canvasScene
@@ -29,6 +30,44 @@ let canvasScene
 let videoCurrentTime;
 let videoPreviousTime;
 let videoTimeSeeked = false;
+
+
+var hole =function(){
+  var c=document.getElementById("defaultCanvas0");
+var ctx=c.getContext("2d");
+
+ctx.clearRect(20,20,200,120);
+}
+
+p5.Image.prototype.punchOut = function(p5Image) {
+ 
+    if(p5Image === undefined){
+        p5Image = this;
+    }
+    var currBlend = this.drawingContext.globalCompositeOperation;
+ 
+    var scaleFactor = 1;
+    if (p5Image instanceof p5.Graphics) {
+        scaleFactor = p5Image._pInst._pixelDensity;
+    }
+ 
+    var copyArgs = [
+        p5Image,
+        0,
+        0,
+        scaleFactor*p5Image.width,
+        scaleFactor*p5Image.height,
+        0,
+        0,
+        this.width,
+        this.height
+    ];
+ 
+    this.drawingContext.globalCompositeOperation = "destination-out";
+    this.copy.apply(this, copyArgs);
+    this.drawingContext.globalCompositeOperation = currBlend;
+};
+
 
 
 
@@ -110,7 +149,7 @@ const sceneChange = 44
 
 
 var sceneChangeMap = [
-    {time : .25, sketchfile: helloP5},
+    {time : .25, sketchfile: punch},
     {time : 2.75},
     {time : 6.75, sketchfile: helloP5},
     {time : 9.5, sketchfile: helloP5},
@@ -196,6 +235,10 @@ player.on('timeupdate', event => {
        case sceneChangeMap[0].time:
          scene = new p5(sceneChangeMap[0].sketchfile); 
        
+var c=document.getElementById("defaultCanvas0");
+var ctx=c.getContext("2d");
+
+ctx.clearRect(270,20,200,120);
 
         break; 
         case sceneChangeMap[1].time:
@@ -222,6 +265,7 @@ player.on('timeupdate', event => {
         case sceneChangeMap[4].time:
         scene.remove();
         scene = new p5(sceneChangeMap[4].sketchfile);  
+
         break; 
 
     case sceneChangeMap[5].time:
