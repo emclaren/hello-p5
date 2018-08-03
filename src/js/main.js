@@ -33,10 +33,14 @@ let videoTimeSeeked = false;
 
 
 var hole =function(){
+  var x;
+  while(x<200){
+    console.log("hole is running");
   var c=document.getElementById("defaultCanvas0");
-var ctx=c.getContext("2d");
-
-ctx.clearRect(20,20,200,120);
+  var ctx=c.getContext("2d");
+  ctx.clearRect(20,20,200,120);
+  x++
+}
 }
 
 p5.Image.prototype.punchOut = function(p5Image) {
@@ -234,11 +238,10 @@ player.on('timeupdate', event => {
       switch (videoCurrentTime) {
        case sceneChangeMap[0].time:
          scene = new p5(sceneChangeMap[0].sketchfile); 
-       
-var c=document.getElementById("defaultCanvas0");
-var ctx=c.getContext("2d");
-
-ctx.clearRect(270,20,200,120);
+         hole();
+          var c=document.getElementById("defaultCanvas0");
+          var ctx=c.getContext("2d");
+          ctx.clearRect(270,20,200,120);
 
         break; 
         case sceneChangeMap[1].time:

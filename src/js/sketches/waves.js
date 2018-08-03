@@ -11,17 +11,18 @@ s.waves = [];
     s.canvas.parent('video-overlay');
     s.colorMode(s.HSB,360,100,100,100);
     // s.frameRate(30);
+   
   for(s.i = 0; s.i < 30; s.i++){
     s.waves.push(new s.Wave());
   }
     s.noStroke();
-
+ s.background(255,0,122);
   }
 
 
   s.draw = function(){
   // s.background(0);
-  s.clear();
+  // s.clear();
   
 
   
