@@ -43,8 +43,7 @@
 
 <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
 <div class="container">
-  <!-- TO DO:add poster  -->
-  <video  id="player" playsinline controls  data-plyr-config='{ "debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
+  <video  id="player" poster="src/assets/img/poster.png" playsinline controls  data-plyr-config='{ "debug":false, "fullscreen":"enabled:false", "clickToPlay":false}' >
 
     <source src="dist/assets/video/draftp5video.mp4" type="video/mp4"> 
       <!-- TO DO: Add a webm version -->
@@ -52,12 +51,9 @@
 
     <!-- CAPTION FILES -->
     <!-- To do: validate caption files once video is complete- see plyr website for link -->
-
- <!-- <track kind="captions" label="English captions" src="captions.en.vtt" srclang="en" default> -->
-
-    <track kind="captions" label="English" src="./captions/hello-p5-english-captions.en.vtt" srclang="en" default>
-    <track kind="captions" label="French" src="./captions/hello-p5-spanish-captions.es.vtt" srclang="es">
-    <track kind="captions" label="Spanish" src="./captions/hello-p5-french-captions.fr.vtt" srclang="fr">
+    <track kind="captions" label="English" src="captions/hello-p5-english-captions.en.vtt" srclang="en" default>
+    <track kind="captions" label="French" src="captions/hello-p5-spanish-captions.es.vtt" srclang="es">
+    <track kind="captions" label="Spanish" src="captions/hello-p5-french-captions.fr.vtt" srclang="fr">
   </video>
   
 
@@ -65,10 +61,16 @@
 <div id="video-overlay" class="video-overlay"> </div>
 </div>
 
-<img src="src/assets/img/loading.gif" id="loading" class="hidden">
+<!-- <img src="src/assets/img/loading.gif" id="loading" class="hidden">
 <script>document.getElementById("loading").className="visible";var hide=function(){document.getElementById("loading").className="hidden"};var oldLoad=window.onload;var newLoad=oldLoad?function(){hide.call(this);oldLoad.call(this)}:hide;window.onload=newLoad; </script>
+
+ -->
+
+
 <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
 <object type="image/svg+xml" data="dist/assets/img/asterisk.svg" id="asterisk-design-element">*</object>
+
+
 
 <script src="dist/js/bundle.js"></script>
 

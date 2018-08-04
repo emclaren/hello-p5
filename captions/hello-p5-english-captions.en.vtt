@@ -1,59 +1,90 @@
 WEBVTT
 
 1
-00:00:01.000 --> 00:00:05.000
-Hi, I made this with p5js 
+00:00:00.500 --> 00:00:03.750
+I made this with p5js 
 
 2
-00:00:05.001 --> 00:00:07.500
-I made this with p5js 
-
+00:00:04.251 --> 00:00:05.750
+I made this with p5 dot js 
 
 3
-00:00:08.500 --> 00:00:11.000
+00:00:06.500 --> 00:00:08.750
 I made this with p5js 
-
 
 4
-00:00:11.500 --> 00:00:12.500
-I made this with p5js 
-
+00:00:11.000 --> 00:00:14.000
+P5js is a javascript library for making web-based 
 
 5
-00:00:13.500 --> 00:00:18.500
-P5js is a javascript library for making web-based interactive experiences and having fun with code. 
+00:00:14.000 --> 00:00:18.500
+interactive experiences and having fun with code. 
 
 
 6
-00:00:18.500 --> 00:00:26.500
-With p5js you can quickly create animations, games, data visualizations, generative art, and more
-
+00:00:18.500 --> 00:00:20.500
+With p5js you can quickly create animations,
 
 7
-00:00:27.500 --> 00:00:33.500
-Programming with p5 is just like using javascript, but it includes built in tools that make coding cool stuff easier.
+00:00:20.500 --> 00:00:24.000
+games, data visualizations, generative art, and more
 
 
 8
-00:00:34.500 --> 00:00:42.500
-It’s designed to be easy for beginners, but robust enough for experienced artists, developers, dreamers, and inventors. 
- 
+00:00:25.000 --> 00:00:29.000
+P5js is an amazing program for making any animation or 
 
 9
-00:00:42.500 --> 00:00:48.500
-And since browsers speak in javascript, you can share your work with others online. It’s mobile friendly too!
+00:00:29.000 --> 00:00:33.000
+javascript project that you are wanting to do 
 
 10
-00:00:49.500 --> 00:00:50.500
-It's the best. 
+00:00:34.000 --> 00:00:36.000
+Programming with p5 is just like using javascript, 
 
 11
-00:00:51.500 --> 00:00:56.500
+00:00:36.000 --> 00:00:38.500
+but it includes built in tools for coding cool stuff.
+
+12
+00:00:39.000 --> 00:00:42.500
+It’s designed to be easy for beginners, 
+ 
+13
+00:00:42.500 --> 00:00:44.500
+but robust enough for experienced artists, 
+
+14
+00:00:44.500 --> 00:00:47.500
+developers, dreamers, and inventors. 
+
+15
+00:00:48.000 --> 00:00:49.500
+And since browsers speak in javascript, 
+
+16
+00:00:49.500 --> 00:00:51.000
+you can share your work with others online. 
+
+17
+00:00:51.000 --> 00:00:53.500
+It’s mobile friendly too!
+
+18
+00:00:54.500 --> 00:00:56.500
+Your imagination is the limit!
+
+19
+00:00:57.500 --> 00:00:59.500
+With just a few lines of code you can make shapes, like this circle, on your screen 
+
+20
+00:00:59.500 --> 00:00:61.500
 With just a few lines of code you can make shapes, like this circle, on your screen 
 
 
 12
-00:00:57.500 --> 00:00:59.500
+00:00:61.500 --> 00:00:63.500
 Without p5, writing this out would take a lot more code. 
 
 13  
