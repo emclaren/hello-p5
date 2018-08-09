@@ -1,17 +1,14 @@
-
-// 
-
 var heart= function(s){
 
-s.R = 8; 
-s.maxVal = 0;
-s.rt = 0;
-s.alp = 0;
-s.stAlp = 255;
-s.fillCount = 0;
-s.phase = 0;
-s.oy = 0;
-s.c;
+  s.R = 8; 
+  s.maxVal = 0;
+  s.rt = 0;
+  s.alp = 0;
+  s.stAlp = 255;
+  s.fillCount = 0;
+  s.phase = 0;
+  s.oy = 0;
+  s.c;
 
 
 
@@ -40,6 +37,11 @@ s.c;
 
 s.draw = function(){
 
+
+   for(s.i = 0; s.i<10; s.i++){
+    s.ellipse(s.i, 200, 12,20)
+            // s.heart[i].display();
+        }
 
 console.log("sxpos"+s.xpos);
   s.clear()  ;
@@ -117,11 +119,17 @@ console.log("sxpos"+s.xpos);
 }
 }
 
+//   s.Heart = function(){
+// s.ellipse(50,50,50,50)
 
 
+// }
 
 
-
+//     s.addHeart= function(){
+//         s.heart[s.heartCount] = new s.Heart(s.random(s.windowWidth));
+//         s.heartCount++;
+//     }
 
 
   s.resize =  function() {

@@ -2,7 +2,7 @@ WEBVTT
 
 1
 00:00:00.500 --> 00:00:03.750
-I made this with p5js 
+I made this in p5js 
 
 2
 00:00:04.251 --> 00:00:05.750
@@ -20,7 +20,6 @@ P5js is a javascript library for making web-based
 00:00:14.000 --> 00:00:18.500
 interactive experiences and having fun with code. 
 
-
 6
 00:00:18.500 --> 00:00:20.500
 With p5js you can quickly create animations,
@@ -32,11 +31,11 @@ games, data visualizations, generative art, and more
 
 8
 00:00:25.000 --> 00:00:29.000
-P5js is an amazing program for making any animation or 
+P5js is an amazing program to get you started on any animation
 
 9
 00:00:29.000 --> 00:00:33.000
-javascript project that you are wanting to do 
+or cool javascript project that you are wanting to do 
 
 10
 00:00:34.000 --> 00:00:36.000
@@ -44,7 +43,7 @@ Programming with p5 is just like using javascript,
 
 11
 00:00:36.000 --> 00:00:38.500
-but it includes built in tools for coding cool stuff.
+but with built in tools for coding cool stuff.
 
 12
 00:00:39.000 --> 00:00:42.500
@@ -52,11 +51,11 @@ It’s designed to be easy for beginners,
  
 13
 00:00:42.500 --> 00:00:44.500
-but robust enough for experienced artists, 
+but robust enough for experienced developers 
 
 14
 00:00:44.500 --> 00:00:47.500
-developers, dreamers, and inventors. 
+designers, dreamers, and inventors. 
 
 15
 00:00:48.000 --> 00:00:49.500
@@ -76,12 +75,11 @@ Your imagination is the limit!
 
 19
 00:00:57.500 --> 00:00:59.500
-With just a few lines of code you can make shapes, like this circle, on your screen 
+With just a few lines of code you can make shapes,
 
 20
 00:00:59.500 --> 00:00:61.500
-With just a few lines of code you can make shapes, like this circle, on your screen 
-
+ like this circle, on your screen 
 
 12
 00:00:61.500 --> 00:00:63.500
@@ -102,40 +100,82 @@ or make them interactive. Try clicking or tapping the screen
 
 16 
 00:01:07.500 --> 00:01:15.500
-P5js helps you get your ideas on screen quickly. And since you can see the results of your code visually, it’s a great for learning programming concepts.
+P5js helps you get your ideas on screen quickly. 
+16 
+00:01:07.500 --> 00:01:15.500
+And since you can see the results of your code visually, 
+16 
+00:01:07.500 --> 00:01:15.500
+it’s a great for learning programming concepts.
 
 16 
 00:01:16.500 --> 00:01:17.500
-Your imagination is the limit. 
+its the best
+
+16 
+00:01:16.500 --> 00:01:17.500
+you can do anything with p5js
+
+16 
+00:01:16.500 --> 00:01:17.500
+p5js gets also used by graphic designers who are not used to code.
+
+16 
+00:01:16.500 --> 00:01:17.500
+p5js gets me excited
+
+16 
+00:01:16.500 --> 00:01:17.500
+children's laughter
 
 17
 00:01:18.500 --> 00:01:25.500
-P5js is free and easy to set up. You can either code right in your browser using the p5 web editor, 
+P5js is free and easy to set up. 
+
+17
+00:01:18.500 --> 00:01:25.500
+You can either code right in your browser using the p5 web editor, 
 
 18
 00:01:25.500 --> 00:01:30.500
-or download the javascript libraries to your computer . No special software required. 
+or download the javascript libraries to your computer.
+
+18
+00:01:25.500 --> 00:01:30.500
+No special software required. 
 
 19
 00:01:31.500 --> 00:01:36.500
-There are lots of great tutorials to help you get started. And if you get stuck - don’t worry, you can always ask for help in our community forum 
+There are lots of great tutorials to help you get started. 
 
-20 
-00:01:37.500 --> 00:01:39.500
-We are an inclusive, diverse community, and we welcome new users. 
+19
+00:01:31.500 --> 00:01:36.500
+But if you get stuck - don’t worry, 
+
+
+19
+00:01:31.500 --> 00:01:36.500
+you can always ask for help in our community forums 
+21
+00:01:40.500 --> 00:01:45.500
+P5 is open-source. 
 
 21
 00:01:40.500 --> 00:01:45.500
-P5 is open-source. If you want to contribute to its  development, take a look at our community page.
+If you want to contribute to its  development, 
 
 21
-00:01:45.500 --> 00:01:47.500
-If you want to join us, then you’re in!
+00:01:40.500 --> 00:01:45.500
+take a look at our community page.
 
-22
-00:01:48.500 --> 00:01:55.500
-The p5 community is intentionally inclusive. If you want to join us, you’re in!
- 
+
+20 
+00:01:37.500 --> 00:01:39.500
+We are an inclusive, diverse community, 
+
+20 
+00:01:37.500 --> 00:01:39.500
+and we welcome new users. 
 
 23
 00:01:55.500 --> 00:01:56.500
@@ -145,10 +185,28 @@ If you want to use p5, its for you!
 00:01:57.500 --> 00:01:58.500
 If you want to contribute to p5, we want you too!
 
+
+
+22
+00:01:48.500 --> 00:01:55.500
+The p5 community is intentionally inclusive. 
+
+If you want to join us, you’re in!
+ 
+
+21
+00:01:45.500 --> 00:01:47.500
+If you want to join us, then you’re in!
+
+
 25
 00:01:58.500 --> 00:01:59.500
-If you want to join us, you’re in!
+If you want to join, you’re in!
 
 26
 00:02:00.500 --> 00:02:03.500
 Thanks for checking out p5js. We’re excited to see what you make!
+
+27
+00:02:00.500 --> 00:02:03.500
+Laughter

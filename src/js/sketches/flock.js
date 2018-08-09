@@ -1,60 +1,68 @@
 
-var flock;
-var r;
+
+
+
+
+
+
+var flock= function(s){
+
+
+
+s.flock;
+s.r;
 function setup() {
 
 
- cnv = createCanvas(windowWidth, windowHeight);
- centerCanvas();
- flock = new Flock();
-frameRate(40);
-  // Add an initial set of boids into the system
-  for (var i = 0; i < 9; i++) {
-    var b = new Boid(5,1000);
-    flock.addBoid(b);
 
+
+
+
+}
+
+
+  s.setup = function(){
+    s.pixelDensity(1);
+    s.windowWidth = window.innerWidth ;
+    s.windowHeight = s.windowWidth * .5504
+    s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
+    s.canvas.parent('video-overlay');
+       // s.centerCanvas();
+  s.flock = new s.Flock();
+  s.frameRate(40);
+  // Add an initial set of boids into the system
+  for (s.i = 0; s.i < 9; s.i++) {
+    s.b = new s.Boid(5,1000);
+    s.flock.addBoid(s.b);
+
+  }
   }
 
 
 
 
-}
 
- // Triangles based on Daniel Shiffman's Flock example
+  s.draw = function(){
 
-function draw() {
-  background(255);
-  flock.run();
-
+  s.clear();
+  s.flock.run();
 
 }
-// function mousePressed() {
-//   cnv.remove();
 
 
-// }
-
-// Add a new boid into the System whenever the mouse is moved.
-function mouseMoved() {
-
-  flock.addBoid(new Boid(mouseX,mouseY-30));
-}
-
-
-// Flock manages the array of all the boids
-function Flock() {
+s.Flock = function() {
   this.boids = [];
 }
 
-Flock.prototype.run = function() {
-  for (var i = 0; i < this.boids.length; i++) {
+s.Flock.prototype.run = function() {
+  for (s.i = 0; s.i < this.boids.length; s.i++) {
 
-    this.boids[i].run(this.boids);  // Passing the entire list of boids to each boid individually
+    this.boids[s.i].run(this.boids);  // Passing the entire list of boids to each boid individually
   // console.log(this)
   }
 }
 
-Flock.prototype.addBoid = function(b) {
+s.Flock.prototype.addBoid = function(b) {
   this.boids.push(b);
 
   if(this.boids.length >70){
@@ -67,37 +75,36 @@ Flock.prototype.addBoid = function(b) {
 
 
 
-
 // Boid class
 // Methods for Separation, Cohesion, Alignment added
 
-function Boid(x,y) {
-  this.acceleration = createVector(0,0);
-  this.velocity = createVector(random(-1,1),random(-1,1));
-  this.position = createVector(x,y);
+s.Boid =function (x,y) {
+  this.acceleration = s.createVector(0,0);
+  this.velocity = s.createVector(s.random(-1,1),s.random(-1,1));
+  this.position = s.createVector(x,y);
   this.r = 2.0;
   this.maxspeed = 1;    // Maximum speed
   this.maxforce = 0.005; // Maximum steering force
   this.lifespan = 134;
 }
 
-Boid.prototype.run = function(boids) {
+s.Boid.prototype.run = function(boids) {
   this.flock(boids);
   this.update();
   // this.borders();
   this.render();
 }
 
-Boid.prototype.applyForce = function(force) {
+s.Boid.prototype.applyForce = function(force) {
   // We could add mass here if we want A = F / M
   this.acceleration.add(force);
 }
 
 // We accumulate a new acceleration each time based on three rules
-Boid.prototype.flock = function(boids) {
-  var sep = this.separate(boids);   // Separation
-  var ali = this.align(boids);      // Alignment
-  var coh = this.cohesion(boids);   // Cohesion
+s.Boid.prototype.flock = function(boids) {
+  s.sep = this.separate(boids);   // Separation
+  s.ali = this.align(boids);      // Alignment
+  s.coh = this.cohesion(boids);   // Cohesion
   // Arbitrarily weight these forces
   // sep.mult(1.5);
   // ali.mult(1.0);
@@ -109,7 +116,7 @@ Boid.prototype.flock = function(boids) {
 }
 
 // Method to update location
-Boid.prototype.update = function() {
+s.Boid.prototype.update = function() {
   // Update velocity
   this.velocity.add(this.acceleration);
   // Limit speed
@@ -122,64 +129,67 @@ Boid.prototype.update = function() {
 }
 
 
+
+
+
 // A method that calculates and applies a steering force towards a target
 // STEER = DESIRED MINUS VELOCITY
-Boid.prototype.seek = function(target) {
-  var desired = p5.Vector.sub(target,this.position);  // A vector pointing from the location to the target
+s.Boid.prototype.seek = function(target) {
+  s.desired = s.p5.Vector.sub(s.target,this.position);  // A vector pointing from the location to the target
   // Normalize desired and scale to maximum speed
-  desired.normalize();
-  desired.mult(this.maxspeed);
+  s.desired.normalize();
+  s.desired.mult(this.maxspeed);
   // Steering = Desired minus Velocity
-  var steer = p5.Vector.sub(desired,this.velocity);
-  steer.limit(this.maxforce);  // Limit to maximum steering force
-  return steer;
+  s.steer = s.p5.Vector.sub(s.desired,this.velocity);
+  s.steer.limit(this.maxforce);  // Limit to maximum steering force
+  return s.steer;
 }
 
-Boid.prototype.render = function() {
+s.Boid.prototype.render = function() {
   // Draw a triangle rotated in the direction of velocity
- var r=150;
-  var theta = this.velocity.heading() + radians(20);
- if (windowWidth>800){
+ s.r=150;
+  s.theta = this.velocity.heading() +s.radians(20);
+ if (s.windowWidth>800){
   // 251, 91, 78
  
   // if(this.lifespan<80){
-  // 		stroke( 255,112 +(134-this.lifespan) , 149 + (134-this.lifespan) );
+  //    stroke( 255,112 +(134-this.lifespan) , 149 + (134-this.lifespan) );
 
   // }
   // else if (this.lifespan>80){
   // stroke(255,255 - this.lifespan , 255);
   // }
-  stroke( 255,112 +(134-this.lifespan) , 149 + (134-this.lifespan) );
+  s.stroke( 255,112 +(134-this.lifespan) , 149 + (134-this.lifespan) );
 }
 else{
-  stroke(255, 175, 195);
+  s.stroke(255, 175, 195);
 }
-  strokeWeight(1);
-  push(); 
-  translate(this.position.x,this.position.y);
-  rotate(theta);
-  beginShape();
-  vertex(0, -this.r*10);
-  vertex(-this.r*10, this.r*10);
-  vertex(this.r*10, this.r*10);
-  endShape(CLOSE);
-  pop();
+  s.strokeWeight(1);
+  s.push(); 
+  s.translate(this.position.x,this.position.y);
+  s.rotate(s.theta);
+  s.beginShape();
+  s.vertex(0, -this.r*10);
+  s.vertex(-this.r*10, this.r*10);
+  s.vertex(this.r*10, this.r*10);
+  s.endShape(s.CLOSE);
+  s.pop();
 }
 
 // Wraparound
-Boid.prototype.borders = function() {
-  if (this.position.x < -this.r)  this.position.x = width +this.r;
-  if (this.position.y < -this.r)  this.position.y = height+this.r;
-  if (this.position.x > width +this.r) this.position.x = -this.r;
-  if (this.position.y > height+this.r) this.position.y = -this.r;
+s.Boid.prototype.borders = function() {
+  if (this.position.x < -this.r)  this.position.x = s.width +this.r;
+  if (this.position.y < -this.r)  this.position.y = s.height+this.r;
+  if (this.position.x > s.width +this.r) this.position.x = -this.r;
+  if (this.position.y > s.height+this.r) this.position.y = -this.r;
 }
 
 // Separation
 // Method checks for nearby boids and steers away
-Boid.prototype.separate = function(boids) {
-  var desiredseparation = 100.0;
-  var steer = createVector(0,0);
-  var count = 0;
+s.Boid.prototype.separate = function(boids) {
+  s.desiredseparation = 100.0;
+  s.steer = s.createVector(0,0);
+  s.count = 0;
   // For every boid in the system, check if it's too close
   // for (var i = 0; i < boids.length; i++) {
    
@@ -196,78 +206,121 @@ Boid.prototype.separate = function(boids) {
   //   }
   // }
   // Average -- divide by how many
-  if (count > 0) {
-    steer.div(count);
+  if (s.count > 0) {
+    s.steer.div(s.count);
   }
 
   // As long as the vector is greater than 0
-  if (steer.mag() > 0) {
+  if (s.steer.mag() > 0) {
     // Implement Reynolds: Steering = Desired - Velocity
-    steer.normalize();
-    steer.mult(this.maxspeed);
-    steer.sub(this.velocity);
-    steer.limit(this.maxforce);
+    s.steer.normalize();
+    s.steer.mult(this.maxspeed);
+    s.steer.sub(this.velocity);
+    s.steer.limit(this.maxforce);
   }
-  return steer;
+  return s.steer;
 }
 
 // Alignment
 // For every nearby boid in the system, calculate the average velocity
-Boid.prototype.align = function(boids) {
+s.Boid.prototype.align = function(boids) {
 
-  var neighbordist = 50;
-  var sum = createVector(0,0);
-  var count = 0;
-  for (var i = 0; i < boids.length; i++) {
-    var d = p5.Vector.dist(this.position,boids[i].position);
-    if ((d > 0) && (d < neighbordist)) {
-      sum.add(boids[i].velocity);
-      count++;
+  s.neighbordist = 50;
+  s.sum = s.createVector(0,0);
+  s.count = 0;
+  for (s.i = 0; s.i < boids.length; s.i++) {
+    s.d = s.p5.Vector.dist(this.position,s.boids[s.i].position);
+    if ((s.d > 0) && (s.d < s.neighbordist)) {
+     s.sum.add(boids[s.i].velocity);
+      s.count++;
     }
   }
-  if (count > 0) {
-    sum.div(count);
-    sum.normalize();
-    sum.mult(this.maxspeed);
-    var steer = p5.Vector.sub(sum,this.velocity);
-    steer.limit(this.maxforce);
-    return steer;
+  if (s.count > 0) {
+    s.sum.div(count);
+    s.sum.normalize();
+    s.sum.mult(this.maxspeed);
+    s.steer = s.p5.Vector.sub(s.sum,this.velocity);
+    s.steer.limit(this.maxforce);
+    return s.steer;
   } else {
-    return createVector(0,0);
+    return s.createVector(0,0);
   }
 }
 
 // Cohesion
 // For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
-Boid.prototype.cohesion = function(boids) {
-  var neighbordist = 50;
-  var sum = createVector(0,0);   // Start with empty vector to accumulate all locations
+s.Boid.prototype.cohesion = function(boids) {
+  s.neighbordist = 50;
+  s.sum = s.createVector(0,0);   // Start with empty vector to accumulate all locations
    
-  var count = 0;
-  for (var i = 0; i < boids.length; i++) {
-    var d = p5.Vector.dist(this.position,boids[i].position);
-    if ((d > 0) && (d < neighbordist)) {
-      sum.add(boids[i].position); // Add location
-      count++;
+  s.count = 0;
+  for (s.i = 0; s.i < s.boids.length; s.i++) {
+    s.d = s.p5.Vector.dist(this.position, s.boids[s.i].position);
+    if ((s.d > 0) && (s.d < s.neighbordist)) {
+      s.sum.add(s.boids[s.i].position); // Add location
+      s.count++;
     }
   }
-  if (count > 0) {
-    sum.div(count);
-    return this.seek(sum);  // Steer towards the location
+  if (s.count > 0) {
+    s.sum.div(s.count);
+    return this.seek(s.sum);  // Steer towards the location
   } else {
-    return createVector(0,0);
+    return s.createVector(0,0);
   }
 }
 
-/*This function puts the Canvas in the middle of the screen*/
 
-function centerCanvas() {
-  var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 2;
+
+
+  if (s.frameCount > 600 == 0) {
+    s.rotate(s.PI / 3.0);
+  }
+
+
+  s.resize =  function() {
+      s.windowWidth = window.innerWidth ;
+    s.windowHeight = s.windowWidth * .5504
+    s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
+    console.log(s.windowWidth)
+
+} 
+
+window.onresize = s.resize;
+
 }
 
-/*This function adjusts the canvas so it will resize when the screen size changes*/
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+module.exports= flock;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

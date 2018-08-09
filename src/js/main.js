@@ -2,11 +2,22 @@ const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
 
+
 // Sketch Files- TODO : CLEANUP SKETCHES
+
+
+const laMonster = require('./sketches/laMonster.js');
+
+const fez = require('./sketches/fez.js');
+const flock = require('./sketches/flock.js');
+const pointillism = require('./sketches/pointillism.js');
+const onLoad = require('./sketches/onLoad.js');
+const lerpColor = require('./sketches/lerpColor.js');
+
 const helloP5 = require('./sketches/helloP5.js');
 const waves = require('./sketches/waves.js');
 const linkSketch = require('./sketches/linkSketch.js');
-const wavesRight = require('./sketches/wavesRight.js');
+
 const stars = require('./sketches/stars.js');
 const sketchfile = require('./sketches/circleOnScreen.js');
 const heart = require('./sketches/heart.js');
@@ -22,6 +33,7 @@ const circleExplosion = require('./sketches/circleExplosion.js');
 const punch = require('./sketches/punch.js');
 let scene
 let scene1
+let loadScene
 let canvasScene
 
 
@@ -32,16 +44,23 @@ let videoPreviousTime;
 let videoTimeSeeked = false;
 
 
-var hole =function(){
-  var x;
-  while(x<200){
-    console.log("hole is running");
-  var c=document.getElementById("defaultCanvas0");
-  var ctx=c.getContext("2d");
-  ctx.clearRect(20,20,200,120);
-  x++
+// var hole =function(){
+//   // var x;
+//     console.log("hole is running");
+//     var c=document.getElementById("defaultCanvas0");
+//     var ctx=c.getContext("2d");
+//     ctx.clearRect(300,100,300,700);
+//   // x++
+// }
+
+
+// Probably delete this
+var testFunction=function(){
+  scene1 = new p5(seriouslyCanvas);
 }
-}
+
+
+
 
 p5.Image.prototype.punchOut = function(p5Image) {
  
@@ -81,6 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function on(selector, type, callback) {
     document.querySelector(selector).addEventListener(type, callback, false);
   }
+    scene = new p5(laMonster); 
+// scene1 = new p5(seriouslyCanvas);
+ 
+    
+   // scene1= new p5(seriouslyCanvas)
+
+
 
 
 ///Toggle Language Based on Header Link
@@ -136,6 +162,7 @@ player.on('playing', event => {
     let container = document.querySelector('.container');
     header.classList.add('hide'); 
     container.classList.add('hide'); 
+    scene1 = new p5(seriouslyCanvas);
   });
 
 
@@ -153,18 +180,17 @@ const sceneChange = 44
 
 
 var sceneChangeMap = [
-    {time : .25, sketchfile: punch},
-    {time : 2.75},
-    {time : 6.75, sketchfile: helloP5},
-    {time : 9.5, sketchfile: helloP5},
-    {time : 10.5},
-    {time : 12, sketchfile: heart},
-    {time : 18.5, sketchfile: waves},
-    {time : 25, sketchfile: helloP5 },
-    {time : 34, sketchfile: circleExplosion},
-    {time : 39, sketchfile: parabolicLines},
-    {time : 47.5, sketchfile: helloP5},
-    {time : 54, sketchfile: rainbow},
+    // {time : 3.75},
+      {time : .25},
+    {time : 6.50, sketchfile: rainbow},
+    {time : 11, sketchfile: heart},
+    {time : 18.25, sketchfile: waves},
+    {time : 24.75, sketchfile: pointillism},
+    {time : 33.5, sketchfile: circleExplosion},
+    {time : 39, sketchfile: lerpColor},
+    // {time : 39, sketchfile: parabolicLines},
+    {time : 47, sketchfile: helloP5},
+    {time : 53, sketchfile: rainbow},
     {time : 56.5, sketchfile: circleOnScreen},
     {time : 65, sketchfile: manyDots},
     {time : 81},
@@ -173,8 +199,12 @@ var sceneChangeMap = [
     {time : 83, sketchfile: helloP5},
     {time : 100, sketchfile: linkSketch},
     {time : 110, sketchfile: linkSketch},
-    {time : 120, sketchfile: linkSketch},
+    {time : 120, sketchfile: stars},
     {time : 150, sketchfile: stars},
+      {time : 120, sketchfile: linkSketch},
+    {time : 150, sketchfile: stars},
+       {time : 120, sketchfile: linkSketch},
+    {time : 150, sketchfile: stars}
 ];
 
 // var timing = {time: 0 , sketch:"triangles"; time: 9 , sketch:"circleOnScreen" };
@@ -199,6 +229,7 @@ player.on('seeked', event => {
 });
 
 
+
 //Watch time in video and trigger events
 player.on('timeupdate', event => {
   const instance = event.detail.plyr;
@@ -211,7 +242,6 @@ player.on('timeupdate', event => {
 
     videoCurrentTime=roundTimeInVideo/4;
     console.log("video current time" + videoCurrentTime)
-
 
 
 
@@ -229,39 +259,35 @@ player.on('timeupdate', event => {
   if(videoCurrentTime != videoPreviousTime){
     if(scene){
         scene.frameRate(60); //sets the framerate back to normal after adjusting the time if the video is playing
+     // scene1.frameRate(60); 
       }
 
       videoTimeSeeked =false;
 
-      console.log("videoCurrentTime is different than videoPreviousTime");
+      // console.log("videoCurrentTime is different than videoPreviousTime");
 
       switch (videoCurrentTime) {
-       case sceneChangeMap[0].time:
-         scene = new p5(sceneChangeMap[0].sketchfile); 
-         hole();
-          var c=document.getElementById("defaultCanvas0");
-          var ctx=c.getContext("2d");
-          ctx.clearRect(270,20,200,120);
-
-        break; 
-        case sceneChangeMap[1].time:
-        if(scene){
-          scene.remove();
-        }
+       case 3.75:
        
-        
+        scene.remove();
+       scene1.remove();
+       break; 
+
+        case sceneChangeMap[1].time:
+        scene = new p5(sceneChangeMap[1].sketchfile);  
         break;
 
         case sceneChangeMap[2].time:
-       
-        scene = new p5(sceneChangeMap[2].sketchfile);  
-        
+        scene.remove();
+
+        scene = new p5(sceneChangeMap[2].sketchfile);          
         break; 
 
 
         case sceneChangeMap[3].time:
         scene.remove();
-        scene = new p5(sceneChangeMap[3].sketchfile);  
+        scene = new p5(sceneChangeMap[3].sketchfile); 
+       // scene1= new p5(seriouslyCanvas)
         break;  
 
 

@@ -202,6 +202,10 @@ header.hide{
 		#menu li a:link, #menu li a:visited, .language-link{
 			font-size: 1.1em;
 		}
+		  .language-link {
+
+        height: 1.6rem;
+  }
 	}
 }
 
@@ -239,8 +243,8 @@ header.hide.active{
 
   .language-link {
     width:auto !important;
-        height: 1.5rem;
-
+        height: 1.9rem;
+         min-height: 1.5rem;
   }
 
   .language-link:hover {

@@ -38,17 +38,26 @@ s.x=0;
 
 
 
-
   s.draw = function(){
    // s.image(s.disc+s.x,0,0);
    //  s.image(s.punch,100,0);
-    // s.ellipse(80+s.x,50,100,100)
-    s.image(s.img, 200, 0);
+    s.ellipse(80+s.x,50+s.x,100,100)
+    s.hole();
+    // s.image(s.img, 200, 0);
  // s.ellipse(100,100, 600,600)
  s.x++;
 
 }
 
+
+s.hole =function(){
+  // var x;
+    console.log("hole is running");
+    var c=document.getElementById("defaultCanvas0");
+    var ctx=c.getContext("2d");
+    ctx.clearRect(300,100,300,700);
+  // x++
+}
 
 
 

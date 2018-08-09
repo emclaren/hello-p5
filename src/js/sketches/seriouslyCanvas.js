@@ -36,14 +36,17 @@ var seriouslyCanvas = function(q){
          q.chroma.source =  q.reformat;
          q.target.source = q.chroma;
 
-         q.r = 76/255;
-         q.g = 249/255;
-         q.b = 43/255;
-        // q.r = 255/255;
-        //  q.g = 255/255;
-        //  q.b = 255/255;
-         q.chroma.screen = [q.r,q.g,q.b,1];
+         // q.r = 76/255;
+         // q.g = 249/255;
+         // q.b = 43/255;
 
+         q.r = 0/255;
+         q.g = 0/255;
+         q.b = 55/255;
+         // q.r = 0/255;
+         // q.g = 0/255;
+         // q.b = 0/255;
+         q.chroma.screen = [q.r,q.g,q.b,1];
          q.seriously.go();
 
      }

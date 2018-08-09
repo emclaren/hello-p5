@@ -41,7 +41,7 @@ var fez= function(s){
 
 
   s.setInterval=function(){
-    console.log(grid);
+    console.log(s.grid);
     if(s.grid > 13) {
       s.grid--;
     } else {
@@ -56,6 +56,7 @@ var fez= function(s){
 
  s.setup = function(){
   // s.pixelDensity(1);
+  console.log("fez setup")
   // s.windowWidth = window.innerWidth ;
   // s.windowHeight = s.windowWidth * .5504
   s.canvas= s.createCanvas(450,330);
@@ -72,7 +73,7 @@ var fez= function(s){
 
 
  s.draw = function(){
-
+  console.log("fez draw")
   s.background('#67cdfd');
   
   s.posX = 50;
