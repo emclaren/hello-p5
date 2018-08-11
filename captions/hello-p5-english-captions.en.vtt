@@ -1,41 +1,57 @@
 WEBVTT
 
 1
-00:00:00.500 --> 00:00:03.750
+00:00:00.500 --> 00:00:03.000
 I made this in p5js 
 
 2
-00:00:04.251 --> 00:00:05.750
+00:00:03.251 --> 00:00:04.260
 I made this with p5 dot js 
 
 3
-00:00:06.500 --> 00:00:08.750
+00:00:05.300 --> 00:00:07.230
 I made this with p5js 
 
 4
-00:00:11.000 --> 00:00:14.000
-P5js is a javascript library for making web-based 
+00:00:09.000 --> 00:00:12.250
+P5js is a javascript library 
+
+4
+00:00:12.250 --> 00:00:14.000
+for making web-based 
 
 5
-00:00:14.000 --> 00:00:18.500
-interactive experiences and having fun with code. 
+00:00:14.000 --> 00:00:15.200
+interactive experiences 
+
+5
+00:00:15.200 --> 00:00:16.500
+and having fun with code. 
 
 6
-00:00:18.500 --> 00:00:20.500
-With p5js you can quickly create animations,
+00:00:17.000 --> 00:00:19.000
+With p5js you can quickly create 
+
+6
+00:00:19.000 --> 00:00:22.250
+animations, games, data visualizations,
 
 7
-00:00:20.500 --> 00:00:24.000
-games, data visualizations, generative art, and more
+00:00:22.250 --> 00:00:24.000
+generative art, and more
 
 
 8
-00:00:25.000 --> 00:00:29.000
-P5js is an amazing program to get you started on any animation
+00:00:24.250 --> 00:00:28.000
+P5js is an amazing program to get you started 
 
 9
-00:00:29.000 --> 00:00:33.000
-or cool javascript project that you are wanting to do 
+00:00:28.000 --> 00:00:32.500
+on any animation or cool javascript project
+
+9
+00:00:32.000 --> 00:00:33.500
+that you are trying to do 
 
 10
 00:00:34.000 --> 00:00:36.000
@@ -46,167 +62,180 @@ Programming with p5 is just like using javascript,
 but with built in tools for coding cool stuff.
 
 12
-00:00:39.000 --> 00:00:42.500
+00:00:38.000 --> 00:00:41.000
 It’s designed to be easy for beginners, 
+
  
 13
-00:00:42.500 --> 00:00:44.500
+00:00:41.000 --> 00:00:43.250
 but robust enough for experienced developers 
 
 14
-00:00:44.500 --> 00:00:47.500
+00:00:43.250 --> 00:00:46.000
 designers, dreamers, and inventors. 
 
 15
-00:00:48.000 --> 00:00:49.500
+00:00:46.200 --> 00:00:48.000
 And since browsers speak in javascript, 
 
 16
-00:00:49.500 --> 00:00:51.000
+00:00:48.000 --> 00:00:51.000
 you can share your work with others online. 
 
 17
-00:00:51.000 --> 00:00:53.500
+00:00:51.000 --> 00:00:53.000
 It’s mobile friendly too!
 
 18
-00:00:54.500 --> 00:00:56.500
+00:00:53.750 --> 00:00:55.000
 Your imagination is the limit!
 
 19
-00:00:57.500 --> 00:00:59.500
+00:00:55.750 --> 00:00:58.000
 With just a few lines of code you can make shapes,
 
 20
-00:00:59.500 --> 00:00:61.500
- like this circle, on your screen 
+00:00:58.000 --> 00:00:60.000
+like this circle, on your screen 
 
 12
-00:00:61.500 --> 00:00:63.500
+00:01:00.000 --> 00:01:02.750
 Without p5, writing this out would take a lot more code. 
 
 13  
-00:01:00.500 --> 00:01:01.500
+00:01:03.500 --> 00:01:05.000 
 The fun can multiply from there 
 
 14
-00:01:02.500 --> 00:01:03.500
+00:01:05.000 --> 00:01:07.500
 Bring them to life with movement 
 
 15
-00:01:04.500 --> 00:01:06.500
-or make them interactive. Try clicking or tapping the screen
+00:01:07.500 --> 00:01:08.260
+or make them interactive. 
+
+00:01:07.500 --> 00:01:10.260 
+Try clicking or tapping the screen
 
 
 16 
-00:01:07.500 --> 00:01:15.500
-P5js helps you get your ideas on screen quickly. 
+00:01:10.260 --> 00:01:14.250
+P5js helps you to get your ideas on screen quickly. 
+
 16 
-00:01:07.500 --> 00:01:15.500
-And since you can see the results of your code visually, 
+00:01:14.250 --> 00:01:16.270
+And since you can see the results of your code 
+
 16 
-00:01:07.500 --> 00:01:15.500
+00:01:16.270 --> 00:01:18.070
 it’s a great for learning programming concepts.
 
 16 
-00:01:16.500 --> 00:01:17.500
-its the best
+00:01:19.160 --> 00:01:20.500
+Its the best!
 
 16 
-00:01:16.500 --> 00:01:17.500
+00:01:21.070 --> 00:01:23.000
 you can do anything with p5js
 
 16 
-00:01:16.500 --> 00:01:17.500
+00:01:23.500 --> 00:01:27.000
 p5js gets also used by graphic designers who are not used to code.
 
 16 
-00:01:16.500 --> 00:01:17.500
+00:01:28.210 --> 00:01:30.000
 p5js gets me excited
 
 16 
-00:01:16.500 --> 00:01:17.500
-children's laughter
+00:01:30.500 --> 00:01:32.000
+*children's laughter*
 
 17
-00:01:18.500 --> 00:01:25.500
+00:01:32.500 --> 00:01:35.500
 P5js is free and easy to set up. 
 
 17
-00:01:18.500 --> 00:01:25.500
+00:01:35.500 --> 00:01:39.100
 You can either code right in your browser using the p5 web editor, 
 
 18
-00:01:25.500 --> 00:01:30.500
+00:01:39.100 --> 00:01:30.500
 or download the javascript libraries to your computer.
 
 18
-00:01:25.500 --> 00:01:30.500
+00:01:42.500 --> 00:01:44.000
 No special software required. 
 
 19
-00:01:31.500 --> 00:01:36.500
+00:01:44.500 --> 00:01:47.000
 There are lots of great tutorials to help you get started. 
 
 19
-00:01:31.500 --> 00:01:36.500
+00:01:47.000 --> 00:01:49.070
 But if you get stuck - don’t worry, 
 
 
 19
-00:01:31.500 --> 00:01:36.500
+00:01:49.070--> 00:01:51.500
 you can always ask for help in our community forums 
 21
-00:01:40.500 --> 00:01:45.500
+00:01:52.500--> 00:01:53.250
 P5 is open-source. 
 
 21
-00:01:40.500 --> 00:01:45.500
+00:01:53.250 --> 00:01:55.100
 If you want to contribute to its  development, 
 
 21
-00:01:40.500 --> 00:01:45.500
+00:01:55.100 --> 00:01:56.250
 take a look at our community page.
 
 
 20 
-00:01:37.500 --> 00:01:39.500
+00:01:57.250 --> 00:01:59.000
 We are an inclusive, diverse community, 
 
 20 
-00:01:37.500 --> 00:01:39.500
+00:01:59.000 --> 00:02:00.000
 and we welcome new users. 
 
 23
-00:01:55.500 --> 00:01:56.500
+00:02:00.500 --> 00:02:02.250
 If you want to use p5, its for you!
 
 24
-00:01:57.500 --> 00:01:58.500
-If you want to contribute to p5, we want you too!
+00:02:02.50 --> 00:02:05.200
+If you want to contribute to p5js, you can too!
 
 
 
 22
-00:01:48.500 --> 00:01:55.500
+00:02:06.000 --> 00:02:08.250 
 The p5 community is intentionally inclusive. 
 
+
+22
+00:02:08.250  --> 00:02:10.250 
 If you want to join us, you’re in!
  
 
 21
-00:01:45.500 --> 00:01:47.500
-If you want to join us, then you’re in!
+00:02:11.500 --> 00:02:13.100
+If you want to join us,you’re in!
 
 
 25
-00:01:58.500 --> 00:01:59.500
+00:02:13.200 --> 00:02:16.000
 If you want to join, you’re in!
 
 26
-00:02:00.500 --> 00:02:03.500
-Thanks for checking out p5js. We’re excited to see what you make!
+00:02:16.500 --> 00:02:17.500 
+Thanks for checking out p5js. 
+
+26
+00:02:17.500 --> 00:02:19.000
+We’re excited to see what you make!
 
 27
-00:02:00.500 --> 00:02:03.500
-Laughter
+00:02:19.500 --> 00:02:21.500
+*Laughter*

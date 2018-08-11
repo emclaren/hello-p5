@@ -73,23 +73,27 @@ var fez= function(s){
 
 
  s.draw = function(){
-  console.log("fez draw")
-  s.background('#67cdfd');
+//   
+//   s.background('#67cdfd');
   
   s.posX = 50;
   s.posY = 0;
 
   for (  s.i=0; s.i <= s.pixelArt.length; s.i++ ) {
-
+console.log("fez draw pixel art length");
     s.posX = s.posX + s.w;
 
     if( s.i % s.grid === 0 ) {
       s.posX = 50;
       s.posY = s.posY + s.h;
+      console.log("fez draw grid one");
+
     }
 
     if( s.pixelArt[s.i] > 0 ){
       s.fill(s.colors[s.pixelArt[s.i]] );
+        console.log("fez draw grid one");
+
       s.rect(s.posX, s.posY, s.w, s.h);
     }
   }

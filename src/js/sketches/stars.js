@@ -39,6 +39,7 @@ s.starsNum = 800;
  s.blendMode(s.BLEND);
  // s.background(0);
  s.clear();
+ console.log(s.mouseX)
   s.blendMode(s.ADD);
   for (s.i = 0; s.i < s.starsNum; s.i++) {
     s.stars[s.i].display();

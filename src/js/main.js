@@ -8,6 +8,7 @@ const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source
 
 const laMonster = require('./sketches/laMonster.js');
 
+const logo = require('./sketches/logo.js');
 const fez = require('./sketches/fez.js');
 const flock = require('./sketches/flock.js');
 const pointillism = require('./sketches/pointillism.js');
@@ -35,7 +36,7 @@ let scene
 let scene1
 let loadScene
 let canvasScene
-
+let none
 
 
 // For Keeping track of current video time
@@ -162,7 +163,7 @@ player.on('playing', event => {
     let container = document.querySelector('.container');
     header.classList.add('hide'); 
     container.classList.add('hide'); 
-    scene1 = new p5(seriouslyCanvas);
+  
   });
 
 
@@ -173,26 +174,25 @@ player.on('pause', event => {
 });
 
 const sceneChange = 44
-// const sceneChange =[9.75,10.25,18,25,30, 40,49, 57, 59, 67, 75, 88, 95];
-
-// const sceneChange =[[9.75, 'helloP5'], [10.5, 'heart']];
-// var sceneChangeMap = new Map(sceneChange)
 
 
 var sceneChangeMap = [
-    // {time : 3.75},
-      {time : .25},
-    {time : 6.50, sketchfile: rainbow},
-    {time : 11, sketchfile: heart},
-    {time : 18.25, sketchfile: waves},
-    {time : 24.75, sketchfile: pointillism},
-    {time : 33.5, sketchfile: circleExplosion},
-    {time : 39, sketchfile: lerpColor},
+    {time : .25, sketchfile: none},
+    {time : 3.25, sketchfile: none},
+    {time : 5.25, sketchfile: helloP5},
+    {time : 8.25, sketchfile: logo},
+    {time : 10.75, sketchfile: heart},
+    {time : 17.50, sketchfile: circleExplosion},
+    {time : 24.25, sketchfile: pointillism},
+    {time : 33.25, sketchfile: lerpColor},
+    {time : 38, sketchfile: stars},
     // {time : 39, sketchfile: parabolicLines},
-    {time : 47, sketchfile: helloP5},
+    {time : 46.25, sketchfile: helloP5},
+     {time : 50.25, sketchfile: helloP5},
     {time : 53, sketchfile: rainbow},
     {time : 56.5, sketchfile: circleOnScreen},
     {time : 65, sketchfile: manyDots},
+      {time : 79.25, sketchfile: heart},
     {time : 81},
     {time : 83, sketchfile: helloP5},
     {time : 87, sketchfile: sinLines},
@@ -267,11 +267,15 @@ player.on('timeupdate', event => {
       // console.log("videoCurrentTime is different than videoPreviousTime");
 
       switch (videoCurrentTime) {
-       case 3.75:
-       
-        scene.remove();
-       scene1.remove();
+       case sceneChangeMap[0].time:
+        scene1 = new p5(seriouslyCanvas);
        break; 
+        
+      case sceneChangeMap[1].time:
+        scene.remove(); 
+        scene1.remove();
+       break; 
+
 
         case sceneChangeMap[1].time:
         scene = new p5(sceneChangeMap[1].sketchfile);  

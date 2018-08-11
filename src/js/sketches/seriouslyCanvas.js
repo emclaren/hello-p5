@@ -10,7 +10,7 @@ var seriouslyCanvas = function(q){
     q.setup = function(){
      q.pixelDensity(1);
      console.log("window width"+ q.windowWidth);
-     q.canvas= q.createCanvas(q.windowWidth, q.windowWidth * .5504, 'webgl');
+     q.canvas= q.createCanvas(q.windowWidth, q.windowWidth * .5502, 'webgl');
 
      q.canvas.id('newcanvas');
      q.canvas.parent('video-overlay');

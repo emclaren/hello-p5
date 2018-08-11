@@ -6,7 +6,7 @@ s.img;
 s.smallPoint; s.largePoint;
 
 s.preload=function() {
-  s.img = s.loadImage("../dist/assets/img/p5.png");
+  s.img = s.loadImage("../dist/assets/img/asterisk.png");
 
 }
 
