@@ -1,3 +1,7 @@
+/*********************
+// La Monster Club Sketch 
+// Credit: waiting for release
+*********************/
 
 var logo= function(s){
   s.mapped;
@@ -13,7 +17,7 @@ var logo= function(s){
 
   s.draw = function(){
     
-        s.background(240);
+  s.background(240);
  s.mapped = s.map(Math.abs(s.mouseX),0,s.width,-7,7);
  
  console.log(s.mouseX)
@@ -51,8 +55,6 @@ var logo= function(s){
   //yellow
   s.fill(237, 34, 93);
   s.text('p5*js', s.windowWidth/2-s.mapped, s.windowHeight/1.5 );
-
-
 
   s.pop();
 }

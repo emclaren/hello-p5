@@ -32,24 +32,17 @@ s.clickedplayButton;
 s.preload = function(){
 
 	s.planetlamonster = s.loadImage("../dist/assets/img/sketch_imgs/planet.png");
-
 	s.laMonstersTitle = s.loadImage("../dist/assets/img/sketch_imgs/laMonsters _Title-01.png");
-	
 	s.asteriod1 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
 	s.asteriod2 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
 	s.asteriod3 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
 	s.asteriod4 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
-
-
 	s.star1 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star.png");
 	s.star2 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png");
 	s.star3 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png"); ///fix this!
 	s.starBackground = s.loadImage("../dist/assets/img/sketch_imgs/stars-background.png");
-	
 	s.playButton = s.loadImage("../dist/assets/img/sketch_imgs/worldButton.png");
 	s.clickedplayButton = s.loadImage("../dist/assets/img/sketch_imgs/clickedworldButton.png");
-	
-
 }
 
 
@@ -70,22 +63,17 @@ s.setup = function(){
 s.draw = function(){
 
 	s.background('#000032');
- //bollean that triggers use of functions
- if (s.welcomeScreen) {
-
-	 //run astreiods drawing
-	 s.asteriods();
-	 //draw tile 
-	 s.title(); 
-	 //drawing stars
-	 s.stars();
-	 //Run planet function
-	 s.planet();
-	 
-	 // s.play();
-	}
-
-
+	 //boolean that triggers use of functions
+	 if (s.welcomeScreen) {
+		 //run astreiods drawing
+		 s.asteriods();
+		 //draw tile 
+		 s.title(); 
+		 //drawing stars
+		 s.stars();
+		 //Run planet function
+		 s.planet();
+		}
 }
 
 
@@ -106,7 +94,7 @@ s.planet=function() {
 	
    //Animations for Planet
   //Adjusting planetX position over time
-  if (s.planetX > s.windowWidth / 2) {
+  if (s.planetX > s.windowWidth / 3.5) {
 
   	if (s.planetX > 900) {
   		s.planetX -= 6.23;
@@ -382,8 +370,8 @@ s.pop();
 
 //Variables for editing Title
 //variables that position the title on canvas
-s.titleX = 500;
-s.titleY = 150;
+s.titleX = 100;
+s.titleY = 100;
 //variables that title the planet
 s.titleScale = 0.005;
 //variable that title the planet
@@ -393,7 +381,7 @@ s.title= function(){
 
 	
  //Adjusting title Scale over time
- if (s.titleScale < 0.25) {
+ if (s.titleScale < .8) {
 
  	if (s.titleScale < 0.10) {
  		s.titleScale += 0.00766;
@@ -410,15 +398,15 @@ s.title= function(){
 
  }	
 
-
 	//tiltle graphic
 	s.push()
-
 	s.translate(s.titleX, s.titleY);
 	s.rotate(s.radians(s.titleRotate));
 	s.scale(s.titleScale);
 
-	s.imageMode(s.CENTER);
+s.imageMode(s.CORNERS);
+  // s.image(img, 50, 50, 80, 80); 
+	// s.imageMode(s.CENTER);
 	s.image(s.laMonstersTitle, 0, 0);
 
 	s.pop();

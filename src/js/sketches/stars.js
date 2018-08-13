@@ -5,18 +5,18 @@
 
 var stars= function(s){
 
-s.stars = [];
-s.starsNum = 800;
+  s.stars = [];
+  s.starsNum = 800;
 // s.colorFill="#000015";
 
-  s.setup = function(){
-    s.pixelDensity(1);
-    s.windowWidth = window.innerWidth ;
-    s.windowHeight = window.innerWidth * .562
-    s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
-    s.canvas.parent('video-overlay');
-       s.noStroke();
-       s.frameRate(60)
+s.setup = function(){
+  s.pixelDensity(1);
+  s.windowWidth = window.innerWidth ;
+  s.windowHeight = window.innerWidth * .562
+  s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
+  s.canvas.parent('video-overlay');
+  s.noStroke();
+  s.frameRate(60)
 
   for (s.i = 0; s.i < s.starsNum; s.i++) {
     if (s.i < s.starsNum / 3) {
@@ -28,23 +28,22 @@ s.starsNum = 800;
     }
     s.stars.push(new s.Star(s.starColor));
   }
- 
-  }
+
+}
 
 
 
 
 
- s.draw = function(){
+s.draw = function(){
  s.blendMode(s.BLEND);
- // s.background(0);
  s.clear();
- console.log(s.mouseX)
-  s.blendMode(s.ADD);
-  for (s.i = 0; s.i < s.starsNum; s.i++) {
-    s.stars[s.i].display();
-  }
-  s.hole();
+ s.blendMode(s.ADD);
+ s.variableSpeed=s.map(s.mouseX, 0, s.windowWidth, 0, 1.5)
+ for (s.i = 0; s.i < s.starsNum; s.i++) {
+  s.stars[s.i].display();
+}
+s.cutout();
 }
 
 s.Star=function(tmpColorName) {
@@ -56,21 +55,21 @@ s.Star=function(tmpColorName) {
   this.colorName = tmpColorName;
   switch (this.colorName) {
     case "cyan":
-     this.color = s.color("#00ffff15");
+    this.color = s.color("#00ffff15");
 
-      this.speed = 1;
-      break;
+    this.speed = 1;
+    break;
     case "magenta":
-       this.color = s.color("#ff00ff15");
-      this.speed = 2;
-      break;
+    this.color = s.color("#ff00ff15");
+    this.speed = 2;
+    break;
     case "green":
-       this.color = s.color("#ffff0015");
-      this.speed = 0.25;
-      break;
-      default:
-       s.colorFill = s.color("#000000");
-      this.speed = 0.25;
+    this.color = s.color("#ffff0015");
+    this.speed = 0.25;
+    break;
+    default:
+    s.colorFill = s.color("#000000");
+    this.speed = 0.25;
   }
 
   this.display = function() {
@@ -80,35 +79,23 @@ s.Star=function(tmpColorName) {
     s.rotate(s.radians(this.theta));
     s.ellipse(this.x, this.y, this.r, this.r);
     s.pop();
-    this.theta += this.speed;
+    this.theta += this.speed+s.variableSpeed;
   }
 }
 
-
-s.hole =function(){
-  // var x;
-    console.log("hole is running");
-    var c=document.getElementById("defaultCanvas0");
-    var ctx=c.getContext("2d");
-
-
-    ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
-  // x++
+s.cutout =function(){
+  var c=document.getElementById("defaultCanvas0");
+  var ctx=c.getContext("2d");
+  ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
 }
 
-
-  s.resize =  function() {
-    s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .5504
-    s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-    console.log(s.windowWidth)
-
+window.onresize =  function() {
+  s.windowWidth = window.innerWidth ;
+  s.windowHeight = s.windowWidth * .562
+  s.resizeCanvas(s.windowWidth, s.windowHeight);
 } 
 
-window.onresize = s.resize;
-
 }
-
 module.exports= stars;
 
 

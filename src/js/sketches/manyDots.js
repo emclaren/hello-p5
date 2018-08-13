@@ -1,3 +1,7 @@
+/*********************
+//Many dots that pop up on the screen
+*********************/
+
 var manyDots = function(t){
     t.xpos=100;
     t.ypos=100;
@@ -6,22 +10,26 @@ var manyDots = function(t){
     t.animate=false;
     t.setup = function(){
 
-         t.pixelDensity(1);
-    t.windowWidth = window.innerWidth ;
-    t.windowHeight = t.windowWidth * .5504
-    t.canvas= t.createCanvas(t.windowWidth, t.windowHeight);
-    t.canvas.parent('video-overlay');
+       t.pixelDensity(1);
+       t.windowWidth = window.innerWidth ;
+       t.windowHeight = t.windowWidth * .5504
+       t.canvas= t.createCanvas(t.windowWidth, t.windowHeight);
+       t.canvas.parent('video-overlay');
 
 
-        t.background(51)
-      
-        t.fill(255,0,133);
-        t.addDot();
-    }
-    t.draw = function(){
-        t.clear();
-        t.strokeWeight(3);  
-        t.stroke(255,255,255);
+       t.background(51)
+
+       t.fill(255,0,133);
+       t.addDot();
+   }
+   t.draw = function(){
+    t.clear();
+    t.color1=t.map(t.mouseX, 0, t.windowWidth, 0, 255);
+    t.color2= t.map(t.mouseY, 0, t.windowWidth, 0, 255);
+
+    t.fill(t.color1,t.color2,133);
+    t.strokeWeight(3);  
+    t.stroke(255,255,255);
         // t.ellipse(t.xpos+100, t.ypos+100, 50, 50);
         t.textSize(32);
         for(var i = 0; i<t.dot.length; i++){
@@ -35,6 +43,7 @@ var manyDots = function(t){
                 t.dot[i].move();
             }
         }
+        t.cutout();
     }
     t.Dot = function(xcoord){
         this.x = xcoord;
@@ -66,20 +75,23 @@ var manyDots = function(t){
     t.speedUp= function(){
         t.animate=true;
     }
-    t.mousePressed= function(){
-        t.fill(t.random(255), t.random(255), t.random(255));
-    }
 
 
 
-  t.resize =  function() {
+    t.resize =  function() {
       t.windowWidth = window.innerWidth ;
-    t.windowHeight = t.windowWidth * .5504
-    t.resizeCanvas(t.windowWidth, t.windowWidth * .5504);
-   
-} 
+      t.windowHeight = t.windowWidth * .5504
+      t.resizeCanvas(t.windowWidth, t.windowWidth * .5504);
 
-window.onresize = t.resize;
+  } 
+  t.cutout =function(){
+  var c=document.getElementById("defaultCanvas0");
+  var ctx=c.getContext("2d");
+  ctx.clearRect((t.width/2)- ((t.windowWidth/3.2)/2),0,  t.windowWidth/3.2 ,t.windowHeight);
+}
+
+
+  window.onresize = t.resize;
 
 }
 

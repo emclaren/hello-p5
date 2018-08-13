@@ -16,7 +16,7 @@ s.i = 0;
 
 
   s.draw = function(){
-  // s.background(0);
+    s.rotate(s.PI/2 ) 
   s.clear();
   s.fill(255);
 

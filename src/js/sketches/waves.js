@@ -31,7 +31,7 @@ s.waves = [];
   }
 
 
-s.hole();
+s.cutout();
 }
 
 
@@ -72,25 +72,18 @@ s.Wave = function(){
 }
 
 
-s.hole =function(){
-  // var x;
-    console.log("hole is running");
+s.cutout =function(){
     var c=document.getElementById("defaultCanvas0");
     var ctx=c.getContext("2d");
-
-
     ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
-  // x++
 }
-  s.resize =  function() {
+window.onresize =  function() {
       s.windowWidth = window.innerWidth ;
     s.windowHeight = s.windowWidth * .5504
     s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-    console.log(s.windowWidth)
-
 } 
 
-window.onresize = s.resize;
+
 
 }
 

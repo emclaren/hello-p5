@@ -22,6 +22,7 @@ let languageArray
 
 // Sketch Files- TODO : CLEANUP SKETCHES
 const laMonster = require('./sketches/laMonster.js');
+const leaves = require('./sketches/leaves.js');
 const logo = require('./sketches/logo.js');
 const heart = require('./sketches/heart.js');
 const fez = require('./sketches/fez.js');
@@ -39,14 +40,14 @@ const sketchfile = require('./sketches/circleOnScreen.js');
 
 const circleOnScreen = require('./sketches/circleOnScreen.js');
 const p5isAJavascriptLibrary = require('./sketches/p5isAJavascriptLibrary.js');
-const triangles = require('./sketches/triangles.js');
+
 const seriouslyCanvas = require('./sketches/seriouslyCanvas.js');
 const rainbow = require('./sketches/rainbow.js');
 const manyDots = require('./sketches/manyDots.js');
 const sinLines = require('./sketches/sinLines.js');
 const parabolicLines = require('./sketches/parabolicLines.js');
 const circleExplosion = require('./sketches/circleExplosion.js');
-const punch = require('./sketches/punch.js');
+
 let scene
 let seriouslyScene
 let loadScene
@@ -140,35 +141,28 @@ player.on('pause', event => {
 
 
 var sceneChangeMap = [
-
-{time : 3.25, sketchfile: none},
-{time : 5.25, sketchfile: helloP5},
-{time : 8.25, sketchfile: logo},
-{time : 9.75, sketchfile: none},
-{time : 10.75, sketchfile: heart},
-{time : 17.50, sketchfile: circleExplosion},
-{time : 24.25, sketchfile: pointillism},
-{time : 33.00, sketchfile: none},
-{time : 33.25, sketchfile: lerpColor},
-{time : 38, sketchfile: stars},
-{time : 46.25, sketchfile: helloP5},
-{time : 50.25, sketchfile: helloP5},
-{time : 53, sketchfile: rainbow},
-{time : 56.5, sketchfile: circleOnScreen},
-{time : 65, sketchfile: manyDots},
-{time : 79.25, sketchfile: heart},
-{time : 81},
-{time : 83, sketchfile: helloP5},
-{time : 87, sketchfile: sinLines},
-{time : 83, sketchfile: helloP5},
-{time : 100, sketchfile: linkSketch},
-{time : 110, sketchfile: linkSketch},
-{time : 120, sketchfile: stars},
-{time : 150, sketchfile: stars},
-{time : 120, sketchfile: linkSketch},
-{time : 150, sketchfile: stars},
-{time : 120, sketchfile: linkSketch},
-{time : 150, sketchfile: stars}
+{id: 0, time : 3.25, sketchfile: none},
+{id: 1, time : 5.50, sketchfile: helloP5},
+{id: 2, time : 8.25, sketchfile: logo},
+{id: 3, time : 9.75, sketchfile: none},
+{id: 4, time : 10.75, sketchfile: heart},
+{id: 5, time : 17.50, sketchfile: leaves},
+{id: 6, time : 24.25, sketchfile: pointillism},
+{id: 7, time : 33.00, sketchfile: none},
+{id: 8, time : 33.25, sketchfile: lerpColor},
+{id: 9, time : 38, sketchfile: stars},
+{id: 10, time : 46.25, sketchfile: circleExplosion},
+{id: 11, time : 50.50, sketchfile: none},
+{id: 12, time : 53.25, sketchfile: rainbow},
+{id: 13, time : 56.00, sketchfile: none},
+{id: 14, time : 56.5, sketchfile: circleOnScreen},
+{id: 15, time : 65, sketchfile: manyDots},
+{id: 16, time : 77, sketchfile: none},
+{id: 17, time : 104.5, sketchfile:waves},
+{id: 17, time : 109.75, sketchfile:none},
+{id: 18, time : 83.25, sketchfile: sinLines},
+{id: 19, time : 88, sketchfile: none},
+{id: 21, time : 100, sketchfile: linkSketch},
 ];
 
 
@@ -181,11 +175,11 @@ player.on('seeking', event => {
   if(scene){
        scene.remove(); //remove old p5 sketch when user selects a different time in the video
      }
-    if(seriouslyScene){
+     if(seriouslyScene){
       seriouslyScene.remove();
     }
-     videoTimeSeeked  = true;
-    });
+    videoTimeSeeked  = true;
+  });
 
 player.on('seeked', event => {
   scene.frameRate(0); //pause the p5 sketch when the user selects a time in the video
@@ -202,7 +196,6 @@ player.on('timeupdate', event => {
     var timeInVideo = instance.currentTime 
     var doubleTimeInVideo = timeInVideo *4
     var roundTimeInVideo = Math.round(doubleTimeInVideo)
-
     videoCurrentTime=roundTimeInVideo/4;
     console.log("video current time" + videoCurrentTime)
 
@@ -235,80 +228,76 @@ player.on('timeupdate', event => {
      case sceneChangeMap[0].time:
      scene.remove(); 
      seriouslyScene.remove();
-
      break; 
-
-
-
-
      case sceneChangeMap[1].time:
      scene = new p5(sceneChangeMap[1].sketchfile);  
      break;
 
      case sceneChangeMap[2].time:
      scene.remove();
-
      scene = new p5(sceneChangeMap[2].sketchfile);          
      break; 
 
 
      case sceneChangeMap[3].time:
      scene.remove();
-     // scene = new p5(sceneChangeMap[3].sketchfile); 
-       // scene1= new p5(seriouslyCanvas)
-       break;  
+     break;  
 
 
-       case sceneChangeMap[4].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[4].sketchfile);  
+     case sceneChangeMap[4].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[4].sketchfile);  
 
-       break; 
+     break; 
 
-       case sceneChangeMap[5].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[5].sketchfile);  
-       break; 
+     case sceneChangeMap[5].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[5].sketchfile);  
+     break; 
 
-       case sceneChangeMap[6].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[6].sketchfile);  
-       break; 
+     case sceneChangeMap[6].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[6].sketchfile);  
+     break; 
 
-       case sceneChangeMap[7].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[7].sketchfile);  
-       break; 
+     case sceneChangeMap[7].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[7].sketchfile);  
+     break; 
 
+     case sceneChangeMap[8].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[8].sketchfile);  
+     break; 
 
-       case sceneChangeMap[8].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[8].sketchfile);  
-       break; 
-       case sceneChangeMap[9].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[9].sketchfile);  
-       break; 
-       case sceneChangeMap[10].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[10].sketchfile);  
-       break; 
-       case sceneChangeMap[11].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[11].sketchfile);  
-       break; 
-       case sceneChangeMap[12].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[12].sketchfile);  
-       break; 
-       case sceneChangeMap[13].time:
-       scene.remove();
-       scene = new p5(sceneChangeMap[13].sketchfile);  
-       break; 
+     case sceneChangeMap[9].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[9].sketchfile);  
+     break; 
 
-       case sceneChangeMap[14].time:
-       scene.remove();
-        // scene = new p5(sceneChangeMap[13].sketchfile);  
+     case sceneChangeMap[10].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[10].sketchfile);  
+     break; 
+
+     case sceneChangeMap[11].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[11].sketchfile);  
+     break; 
+
+     case sceneChangeMap[12].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[12].sketchfile);  
+     break; 
+
+     case sceneChangeMap[13].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[13].sketchfile);  
+     break; 
+
+     case sceneChangeMap[14].time:
+     scene.remove();
+        scene = new p5(sceneChangeMap[14].sketchfile);  
         break; 
 
 
@@ -337,33 +326,15 @@ player.on('timeupdate', event => {
         scene.remove();
         scene = new p5(sceneChangeMap[19].sketchfile);  
         break; 
+
         case sceneChangeMap[20].time:
         scene.remove();
         scene = new p5(sceneChangeMap[20].sketchfile);  
         break; 
 
 
-        case sceneChangeMap[21].time:
-        scene.remove();
-        scene = new p5(sceneChangeMap[21].sketchfile);  
-        break; 
 
 
-
-
-
-
-        // case 61:
-        // scene.remove();     
-        // scene = new p5(sinLines);    
-
-        // break
-        // case 64:
-        // scene.remove();  
-        //  scene = new p5(parabolicLines);    
-        //         // scene = new p5(sinLines);    
-
-        //         break
 
 
 

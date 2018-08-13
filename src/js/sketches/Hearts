@@ -1,0 +1,46 @@
+Hearts
+
+
+
+var R;
+var x;
+var y;
+var N = 0.0;
+var fromColor;
+var toColor;
+var val = 20;
+
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    background(255);
+
+    fromColor = color(255, 255, 255);
+    toColor = color(200, 0, 0);
+
+    strokeJoin(ROUND);
+    noStroke();
+}
+
+function draw() {
+    background(255);
+
+    push();
+    translate(width / 2, height / 2);
+    for (var i = val; i > 0; i--) {
+        beginShape();
+        fill(lerpColor(fromColor, toColor, 1 - i / val));
+        for (var theta = 360; theta > 0; theta -= 2) {
+            R = i + i * noise(theta * i + N);
+
+            x = R * (16 * sin(radians(theta)) * sin(radians(theta)) * sin(radians(theta)));
+            y = (-1) * R * (13 * cos(radians(theta)) - 5 * cos(radians(2 * theta)) -
+                2 * cos(radians(3 * theta)) - cos(radians(4 * theta)));
+
+            curveVertex(x, y);
+        }
+        endShape(CLOSE);
+    }
+    pop();
+
+    N += 0.01;
+}
