@@ -1,5 +1,4 @@
 node_modules
 npm-debug.log
 .sass-cache
-*.webm
 *.DS_Store

@@ -7,7 +7,7 @@ var lerpColor= function(s){
 	s.setup = function(){
 		s.pixelDensity(1);
 		s.windowWidth = window.innerWidth ;
-		s.windowHeight = s.windowWidth * .5504
+		s.windowHeight = s.windowWidth * .562
 		s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
 		s.canvas.parent('video-overlay');
   // s.frameRate(20);

@@ -31,7 +31,8 @@ s.preload=function() {
 
 
 s.draw=function() {
-  s.translate(80,100);
+  s.translate(s.windowHeight*.15, s.windowHeight*.15);
+  s.scale(s.windowWidth/1280); 
   // s.ellipse(50,50,50,50)
   for (s.i =0; s.i<20; s.i++){
   s.pointillize = s.map(s.mouseX, 0, s.width, s.smallPoint, s.largePoint);

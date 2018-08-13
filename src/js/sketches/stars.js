@@ -12,7 +12,7 @@ s.starsNum = 800;
   s.setup = function(){
     s.pixelDensity(1);
     s.windowWidth = window.innerWidth ;
-    s.windowHeight = window.innerWidth * .5504
+    s.windowHeight = window.innerWidth * .562
     s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
        s.noStroke();

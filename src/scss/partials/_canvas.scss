@@ -1,13 +1,25 @@
 
+/*********************
+CANVAS ELEMENT & VIDEO STYLING
+*********************/
+
+//P5 Canvas Overlay
+canvas{
+	position: absolute; 
+	top: 0px; 
+	left: 0px;
+}
+
+//Ensure seriously canvas lies above P5 sketches.
+#videocanvas{
+	z-index:400;
+}
+
 //Video Styling 
 .container {
 	//to position in the middle of screen on mobile
-	// position: fixed;
 	position:relative;
-	// top: 50%;
-	// left: 50%;
 	width:100%;
-	// padding-top:3vh;// causes problems with canvas positioning
 	@include breakpoint(xl) {
 		position:relative;
 		margin: 0 auto;
@@ -18,16 +30,12 @@
 		left:0;
 		transform: translate(0,-50%);
 	}
-
 }
 .container.hide{
-		@include breakpoint(lg) {
-	transition: all .5s ease;
-	// top: 50%;
-	// transform: translate(0,-50%);
+	@include breakpoint(lg) {
+		transition: all .5s ease;
+	}
 }
-}
-
 
 .plyr {
 	max-height:100vh;
@@ -37,19 +45,14 @@ video{
 	width:100%;
 }
 
+
+// Change color of plyr controlicons
 .plyr__control--overlaid{
 	background: $brand-color-main;
 	z-index:500;
 }
 .plyr__control--overlaid:hover{
 	background: $brand-color-hover;
-
-}
-.plyr__controls {
-	z-index:500 !important;
-}
-.plyr__menu__container{
-	z-index:500;
 }
 
 .plyr__video-wrapper{
@@ -62,42 +65,46 @@ video{
 .plyr__poster{
 	background: $brand-color-main;
 }
+
+.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
+	background:$brand-color-main;
+}
+
+
+// Ensure plyr controls load above p5 canvas overlay
+.plyr__controls {
+	z-index:500 !important;
+}
+.plyr__menu__container{
+	z-index:500;
+}
+
+
+
+// Ensure the captions are above the canvas element
+.plyr__captions{
+	z-index:2147483647;
+}
+
+
+//Prevent two buffer bars from loading
+.plyr__progress__buffer{
+	display:none;  
+}
+
+//Prevent unnecessary controls from loading
+.plyr [data-plyr=fullscreen], .plyr [data-plyr=settings], .plyr [data-plyr=pip], .plyr [data-plyr=airplay]   {
+	display:none;
+
+}
+
 .plyr--stopped .plyr__poster {
 	opacity: 0;
 }
 
-.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
-	background:$brand-color-main;
-
-}
-
-.plyr:-webkit-full-screen{
-	z-index:-2 !important
-}
 
 
 
 
 
-
-
-//Styling for the P5 overlay.
-
-canvas{
-	// z-index: 2147483647; // 300 make 2147483647 for full screen
-	position: absolute; 
-	top: 0px; 
-	left: 0px;
-}
-#defaultCanvas1{
-	// left:67%;
-	left:66%
-
-}
-
-
-
-.plyr__captions{
-	z-index:2147483647;
-}
 

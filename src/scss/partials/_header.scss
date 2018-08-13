@@ -1,61 +1,44 @@
-// Header Styling
+
+/*********************
+HEADER STYLING
+*********************/
 
 header{	
 	display:block;
-	// position:fixed;
 	width:100%;
-	background-color:white;
+	background-color:$background-color-main;
 	justify-content:space-around;
 	align-items:center;
 	text-align:center;
 	top:0;
 	transition: all .5s ease;
-	z-index:100;
-
+	z-index:1000;
 	@include breakpoint(md) {
-
 		display:flex;
-		height:60px;
+		height:5rem;
 		text-align:left;	
 		position:absolute;
 	}
-	@include breakpoint(md) {
-		display:flex;
-		height:80px;
-		text-align:left;
-	}
-
-
 	.logo{
 		max-width: 6rem;
 		margin:1.5rem auto;
 		display:flex;
 		@include breakpoint(sm) {
-			max-width: 90px;
+			max-width: 5.63rem;
 		}
-
-
 		@include breakpoint(md) {
-
 			max-width:4rem;
 			margin:1rem auto;
 		}
-		@include breakpoint(md) {
-			
-			max-width: 4rem;
-			margin:1rem auto;
-		}
 		@include breakpoint(lg) {
-			
 			max-width: 5rem;
-
 		}
-
 	}
 
 	nav{
 		display:flex;
 		height:100%;
+
 		ul{
 			list-style: none;
 			margin: 0rem auto 1rem auto;
@@ -68,21 +51,11 @@ header{
 			@include breakpoint(sm) {
 				margin:1rem auto;
 			}
-
-			 @include breakpoint(md){
-
-				max-width:100%;	
-				display:flex;
-				align-items:center;
-			}
 			@include breakpoint(md){
 				max-width:100%;	
 				display:flex;
 				align-items:center;
 			}
-
-
-
 		}
 
 		li{
@@ -91,45 +64,14 @@ header{
 			display: inline-block;
 			color: $brand-color-main;
 			margin:0 .2rem 1rem;
-
-			@include breakpoint(md) {
-
-				margin:0 .2rem;
-
-			}
 			@include breakpoint(md) {
 				margin:0 .3rem;
-
-			}
-			.language-dropdown{
-				color: #242424;
-			}
-			a, a:link, a:visited, &.language-dropdown {
-				color: $brand-color-main;
-				text-decoration: none;
-				user-select: none;
-				font-size: 1rem;
-				@include breakpoint(lg) {
-					font-size:1.3rem;
-
-				}
 			}
 
-			a:active, a:hover, a:focus,.language-link:hover, .language-link:active, .language-link:focus {
-				outline:0;
-				text-decoration:none;
-				padding-bottom:.11em;
-				border-bottom:.11em dashed;
-				border-bottom-color:$brand-color-main;
-			}
+			//nth-child classes style nav menu into grid on mobile 
 			&:nth-child(odd){
 				width:5.2rem;
 				@include breakpoint(md) {
-					width:auto;
-				}
-
-				 @include breakpoint(md){
-
 					width:auto;
 				}
 				&:nth-child(3n+1) {
@@ -139,118 +81,135 @@ header{
 					text-align:right;
 				}
 			}
-
-			&.language-dropdown:active, &.language-dropdown:hover, &.language-dropdown:focus{
-				cursor:pointer;
-
-			}
-			.language-link{
+			// Used to style ES/EN/FR in nav as though they are a link, required because they are not <a> elements
+			&.language-link{
 				margin:.3rem;
 				font-size:1rem;
 				display:block;
+				width:auto;
+				@include breakpoint(md) {
+					height:1.5rem;
+				}
 				@include breakpoint(lg) {
-				font-size:1.3rem;
+					font-size:1.3rem;
+					width:auto !important;
+					height: 1.9rem;
+					min-height: 1.5rem;
+				}
 
+				&:hover {
+					width:auto !important;
+					cursor:pointer;
+				}
 			}
-			}
-
 
 		}
 
+		.language-list-container{
+			width:100% !important;
+			margin:0 auto;
+			@include breakpoint(md) {
+				width:auto !important;
+			}	
+		}
+
+		.language-list{
+			display:flex;
+			flex-wrap:wrap;
+			width:12.5rem;
+			text-align:center;
+			margin:0 auto;
+			@include breakpoint(md) {
+				width:7.5rem!important;
+			}	
+			@include breakpoint(lg) {
+				width:8.75rem!important;
+
+			}
+		}
+
+		//Hide-On-Mobile class is used to hide some asterisk separators from the header
 		.hide-on-mobile{
 			display:none;
 			@include breakpoint(md) {
 				display:inline-block;
-
 			}
 		}
 
-	}
-	#navigation-es{
-		display:none;
-	}
+		a, a:link, a:visited {
+			color: $brand-color-main;
+			text-decoration: none;
+			user-select: none;
+			font-size: 1rem;
 
 
-}
+			@include breakpoint(lg) {
+				font-size:1.3rem;
 
-
-
-///The .hide class is added to the header when the play button is clicked, this makes the header shrink on play 
-
-header.hide{
-
-
-	@include breakpoint(md){
-
-		height:30px;
-		transition: all .5s ease;
-		.logo{
-			max-width: 3rem;
-			transition: all .5s ease;
-			margin:0 auto;
-
-			
+			}
 		}
-
+		a:active, a:hover, a:focus,.language-link:hover, .language-link:active, .language-link:focus {
+			outline:0;
+			text-decoration:none;
+			padding-bottom:.11em;
+			border-bottom:.11em dashed;
+			border-bottom-color:$brand-color-main;
+		}
 	}
-	@include breakpoint(xl) {
-		height:50px;
-		.logo{
-			max-width: 4rem;
+
+
+	///The .hide class is added to the header when the video starts playing, it makes the header shrink on play 
+	&.hide{
+		@include breakpoint(md){
+			height:2.5rem;
 			transition: all .5s ease;
 		}
+		@include breakpoint(xl) {
+			height:3.13rem;
+
+		}
+		.logo{
+			@include breakpoint(md){
+				max-width: 3rem;
+				transition: all .5s ease;
+				margin:0 auto;		
+
+			}
+			@include breakpoint(xl) {
+
+				max-width: 4rem;
+				transition: all .5s ease;
+
+			}	
+		}
+
 		#menu li a:link, #menu li a:visited, .language-link{
-			font-size: 1.1em;
+			@include breakpoint(md){
+				font-size: 1.1em;
+				transition: all .5s ease;
+			}
 		}
-		  .language-link {
+		.language-link {
+			@include breakpoint(xl) {
+				height: 1.6rem !important;
+				transition: all .5s ease;
+			}
 
-        height: 1.6rem;
-  }
+		}
 	}
 }
 
-header.hide.active{
-	@include breakpoint(xl) {
-		top:0;
+
+// Header text doesn't fit properly in french, this styling reduced french font size so the text fits
+.french{
+	a, a:link, a:visited, .language-link{
+		font-size: .8rem;
+		@include breakpoint(md) {
+			font-size:.9rem;
+		}
+		@include breakpoint(lg) {
+			font-size:1.3rem;
+		}
 	}
 }
-
-
-  .language-list-container{
-    width:100% !important;
-    margin:0 auto;
-    @include breakpoint(md) {
-    	width:auto !important;
-    }	
-  }
-
-
-  .language-list{
-    display:flex;
-    flex-wrap:wrap;
-    width:200px;
-    text-align:center;
-    margin:0 auto;
-        @include breakpoint(md) {
-    	// display:inline-block;
-    	width:120px !important
-    }	
-            @include breakpoint(lg) {
-    	// display:inline-block;
-    	width:140px !important
-    }	
-  }
-
-  .language-link {
-    width:auto !important;
-        height: 1.9rem;
-         min-height: 1.5rem;
-  }
-
-  .language-link:hover {
-    width:auto !important;
-    cursor:pointer;
-  }
-
-
 

@@ -1,3 +1,7 @@
+/*********************
+DEFAULT PLYR STYLING
+*********************/
+
 @keyframes plyr-progress{
     to{
         background-position:25px 0
@@ -1147,12 +1151,3 @@
 }
 
 
-//This is a hack because this stopped hiding when I started using the NPM version of plyr with browserify, two progress bars started loarding. I think because the polyfills weren't working properly. 
-.plyr__progress__buffer{
-    display:none;  
-}
-
-.plyr [data-plyr=fullscreen], .plyr [data-plyr=settings], .plyr [data-plyr=pip], .plyr [data-plyr=airplay]   {
-    display:none;
-  
-}

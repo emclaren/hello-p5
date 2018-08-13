@@ -7,8 +7,9 @@
 	<link rel="icon" href="favicon.ico">
 	<link rel="stylesheet" href="dist/css/main.css">
 </head>
-<body>
 
+
+<body>
 
   <!-- MAIN HEADER-->
   <header class="header">
@@ -44,6 +45,7 @@
 
 
 
+
   <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
   <div class="container">
 
@@ -55,13 +57,16 @@
       <!-- CAPTION FILES -->
       <!-- To do: validate caption files once video is complete- see plyr website for link -->
       <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en" default>
-      <track kind="captions" label="French" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es">
-      <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr">
+      <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es">
+      <track kind="captions" label="French" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr">
     </video>
 
 
     <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
     <div id="video-overlay" class="video-overlay"> </div>
+
+    <!-- Empty p5_loading div to prevent the the text: "Loading..." from appearing during preload -->
+    <div id="p5_loading" class="loadingclass"></div>
   </div>
 
 

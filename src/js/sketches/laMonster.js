@@ -1,3 +1,8 @@
+/*********************
+// La Monster Club Sketch 
+// Credit: waiting for release
+*********************/
+
 var laMonster= function(s){
 
 s.planetlamonster;
@@ -53,7 +58,7 @@ s.preload = function(){
 s.setup = function(){
 	s.pixelDensity(1);
 	s.windowWidth = window.innerWidth ;
-	s.windowHeight = s.windowWidth * .5504
+	s.windowHeight = s.windowWidth * .562
 	s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
 	s.canvas.parent('video-overlay');
 	s.background('#000032');
@@ -334,7 +339,6 @@ s.stars=function(){
 
 
 //background stars
-s.imageMode(s.LEFT);
 s.image(s.starBackground, 0, 0);
 
 //stars placments
@@ -419,20 +423,14 @@ s.title= function(){
 
 	s.pop();
 
-	
 }
 
 
-
-s.resize =  function() {
-	s.windowWidth = window.innerWidth ;
-	s.windowHeight = s.windowWidth * .5504
-	s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-	console.log(s.windowWidth)
-
+window.onresize = function() {
+	s.windowWidth = window.innerWidth;
+	s.windowHeight = s.windowWidth * .562
+	s.resizeCanvas(s.windowWidth, s.windowHeight);
 } 
-
-window.onresize = s.resize;
 
 }
 
