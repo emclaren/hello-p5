@@ -31,6 +31,9 @@ s.preload=function() {
 
 
 s.draw=function() {
+
+  
+  
   s.translate(s.windowHeight*.15, s.windowHeight*.15);
   s.scale(s.windowWidth/1280); 
   for (s.i =0; s.i<20; s.i++){
@@ -40,6 +43,7 @@ s.draw=function() {
   s.pix = s.img.get(s.x, s.y);
   s.fill(s.pix, 128);
   s.ellipse(s.x, s.y, s.pointillize, s.pointillize);
+
 }
 
 }

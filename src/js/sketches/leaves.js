@@ -5,6 +5,7 @@ s.sakuraNum = 100;
 s.fubuki = [];
 
 s.colors = [];
+s.transparency;
 
   s.setup = function(){
     s.pixelDensity(1);
@@ -18,9 +19,9 @@ s.colors = [];
   }
 
   s.noStroke();
-  s.colors.push(s.color(0, 255, 255, 200));
-  s.colors.push(s.color(255, 219, 248, 200));
-  s.colors.push(s.color(0, 0, 2, 200));
+  s.colors.push(s.color(0, 255, 255, 155));
+  s.colors.push(s.color(237, 34, 93, 155));
+  s.colors.push(s.color(0, 0, 2, 155));
  
 
 
@@ -30,7 +31,7 @@ s.colors = [];
 
   s.draw = function(){
   // s.background(0,255,255);
-  s.clear();
+    s.clear();
   for (var i = 0; i < s.sakuraNum; i++) {
     s.fubuki[i].draw();
     s.fubuki[i].move();
@@ -70,9 +71,11 @@ s.Sakura = function() {
 
     s.beginShape();
    s. vertex(s.random(10), 20);
-s.vertex(s.random(10), 10);
-s.vertex(s.random(10), 10);
-s.vertex(s.random(10), 15);
+  s.vertex(s.random(10), 10);
+  s.vertex(s.random(10), 10);
+  s.vertex(s.random(10), 15);
+
+
     // for (var t = 0; t < 360 / 4; t++) {
     //   s.A = s.n / s.PI * s.radians(s.t);
 
@@ -85,7 +88,12 @@ s.vertex(s.random(10), 15);
     //   s.x = this.size * s.R * s.cos(s.radians(s.t));
     //   s.y = this.size * this.sizeYScale * s.R * s.sin(s.radians(s.t));
 
-    //   s.vertex(s.x, s.y);
+      // s.x = s.random(s.windowWidth)
+      // s.y = s.random(s.windowWidth)
+
+
+      // s.vertex(s.x, s.y);
+      //  s.vertex(s.y, s.x);
     // }
     s.endShape(s.CLOSE);
     // s.ellipse(s.random(s.windowWidth),s.random(s.windowWidth),s.random(s.windowWidth),s.random(s.windowWidth),)
@@ -121,7 +129,7 @@ s.calcH = function(x) {
 s.cutout =function(){
   var c=document.getElementById("defaultCanvas0");
   var ctx=c.getContext("2d");
-  ctx.clearRect((s.width/2)-((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
+  ctx.clearRect((s.width/2)-((s.windowWidth/3.2)/3),0,  s.windowWidth/3.2 ,s.windowHeight);
 }
 
 
