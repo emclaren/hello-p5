@@ -1,5 +1,3 @@
-
-
 // https://www.openprocessing.org/sketch/559382
 
 
@@ -7,6 +5,7 @@ var stars= function(s){
 
   s.stars = [];
   s.starsNum = 800;
+  s.cutoutSize=s.windowWidth/6.4
 // s.colorFill="#000015";
 
 s.setup = function(){
@@ -16,7 +15,7 @@ s.setup = function(){
   s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
   s.canvas.parent('video-overlay');
   s.noStroke();
-  s.frameRate(60)
+  // s.frameRate(60)
 
   for (s.i = 0; s.i < s.starsNum; s.i++) {
     if (s.i < s.starsNum / 3) {
@@ -43,6 +42,19 @@ s.draw = function(){
  for (s.i = 0; s.i < s.starsNum; s.i++) {
   s.stars[s.i].display();
 }
+
+
+if(window.videoCurrentTimeGlobal>46){
+  // if(s.cutoutSize>6){
+  s.cutoutSize=s.cutoutSize-6
+  // console.log(s.cutoutSize)
+// }else if (s.cutoutSize<6 && s.cutoutSize>0){
+//   s.cutoutSizetSize--;
+// }else{
+
+// }
+}
+
 s.cutout();
 }
 
@@ -83,17 +95,19 @@ s.Star=function(tmpColorName) {
   }
 }
 
+// s.cutout =function(){
+//   var c=document.getElementById("defaultCanvas0");
+//   var ctx=c.getContext("2d");
+//   ctx.clearRect((s.windowWidth/2)- ((s.windowWidth/3.2)/2)+s.cutoutSize,0,  s.windowWidth/3.2 -s.cutoutSize*2 ,s.windowHeight);
+// }
+
+
+
 s.cutout =function(){
   var c=document.getElementById("defaultCanvas0");
   var ctx=c.getContext("2d");
-  ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
+  ctx.clearRect((s.windowWidth/2)-s.cutoutSize,0,  s.cutoutSize*2 ,s.windowHeight);
 }
-
-window.onresize =  function() {
-  s.windowWidth = window.innerWidth ;
-  s.windowHeight = s.windowWidth * .562
-  s.resizeCanvas(s.windowWidth, s.windowHeight);
-} 
 
 }
 module.exports= stars;

@@ -1,11 +1,11 @@
 //<reference path="./../../../node_modules/p5/lib/p5.global-mode.d.ts"/>
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
-import { FirebaseObjectObservable } from 'angularfire2/database';
-import { SongListService } from './../song-list.service';
-import { Router } from '@angular/router';
-import { P5canvasService } from './../p5canvas.service';
+// import { Component, OnInit } from '@angular/core';
+// import { ActivatedRoute, Params } from '@angular/router';
+// import { Location } from '@angular/common';
+// import { FirebaseObjectObservable } from 'angularfire2/database';
+// import { SongListService } from './../song-list.service';
+// import { Router } from '@angular/router';
+// import { P5canvasService } from './../p5canvas.service';
 // declare var p5: any;
 
 @Component({
@@ -44,7 +44,7 @@ export class VisualizerComponent implements OnInit {
         fft = new p5.FFT();
         peakDetect = new p5.PeakDetect();
         pauseButton = p.createButton("pause");
-				pauseButton.mousePressed(p.togglePlaying);
+        pauseButton.mousePressed(p.togglePlaying);
       }
       p.setup = () => {
         canvas = p.createCanvas(width, height);
@@ -162,3 +162,10 @@ export class VisualizerComponent implements OnInit {
 
 // WEBPACK FOOTER //
 // /Users/Guest/Desktop/notebook/src/app/visualizer/visualizer.component.ts
+
+
+
+
+
+
+

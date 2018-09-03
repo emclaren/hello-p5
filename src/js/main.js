@@ -5,12 +5,10 @@ const p5 = require('p5'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
 
 
-
 // For Keeping track of current video time
 let videoCurrentTime;
 let videoPreviousTime;
 let videoTimeSeeked = false;
-
 
 // For changing header styling on "play", and language change
 const header = document.querySelector('.header');
@@ -19,22 +17,26 @@ const header = document.querySelector('.header');
 let languageArray
 
 
-
 // Sketch Files- TODO : CLEANUP SKETCHES
 const laMonster = require('./sketches/laMonster.js');
 const leaves = require('./sketches/leaves.js');
+const forum = require('./sketches/forum.js');
 const logo = require('./sketches/logo.js');
 const heart = require('./sketches/heart.js');
 const fez = require('./sketches/fez.js');
 const flock = require('./sketches/flock.js');
+const flock2 = require('./sketches/flock2.js');
 const pointillism = require('./sketches/pointillism.js');
 const onLoad = require('./sketches/onLoad.js');
 const lerpColor = require('./sketches/lerpColor.js');
-
+const webEditor = require('./sketches/webeditor.js');
 const helloP5 = require('./sketches/helloP5.js');
 const waves = require('./sketches/waves.js');
 const linkSketch = require('./sketches/linkSketch.js');
+const target = require('./sketches/targeted.js');
+const target2 = require('./sketches/targeted2.js');
 
+const visualizer = require('./sketches/visualizer.js');
 const stars = require('./sketches/stars.js');
 const sketchfile = require('./sketches/circleOnScreen.js');
 
@@ -44,7 +46,7 @@ const p5isAJavascriptLibrary = require('./sketches/p5isAJavascriptLibrary.js');
 const seriouslyCanvas = require('./sketches/seriouslyCanvas.js');
 const rainbow = require('./sketches/rainbow.js');
 const manyDots = require('./sketches/manyDots.js');
-const sinLines = require('./sketches/sinLines.js');
+const sinLines = require('./sketches/sinlines.js');
 const parabolicLines = require('./sketches/parabolicLines.js');
 const circleExplosion = require('./sketches/circleExplosion.js');
 
@@ -55,18 +57,15 @@ let canvasScene
 let none
 
 
-
-
-
 //Plyr Setup Code
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player');
   function on(selector, type, callback) {
     document.querySelector(selector).addEventListener(type, callback, false);
   }
-  scene = new p5(laMonster); 
-  seriouslyScene = new p5(seriouslyCanvas);
 
+  scene = new p5(laMonster);
+  seriouslyScene = new p5(seriouslyCanvas);
 
 
 
@@ -139,33 +138,55 @@ player.on('pause', event => {
 });
 
 
-
 var sceneChangeMap = [
-{id: 0, time : 3.25, sketchfile: none},
-{id: 1, time : 5.50, sketchfile: helloP5},
-{id: 2, time : 8.25, sketchfile: logo},
-{id: 3, time : 9.75, sketchfile: none},
+{id: 0, time : 3.0, sketchfile: none},
+{id: 1, time : 5.25, sketchfile: visualizer},
+{id: 2, time : 7.75, sketchfile: none},
+{id: 2, time : 8.00, sketchfile: logo},
+{id: 4, time : 9.75, sketchfile: none},
 {id: 4, time : 10.75, sketchfile: heart},
 {id: 5, time : 17.50, sketchfile: leaves},
-{id: 6, time : 24.25, sketchfile: pointillism},
+{id: 6, time : 24.25, sketchfile: none},
+{id: 6, time : 24.75, sketchfile: pointillism},
 {id: 7, time : 33.00, sketchfile: none},
-{id: 8, time : 33.25, sketchfile: lerpColor},
-{id: 9, time : 38, sketchfile: stars},
-{id: 10, time : 46.25, sketchfile: leaves},
-{id: 11, time : 50.50, sketchfile: circleExplosion},
-{id: 12, time : 53.25, sketchfile: rainbow},
-{id: 13, time : 56.00, sketchfile: none},
+
+// {id: 8, time : 33.25, sketchfile: circleExplosion},
+{id: 9, time : 38.25, sketchfile: stars},
+// {id: 10, time : 45.75, sketchfile: flock},
+{id: 10, time : 50.50, sketchfile: target},
+// {id: 11, time : 50.75, sketchfile: none},
+// {id: 11, time : 50.50, sketchfile: circleExplosion},
+{id: 12, time : 53.50, sketchfile: rainbow},
+{id: 13, time : 56, sketchfile: none},
 {id: 14, time : 56.5, sketchfile: circleOnScreen},
-{id: 15, time : 65, sketchfile: manyDots},
-{id: 16, time : 77, sketchfile: none},
-{id: 17, time : 104.5, sketchfile:lerpColor},
-{id: 17, time : 109.75, sketchfile:none},
-{id: 18, time : 83.25, sketchfile: sinLines},
-{id: 19, time : 88, sketchfile: none},
-{id: 21, time : 100, sketchfile: linkSketch},
+{id: 15, time : 63.25, sketchfile: manyDots},
+{id: 16, time : 75.25, sketchfile: none},
+{id: 16, time : 78.50, sketchfile: sinLines},
+{id: 16, time : 85.25, sketchfile: none},
+// {id: 21, time : 78.25, sketchfile: heart},
+{id: 21, time : 94.5, sketchfile: webEditor},
+{id: 21, time : 103, sketchfile: none},
+{id: 21, time : 109, sketchfile: forum},
+// {id: 17, time : 78, sketchfile:lerpColor},
+{id: 17, time : 103.75, sketchfile:lerpColor},
+{id: 17, time : 109, sketchfile:none},
+// {id: 18, time : 83.25, sketchfile: sinLines},
+// {id: 19, time : 88, sketchfile: none},
+{id: 21, time : 116.25, sketchfile: waves},
+
+{id: 21, time : 121.75, sketchfile: none},
+
+{id: 21, time : 122, sketchfile: target2},
+{id: 21, time : 128, sketchfile: none},
+// id: 21, time : 125, sketchfile: target2},
+{id: 21, time : 135, sketchfile: flock2},
+{id: 21, time : 176, sketchfile: waves},
+{id: 21, time : 160, sketchfile: none},
+{id: 21, time : 166, sketchfile: waves},
+{id: 21, time : 166, sketchfile: waves},
+{id: 21, time : 160, sketchfile: none},
+
 ];
-
-
 
 
 
@@ -199,7 +220,12 @@ player.on('timeupdate', event => {
     videoCurrentTime=roundTimeInVideo/4;
     console.log("video current time" + videoCurrentTime)
 
+window.videoCurrentTimeGlobal = videoCurrentTime;
 
+
+// console.log("this is at the end of the file:"+videoCurrentTime);
+
+// module.exports = videoCurrentTime;
 
     // This part makes it so that the sketch will play even if you jumped to it
     if(videoTimeSeeked){
@@ -230,28 +256,33 @@ player.on('timeupdate', event => {
      seriouslyScene.remove();
      break; 
      case sceneChangeMap[1].time:
-     scene = new p5(sceneChangeMap[1].sketchfile);  
+     scene = new p5(sceneChangeMap[1].sketchfile); 
+    seriouslyScene= new p5(seriouslyCanvas); 
      break;
 
      case sceneChangeMap[2].time:
      scene.remove();
+       seriouslyScene.remove();
      scene = new p5(sceneChangeMap[2].sketchfile);          
      break; 
 
 
      case sceneChangeMap[3].time:
-     scene.remove();
+   
+      scene.remove();
+     scene = new p5(sceneChangeMap[3].sketchfile);   
      break;  
 
 
      case sceneChangeMap[4].time:
-     scene.remove();
+      scene.remove();
      scene = new p5(sceneChangeMap[4].sketchfile);  
 
      break; 
 
      case sceneChangeMap[5].time:
      scene.remove();
+
      scene = new p5(sceneChangeMap[5].sketchfile);  
      break; 
 
@@ -297,63 +328,110 @@ player.on('timeupdate', event => {
 
      case sceneChangeMap[14].time:
      scene.remove();
-        scene = new p5(sceneChangeMap[14].sketchfile);  
-        break; 
+     scene = new p5(sceneChangeMap[14].sketchfile);  
+     break; 
 
 
-        case sceneChangeMap[15].time:
-        scene.remove();
-        scene = new p5(sceneChangeMap[15].sketchfile);  
-        break; 
+     case sceneChangeMap[15].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[15].sketchfile);  
+     break; 
 
 
-        case sceneChangeMap[16].time:
-        scene.remove();
-        scene = new p5(sceneChangeMap[16].sketchfile);  
-        break; 
+     case sceneChangeMap[16].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[16].sketchfile);  
+     break; 
 
-        case sceneChangeMap[17].time:
-        scene.remove();
-        scene = new p5(sceneChangeMap[17].sketchfile);  
-        break; 
+     case sceneChangeMap[17].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[17].sketchfile);  
+     break; 
 
-        case sceneChangeMap[18].time:
-        scene.remove();
-        scene = new p5(sceneChangeMap[18].sketchfile);  
-        break; 
+     case sceneChangeMap[18].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[18].sketchfile);  
+     break; 
 
-        case sceneChangeMap[19].time:
-        scene.remove();
-        scene = new p5(sceneChangeMap[19].sketchfile);  
-        break; 
+     case sceneChangeMap[19].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[19].sketchfile);  
+     break; 
 
-        case sceneChangeMap[20].time:
-        scene.remove();
-        scene = new p5(sceneChangeMap[20].sketchfile);  
-        break; 
+     case sceneChangeMap[20].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[20].sketchfile);  
+     break; 
+
+   case sceneChangeMap[21].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[21].sketchfile);  
+     break; 
+
+   case sceneChangeMap[22].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[22].sketchfile);  
+     break; 
+
+   case sceneChangeMap[23].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[23].sketchfile);  
+     break; 
+
+   case sceneChangeMap[24].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[24].sketchfile);  
+     break; 
+
+   case sceneChangeMap[25].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[25].sketchfile);  
+     break; 
+   case sceneChangeMap[26].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[26].sketchfile);  
+     break; 
+
+   case sceneChangeMap[27].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[27].sketchfile);  
+     break; 
+
+   case sceneChangeMap[28].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[28].sketchfile);  
+     break; 
+
+   case sceneChangeMap[29].time:
+     scene.remove();
+     scene = new p5(sceneChangeMap[29].sketchfile);  
+     break; 
 
 
+     scene.remove();
+     break
+     case 80:
+     break
 
+     default:
+   }
 
+ }
 
-
-
-        scene.remove();
-        break
-        case 80:
-
-        break
-
-        default:
-      }
-
-    }
-
-  });
 });
 
 
+});
 
 
+window.onresize = function() {
+  scene.windowWidth=window.innerWidth;
+  scene.windowHeight=window.innerWidth * .562;
+  scene.resizeCanvas(scene.windowWidth, scene.windowHeight);
+  seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);
+  console.log("I'm a new size in main.js")
+   console.log("windowwidth in main.js" + scene.windowWidth)
+  } 
 
+// console.log("this is at the end of the document"+videoCurrentTime);
 

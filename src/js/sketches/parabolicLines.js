@@ -8,9 +8,9 @@ s.i = 0;
 
   s.setup = function(){
     s.pixelDensity(1);
-    s.windowWidth = window.innerWidth/3 ;
-    s.windowHeight = s.windowHeight 
-    s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
+  s.windowWidth = window.innerWidth ;
+  s.windowHeight = s.windowWidth * .562
+  s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
       // s.translate(s.windowWidth/2,s.windowHeight/2);
       s.frameRate(30);
@@ -55,25 +55,30 @@ s.y2 = function(t){
   }
   s.i++;
   console.log("s.x1: " +s.x1());
+  s.cutout();
 
 }
 
 
-
+s.cutout =function(){
+    var c=document.getElementById("defaultCanvas0");
+    var ctx=c.getContext("2d");
+    ctx.clearRect((s.width/2)- ((s.windowWidth/1.65)/2),0,  s.windowWidth/1.65 ,s.windowHeight);
+}
 
 
   
 
 
-  s.resize =  function() {
-      s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .5504
-    s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-    console.log(s.windowWidth)
+//   s.resize =  function() {
+//       s.windowWidth = window.innerWidth ;
+//     s.windowHeight = s.windowWidth * .5504
+//     s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
+//     console.log(s.windowWidth)
 
-} 
+// } 
 
-window.onresize = s.resize;
+// window.onresize = s.resize;
 
 }
 

@@ -1,82 +1,119 @@
 //  zach, still not converted
 
 
-// initial variables
-var i = 10;
-var colorZ = 245;
 
-function setup() {
 
-  createCanvas(windowWidth,windowHeight);
-  background(10);
-  frameRate(30);
 
-  console.log("what time is it?");
-  console.log("showtime");
+var target= function(s){
 
-}
+s.i = 0;
+s.colorZ = 245;
 
-// this section loops!
-function draw() {
+  s.setup = function(){
+    s.pixelDensity(1);
+    s.windowWidth = window.innerWidth ;
+    s.windowHeight = s.windowWidth * .5504
+    s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
+    s.canvas.parent('video-overlay');
+       s.frameRate(30);
+ 
+  }
 
+
+
+
+
+  s.draw = function(){
+s.clear();
   // style attributes
-  noFill();
-  strokeWeight(3);
-  stroke(colorZ);
-
+  s.noFill();
+  s.strokeWeight(3);
+  s.stroke(s.random(255), s.random(255), s.random(255));
+  s.ellipse(s.windowWidth/2,s.windowHeight/2,s.i+40,s.i+40);
+  s.ellipse(s.windowWidth/2,s.windowHeight/2,s.i+20,s.i+20);
   // here she is
-  ellipse(windowWidth/2,windowHeight/2,i,i);
+  s.ellipse(s.windowWidth/2,s.windowHeight/2,s.i,s.i);
 
   // space between circles
-  i+=20;
+  s.i+=20;
 
   // if landscape, then wait until circles reach sides
-  if(windowWidth>windowHeight){
+  if(s.windowWidth>s.windowHeight){
 
-    if( i >= windowWidth ){
-      resetEffect();
+    if( s.i >= s.windowWidth +100){
+      // resetEffect();
     }
 
   // if portrait, then wait until circles reach top
   } else {
 
-    if( i > windowHeight ){
-      resetEffect();
+    if( s.i > s.windowHeight +100 ){
+      // s.resetEffect();
     }
 
   }
 
-  function resetEffect(){
-
-    console.log('here we go again');
-
-    // back to the beginning
-    i = 10;
-
-                var r1 = round(random(0,255));
-                var g1 = round(random(0,255));
-                var b1 = round(random(0,255));
-
-                colorB = color(r1,g1,b1);
-    console.log("background color: rgb(" + r1 + ", " + g1 + ", " + b1 + ")");
-
-    // clears out canvas with solid color
-    background(colorB);
-
-    var r = round(random(0,255));
-    var g = round(random(0,255));
-    var b = round(random(0,255));
-
-    colorZ = color(r,g,b);
-    console.log("line color: rgb(" + r + ", " + g + ", " + b + ")");
-
-  }
 }
 
-// if people are weird and resize their screen, then update canvas size
+  // s.resetEffect= function(){
 
-function windowResized() {
+  //   console.log('here we go again');
 
-  resizeCanvas(windowWidth, windowHeight);
+  //   // back to the beginning
+  //   s.i = 10;
 
+  //               var r1 = s.round(s.random(0,255));
+  //               var g1 = s.round(s.random(0,255));
+  //               var b1 = s.round(s.random(0,255));
+
+  //               s.colorB = s.color(r1,g1,b1);
+  //   console.log("background color: rgb(" + r1 + ", " + g1 + ", " + b1 + ")");
+
+  //   // clears out canvas with solid color
+  //   s.background(s.colorB);
+
+  //   var r = s.round(s.random(0,255));
+  //   var g = s.round(s.random(0,255));
+  //   var b = s.round(s.random(0,255));
+
+  //   s.colorZ = s.color(r,g,b);
+  //   console.log("line color: rgb(" + r + ", " + g + ", " + b + ")");
+
+  // }
 }
+
+module.exports= target;
+
+
+
+// initial variables
+
+
+
+
+// // Circle hole
+
+// s.cutout=function(){
+//   // var x;
+//     console.log("hole is running");
+//     var c=document.getElementById("defaultCanvas0");
+//     var ctx=c.getContext("2d");
+
+
+
+// //     // test part
+
+//     ctx.beginPath();
+// ctx.arc(s.windowWidth / 2, s.windowHeight / 2, s.windowWidth / 4, 0, 2 * 3.14);
+// ctx.stroke();
+// ctx.clip();
+
+// // clear the contents of the circle - erases the center of the cross
+// ctx.clearRect(0, 0, s.windowWidth,s.windowHeight);
+
+
+
+
+//     // ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
+//   // x++
+// }

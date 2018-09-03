@@ -69,8 +69,8 @@ s.Sakura = function() {
     s.rotate(s.radians(this.rotateT));
     
 
-    s.beginShape();
-   s. vertex(s.random(10), 20);
+  s.beginShape();
+  s. vertex(s.random(10), 20);
   s.vertex(s.random(10), 10);
   s.vertex(s.random(10), 10);
   s.vertex(s.random(10), 15);
@@ -111,6 +111,17 @@ s.Sakura = function() {
     if (this.oy > s.windowHeight + this.size) {
       this.oy = -this.size;
     }
+
+    if(s.dist(s.mouseX, s.mouseY, this.ox, this.oy)<(s.windowWidth/10)){
+        this.ySpeed = s.random(-15,15);
+          this.xSpeed = s.random(10,15);
+
+        s.fill(255,0,0)
+    }
+    else{
+       this.ySpeed = this.size / 20;
+          this.xSpeed = s.random(1,2);
+    }
   };
 }
 
@@ -134,11 +145,11 @@ s.cutout =function(){
 
 
 
- window.onresize =  function() {
-      s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .5504
-    s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-} 
+//  window.onresize =  function() {
+//       s.windowWidth = window.innerWidth ;
+//     s.windowHeight = s.windowWidth * .5504
+//     s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
+// } 
 }
 
 

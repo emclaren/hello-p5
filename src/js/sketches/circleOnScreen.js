@@ -11,8 +11,13 @@ var circleOnScreen = function(p) {
 		p.canvas.parent('video-overlay');
 		p.fill(237,34,93);
 		p.x=1;
-		p.grow=0
-		console.log(p.windowWidth)
+		p.grow=0;
+		p.div=p.createDiv('<code>JUST ADDED, FIXING SPACING...Add a click to copy function function setup() \{ createCanvas(displayWidth, displayHeight) strokeWeight(4) stroke(0);} <br> function draw(){<br>ellipse(200, 200, 100+p.grow, 100+p.grow);<br>}</code>')
+		// p.div=p.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Forum</a>');
+		p.div.parent('video-overlay');
+		p.div.addClass('myClass2');
+
+
 
 	}
 
@@ -28,12 +33,7 @@ var circleOnScreen = function(p) {
 		}
 	}
 
-   p.windowResized= function windowResized() {
-   	p.windowWidth = window.innerWidth ;
-		p.windowHeight = p.windowWidth * .5504
-    p.resizeCanvas(p.windowWidth, p.windowWidth * .5504);
-    console.log(p.windowWidth)
-}
+
 }
 
 module.exports= circleOnScreen;

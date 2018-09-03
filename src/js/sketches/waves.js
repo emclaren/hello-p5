@@ -2,7 +2,9 @@
 var waves= function(s){
 
 s.waves = [];
-
+s.waveNumber=2
+s.waveNumber2=0
+s.changeSize=0
   s.setup = function(){
     s.pixelDensity(1);
     s.windowWidth = window.innerWidth ;
@@ -10,9 +12,8 @@ s.waves = [];
     s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
     s.colorMode(s.HSB,360,100,100,100);
-    // s.frameRate(30);
-   
-  for(s.i = 0; s.i < 30; s.i++){
+ 
+  for(s.i = 0; s.i < 35; s.i++){
     s.waves.push(new s.Wave());
   }
     s.noStroke();
@@ -21,20 +22,21 @@ s.waves = [];
 
 
   s.draw = function(){
-  // s.background(0);
   s.clear();
-  
-
-  
-  for(s.i = 0; s.i < s.waves.length; s.i++){
+  var size = s.dist(s.mouseX, s.mouseY, s.windowWidth/2, s.windowHeight/2);
+ s.waveNumber2=s.map(size, 0, s.windowWidth/2, 0, 30)
+  console.log(s.waveNumber2)
+    // console.log(size)
+  for(s.i = 0; s.i < s.waveNumber2; s.i++){
     s.waves[s.i].display();
   }
 
-
 s.cutout();
+if(window.videoCurrentTimeGlobal>119.75){
+  s.changeSize=s.changeSize+4;
+
 }
-
-
+}
 
 
 s.Wave = function(){
@@ -67,7 +69,6 @@ s.Wave = function(){
     this.yoffB += 0.01;
     s.endShape(s.CLOSE);
   }
-  // hole();
 
 }
 
@@ -75,13 +76,9 @@ s.Wave = function(){
 s.cutout =function(){
     var c=document.getElementById("defaultCanvas0");
     var ctx=c.getContext("2d");
-    ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
+    ctx.clearRect((s.width/2-s.changeSize)- ((s.windowWidth/1.65)/2),0,  (s.windowWidth/1.65)+s.changeSize*2 ,s.windowHeight);
 }
-window.onresize =  function() {
-      s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .5504
-    s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-} 
+
 
 
 
@@ -96,32 +93,9 @@ module.exports= waves;
 
 
 
-// Circle hole
-
-// s.hole =function(){
-//   // var x;
-//     console.log("hole is running");
-//     var c=document.getElementById("defaultCanvas0");
-//     var ctx=c.getContext("2d");
 
 
 
-// //     // test part
-
-// //     ctx.beginPath();
-// // ctx.arc(s.windowWidth / 2, s.windowHeight / 2, s.windowWidth / 4, 0, 2 * 3.14);
-// // ctx.stroke();
-// // ctx.clip();
-
-// // // clear the contents of the circle - erases the center of the cross
-// // ctx.clearRect(0, 0, s.windowWidth,s.windowHeight);
-
-
-
-
-//     ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
-//   // x++
-// }
 
 
 

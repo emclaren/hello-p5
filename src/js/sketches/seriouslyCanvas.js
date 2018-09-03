@@ -10,11 +10,10 @@ const chroma = require('../seriously/chroma');
 
 var seriouslyCanvas = function(q){
     q.windowWidth = window.innerWidth ;
-    q.xpos=100;
-    q.ypos=100;
 
     q.setup = function(){
         q.pixelDensity(1);
+
         q.canvas= q.createCanvas(q.windowWidth, q.windowWidth * .562, 'webgl');
         q.canvas.id('videocanvas');
         q.canvas.parent('video-overlay');
@@ -33,27 +32,21 @@ var seriouslyCanvas = function(q){
         q.reformat.width = q.target.width;
         q.reformat.height = q.target.height;
         q.reformat.mode = "cover";              
-        q.background(0,0,55);
+        // q.background(0,0,55);
          // connect all our nodes in the right order
         q.reformat.source = '#player';
         q.chroma = q.seriously.effect('chroma');
         q.chroma.source =  q.reformat;
         q.target.source = q.chroma;
-
         q.r = 0/255;
         q.g = 0/255;
         q.b = 55/255;
-
         q.chroma.screen = [q.r,q.g,q.b,1];
+        chroma.precision = 0.01;
         q.seriously.go();   
 
      }
 
-     window.onresize = function() {
-        q.windowWidth = window.innerWidth;
-        q.windowHeight = q.windowWidth * .562
-        q.resizeCanvas(q.windowWidth, q.windowHeight);
-    } 
 }
 
 module.exports = seriouslyCanvas;

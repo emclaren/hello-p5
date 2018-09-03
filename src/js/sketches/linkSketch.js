@@ -19,15 +19,15 @@ var linkSketch= function(s){
 
 
 
-	s.resize =  function() {
-		s.windowWidth = window.innerWidth ;
-		s.windowHeight = s.windowWidth * .5504
-		s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-		console.log(s.windowWidth)
+	// s.resize =  function() {
+	// 	s.windowWidth = window.innerWidth ;
+	// 	s.windowHeight = s.windowWidth * .5504
+	// 	s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
+	// 	console.log(s.windowWidth)
 
-	} 
+	// } 
 
-	window.onresize = s.resize;
+	// window.onresize = s.resize;
 
 }
 

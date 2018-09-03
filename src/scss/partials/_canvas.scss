@@ -104,7 +104,45 @@ video{
 
 
 
+.myClass{
+	// left: 73.75%;
+    position: absolute;
+    z-index: 3000000;
+    // background-color: rgba(237,34,93,.5);
+    // background-color:orange;
+    top: -21rem;
+    width: 17%;
 
+    font-size: 1.5rem;
+    text-align:center;
+    top:17%;
+    left:71.75%;
+    a{
+    	color:white;
+    }
+}
+
+.myClass2{
+	// left: 73.75%;
+    position: absolute;
+    z-index: 3000000;
+    background-color: rgba(237,34,93,.5);
+    // background-color:orange;
+   
+    width: 30%;
+
+    font-size: .9rem;
+    // text-align:center;
+    top:25%;
+    left:65%;
+
+}
+
+
+
+#p5_loading{
+	display:none;
+}
 
 
 

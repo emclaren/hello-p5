@@ -1,5 +1,4 @@
 var heart= function(s){
-
   s.R = 8; 
   s.maxVal = 0;
   s.rt = 0;
@@ -10,47 +9,39 @@ var heart= function(s){
   s.oy = 0;
   s.c;
 
-
-
   s.setup = function(){
     s.pixelDensity(1);
-
     s.windowWidth = window.innerWidth ;
     s.windowHeight = s.windowWidth * .5504
     s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
     s.canvas.parent('video-overlay');
-        s.colorMode(s.HSB, 360, 100, 100, 255);
-  s.background(255,0,0);
-  s.strokeJoin(s.ROUND);
+    s.colorMode(s.HSB, 360, 100, 100, 255);
+    s.background(255,0,0);
+    s.strokeJoin(s.ROUND);
     s.strokeWeight(5);
-// s.frameRate(20);
-  s.c = s.random(360);
-  s.size=s.windowWidth/1280;
-  // s.xpos=s.windowWidth/2
-  // s.ypos=s.windowHeight / 2 + s.oy
+    s.c = s.random(360);
+    s.size=s.windowWidth/1280;
     s.xpos=s.windowWidth/5;
-      s.ypos=s.windowHeight / 3 +s.oy;
+    s.ypos=s.windowHeight / 3 +s.oy;
   }
 
 
 
 
-s.draw = function(){
-
-
+  s.draw = function(){
+    s.sizeChange= s.map(s.mouseX, 0, s.windowWidth, .5,1);
    for(s.i = 0; s.i<10; s.i++){
     s.ellipse(s.i, 200, 12,20)
-            // s.heart[i].display();
-        }
+          
+          }
 
-console.log("sxpos"+s.xpos);
-  s.clear()  ;
-  // s.background(255,0,0);
+          s.clear()  ;
+ 
   s.fill(s.c, 80, 100, s.alp);
   s.stroke(s.c, 80, 100, s.stAlp);
 
   s.push();
-  s.translate(s.xpos,s.ypos );
+  s.translate(s.xpos,s.ypos);
   s.beginShape();
   for (s.theta = 0; s.theta < s.maxVal; s.theta++) {
     s.x = s.R * (16 * s.sin(s.radians(s.theta)) * s.sin(s.radians(s.theta)) * s.sin(s.radians(s.theta)));
@@ -59,7 +50,7 @@ console.log("sxpos"+s.xpos);
 
     s.vertex(s.x, s.y);
   }
-   s.scale(s.size); 
+  s.scale(s.size*s.sizeChange); 
   s.endShape();
 
   s.pop();
@@ -74,7 +65,7 @@ console.log("sxpos"+s.xpos);
 
   if (s.phase == 1) {
     s.R = 8 + s.abs(s.sin(s.radians(s.rt)));
-       console.log("phase 1")
+
     s.rt += 20;
     if (s.rt > 360) {
       s.rt = 360;
@@ -83,7 +74,7 @@ console.log("sxpos"+s.xpos);
   }
 
   if (s.phase == 2) {
-       console.log("phase 2")
+
     s.alp += 5;
     s.fillCount += 5;
     if (s.alp > 255) {
@@ -96,7 +87,7 @@ console.log("sxpos"+s.xpos);
   }
 
   if (s.phase == 3) {
-    console.log("phase 3")
+
     s.oy -= 10;
     s.alp -= 15;
     s.stAlp -= 15;
@@ -106,42 +97,15 @@ console.log("sxpos"+s.xpos);
       s.rt = 0;
       s.alp = 0;
       s.stAlp = 255;
-
       s.phase = 0;
       s.oy = 0;
       s.fillCount = 0;
       s.c = s.random(360);
-      // s.frameRate(0)
       s.xpos=s.windowWidth - s.windowWidth/6;
       s.ypos=s.windowHeight - s.windowHeight / 3 +s.oy;
     }
-  
+  }
 }
-}
-
-//   s.Heart = function(){
-// s.ellipse(50,50,50,50)
-
-
-// }
-
-
-//     s.addHeart= function(){
-//         s.heart[s.heartCount] = new s.Heart(s.random(s.windowWidth));
-//         s.heartCount++;
-//     }
-
-
-  s.resize =  function() {
-    s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .5504
-    s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-    console.log(s.windowWidth)
-    s.size=s.windowWidth/1280;
-
-} 
-
-window.onresize = s.resize;
 
 }
 

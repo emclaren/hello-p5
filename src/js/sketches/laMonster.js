@@ -30,7 +30,6 @@ s.clickedplayButton;
 
 
 s.preload = function(){
-
 	s.planetlamonster = s.loadImage("../dist/assets/img/sketch_imgs/planet.png");
 	s.laMonstersTitle = s.loadImage("../dist/assets/img/sketch_imgs/laMonsters _Title-01.png");
 	s.asteriod1 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
@@ -49,6 +48,7 @@ s.preload = function(){
 
 
 s.setup = function(){
+	
 	s.pixelDensity(1);
 	s.windowWidth = window.innerWidth ;
 	s.windowHeight = s.windowWidth * .562
@@ -61,7 +61,7 @@ s.setup = function(){
 
 
 s.draw = function(){
-
+ console.log("windowwidth in sketch" + s.windowWidth)
 	s.background('#000032');
 	 //boolean that triggers use of functions
 	 if (s.welcomeScreen) {
@@ -99,11 +99,9 @@ s.planet=function() {
   	if (s.planetX > 900) {
   		s.planetX -= 6.23;
   	}
-
   	if (s.planetX > 650 && s.planetX < 900) {
   		s.planetX -= 6.7;
   	}
-
   	if (s.planetX < 650) {
   		s.planetX -= 2.7;
   	}
@@ -370,10 +368,10 @@ s.pop();
 
 //Variables for editing Title
 //variables that position the title on canvas
-s.titleX = 100;
-s.titleY = 100;
+s.titleX = .08*s.windowWidth;
+s.titleY = 0;
 //variables that title the planet
-s.titleScale = 0.005;
+s.titleScale = 0.00004 *s.windowWidth;
 //variable that title the planet
 s.titleRotate = 0;
 
@@ -384,27 +382,27 @@ s.title= function(){
  if (s.titleScale < .8) {
 
  	if (s.titleScale < 0.10) {
- 		s.titleScale += 0.00766;
+ 		s.titleScale += 0.00466;
  	}
 
  	if (s.titleScale > 0.10 && s.titleScale < 0.25) {
- 		s.titleScale += 0.00452;
+ 		s.titleScale += 0.00152;
 
  	}
 
  	if (s.titleScale > 0.25) {
- 		s.titleScale += 0.00251;
+		s.titleScale += 0.00052;
  	}	    
 
  }	
 
-	//tiltle graphic
+	//title graphic
 	s.push()
 	s.translate(s.titleX, s.titleY);
 	s.rotate(s.radians(s.titleRotate));
 	s.scale(s.titleScale);
 
-s.imageMode(s.CORNERS);
+	s.imageMode(s.CORNERS);
   // s.image(img, 50, 50, 80, 80); 
 	// s.imageMode(s.CENTER);
 	s.image(s.laMonstersTitle, 0, 0);
@@ -414,11 +412,16 @@ s.imageMode(s.CORNERS);
 }
 
 
-window.onresize = function() {
-	s.windowWidth = window.innerWidth;
-	s.windowHeight = s.windowWidth * .562
-	s.resizeCanvas(s.windowWidth, s.windowHeight);
-} 
+// window.onresize = function() {
+// 	s.windowWidth = window.innerWidth;
+// 	s.windowHeight = s.windowWidth * .562
+// 	s.resizeCanvas(s.windowWidth, s.windowHeight);
+// 	// console.log("I'm a new size")
+// } 
+
+//    s.sizeChange = function(){
+//    	console.log("test size change")
+// }
 
 }
 
