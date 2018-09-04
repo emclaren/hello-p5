@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(selector).addEventListener(type, callback, false);
   }
 
-  scene = new p5(laMonster);
+  // scene = new p5(laMonster);
   seriouslyScene = new p5(seriouslyCanvas);
 
 
