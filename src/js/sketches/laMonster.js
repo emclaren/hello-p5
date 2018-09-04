@@ -9,7 +9,6 @@ s.planetlamonster;
 
 //Bolean parameters for game
 s.welcomeScreen = true;
-
 s.laMonstersTitle;
 
 s.asteriod1;
@@ -17,12 +16,10 @@ s.asteriod2;
 s.asteriod3;
 s.asteriod4;
 
-
 s.star1;
 s.star2;
 s.star3;
 s.starBackground;
-
 
 s.playButton;
 s.clickedplayButton;
@@ -30,6 +27,7 @@ s.clickedplayButton;
 
 
 s.preload = function(){
+	console.log("this is the updated version of la monster")
 	s.planetlamonster = s.loadImage("dist/assets/img/sketch_imgs/planet.png");
 	s.laMonstersTitle = s.loadImage(".dist/assets/img/sketch_imgs/laMonsters _Title-01.png");
 	s.asteriod1 = s.loadImage("./dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
@@ -42,6 +40,7 @@ s.preload = function(){
 	s.starBackground = s.loadImage("./../dist/assets/img/sketch_imgs/stars-background.png");
 	s.playButton = s.loadImage("./../dist/assets/img/sketch_imgs/worldButton.png");
 	s.clickedplayButton = s.loadImage("./../dist/assets/img/sketch_imgs/clickedworldButton.png");
+
 }
 
 
