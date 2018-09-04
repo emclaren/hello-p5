@@ -30,9 +30,9 @@ s.clickedplayButton;
 
 
 s.preload = function(){
-	s.planetlamonster = s.loadImage("./../dist/assets/img/sketch_imgs/planet.png");
-	s.laMonstersTitle = s.loadImage("./../dist/assets/img/sketch_imgs/laMonsters _Title-01.png");
-	s.asteriod1 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
+	s.planetlamonster = s.loadImage("/../dist/assets/img/sketch_imgs/planet.png");
+	s.laMonstersTitle = s.loadImage("/../dist/assets/img/sketch_imgs/laMonsters _Title-01.png");
+	s.asteriod1 = s.loadImage("/../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
 	s.asteriod2 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
 	s.asteriod3 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
 	s.asteriod4 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
