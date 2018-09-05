@@ -9,6 +9,7 @@ const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source
 let videoCurrentTime;
 let videoPreviousTime;
 let videoTimeSeeked = false;
+let videoPlaying=false;
 
 // For changing header styling on "play", and language change
 const header = document.querySelector('.header');
@@ -21,7 +22,7 @@ let languageArray
 const laMonster = require('./sketches/laMonster.js');
 const leaves = require('./sketches/leaves.js');
 const forum = require('./sketches/forum.js');
-const logo = require('./sketches/logo.js');
+const helloP5Title = require('./sketches/helloP5Title.js');
 const heart = require('./sketches/heart.js');
 const fez = require('./sketches/fez.js');
 const flock = require('./sketches/flock.js');
@@ -68,8 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
   seriouslyScene = new p5(seriouslyCanvas);
 
 
-
-
 ///Toggle Language of Header & Captions Based on Selection
 document.getElementById('language-link-english').onclick=function(){
   languageArray=["Download", "Start", "Reference", "Libraries", "Learn", "Community"]
@@ -114,10 +113,14 @@ function languageToggle(){
 
 
 
+document.getElementById('video-overlay').onclick=function(){
+if(videoPlaying){
+  player.pause();
+}else{
+  player.play();
+}
 
-
-
-
+}
 
 
 
@@ -128,6 +131,8 @@ player.on('playing', event => {
     let container = document.querySelector('.container');
     header.classList.add('hide'); 
     container.classList.add('hide');  
+    window.scrollTo(0,document.body.scrollHeight);
+    videoPlaying=true;
   });
 
 
@@ -135,6 +140,7 @@ player.on('playing', event => {
 // Triggered when video paused
 player.on('pause', event => {
  scene.frameRate(0); // make p5 sketch pause when video is paused
+  videoPlaying=false;
 });
 
 
@@ -142,7 +148,7 @@ var sceneChangeMap = [
 {id: 0, time : 3.0, sketchfile: none},
 {id: 1, time : 5.25, sketchfile: visualizer},
 {id: 2, time : 7.75, sketchfile: none},
-{id: 2, time : 8.00, sketchfile: logo},
+{id: 2, time : 8.00, sketchfile: helloP5Title},
 {id: 4, time : 9.75, sketchfile: none},
 {id: 4, time : 10.75, sketchfile: heart},
 {id: 5, time : 17.50, sketchfile: leaves},

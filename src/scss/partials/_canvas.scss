@@ -20,13 +20,15 @@ canvas{
 	//to position in the middle of screen on mobile
 	position:relative;
 	width:100%;
+	top:2.5rem;
 	@include breakpoint(xl) {
 		position:relative;
 		margin: 0 auto;
 		z-index:10;
 		top: 100px;
 		transition: all .5s ease;
-		top: 50%;
+		top: 57%;
+		// top:61.5%;
 		left:0;
 		transform: translate(0,-50%);
 	}
@@ -34,11 +36,8 @@ canvas{
 .container.hide{
 	@include breakpoint(lg) {
 		transition: all .5s ease;
-	}
-}
 
-.plyr {
-	max-height:100vh;
+	}
 }
 
 video{
