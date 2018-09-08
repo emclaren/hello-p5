@@ -11,21 +11,25 @@ var helloP5= function(s){
 	s.draw = function(){
 		s.fill('hotpink')
 		s.textSize(32);
-		s.text('Sketch Placeholder', 100, s.windowHeight/2);
+		 if(window.videoCurrentTimeGlobal<145.0){
+		s.text("special thanks to...", 100, s.windowHeight/2);
+		s.text("List Names", 200, s.windowHeight/2);
+		s.text("List Names", 250, s.windowHeight/2);
+		s.text("List Names", 300, s.windowHeight/2);
+		s.text("List Names", 400, s.windowHeight/2);
+}
+		   if(window.videoCurrentTimeGlobal>145.0 &&window.videoCurrentTimeGlobal<149.0){
+		s.text("to view the examples Click Here", 100, s.windowHeight/2);
+   }
+
+
+   		   if(window.videoCurrentTimeGlobal>149.0){
+		s.text("This project was completed as part of GSOC", 100, s.windowHeight/2);
+   }
 	}
 
 
 
-
-	// s.resize =  function() {
-	// 	s.windowWidth = window.innerWidth ;
-	// 	s.windowHeight = s.windowWidth * .5504
-	// 	s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-	// 	console.log(s.windowWidth)
-
-	// } 
-
-	// window.onresize = s.resize;
 
 }
 

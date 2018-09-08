@@ -23,20 +23,23 @@ s.starBackground;
 
 s.playButton;
 s.clickedplayButton;
-
-
+s.titleScale=0
+s.scalefactor = 0.00466;
+s.test=.05
+var angle = 0;
+s.fadeout=0
 
 s.preload = function(){
 	console.log("this is the updated version of la monster with the base url part")
-	s.planetlamonster = s.loadImage("dist/assets/img/sketch_imgs/planet.png");
-	s.laMonstersTitle = s.loadImage(".dist/assets/img/sketch_imgs/laMonsters _Title-01.png");
-	s.asteriod1 = s.loadImage("./dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
-	s.asteriod2 = s.loadImage("../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
-	s.asteriod3 = s.loadImage("/../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
+	s.planetlamonster = s.loadImage("./../dist/assets/img/sketch_imgs/planet.png");
+	s.laMonstersTitle = s.loadImage("./../dist/assets/img/sketch_imgs/laMonsters _Title-02.png");
+	s.asteriod1 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
+	s.asteriod2 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
+	s.asteriod3 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
 	s.asteriod4 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
-	s.star1 = s.loadImage("../../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star.png");
-	s.star2 = s.loadImage("{{site.baseurl}}/dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png");
-	s.star3 = s.loadImage("../../../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png"); ///fix this!
+	s.star1 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star.png");
+	s.star2 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png");
+	s.star3 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-3.png"); ///fix this!
 	s.starBackground = s.loadImage("./../dist/assets/img/sketch_imgs/stars-background.png");
 	s.playButton = s.loadImage("./../dist/assets/img/sketch_imgs/worldButton.png");
 	s.clickedplayButton = s.loadImage("./../dist/assets/img/sketch_imgs/clickedworldButton.png");
@@ -60,6 +63,8 @@ s.setup = function(){
 
 
 s.draw = function(){
+	s.fadein=s.map(s.mouseX, 0, s.width, 0, 255)
+
  console.log("windowwidth in sketch" + s.windowWidth)
 	s.background('#000032');
 	 //boolean that triggers use of functions
@@ -67,12 +72,21 @@ s.draw = function(){
 		 //run astreiods drawing
 		 s.asteriods();
 		 //draw tile 
+		 	
 		 s.title(); 
+
 		 //drawing stars
 		 s.stars();
 		 //Run planet function
 		 s.planet();
 		}
+		// s.noTint();
+// 		if(window.videoCurrentTimeGlobal>2.25){
+// 		s.fill(0,0,50, s.fadeout)
+
+// s.rect(0,0, s.width, s.height);
+// s.fadeout+=10;
+// }
 }
 
 
@@ -368,32 +382,55 @@ s.pop();
 //Variables for editing Title
 //variables that position the title on canvas
 s.titleX = .08*s.windowWidth;
-s.titleY = 0;
+s.titleY = -s.windowWidth/30;;
 //variables that title the planet
-s.titleScale = 0.00004 *s.windowWidth;
+
 //variable that title the planet
 s.titleRotate = 0;
 
 s.title= function(){
 
-	
+if(s.titleScale<.42){
+s.titleScale= (s.sin(angle) * (s.width/1700)) ;
+console.log(s.titleScale)
+// s.scaleVariable;
+	  angle += (s.width/75000);
+}
+
  //Adjusting title Scale over time
- if (s.titleScale < .8) {
+ // if (s.titleScale < .8) {
 
- 	if (s.titleScale < 0.10) {
- 		s.titleScale += 0.00466;
- 	}
+ // 	if (s.titleScale < 0.10) {
+ // 		s.titleScale += 0.00466;
 
- 	if (s.titleScale > 0.10 && s.titleScale < 0.25) {
- 		s.titleScale += 0.00152;
+ // 	}
 
- 	}
+ // 	if (s.titleScale > 0.10 ) {
+ // 			if (s.titleScale > 0.10 && s.titleScale < 0.25) {
+ // 		s.titleScale += 0.00252;
+ // 		// s.scalefactor= 0.00252
+ // 	// 				if(s.scalefactor>0.00252){
+	// 	// 	s.scalefactor-= 0.005
+	// 	// }
 
- 	if (s.titleScale > 0.25) {
-		s.titleScale += 0.00052;
- 	}	    
+ // 	}
 
- }	
+ // 	if (s.titleScale > 0.25) {
+	// 	s.titleScale += 0.00052;
+	// 		// s.scalefactor= 0.00052
+	// 	// 	if(s.scalefactor>0.00052){
+	// 	// 	s.scalefactor-= 0.005
+	// 	// }
+ // 	}	    
+
+ // }	
+
+
+
+// s.titleScale+= s.titleScale + s.scalefactor
+
+// s.scalefactor-= 0.00010
+
 
 	//title graphic
 	s.push()
@@ -410,6 +447,7 @@ s.title= function(){
 
 }
 
+// }
 
 // window.onresize = function() {
 // 	s.windowWidth = window.innerWidth;

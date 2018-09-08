@@ -49,9 +49,10 @@ header{
 			flex-wrap: wrap;
 			justify-content: space-between;
 			@include breakpoint(sm) {
-				margin:1rem auto;
+				margin:.5rem auto;
 			}
 			@include breakpoint(md){
+				flex-wrap: none;
 				max-width:100%;	
 				display:flex;
 				align-items:center;

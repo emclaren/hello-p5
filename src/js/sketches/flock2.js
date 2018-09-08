@@ -3,7 +3,7 @@
 const p5 = require('p5'); // P5 Source Code
 
 var flock= function(s){
-
+ s.boidnum=1;
   s.flock;
   s.r;
 s.time=0;
@@ -18,14 +18,14 @@ s.time=0;
        s.flock = new s.Flock();
 
   // Add an initial set of boids into the system
-  for (var i = 0; i < 20; i++) {
+  // for (var i = 0; i < 1; i++) {
     // s.b = new s.Boid(s.windowWidth/1.2,s.windowHeight/1.2);
       s.b = new s.Boid(s.random(s.windowWidth/4),s.random(s.windowHeight));
-         s.c = new s.Boid(s.random(s.windowWidth- s.windowWidth/4, s.windowWidth),s.random(s.windowHeight));
+         // s.c = new s.Boid(s.random(s.windowWidth- s.windowWidth/4, s.windowWidth),s.random(s.windowHeight));
     s.flock.addBoid(s.b);
-    s.flock.addBoid(s.c);
+    // s.flock.addBoid(s.c);
 
-  }
+  // }
 
   //   for (var i = 0; i < 4; i++) {
   //   // s.b = new s.Boid(s.windowWidth/1.2,s.windowHeight/1.2);
@@ -54,11 +54,48 @@ s.time=0;
 
 
 s.draw = function(){
+  if(s.boidnum%100==0 && s.boidnum<800){
+  // Add an initial set of boids into the system
+   s.b = new s.Boid(s.random(s.windowWidth/4),s.random(s.windowHeight));
+         // s.c = new s.Boid(s.random(s.windowWidth- s.windowWidth/4, s.windowWidth),s.random(s.windowHeight));
+    s.flock.addBoid(s.b);
+    // s.flock.addBoid(s.c);
+
+     if(window.videoCurrentTimeGlobal>143.0&&window.videoCurrentTimeGlobal<145.0){
+
+    s.fill('hotpink')
+    s.textSize(32);
+    s.text("special thanks to...", 100, s.windowHeight/2);
+    s.text("List Names", 200, s.windowHeight/2);
+    s.text("List Names", 250, s.windowHeight/2);
+    s.text("List Names", 300, s.windowHeight/2);
+    s.text("List Names", 400, s.windowHeight/2);
+}
+       if(window.videoCurrentTimeGlobal>145.0 &&window.videoCurrentTimeGlobal<149.0){
+    s.text("to view the examples Click Here", 100, s.windowHeight/2);
+   }
+
+
+         if(window.videoCurrentTimeGlobal>149.0){
+    s.text("This project was completed as part of GSOC", 100, s.windowHeight/2);
+   }
+  // for (var i = 0; i < s.boidnum; i++) {
+  //   // s.b = new s.Boid(s.windowWidth/1.2,s.windowHeight/1.2);
+     
+
+  // }
+}
+s.boidnum++;
     s.noFill();
+    // s.fill(255,255,255,100)
     s.clear();
     s.flock.run();
     s.time++;
         // this.boids.splice(0, this.boids.length-20)
+ 
+  if(window.videoCurrentTimeGlobal<138.5){
+s.cutout();
+}
   }
 
 
@@ -68,6 +105,7 @@ s.mouseMoved = function() {
 // s.background(255,0,=0);
 // console.log("distance"+s.dist(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY))
 if(s.dist(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY)>50){
+  console.log("went 50 distance")
   s.flock.addBoid(new s.Boid(s.mouseX,s.mouseY));
 
 }
@@ -92,16 +130,16 @@ if(s.dist(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY)>50){
 
 s.Flock.prototype.addBoid = function(b) {
   this.boids.push(b);
-  //  if(this.boids.length >20){
-  //   this.boids.splice(0, this.boids.length-20)
-  //   // this.boids.delete()
-
-  // }
-     if(this.boids.length >20){
-    this.boids.splice(15, this.boids.length-20)
+   if(this.boids.length >20){
+    this.boids.splice(0, this.boids.length-20)
     // this.boids.delete()
 
   }
+  //    if(this.boids.length >20){
+  //   this.boids.splice(15, this.boids.length-20)
+    // this.boids.delete()
+
+  // }
 
 }
 
@@ -204,7 +242,7 @@ s.Boid.prototype.render = function() {
 // else{
 //   s.stroke(255, 175, 195);
 // }
-s.strokeWeight(2);
+s.strokeWeight(3);
 s.push(); 
 s.translate(this.position.x,this.position.y);
 s.rotate(s.theta);
@@ -316,6 +354,13 @@ s.Boid.prototype.cohesion = function(boids) {
     return s.createVector(0,0);
   }
 }
+s.cutout =function(){
+  var c=document.getElementById("defaultCanvas0");
+  var ctx=c.getContext("2d");
+  ctx.clearRect((s.width/2)-((s.windowWidth/1.18)/2),0,  s.windowWidth/1.18 ,s.windowHeight);
+}
+
+
 }
 
 

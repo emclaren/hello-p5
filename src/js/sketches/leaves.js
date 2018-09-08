@@ -23,9 +23,6 @@ s.transparency;
   s.colors.push(s.color(237, 34, 93, 155));
   s.colors.push(s.color(0, 0, 2, 155));
  
-
-
-
   }
 
 
@@ -36,6 +33,12 @@ s.transparency;
     s.fubuki[i].draw();
     s.fubuki[i].move();
   }
+
+
+
+     if(window.videoCurrentTimeGlobal > 22){
+s.sakuraNum--
+     }
   s.cutout();
 }
 
@@ -43,7 +46,6 @@ s.transparency;
 s.Sakura = function() {
   s.n = 4;
   s.A, s.md, s.r, s.x, s.y;
-
   this.xDef = s.random(s.windowWidth);
   
   this.xAmp = s.random(50,100);
@@ -61,16 +63,18 @@ s.Sakura = function() {
   this.sizeYSpeed = this.size / 30;
   this.c = s.floor(s.random(3));
 
+     if(window.videoCurrentTimeGlobal > 23){
+this.xSpeed -= 1
+this.ySpeed -= 1
+     }
   this.draw = function() {
     s.fill(s.colors[this.c]);
-
     s.push();
     s.translate(this.ox, this.oy);
     s.rotate(s.radians(this.rotateT));
-    
-
+  
   s.beginShape();
-  s. vertex(s.random(10), 20);
+  s.vertex(s.random(10), 20);
   s.vertex(s.random(10), 10);
   s.vertex(s.random(10), 10);
   s.vertex(s.random(10), 15);
@@ -143,13 +147,6 @@ s.cutout =function(){
   ctx.clearRect((s.width/2)-((s.windowWidth/3.2)/3),0,  s.windowWidth/3.2 ,s.windowHeight);
 }
 
-
-
-//  window.onresize =  function() {
-//       s.windowWidth = window.innerWidth ;
-//     s.windowHeight = s.windowWidth * .5504
-//     s.resizeCanvas(s.windowWidth, s.windowWidth * .5504);
-// } 
 }
 
 

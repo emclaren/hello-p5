@@ -11,7 +11,7 @@ canvas{
 }
 
 //Ensure seriously canvas lies above P5 sketches.
-#videocanvas{
+#seriously-canvas{
 	z-index:400;
 }
 
@@ -28,7 +28,6 @@ canvas{
 		top: 100px;
 		transition: all .5s ease;
 		top: 57%;
-		// top:61.5%;
 		left:0;
 		transform: translate(0,-50%);
 	}
@@ -45,100 +44,213 @@ video{
 }
 
 
-// Change color of plyr controlicons
-.plyr__control--overlaid{
-	background: $brand-color-main;
-	z-index:500;
+
+
+
+
+
+
+
+@-webkit-keyframes scaling {
+From {
+    -webkit-transform: scale(1.0);
 }
-.plyr__control--overlaid:hover{
-	background: $brand-color-hover;
+To {
+    -webkit-transform: scale(2.0);
 }
-
-.plyr__video-wrapper{
-	background: $brand-color-main;
 }
-.plyr:-webkit-full-screen {
-	background: $brand-color-main;
-}
-
-.plyr__poster{
-	background: $brand-color-main;
-}
-
-.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
-	background:$brand-color-main;
-}
-
-
-// Ensure plyr controls load above p5 canvas overlay
-.plyr__controls {
-	z-index:500 !important;
-}
-.plyr__menu__container{
-	z-index:500;
-}
-
-
-
-// Ensure the captions are above the canvas element
-.plyr__captions{
-	z-index:2147483647;
-}
-
-
-//Prevent two buffer bars from loading
-.plyr__progress__buffer{
-	display:none;  
-}
-
-//Prevent unnecessary controls from loading
-.plyr [data-plyr=fullscreen], .plyr [data-plyr=settings], .plyr [data-plyr=pip], .plyr [data-plyr=airplay]   {
-	display:none;
-
-}
-
-.plyr--stopped .plyr__poster {
-	opacity: 0;
-}
-
-
-
 .myClass{
+
+		border-radius:32px;
 	// left: 73.75%;
-    position: absolute;
-    z-index: 3000000;
+	position: absolute;
+	background-color: rgba(237,34,93,.8);
+	border:4px solid white;
+	padding:20px 10px;
+	z-index: 3000000;
     // background-color: rgba(237,34,93,.5);
     // background-color:orange;
-    top: -21rem;
-    width: 17%;
-
-    font-size: 1.5rem;
+    // top: calc(15px + 6 * ((100vw - 320px) / 680));
+    width: 18%;
+    font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+    // font-size: 1.5rem; 
     text-align:center;
-    top:17%;
-    left:71.75%;
+    top:15vw;
+    // left:72.75%;
+    left:9%;
+    	// -webkit-animation: scaling 5s infinite alternate;
+    a{
+    	color:white;
+    }
+
+}
+
+.focused{
+  //     height: 250px;
+  // width: 250px;
+  margin: 0 auto;
+  // background-color: red;
+  animation-name: stretch;
+  animation-duration: .3s; 
+  animation-timing-function: ease-out; 
+  animation-delay: .5s;
+  animation-direction: alternate;
+  animation-iteration-count: 8;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+
+@keyframes stretch {
+  0% {
+    transform: scale(1);
+    background-color: rgba(237,34,93,.9);
+    // border-radius:32px;
+  }
+  50% {
+   
+    // background-color: rgba(237,34,93,);
+  }
+  100% {
+    transform: scale(1.05);
+      background-color: rgba(237,34,93,.9);
+      // border-radius:36px;
+  }
+}
+
+
+
+.myClass3{
+	// left: 73.75%;
+		border-radius:32px;
+	position: absolute;
+	background-color: rgba(237,34,93,.9);
+	border:4px solid white;
+	padding:20px 10px;
+	z-index: 3000000;
+    // background-color: rgba(237,34,93,.5);
+    // background-color:orange;
+    // top: calc(15px + 6 * ((100vw - 320px) / 680));
+    width: 18%;
+    font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+    // font-size: 1.5rem; 
+    text-align:center;
+    top:30vw;
+    // left:72.75%;
+    left:9%;
     a{
     	color:white;
     }
 }
 
-.myClass2{
+.myClass4{
 	// left: 73.75%;
-    position: absolute;
-    z-index: 3000000;
-    background-color: rgba(237,34,93,.5);
+		border-radius:32px;
+	position: absolute;
+	background-color: rgba(237,34,93,.9);
+	border:4px solid white;
+	padding:20px 10px;
+	z-index: 3000000;
+    // background-color: rgba(237,34,93,.5);
     // background-color:orange;
-   
-    width: 30%;
-
-    font-size: .9rem;
-    // text-align:center;
-    top:25%;
-    left:65%;
-
+    // top: calc(15px + 6 * ((100vw - 320px) / 680));
+    width: 18%;
+    font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+    // font-size: 1.5rem; 
+    text-align:center;
+    top:15vw;
+    // left:72.75%;
+    right:9%;
+    a{
+    	color:white;
+    }
+}
+.myClass5{
+	// left: 73.75%;
+	border-radius:32px;
+	position: absolute;
+	background-color: rgba(237,34,93,.9);
+	border:4px solid white;
+	padding:20px 10px;
+	z-index: 3000000;
+    // background-color: rgba(237,34,93,.5);
+    // background-color:orange;
+    // top: calc(15px + 6 * ((100vw - 320px) / 680));
+    width: 18%;
+    font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+    // font-size: 1.5rem; 
+    text-align:center;
+    top:30vw;
+    // left:72.75%;
+    right:9%;
+    a{
+    	color:white;
+    }
 }
 
 
 
+// .myClass2{
+// 	// left: 73.75%;
+// 	position: absolute;
+// 	z-index: 3000000;
+// 	background-color: rgba(237,34,93,.5);
+//     // background-color:orange;
+//     padding:1%;
+//     border:1px white solid;
+//     width: 30%;
+// -webkit-animation: scaling 5s infinite alternate;
+//     font-size: calc(8px + 6 * ((100vw - 320px) / 680));
+//     // text-align:center;
+//     top:7%;
+//     left:65%;
+//     a{
+//     	color:white;
+//     }
+//     ul{
+
+//     	margin:.1rem;
+//     	padding-left: calc(10px + 6 * ((100vw - 320px) / 680))
+//     }
+//     li{
+//     	list-style:none;
+//     }
+//     @include breakpoint(lg) {
+//     	top:15%;
+//     }
+// }
+
+
+
+
+.p5-single-circle-code-example{
+    position: absolute;
+    z-index: 3000000;
+    background-color: rgba(237,34,93,.5);
+    padding:1%;
+    font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
+    width: 30%;
+    top:7%;
+    left:65%;
+    a{
+        color:white;
+    }
+    ul{
+        margin:.1rem;
+        padding-left: calc(10px + 6 * ((100vw - 320px) / 680))
+    }
+    li{
+        list-style:none;
+    }
+    @include breakpoint(lg) {
+        top:15%;
+    }
+}
+
+
+
+
+// Disable the default p5 loading text
 #p5_loading{
 	display:none;
 }

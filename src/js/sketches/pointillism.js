@@ -1,41 +1,54 @@
 
-var pointillism= function(s){
-  s.img;
-  s.smallPoint; s.largePoint;
-  s.dotNumber=20;
-  s.transparency=0;
-  s.preload=function() {
-    s.img = s.loadImage("../dist/assets/img/asterisk.png");
+/*********************
+// P5 Logo Pointillism
+// Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
+// Credit: Based on sketch by Daniel Shiffman
+// Link: https://p5js.org/examples/image-pointillism.html
+*********************/
+
+
+const pointillism = (s) => {
+  let img;
+  let smallPoint; 
+  let largePoint;
+  let dotNumber=20;
+  let transparency=0;
+
+  s.preload  = () => {
+    img = s.loadImage("../dist/assets/img/asterisk.png");
   }
 
-  s.setup = function(){
-    s.windowWidth = window.innerWidth;
-    s.windowHeight = s.windowWidth * .5504
-    s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
+  s.setup  = () => {
+    s.pixelDensity(1);
+    let windowWidth = window.innerWidth ;
+    let windowHeight = windowWidth  * 0.562;
+    s.canvas = s.createCanvas(windowWidth, windowHeight);
     s.canvas.parent('video-overlay');
-    s.smallPoint = 5;
-    s.largePoint = 40;
+    smallPoint = 5;
+    largePoint = 40;
     s.noStroke();
     s.fill(0,255, 0)
-    s.img.loadPixels();
+    img.loadPixels();
   }
 
-  s.draw=function() {
-    s.translate(s.windowHeight*.20, s.windowHeight*.25);
-    s.scale(s.windowWidth/1280); 
-    for (s.i =0; s.i<s.dotNumber; s.i++){
-      s.pointillize = s.map(s.mouseX, 0, s.width, s.smallPoint, s.largePoint);
-      s.x = s.floor(s.random(s.img.width));
-      s.y = s.floor(s.random(s.img.height));
-      s.pix = s.img.get(s.x, s.y);
-      s.fill(s.pix, 128);
-      s.ellipse(s.x, s.y, s.pointillize, s.pointillize);
+ s.draw  = () => {
+    s.translate(s.width*.20, s.height*.25);
+    s.scale(s.width/1280); 
+    for (let i =0; i<dotNumber; i++){
+      let pointillize = s.map(s.mouseX, 0, s.width, smallPoint, largePoint);
+      let x = s.floor(s.random(img.width));
+      let y = s.floor(s.random(img.height));
+      let pix = img.get(x, y);
+      s.fill(pix, 128);
+      s.ellipse(x, y, pointillize, pointillize);
     }
+
+    // Simulate fading the dots out by fading in a white rectangle at 31 seconds
+ 
     if(window.videoCurrentTimeGlobal>31){
-      s.dotNumber--;
-      s.transparency++;
-      console.log("i have passed the given time")
-      s.fill(255,255,255,s.transparency);
+      dotNumber--;
+      transparency++;
+      s.fill(255,255,255);
       s.rect(-20,-20,300,300);
     }
   }

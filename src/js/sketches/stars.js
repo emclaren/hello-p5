@@ -1,11 +1,13 @@
 // https://www.openprocessing.org/sketch/559382
 
-
 var stars= function(s){
 
   s.stars = [];
   s.starsNum = 800;
+    s.starsNum2 = 0;
   s.cutoutSize=s.windowWidth/6.4
+  s.toggle= false;
+  s.mouseControl
 // s.colorFill="#000015";
 
 s.setup = function(){
@@ -38,24 +40,46 @@ s.draw = function(){
  s.blendMode(s.BLEND);
  s.clear();
  s.blendMode(s.ADD);
- s.variableSpeed=s.map(s.mouseX, 0, s.windowWidth, 0, 1.5)
- for (s.i = 0; s.i < s.starsNum; s.i++) {
+ s.mousedistance =s.dist(s.mouseX, s.mouseY, s.width/2, s.height/2);
+
+ s.mouseControl=s.map(s.mousedistance, 0, s.windowWidth/2, 200, 0)
+ s.variableSpeed=s.map(s.mousedistance,  0, s.windowWidth/2, 1.5, 0)
+ for (s.i = 0; s.i < s.starsNum2; s.i++) {
   s.stars[s.i].display();
 }
 
+if(window.videoCurrentTimeGlobal<46){
+if(s.starsNum2<s.starsNum-200){
+  s.starsNum2+=10
+  console.log(s.starsNum2)
+}
+}
 
-if(window.videoCurrentTimeGlobal>46){
+
+if(window.videoCurrentTimeGlobal>44){
   // if(s.cutoutSize>6){
-  s.cutoutSize=s.cutoutSize-6
+  // s.cutoutSize=s.cutoutSize-6
   // console.log(s.cutoutSize)
 // }else if (s.cutoutSize<6 && s.cutoutSize>0){
 //   s.cutoutSizetSize--;
 // }else{
 
 // }
+if(s.starsNum2>20){
+s.starsNum2-=20
+}
 }
 
+if(window.videoCurrentTimeGlobal>46){
+if(s.cutoutSize>=0){
+// s.cutoutSize--
+// s.scale(s.mouseX)
+}
+}
+
+
 s.cutout();
+
 }
 
 s.Star=function(tmpColorName) {
@@ -85,13 +109,22 @@ s.Star=function(tmpColorName) {
   }
 
   this.display = function() {
+
     s.fill(this.color);
     s.push();
     s.translate(s.windowWidth / 2, s.windowHeight / 2);
     s.rotate(s.radians(this.theta));
+    if(window.videoCurrentTimeGlobal>46.25){
+      this.x+=5;
+      this.r--;
+      // this.y+=2;
+      this.speed=0;
+
+    }
     s.ellipse(this.x, this.y, this.r, this.r);
     s.pop();
     this.theta += this.speed+s.variableSpeed;
+ 
   }
 }
 

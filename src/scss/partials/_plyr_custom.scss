@@ -1,0 +1,65 @@
+
+// Change color of plyr control icons
+.plyr__control--overlaid{
+    background: $brand-color-main;
+    z-index:500;
+}
+.plyr__control--overlaid:hover{
+    background: $brand-color-hover;
+}
+
+.plyr__video-wrapper{
+    background: $brand-color-main;
+}
+.plyr:-webkit-full-screen {
+    background: $brand-color-main;
+}
+
+.plyr__poster{
+    background: $brand-color-main;
+}
+
+.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
+    background:$brand-color-main;
+}
+
+
+// Ensure plyr controls load above p5 canvas overlay
+.plyr__controls {
+    z-index:2147483647 !important;
+}
+.plyr__menu__container{
+    z-index:500;
+}
+
+
+
+// Ensure the captions are above the canvas element
+.plyr__captions{
+    z-index:2147483647;
+    padding:0;
+    @include breakpoint(md) {
+        padding:10px;
+
+    }   
+    @include breakpoint(lg) {
+        padding:20px;
+
+    }
+}
+
+
+//Prevent two buffer bars from loading
+.plyr__progress__buffer{
+    display:none;  
+}
+
+//Prevent unnecessary controls from loading
+.plyr [data-plyr=fullscreen], .plyr [data-plyr=settings], .plyr [data-plyr=pip], .plyr [data-plyr=airplay]   {
+    display:none;
+
+}
+
+.plyr--stopped .plyr__poster {
+    opacity: 0;
+}

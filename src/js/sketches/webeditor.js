@@ -9,6 +9,7 @@ var webEditor= function(s){
 	s.c1 = s.color(237,34,93);
   	s.c2 = s.color(237,134,193);
   	s.direction=1;
+  	let notdisplayed=true;
 
 	s.setup = function(){
 		s.pixelDensity(1);
@@ -17,9 +18,17 @@ var webEditor= function(s){
 		s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
 		s.canvas.parent('video-overlay');
 		// s.div =  s.createDiv('<a href="https://alpha.editor.p5js.org/">WEBEDITOR</a>');
-		s.div=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank">P5 Web Editor</a>');
+
+		if( window.videoLanguage=="es"){
+ 		s.div=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank">P5 Web Editor-Spanish</a>');
+		}else if( window.videoLanguage=="fr"){
+		s.div=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank">P5 Web Editor - French</a>');
+		}else{
+			s.div=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank">P5 Web Editor</a>');
+		}
 		s.div.parent('video-overlay');
-		s.div.addClass('myClass');
+		s.div.addClass('myClass focused');
+	
 		s.x=.5;
 		s.grow=0
 		s.x1 = s.createVector(s.random(0, s.width/2), s.random(0, s.height/2)); //random position to the upper left
@@ -37,47 +46,65 @@ var webEditor= function(s){
 		if(s.grow > 2 || s.grow < -2){
 			s.x = s.x* -1;
 		}
-		var linkToFocus = document.getElementById('nav-download');
+		// var linkToFocus = document.getElementById('nav-download');
 		if(window.videoCurrentTimeGlobal>98){
-			s.x=s.x/2
-			linkToFocus.focus();
+			if(notdisplayed){
+			s.div.removeClass('focused');
 
-			s.stroke(237,34,93)
-			s.noFill();
-			s.strokeWeight(10.0);
-			s.strokeJoin(s.ROUND);
-			s.beginShape();
-			s.vertex((s.windowWidth/3)-20 , 100-s.move);
-			s.vertex(s.windowWidth/3, 80-s.move);
-			s.vertex((s.windowWidth/3)+20, 100-s.move);
-			s.endShape();
-			s.strokeWeight(2.0);
-			// s.strokeWeight5
-			// s.line(s.windowWidth/3, 80-s.move, s.windowWidth/3, 200+s.move)
-		  s.setGradient((s.windowWidth/3)-4, 80-s.move,  7, 80+(s.move*2),  s.c1, s.c2);
-			s.move=s.move + s.direction;
-			if(s.move==10 || s.move==0 ){
-			s.direction=s.direction*-1;
-			console.log(s.move)
+				if( window.videoLanguage=="es"){
+ 		s.div2=s.createDiv('<a href="http://p5js.org/download/"  target="_blank">Download-spanish</a>');
+		}else if( window.videoLanguage=="fr"){
+		s.div2=s.createDiv('<a href="http://p5js.org/download/"  target="_blank">Download-french</a>');
+		}else{
+			s.div2=s.createDiv('<a href="http://p5js.org/download/"  target="_blank">Download</a>');
 		}
-		}
+		s.div2.parent('video-overlay');
+		s.div2.addClass('myClass3 focused');
+		s.frameRate(0);
+		notdisplayed=false;
+	}
+	}
+
+
+		// 	s.x=s.x/2
+		// 	// linkToFocus.focus();
+
+		// 	s.stroke(237,34,93)
+		// 	s.noFill();
+		// 	s.strokeWeight(10.0);
+		// 	s.strokeJoin(s.ROUND);
+		// 	s.beginShape();
+		// 	s.vertex((s.windowWidth/3)-20 , 100-s.move);
+		// 	s.vertex(s.windowWidth/3, 80-s.move);
+		// 	s.vertex((s.windowWidth/3)+20, 100-s.move);
+		// 	s.endShape();
+		// 	s.strokeWeight(2.0);
+		// 	// s.strokeWeight5
+		// 	// s.line(s.windowWidth/3, 80-s.move, s.windowWidth/3, 200+s.move)
+		//   s.setGradient((s.windowWidth/3)-4, 80-s.move,  7, 80+(s.move*2),  s.c1, s.c2);
+		// 	s.move=s.move + s.direction;
+		// 	if(s.move==10 || s.move==0 ){
+		// 	s.direction=s.direction*-1;
+		// 	console.log(s.move)
+		// }
+		// }
 		
-		if(window.videoCurrentTimeGlobal>102.5){
-			linkToFocus.blur();
-		}
-		s.stroke(255,255,255);
-		s.fill(237,34,93, 230)
-		s.strokeWeight(4);
-		s.rect(s.windowWidth*.73, 90-s.grow, 190,80+s.grow*2)
-		// s.offset = s.r;
+		// // if(window.videoCurrentTimeGlobal>102.5){
+		// // 	linkToFocus.blur();
+		// // }
+		// s.stroke(255,255,255);
+		// s.fill(237,34,93, 230)
+		// s.strokeWeight(4);
+		// // s.rect(s.windowWidth*.73, s.windowHeight*.15-s.grow, s.windowWidth/5,s.windowWidth/15+s.grow*2)
+		// // s.offset = s.r;
 
-		// s.stroke(237,34,93)
-		// s.triangle(s.windowWidth/3, 80, (s.windowWidth/3 )+10, 100,(s.windowWidth/3)-10, 100);
-		// s.strokeWeight(9);
-		// s.line(s.windowWidth/3, 100, s.windowWidth/3, 200)
+		// // s.stroke(237,34,93)
+		// // s.triangle(s.windowWidth/3, 80, (s.windowWidth/3 )+10, 100,(s.windowWidth/3)-10, 100);
+		// // s.strokeWeight(9);
+		// // s.line(s.windowWidth/3, 100, s.windowWidth/3, 200)
 
-		// s.noFill();
-	 // s.arc(s.windowWidth/2.5, 100, s.windowWidth/6, s.windowHeight/5, s.HALF_PI, s.PI)
+		// // s.noFill();
+	 // // s.arc(s.windowWidth/2.5, 100, s.windowWidth/6, s.windowHeight/5, s.HALF_PI, s.PI)
 
 
 

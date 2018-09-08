@@ -1,9 +1,11 @@
 /*********************
 // Hello P5 Title Sketch
+// Description: Interactive Title Text for the Video
 // Credit: waiting for release
 *********************/
 
-var helloP5Title = (s) => {
+
+const helloP5Title = (s) => {
   let mappedX;
   let mappedY;
   let upperBound;
@@ -35,38 +37,38 @@ var helloP5Title = (s) => {
     s.textSize(s.height / 5);
     s.textStyle(s.BOLD);
 
-
+    s.push();
     // Text Shadow - Light Color that moves
     s.fill(red, green, blue, fadeHello / 4);
     s.text('hello,', mappedX, mappedY); //position changes based on MouseX & MouseY Inputs
-
+    s.pop();
     s.fill(red, green, blue, fadeP5/4);
     s.text('p5*js', mappedX, s.height/5 + mappedY); //position changes based on MouseX & MouseY Inputs
     
 
     // Dark Text
+    s.push();
     s.fill(red,green,blue, fadeHello);
     s.text('hello,', 0,0);
-
+    s.pop();
     s.fill(red,green,blue, fadeP5);
     s.text('p5*js',0, s.height/5);
 
 
-    //Fade in "Hello" immediately
+    //Fade in "Hello" text immediately
     if(fadeHello < 255){
      fadeHello += fadeInSpeed;
     }
 
-    //Fade in P5js after .25 seconds
+    //Fade in P5js text after .25 seconds
     if(window.videoCurrentTimeGlobal > 8.25){
       if(fadeP5 < 255){
         fadeP5 += fadeInSpeed;
       }
     }
 
-
     // Control the position of the shadow layer with the Mouse
-    upperBound = s.width / 250;
+    upperBound = s.width / 200;
     lowerBound = upperBound * -1;
     mappedX = s.map(Math.abs(s.mouseX),0,s.width,lowerBound, upperBound);
     mappedY = s.map(Math.abs(s.mouseY),0,s.height,lowerBound, upperBound);
@@ -81,6 +83,7 @@ var helloP5Title = (s) => {
   };
 
 };
+
 module.exports = helloP5Title;
 
 

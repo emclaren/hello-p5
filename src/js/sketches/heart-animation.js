@@ -1,8 +1,11 @@
 /*********************
-// Hello P5 Title Sketch
+// Heart Animation
+// Description: Draws randomly coloured hearts on screen 
 // Credit: waiting for release
 *********************/
-var heart = (s) => {
+
+
+const heart = (s) => {
   let R = 8; 
   let maxVal = 0;
   let rt = 0;
@@ -35,12 +38,11 @@ var heart = (s) => {
   s.draw = () => {
     s.clear();
     size=s.width / 1280;
- 
     sizeChange = s.map(s.mouseX, 0, s.width, 0.5, 1);  
     s.fill(c, 80, 100, alp);
     s.stroke(c, 80, 100, stAlp);
     s.push();
-    s.translate(xpos, ypos);
+    s.translate(xpos-s.move, ypos+s.move);
     s.beginShape();
     for (s.theta = 0; s.theta < maxVal; s.theta++) {
       x = R * (16 * s.sin(s.radians(s.theta)) * s.sin(s.radians(s.theta)) * s.sin(s.radians(s.theta)));
@@ -48,6 +50,8 @@ var heart = (s) => {
         2 * s.cos(s.radians(3 * s.theta)) - s.cos(s.radians(4 * s.theta)));
       s.vertex(x, y);
     }
+    s.distancemouse=s.dist(s.mouseX, s.mouseY, x,y);
+    s.move = s.map(s.distancemouse, 0, s.width, 0, 50);
     s.scale(size * sizeChange); 
     s.endShape();
     s.pop();
@@ -59,7 +63,6 @@ var heart = (s) => {
         phase = 1;
       }
     }
-
     if (phase == 1) {
       R = 8 + s.abs(s.sin(s.radians(rt)));
       rt += 20;
@@ -75,7 +78,6 @@ var heart = (s) => {
       if (alp > 255) {
         alp = 255;
       }
-      console.log(fillCount)
       if (fillCount > 400) {
         phase = 3;
       }
@@ -85,7 +87,6 @@ var heart = (s) => {
       oy -= 10;
       alp -= 15;
       stAlp -= 15;
-      console.log("phase3")
       if (oy < -s.height) {
         maxVal = 0;
         rt = 0;
@@ -95,7 +96,7 @@ var heart = (s) => {
         oy = 0;
         fillCount = 0;
         c = s.random(360);
-        xpos = s.width - s.width/6;
+        xpos = s.width - s.width/8;
         ypos = s.height - s.height / 3 + oy;
       }
     }
@@ -104,6 +105,8 @@ var heart = (s) => {
 };
 
 module.exports= heart;
+
+
 
 
 
