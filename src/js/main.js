@@ -3,23 +3,20 @@ const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
 
-// For Keeping track of current video time
-let videoCurrentTime;
-let videoPreviousTime;
-let videoTimeSeeked = false;
-let videoPlaying=false;
 
-// For changing header styling on "play", and language change
-const header = document.querySelector('.header');
+let videoCurrentTime=0; // For keeping track of current time from plyr video playback
+let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
+let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas overlay
 
-// For toggling the text in the header on language change
-let languageArray
+const header = document.querySelector('.header'); // For changing header styling on "play", and language change
 
-let scene
-let seriouslyScene
-let loadScene
-let canvasScene
-let none
+let languageArray; // For toggling the text in the header on language change
+
+
+let scene; // Name of current p5 sketch
+let seriouslyScene; // Name of current seriously chroma sketh
+let noSketch; // Placeholder variable when no p5 sketch required
+
 
 
 //Plyr Setup Code
@@ -33,59 +30,69 @@ document.addEventListener('DOMContentLoaded', () => {
       "global":true,
       "focused":true
     }
+
   });
+   // updateSketch(); 
 
-
-  function on(selector, type, callback) {
-    document.querySelector(selector).addEventListener(type, callback, false);
-  }
-  scene = new p5(laMonster);
-  seriouslyScene = new p5(seriouslyCanvas);
-
-
-
-  document.getElementById('video-overlay').onclick=function(){
-    if(videoPlaying){
-      player.pause();
-    }else{
-      player.play();
-    }
-  }
-
+player.on('ready', event =>{
+  console.log("hi");
+  const seriouslyCanvas = require('./sketches/seriously-canvas.js');
+  const laMonster = require('./sketches/laMonster.js');
+   scene = new p5(laMonster); 
+      seriouslyScene= new p5(seriouslyCanvas);
+  // player.timeupdate;
+});
 
 // Triggered when video start
 player.on('playing', event => {
-    //Adds the class of hide on play, makes the header dissappear
+
+
+    // adds the class of hide on play, to make the header shrink on play
     let header = document.querySelector('.header');
     let container = document.querySelector('.container');
-    header.classList.add('hide'); 
-    container.classList.add('hide'); 
-    videoPlaying=true;
+    header.classList.add('shrink'); 
+    container.classList.add('shrink'); 
+
+    // Scroll to the bottom of the page when the player starts to simulate full-screen
     window.scrollTo({
       top: document.documentElement.scrollHeight,
       behavior: "smooth"
     });
 
+    // Start P5 Sketch if it is paused 
+    if(scene){
+      scene.frameRate(60); 
+    }
+    videoPlaying=true; 
   });
 
 
 // Triggered when video paused
 player.on('pause', event => {
- scene.frameRate(0); // make p5 sketch pause when video is paused
- videoPlaying=false;
+
+  // stop p5 sketch when video is paused
+  if(scene){
+    scene.frameRate(0); 
+  }
+
+  videoPlaying=false; 
 });
 
 
 
 
 
-// Sketch Files- Cleaned up
+
+// Import P5 Sketch Files
 const seriouslyCanvas = require('./sketches/seriously-canvas.js');
+
 const helloP5Title = require('./sketches/hello-p5-title.js');
 const heartAnimation = require('./sketches/heart-animation.js');
 const pointillismLogo = require('./sketches/pointillism-logo.js');
 const targetSketch = require('./sketches/target-sketch.js');
 const singleCircle= require('./sketches/single-circle.js');
+const sinLines = require('./sketches/sin-lines.js');
+
 
 // Sketch Files- TODO : CLEANUP SKETCHES
 const laMonster = require('./sketches/laMonster.js');
@@ -101,79 +108,71 @@ const visualizer = require('./sketches/visualizer.js');
 const stars = require('./sketches/stars.js');
 const rainbow = require('./sketches/rainbow.js');
 const manyDots = require('./sketches/manyDots.js');
-const sinLines = require('./sketches/sinlines.js');
 const circleExplosion = require('./sketches/circleExplosion.js');
 const helloP5 = require('./sketches/helloP5.js');
 
 
 var sceneChangeMap = [
-{id: 0, time : 3, sketchfile: none},
-{id: 1, time : 5.25, sketchfile: visualizer, seriously:true },
-{id: 2, time : 7.75, sketchfile: none},
-{id: 3, time : 8.00, sketchfile: helloP5Title},
-{id: 4, time : 9.75, sketchfile: none},
-{id: 5, time : 10.75, sketchfile: heartAnimation},
-{id: 6, time : 17.50, sketchfile: leaves},
-{id: 7, time : 24.50, sketchfile: none},
-{id: 8, time : 24.75, sketchfile: pointillismLogo},
-{id: 9, time : 33.00, sketchfile: wave2},
-{id: 10, time : 38.25, sketchfile: stars},
-{id: 11, time : 50.50, sketchfile: targetSketch},
-{id: 12, time : 53.50, sketchfile: rainbow},
-{id: 13, time : 56, sketchfile: none},
-{id: 14, time : 56.5, sketchfile: singleCircle},
-{id: 15, time : 63.25, sketchfile: manyDots},
-{id: 16, time : 75.25, sketchfile: none},
-{id: 17, time : 78.50, sketchfile: sinLines},
-{id: 18, time : 85.25, sketchfile: none},
-{id: 19, time : 89, sketchfile: target2},
-{id: 20, time : 91, sketchfile: none},
-{id: 21, time : 94.5, sketchfile: webEditor},
-{id: 22, time : 104, sketchfile:lerpColor},
-{id: 23, time : 103, sketchfile: none},
-{id: 24, time : 109, sketchfile: forum},
-{id: 25, time : 116.25, sketchfile: waves},
-{id: 26, time : 121.75, sketchfile: none},
-{id: 27, time : 122, sketchfile: circleExplosion},
-{id: 28, time : 135, sketchfile: flock2},
+{time : 0, sketchfile: laMonster, seriously:true },
+{time : 3, sketchfile: noSketch},
+{time : 5.25, sketchfile: visualizer, seriously:true },
+{time : 7.75, sketchfile: noSketch},
+{time : 8.00, sketchfile: helloP5Title},
+{time : 9.75, sketchfile: noSketch},
+{time : 10.75, sketchfile: heartAnimation},
+{time : 17.50, sketchfile: leaves},
+{time : 24.50, sketchfile: noSketch},
+{time : 24.75, sketchfile: pointillismLogo},
+{time : 33.00, sketchfile: wave2},
+{time : 38.25, sketchfile: stars},
+{time : 50.50, sketchfile: targetSketch},
+{time : 53.50, sketchfile: rainbow},
+{time : 56, sketchfile: noSketch},
+{time : 56.5, sketchfile: singleCircle},
+{time : 63.25, sketchfile: manyDots},
+{time : 75.25, sketchfile: noSketch},
+{time : 78.50, sketchfile: sinLines},
+{time : 85.25, sketchfile: noSketch},
+{time : 89, sketchfile: target2},
+{time : 91, sketchfile: noSketch},
+{time : 94.5, sketchfile: webEditor},
+{time : 104, sketchfile:lerpColor},
+{time : 103, sketchfile: noSketch},
+{time : 109, sketchfile: forum},
+{time : 116.25, sketchfile: waves},
+{time : 121.75, sketchfile: noSketch},
+{time : 122, sketchfile: circleExplosion},
+{time : 135, sketchfile: flock2},
+{time : 167, sketchfile: noSketch},
 ];
 
 
 
-//Watch time in video and trigger P5 events
+//Watch time in video and trigger P5 events 
 player.on('timeupdate', event => {
-    videoPreviousTime=videoCurrentTime; // XXXX
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
-    updateSketch();
+
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
-    let multipleTimeInVideo = timeInVideo *4
+    let multipleTimeInVideo = timeInVideo * 4
     let roundTimeInVideo = Math.round(multipleTimeInVideo)
     videoCurrentTime=roundTimeInVideo/4;
 
+    // Useful for testing
     console.log("video current time" + videoCurrentTime)
 
     window.videoCurrentTimeGlobal = videoCurrentTime; //create a global variable so that current time can be used within p5 sketches
-    
-    // updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
+    updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
 
-console.log("videoTimeSeeked: " + videoTimeSeeked)
-    // This part makes it so that the sketch will play even if you jumped to it
+    // This part plays the correct sketch if a user jumps to a different part of the video 
     if(videoTimeSeeked){
-     videoTimeSeeked = false; //reset this variable to false so it doesn't run again
      for(let i=0; i< sceneChangeMap.length;i++){
       if(videoCurrentTime >= sceneChangeMap[i].time  && videoCurrentTime < sceneChangeMap[i+1].time){
         videoCurrentTime = sceneChangeMap[i].time ;
- console.log(" sceneChangeMap[i].time" +  sceneChangeMap[i].time)
- console.log(" videoCurrentTime #1 " +  videoCurrentTime)
-        // videoCurrentTime -= .25;
-        console.log(" videoCurrentTime #2 " +  videoCurrentTime)
+        updateSketch();
       }
-      // else if(videoCurrentTime<sceneChangeMap[0].time){
-      //   scene = new p5(laMonster); 
-      //   seriouslyScene= new p5(seriouslyCanvas);
-      // }
-    }
-  }
+       videoTimeSeeked = false; //reset this variable to false so this if statement only runs once
+     }
+   }
 
 
 
@@ -182,34 +181,43 @@ console.log("videoTimeSeeked: " + videoTimeSeeked)
 
 // Load a sketch if the current time of the video matches the list of sketches above
 function updateSketch(){
-  for(var i=0; i<sceneChangeMap.length; i++ ){
+  for(var i=0; i<sceneChangeMap.length; i++){
+    if(videoCurrentTime<.50){
+      console.log("hi, its less that .25")
+    }
     if(videoCurrentTime==sceneChangeMap[i].time){
+
+      // Remove any p5 sketches currently playing
       if(scene){
         scene.remove();
       }
-      if(seriouslyScene){
+       // Remove any seriously sketches currently playing
+       if(seriouslyScene){
         seriouslyScene.remove()
       }
+      // Play the sketch from the Scene change map
       scene = new p5(sceneChangeMap[i].sketchfile); 
-      if(sceneChangeMap[i].seriously){
-       seriouslyScene= new p5(seriouslyCanvas);
-     }
-   }
 
+        // if "seriously" is set to true in the scene change map, start seriously
+        if(sceneChangeMap[i].seriously){
+         seriouslyScene= new p5(seriouslyCanvas);
+       }
+     }
+
+   }
  }
-}
 
 
 // Remove P5 sketch when a new time in video is selected by user
 player.on('seeking', event => {
   if(scene){
-       scene.remove(); 
-       if(seriouslyScene){
-        seriouslyScene.remove();
-      }
-    }
-    videoTimeSeeked  = true;
-  });
+   scene.remove(); 
+   if(seriouslyScene){
+    seriouslyScene.remove();
+  }
+}
+videoTimeSeeked  = true;
+});
 
 
 // Pause P5 sketch when a new time in video is selected by user
@@ -219,16 +227,71 @@ player.on('seeked', event => {
 
 
 
-// Unpause the sketch after adjusting the time if the video is playing
-  if(videoCurrentTime != videoPreviousTime){
-    if(scene){
-        scene.frameRate(60);
-      }
-      videoTimeSeeked =false; 
-    }
-  });
+
+});
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Enable video pause by clicking on a sketch:
+// required because the video by clicking on video to pause is obstructed by P5 cavas overlay
+document.getElementById('video-overlay').onclick=function(){
+  if(videoPlaying){
+    player.pause();
+  }else{
+    player.play();
+  }
+}
 
 
 // Resize  P5 and Seriously Canvases when the window size changes
@@ -245,7 +308,8 @@ window.onresize = function() {
 
 
 
-//*** Language Controls **/
+
+//*** Language Controls ***/
 ///Toggle Language of Header & Captions Based on Selection
 document.getElementById('language-link-english').onclick=function(){
   languageArray=["Download", "Start", "Reference", "Libraries", "Learn", "Community"] //Words that will replace the menu links

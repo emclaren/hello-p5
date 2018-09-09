@@ -94,8 +94,6 @@ header{
 				@include breakpoint(lg) {
 					font-size:1.3rem;
 					width:auto !important;
-					height: 1.9rem;
-					min-height: 1.5rem;
 				}
 
 				&:hover {
@@ -159,11 +157,11 @@ header{
 	}
 
 
-	///The .hide class is added to the header when the video starts playing, it makes the header shrink on play 
-	&.hide{
+	///The .shrink class is added to the header when the video starts playing, it makes the header shrink on play 
+	&.shrink{
 		@include breakpoint(md){
 			height:2.5rem;
-			transition: all .5s ease;
+			transition: height .5s ease;
 		}
 		@include breakpoint(xl) {
 			height:3.13rem;
@@ -172,28 +170,24 @@ header{
 		.logo{
 			@include breakpoint(md){
 				max-width: 3rem;
-				transition: all .5s ease;
-				margin:0 auto;		
+				margin:0 auto;	
+				transition: height .5s ease, margin .5 ease;	
 
 			}
 			@include breakpoint(xl) {
-
 				max-width: 4rem;
-				transition: all .5s ease;
-
 			}	
 		}
 
 		#menu li a:link, #menu li a:visited, .language-link{
 			@include breakpoint(md){
 				font-size: 1.1em;
-				transition: all .5s ease;
+				transition: font-size .5s ease, height .5s ease;	
 			}
 		}
 		.language-link {
 			@include breakpoint(xl) {
 				height: 1.6rem !important;
-				transition: all .5s ease;
 			}
 
 		}
