@@ -57,23 +57,9 @@ if(s.starsNum2<s.starsNum-200){
 
 
 if(window.videoCurrentTimeGlobal>44){
-  // if(s.cutoutSize>6){
-  // s.cutoutSize=s.cutoutSize-6
-  // console.log(s.cutoutSize)
-// }else if (s.cutoutSize<6 && s.cutoutSize>0){
-//   s.cutoutSizetSize--;
-// }else{
 
-// }
 if(s.starsNum2>20){
 s.starsNum2-=20
-}
-}
-
-if(window.videoCurrentTimeGlobal>46){
-if(s.cutoutSize>=0){
-// s.cutoutSize--
-// s.scale(s.mouseX)
 }
 }
 
@@ -127,13 +113,6 @@ s.Star=function(tmpColorName) {
  
   }
 }
-
-// s.cutout =function(){
-//   var c=document.getElementById("defaultCanvas0");
-//   var ctx=c.getContext("2d");
-//   ctx.clearRect((s.windowWidth/2)- ((s.windowWidth/3.2)/2)+s.cutoutSize,0,  s.windowWidth/3.2 -s.cutoutSize*2 ,s.windowHeight);
-// }
-
 
 
 s.cutout =function(){
