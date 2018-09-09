@@ -75,6 +75,12 @@ player.on('pause', event => {
     scene.frameRate(0); 
   }
 
+
+// Remove bouncyness from the css blocks in links ages
+ var element = document.getElementsByClassName("myClass");
+    element.classList.remove("focused");
+
+
   videoPlaying=false; 
 });
 
@@ -91,26 +97,34 @@ const heartAnimation = require('./sketches/heart-animation.js');
 const pointillismLogo = require('./sketches/pointillism-logo.js');
 const targetSketch = require('./sketches/target-sketch.js');
 const singleCircle= require('./sketches/single-circle.js');
+
+
+// Sketch Files- TODO : Partially cleaned
 const sinLines = require('./sketches/sin-lines.js');
+const rectangles = require('./sketches/rectangles.js');
+const lerpColor = require('./sketches/lerpColor.js');
+
+
+
 
 
 // Sketch Files- TODO : CLEANUP SKETCHES
-const laMonster = require('./sketches/laMonster.js');
 const leaves = require('./sketches/leaves.js');
 const forum = require('./sketches/forum.js');
 const flock2 = require('./sketches/flock2.js');
-const lerpColor = require('./sketches/lerpColor.js');
 const webEditor = require('./sketches/webeditor.js');
 const waves = require('./sketches/waves.js');
-const target2 = require('./sketches/targeted2.js');
 const wave2 = require('./sketches/wave2.js');
 const visualizer = require('./sketches/visualizer.js');
 const stars = require('./sketches/stars.js');
-const rainbow = require('./sketches/rainbow.js');
 const manyDots = require('./sketches/manyDots.js');
 const circleExplosion = require('./sketches/circleExplosion.js');
-const helloP5 = require('./sketches/helloP5.js');
 
+
+
+//Need work
+const laMonster = require('./sketches/laMonster.js');
+const rainbow = require('./sketches/rainbow.js');
 
 var sceneChangeMap = [
 {time : 0, sketchfile: laMonster, seriously:true },
@@ -133,7 +147,7 @@ var sceneChangeMap = [
 {time : 75.25, sketchfile: noSketch},
 {time : 78.50, sketchfile: sinLines},
 {time : 85.25, sketchfile: noSketch},
-{time : 89, sketchfile: target2},
+{time : 89, sketchfile: rectangles},
 {time : 91, sketchfile: noSketch},
 {time : 94.5, sketchfile: webEditor},
 {time : 104, sketchfile:lerpColor},
