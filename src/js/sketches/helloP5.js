@@ -105,6 +105,39 @@ module.exports= helloP5;
 
 
 
+// initial variables
+
+
+
+
+// // Circle hole
+
+// s.cutout=function(){
+//   // var x;
+//     console.log("hole is running");
+//     var c=document.getElementById("defaultCanvas0");
+//     var ctx=c.getContext("2d");
+
+
+
+// //     // test part
+
+//     ctx.beginPath();
+// ctx.arc(s.windowWidth / 2, s.windowHeight / 2, s.windowWidth / 4, 0, 2 * 3.14);
+// ctx.stroke();
+// ctx.clip();
+
+// // clear the contents of the circle - erases the center of the cross
+// ctx.clearRect(0, 0, s.windowWidth,s.windowHeight);
+
+
+
+
+//     // ctx.clearRect((s.width/2)- ((s.windowWidth/3.2)/2),0,  s.windowWidth/3.2 ,s.windowHeight);
+//   // x++
+// }
+
+
 
 
 

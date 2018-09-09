@@ -3,6 +3,10 @@ const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
 
+
+
+
+
 // For Keeping track of current video time
 let videoCurrentTime;
 let videoPreviousTime;
@@ -16,27 +20,31 @@ const header = document.querySelector('.header');
 let languageArray
 
 
+
+
+
 // Sketch Files- Cleaned up
 const seriouslyCanvas = require('./sketches/seriously-canvas.js');
 const helloP5Title = require('./sketches/hello-p5-title.js');
 const heartAnimation = require('./sketches/heart-animation.js');
+const pointillismLogo = require('./sketches/pointillism-logo.js');
+const targetSketch = require('./sketches/target-sketch.js');
 const singleCircle= require('./sketches/single-circle.js');
-
 
 
 
 
 // Sketch Files- TODO : CLEANUP SKETCHES
 const laMonster = require('./sketches/laMonster.js');
+
 const leaves = require('./sketches/leaves.js');
 const forum = require('./sketches/forum.js');
 const flock2 = require('./sketches/flock2.js');
-const pointillism = require('./sketches/pointillism.js');
+
 const lerpColor = require('./sketches/lerpColor.js');
+
 const webEditor = require('./sketches/webeditor.js');
-const helloP5 = require('./sketches/helloP5.js');
 const waves = require('./sketches/waves.js');
-const target = require('./sketches/targeted.js');
 const target2 = require('./sketches/targeted2.js');
 const wave2 = require('./sketches/wave2.js');
 const visualizer = require('./sketches/visualizer.js');
@@ -44,10 +52,10 @@ const stars = require('./sketches/stars.js');
 const rainbow = require('./sketches/rainbow.js');
 const manyDots = require('./sketches/manyDots.js');
 const sinLines = require('./sketches/sinlines.js');
-const parabolicLines = require('./sketches/parabolicLines.js');
 const circleExplosion = require('./sketches/circleExplosion.js');
 
 
+const helloP5 = require('./sketches/helloP5.js');
 
 
 let scene
@@ -168,10 +176,10 @@ var sceneChangeMap = [
 {id: 5, time : 10.75, sketchfile: heartAnimation},
 {id: 6, time : 17.50, sketchfile: leaves},
 {id: 7, time : 24.50, sketchfile: none},
-{id: 8, time : 24.75, sketchfile: pointillism},
+{id: 8, time : 24.75, sketchfile: pointillismLogo},
 {id: 9, time : 33.00, sketchfile: wave2},
 {id: 10, time : 38.25, sketchfile: stars},
-{id: 11, time : 50.50, sketchfile: target},
+{id: 11, time : 50.50, sketchfile: targetSketch},
 {id: 12, time : 53.50, sketchfile: rainbow},
 {id: 13, time : 56, sketchfile: none},
 {id: 14, time : 56.5, sketchfile: singleCircle},
@@ -246,7 +254,6 @@ player.on('timeupdate', event => {
   if(videoCurrentTime != videoPreviousTime){
     if(scene){
         scene.frameRate(60); //sets the framerate back to normal after adjusting the time if the video is playing
-     // scene1.frameRate(60); 
    }
 
    videoTimeSeeked =false;
@@ -422,9 +429,9 @@ window.onresize = function() {
   scene.windowWidth=window.innerWidth;
   scene.windowHeight=window.innerWidth * .562;
   if(scene){
-    scene.resizeCanvas(scene.windowWidth, scene.windowHeight);
+    scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
   }
   if(seriouslyScene){
-    seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);
+    seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
   }
 } 
