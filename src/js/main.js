@@ -76,12 +76,12 @@ player.on('pause', event => {
   }
 
 
-// Remove bouncyness from the css blocks in links ages
- var element = document.getElementsByClassName("myClass");
-    element.classList.remove("focused");
+// // Remove bouncyness from the css blocks in links ages
+//  var element = document.getElementsByClassName("myClass");
+//     element.classList.remove("focused");
 
 
-  videoPlaying=false; 
+//   videoPlaying=false; 
 });
 
 
@@ -103,22 +103,21 @@ const singleCircle= require('./sketches/single-circle.js');
 const sinLines = require('./sketches/sin-lines.js');
 const rectangles = require('./sketches/rectangles.js');
 const lerpColor = require('./sketches/lerpColor.js');
-
-
+const circleExplosion = require('./sketches/circle-explosion.js');
+const forumLink = require('./sketches/forum-link.js');
 
 
 
 // Sketch Files- TODO : CLEANUP SKETCHES
 const leaves = require('./sketches/leaves.js');
-const forum = require('./sketches/forum.js');
 const flock2 = require('./sketches/flock2.js');
-const webEditor = require('./sketches/webeditor.js');
+const webEditorLink = require('./sketches/webeditor-link.js');
 const waves = require('./sketches/waves.js');
 const wave2 = require('./sketches/wave2.js');
 const visualizer = require('./sketches/visualizer.js');
 const stars = require('./sketches/stars.js');
 const manyDots = require('./sketches/manyDots.js');
-const circleExplosion = require('./sketches/circleExplosion.js');
+
 
 
 
@@ -148,11 +147,11 @@ var sceneChangeMap = [
 {time : 78.50, sketchfile: sinLines},
 {time : 85.25, sketchfile: noSketch},
 {time : 89, sketchfile: rectangles},
-{time : 91, sketchfile: noSketch},
-{time : 94.5, sketchfile: webEditor},
+{time : 93, sketchfile: noSketch},
+{time : 94.5, sketchfile: webEditorLink},
 {time : 104, sketchfile:lerpColor},
 {time : 103, sketchfile: noSketch},
-{time : 109, sketchfile: forum},
+{time : 109, sketchfile: forumLink},
 {time : 116.25, sketchfile: waves},
 {time : 121.75, sketchfile: noSketch},
 {time : 122, sketchfile: circleExplosion},
@@ -207,7 +206,7 @@ function updateSketch(){
       }
        // Remove any seriously sketches currently playing
        if(seriouslyScene){
-        seriouslyScene.remove()
+        // seriouslyScene.remove()
       }
       // Play the sketch from the Scene change map
       scene = new p5(sceneChangeMap[i].sketchfile); 

@@ -17,7 +17,7 @@ const pointillismLogo = (s) => {
   let dotSize;
 
   s.preload  = () => {
-    img = s.loadImage("../dist/assets/img/asterisk.png"); //Preload the log image 
+    img = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/asterisk.png"); //Preload the log image 
   };
 
   s.setup  = () => {

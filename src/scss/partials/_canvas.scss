@@ -59,7 +59,7 @@ To {
     -webkit-transform: scale(2.0);
 }
 }
-.myClass{
+.sketch-webeditor-link{
 
 		border-radius:32px;
 	// left: 73.75%;
@@ -120,7 +120,7 @@ To {
 
 
 
-.myClass3{
+.sketch-download-link{
 	// left: 73.75%;
 		border-radius:32px;
 	position: absolute;
@@ -143,7 +143,7 @@ To {
     }
 }
 
-.myClass4{
+.sketch-forum-link{
 	// left: 73.75%;
 		border-radius:32px;
 	position: absolute;
@@ -165,7 +165,7 @@ To {
     	color:white;
     }
 }
-.myClass5{
+.sketch-community-link {
 	// left: 73.75%;
 	border-radius:32px;
 	position: absolute;
@@ -189,36 +189,6 @@ To {
 }
 
 
-
-// .myClass2{
-// 	// left: 73.75%;
-// 	position: absolute;
-// 	z-index: 3000000;
-// 	background-color: rgba(237,34,93,.5);
-//     // background-color:orange;
-//     padding:1%;
-//     border:1px white solid;
-//     width: 30%;
-// -webkit-animation: scaling 5s infinite alternate;
-//     font-size: calc(8px + 6 * ((100vw - 320px) / 680));
-//     // text-align:center;
-//     top:7%;
-//     left:65%;
-//     a{
-//     	color:white;
-//     }
-//     ul{
-
-//     	margin:.1rem;
-//     	padding-left: calc(10px + 6 * ((100vw - 320px) / 680))
-//     }
-//     li{
-//     	list-style:none;
-//     }
-//     @include breakpoint(lg) {
-//     	top:15%;
-//     }
-// }
 
 
 
