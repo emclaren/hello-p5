@@ -2,7 +2,7 @@
 const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
-
+const p5sound = require('../../node_modules/p5/lib/addons/p5.sound');//P5 Dom
 
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
@@ -11,7 +11,6 @@ let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas
 const header = document.querySelector('.header'); // For changing header styling on "play", and language change
 
 let languageArray; // For toggling the text in the header on language change
-
 
 let scene; // Name of current p5 sketch
 let seriouslyScene; // Name of current seriously chroma sketh
@@ -114,17 +113,16 @@ const wavemaker = require('./sketches/wavemaker.js');
 // Sketch Files- TODO : CLEANUP SKETCHES
 const flock = require('./sketches/flock.js');
 const waves = require('./sketches/waves.js');
-
+const rainbow = require('./sketches/rainbow.js');
 
 //Need work
 const laMonster = require('./sketches/laMonster.js');
-const rainbow = require('./sketches/rainbow.js');
 const visualizer = require('./sketches/visualizer.js');
 
 var sceneChangeMap = [
-{time : 0, sketchfile: laMonster, seriously:true },
+{time : 0, sketchfile: laMonster, seriously:false },
 {time : 3, sketchfile: noSketch},
-{time : 5.25, sketchfile: visualizer, seriously:true },
+{time : 4.75, sketchfile: visualizer, seriously:false},
 {time : 7.75, sketchfile: noSketch},
 {time : 8.00, sketchfile: helloP5Title},
 {time : 9.75, sketchfile: noSketch},
@@ -136,7 +134,7 @@ var sceneChangeMap = [
 {time : 38.25, sketchfile: stars},
 {time : 50.50, sketchfile: targetSketch},
 {time : 53.50, sketchfile: rainbow},
-{time : 56, sketchfile: noSketch},
+{time : 56.00, sketchfile: noSketch},
 {time : 56.5, sketchfile: singleCircle},
 {time : 63.25, sketchfile: manyDots},
 {time : 75.25, sketchfile: noSketch},

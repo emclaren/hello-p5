@@ -15,68 +15,74 @@ s.k=100;
 s.test=0;
 s.offset = 30;
 s.decrease=0;
-		s.k2=100;
-		s.j2=100;
-		s.c=0;
-			s.index = 0;
-			s.firstTime=true;
+s.k2=100;
+s.j2=100;
+s.c=0;
+s.index = 0;
+s.firstTime=true;
+s.cutshape=0
 
-	s.setup  = () => {
-		s.pixelDensity(1);
-		let windowWidth = window.innerWidth ;
-		let windowHeight = windowWidth  * 0.562;
-		s.canvas = s.createCanvas(windowWidth, windowHeight);
-		s.canvas.parent('video-overlay');
-		s.background("white");
-			s.offset = s.windowWidth/34;
-			s.distanceFromTop = s.height/3;
-	}
-
-	s.draw = function(){
-	
-		if(s.firstTime){
-	s.c1 =s.c -100
-	s.c2 =s.c1 -100
-	s.c3 =s.c2 -100
-	s.c4 =s.c3 -100
-	s.c5 =s.c4 -100
-	s.c6 =s.c5 -100
-	s.c+=40;
+s.setup  = () => {
+	s.pixelDensity(1);
+	let windowWidth = window.innerWidth ;
+	let windowHeight = windowWidth  * 0.562;
+	s.canvas = s.createCanvas(windowWidth, windowHeight);
+	s.canvas.parent('video-overlay');
+	s.offset = s.windowWidth/34;
+	s.distanceFromTop = s.height/4;
 }
+
+s.draw = function(){
+	
+	if(s.firstTime){
+		s.c1 =s.c -100
+		s.c2 =s.c1 -100
+		s.c3 =s.c2 -100
+		s.c4 =s.c3 -100
+		s.c5 =s.c4 -100
+		s.c6 =s.c5 -100
+		s.c+=40;
+	}
 	// s.c7 =s.c6 -100
 	s.j= s.map(s.mouseX, 0, s.windowWidth, 1, 50);
 	s.k= s.map(s.mouseY, 0, s.windowHeight, 1, 100);
-		s.noStroke();
-		s.clear();
-	
-		s.colors = [[255,0,5,s.c],[255, 170, 0,s.c1],[255, 255, 0,s.c2],[30,237,58,s.c3],[0, 100, 255,s.c4],[153, 17, 170,s.c5],[164, 66, 220,s.c6]]
+	s.noStroke();
+	s.clear();
 
 
-			if(s.c6>100){
+ if(window.videoCurrentTimeGlobal>54){
 		s.firstTime=false;
-			if(s.test%3==0){
+		if(s.test%3==0){
 			// s.index++;
-			}
-			s.offset+=10
+		}
+		s.offset+=7
 		
 			// s.frameRate(30)
 			s.c=255-s.decrease;
-				s.c1=255-s.decrease;
+			s.c1=255-s.decrease;
 			s.c2=255-s.decrease;
 			s.c3=255-s.decrease;
 			s.c4=255-s.decrease;
 			s.c5=255-s.decrease;
+			s.c6 = 255-s.decrease;
 			s.test++;
-			s.decrease+=30;
-			s.distanceFromTop-=20
-		}
-		s.numCurves = 6;
-	
-let j = s.map(s.mouseX, 0, s.width, -20, 250);
+			// s.decrease+=20;
 
-	
+			s.distanceFromTop-=15
+			console.log("decrease" +s.decrease);
+			console.log("s.c"+s.c)
+			s.cutshape+=20;
+		}
+
+	s.colors = [[255,0,5,s.c],[255, 170, 0,s.c1],[255, 255, 0,s.c2],[30,237,58,s.c3],[0, 100, 255,s.c4],[153, 17, 170,s.c5],[164, 66, 220,s.c6]]
+
+		s.numCurves = 6;
+
+		let j = s.map(s.mouseX, 0, s.width, -20, 250);
+
+
 		s.numCurves = 7;
-	
+console.log(s.colors)
 		
 		s.yMobileValue = s.windowWidth/10.24;
 		for (s.i = 0; s.i < s.numCurves; s.i++) {
@@ -88,7 +94,7 @@ let j = s.map(s.mouseX, 0, s.width, -20, 250);
 		s.fill(s.colors[s.index])
 		for (s.x = 0; s.x < s.windowWidth+5; s.x++) {
 			// scaled so fewer and higher curves on screen
-				s.y = s.sin(s.x / 100) * 100;
+			s.y = s.sin(s.x / 100) * 100;
 			s.ellipse(s.x, s.y  + s.distanceFromTop + s.offset * s.i, s.offset);
 			 // s.ellipse(s.x-5, s.y - (j*2)+ s.height/4+ s.offset * s.x, s.offset);
 			// s.y = s.sin(s.x / (s.k+s.k2)) * -s.yMobileValue;
@@ -96,13 +102,13 @@ let j = s.map(s.mouseX, 0, s.width, -20, 250);
 		}
 		s.index++;
 		if(s.k2>11){
-	
-		s.k2=s.k2-.15;
-	}
+
+			s.k2=s.k2-.15;
+		}
 		if(s.j2>5){
-	
-		s.j2=s.j2-.15;
-	}
+
+			s.j2=s.j2-.15;
+		}
 
 
 	}
@@ -112,9 +118,9 @@ let j = s.map(s.mouseX, 0, s.width, -20, 250);
 }
 
 s.cutout =function(){
-  var c=document.getElementById("defaultCanvas0");
-  var ctx=c.getContext("2d");
-  ctx.clearRect((s.width/2)-((s.windowWidth/3.166)/2),0,  s.windowWidth/3.166 ,s.windowHeight);
+	var c=document.getElementById("defaultCanvas0");
+	var ctx=c.getContext("2d");
+	ctx.clearRect((s.width/2)-((s.windowWidth/3.166)/2)-s.cutshape,0,  s.windowWidth/3.166 +(s.cutshape*2) ,s.windowHeight);
 }
 
 
@@ -185,7 +191,7 @@ module.exports= rainbow;
 // // s.noFill();
 // // s.fill(s.colors[s.index]);
 // 		// s.stroke(s.colors[s.index]);
-		
+
 // 		s.fill(colors[index]);
 
 // // 		for(let i = 0; i < s.width; i++) {
