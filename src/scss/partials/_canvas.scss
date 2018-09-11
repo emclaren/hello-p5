@@ -25,11 +25,11 @@ canvas{
 		position:relative;
 		margin: 0 auto;
 		z-index:10;
-		top: 100px;
+		// top: 100px;
 		transition: all .5s ease;
-		top: 57%;
+		// top: 57%;
 		left:0;
-		transform: translate(0,-50%);
+		// transform: translate(0,-50%);
 	}
 }
 .container.hide{
@@ -60,11 +60,10 @@ To {
 }
 }
 .sketch-webeditor-link{
-
-		border-radius:32px;
-	// left: 73.75%;
+color:white;
+	border-radius:32px;
 	position: absolute;
-	background-color: rgba(237,34,93,.8);
+	background-color: rgba(237,34,93,.95);
 	border:4px solid white;
 	padding:20px 10px;
 	z-index: 3000000;
@@ -75,12 +74,16 @@ To {
     font-size: calc(15px + 6 * ((100vw - 320px) / 680));
     // font-size: 1.5rem; 
     text-align:center;
+    text-decoration:underline;
     top:15vw;
     // left:72.75%;
-    left:9%;
+    right:9%;
     	// -webkit-animation: scaling 5s infinite alternate;
     a{
     	color:white;
+    }
+    &:hover{
+            background-color: rgba(237,34,93,.90);
     }
 
 }
@@ -121,11 +124,13 @@ To {
 
 
 .sketch-download-link{
-	// left: 73.75%;
+	// left: 73.75%;  
+    color:white;
 		border-radius:32px;
 	position: absolute;
-	background-color: rgba(237,34,93,.9);
+	background-color: rgba(237,34,93,.95);
 	border:4px solid white;
+     text-decoration:underline;
 	padding:20px 10px;
 	z-index: 3000000;
     // background-color: rgba(237,34,93,.5);
@@ -137,19 +142,25 @@ To {
     text-align:center;
     top:30vw;
     // left:72.75%;
-    left:9%;
+    right:9%;
     a{
     	color:white;
+    }
+    &:hover{
+        background-color: rgba(237,34,93,.90);
+          // width: 20%;
     }
 }
 
 .sketch-forum-link{
 	// left: 73.75%;
+    color:white;
 		border-radius:32px;
 	position: absolute;
 	background-color: rgba(237,34,93,.9);
 	border:4px solid white;
 	padding:20px 10px;
+     text-decoration:underline;
 	z-index: 3000000;
     // background-color: rgba(237,34,93,.5);
     // background-color:orange;
@@ -160,16 +171,22 @@ To {
     text-align:center;
     top:15vw;
     // left:72.75%;
-    right:9%;
+  right:9%;
     a{
     	color:white;
+    }
+
+    &:hover{
+          background-color: rgba(237,34,93,.90);
     }
 }
 .sketch-community-link {
 	// left: 73.75%;
+      color:white;
 	border-radius:32px;
 	position: absolute;
-	background-color: rgba(237,34,93,.9);
+     text-decoration:underline;
+	background-color: rgba(237,34,93,1);
 	border:4px solid white;
 	padding:20px 10px;
 	z-index: 3000000;
@@ -185,6 +202,10 @@ To {
     right:9%;
     a{
     	color:white;
+    }
+
+    &:hover{
+   background-color: rgba(237,34,93,.90);
     }
 }
 

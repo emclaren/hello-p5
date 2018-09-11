@@ -17,7 +17,7 @@ const stars = (s) => {
   let mouseControl;
   let cutoutSize;
   let starColor;
-
+let variableSpeed;
 
   s.setup  = () => {
     s.pixelDensity(1);
@@ -36,7 +36,7 @@ const stars = (s) => {
       }
       stars.push(new s.Star(starColor));
     }
-    let cutoutSize = s.width/6.4
+
   }
 
 
@@ -47,7 +47,7 @@ const stars = (s) => {
    s.blendMode(s.ADD);
    let mousedistance = s.dist(s.mouseX, s.mouseY, s.width/2, s.height/2);
    let mouseControl = s.map(mousedistance, 0, s.width/2, 200, 0)
-   let variableSpeed = s.map(mousedistance,  0, s.width/2, 1.5, 0)
+   variableSpeed = s.map(mousedistance,  0, s.width/2, 1.5, 0)
    for (let i = 0; i < starsNum2; i++) {
     stars[i].display();
   }
@@ -65,16 +65,16 @@ const stars = (s) => {
     }
   }
 
-
+  cutoutSize = s.width/6.4
   s.cutout();
 
 }
 
 s.Star = function(tmpColorName) {
-  this.R = 150;
+  this.R = s.width/6;
   this.x = this.R * s.randomGaussian();
   this.y = this.R * s.randomGaussian();
-  this.r = s.random(3, 20) * 5;
+  this.r = s.random(s.width/250, s.width/40) * 5;
   this.theta = 0;
   this.colorName = tmpColorName;
   switch (this.colorName) {
@@ -97,7 +97,7 @@ s.Star = function(tmpColorName) {
   this.display = function() {
     s.fill(this.color);
     s.push();
-    s.translate(s.width / 2, s.width / 2);
+    s.translate(s.width / 2, s.height / 2);
     s.rotate(s.radians(this.theta));
     if(window.videoCurrentTimeGlobal > 46.25){
       this.x += 5;

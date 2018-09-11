@@ -19,9 +19,9 @@ const forumLink = (s) => {
 		s.canvas.parent('video-overlay');
 
 		if( window.videoLanguage=="es"){
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Forum-Spanish</a>');
+			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Foros</a>');
 		}else if( window.videoLanguage=="fr"){
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Forum-French</a>');
+			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Forum</a>');
 		}else{
 			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Forum</a>');
 		};
@@ -38,9 +38,9 @@ const forumLink = (s) => {
 			if(notdisplayed){
 				forumLinkDiv.removeClass('focused');
 				if( window.videoLanguage=="es"){
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Community-spanish</a>');
+					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Comunidad</a>');
 				}else if( window.videoLanguage=="fr"){
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Community-french</a>');
+					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Communauté</a>');
 				}else{
 					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Community</a>');
 				};
@@ -57,13 +57,13 @@ const forumLink = (s) => {
 	}
 
 
-	s.mouseMoved  = () => {
-		s.stroke(237, 30, 97, opacity);
-		s.strokeWeight(4);
-		s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
-		s.pmouseX=s.mouseX;
-		s.pmouseY=s.mouseY;
-	}
+	// s.mouseMoved  = () => {
+	// 	s.stroke(237, 30, 97, opacity);
+	// 	s.strokeWeight(4);
+	// 	s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
+	// 	s.pmouseX=s.mouseX;
+	// 	s.pmouseY=s.mouseY;
+	// }
 
 }
 

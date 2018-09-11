@@ -20,37 +20,37 @@ const webeditorLink = (s) => {
 		s.canvas.parent('video-overlay');
 
 		if( window.videoLanguage=="es"){
-			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank">P5 Web Editor-Spanish</a>');
+			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-webeditor-link focused"> Editor web p5</div></a>');
 		}else if( window.videoLanguage=="fr"){
-			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank">P5 Web Editor - French</a>');
+			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-webeditor-link focused">P5  web editor</div></a>');
 		}else{
-			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank">P5 Web Editor</a>');
+			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-webeditor-link focused">P5 Web Editor</div></a>');
 		}
 		webeditorLinkDiv.parent('video-overlay');
-		webeditorLinkDiv.addClass('sketch-webeditor-link focused');
+	
 	}
 
 
 	s.draw  = () => {
 		s.clear();
-		if(window.videoCurrentTimeGlobal>112){
+		if(window.videoCurrentTimeGlobal>100){
 			if(notdisplayed){
-				forumLinkDiv.removeClass('focused');
+				webeditorLinkDiv.removeClass('focused');
 				if( window.videoLanguage=="es"){
-					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank">Download-spanish</a>');
+					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-download-link focused">Descargar</div></a>');
 				}else if( window.videoLanguage=="fr"){
-					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank">Download-french</a>');
+					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-download-link focused">Télécharger</div></a>');
 				}else{
-					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank">Download</a>');
+					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-download-link focused">Download</div></a>');
 				};
 				
 				downloadLinkDiv.parent('video-overlay');
-				downloadLinkDiv.addClass('sketch-download-link focused');
+
 				s.frameRate(0);
 				notdisplayed=false
 			}
 		}
-		if(window.videoCurrentTimeGlobal>114){
+		if(window.videoCurrentTimeGlobal>104){
 			opacity--;
 		}
 	}
@@ -58,13 +58,13 @@ const webeditorLink = (s) => {
 
 
 
-	s.mouseMoved  = () => {
-		s.stroke(237, 30, 97, opacity);
-		s.strokeWeight(4);
-		s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
-		s.pmouseX=s.mouseX;
-		s.pmouseY=s.mouseY;
-	}
+	// s.mouseMoved  = () => {
+	// 	s.stroke(237, 30, 97, opacity);
+	// 	s.strokeWeight(4);
+	// 	s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
+	// 	s.pmouseX=s.mouseX;
+	// 	s.pmouseY=s.mouseY;
+	// }
 
 }
 

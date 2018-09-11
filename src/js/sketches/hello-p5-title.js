@@ -6,8 +6,7 @@
 
 
 const helloP5Title = (s) => {
-  let mappedX;
-  let mappedY;
+
   let upperBound;
   let lowerBound;
 
@@ -18,6 +17,8 @@ const helloP5Title = (s) => {
   let fadeOutSpeed = 50;
   let fadeHello = 0;
   let fadeP5 = 0;
+    let mappedX = 0;
+  let mappedY = 0;
 
 
   s.setup  = () => {

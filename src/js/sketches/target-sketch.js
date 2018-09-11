@@ -32,7 +32,7 @@ const targetSketch = (s) => {
     }
 
     // Increase the size of the circle over time
-    speed += 20;    
+    speed += 30;    
   }; 
 };
 

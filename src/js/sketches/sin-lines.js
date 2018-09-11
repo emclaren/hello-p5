@@ -34,7 +34,7 @@ const sinLines = (s) => {
     for (let i = 0; i < s.width+5 ; i += lineSpacing){
       s.strokeWeight(strokeThickness);
       s.stroke( s.map(i, 0, s.width, 50, 100) ,100,50);
-      s.line(i, s.width*2, i, s.height/1.5-s.sin( t+i/ 50) * 100);
+      s.line(i, s.width*2, i, s.height/3-s.sin( t+i/ 50) * 100);
     }
 
     if(window.videoCurrentTimeGlobal>80){

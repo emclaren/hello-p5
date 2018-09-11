@@ -19,8 +19,9 @@ const heart = (s) => {
   let xpos;
   let ypos;
   let sizeChange; 
-  let x;
-  let y;
+  let x = 0;
+  let y = 0;
+  let move;
 
    s.setup  = () => {
     s.pixelDensity(1);
@@ -42,16 +43,16 @@ const heart = (s) => {
     s.fill(c, 80, 100, alp);
     s.stroke(c, 80, 100, stAlp);
     s.push();
-    s.translate(xpos-s.move, ypos+s.move);
+    s.translate(xpos-move, ypos+move);
     s.beginShape();
-    for (s.theta = 0; s.theta < maxVal; s.theta++) {
-      x = R * (16 * s.sin(s.radians(s.theta)) * s.sin(s.radians(s.theta)) * s.sin(s.radians(s.theta)));
-      y = (-1) * R * (13 * s.cos(s.radians(s.theta)) - 5 * s.cos(s.radians(2 * s.theta)) -
-        2 * s.cos(s.radians(3 * s.theta)) - s.cos(s.radians(4 * s.theta)));
+    for (let theta = 0; theta < maxVal; theta++) {
+      x = R * (16 * s.sin(s.radians(theta)) * s.sin(s.radians(theta)) * s.sin(s.radians(theta)));
+      y = (-1) * R * (13 * s.cos(s.radians(theta)) - 5 * s.cos(s.radians(2 * theta)) -
+        2 * s.cos(s.radians(3 * theta)) - s.cos(s.radians(4 * theta)));
       s.vertex(x, y);
     }
-    s.distancemouse=s.dist(s.mouseX, s.mouseY, x,y);
-    s.move = s.map(s.distancemouse, 0, s.width, 0, 50);
+    let distancemouse= s.dist(s.mouseX, s.mouseY, x, y);
+    move = s.map( distancemouse, 0, s.width, 0, 50);
     s.scale(size * sizeChange); 
     s.endShape();
     s.pop();

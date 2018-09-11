@@ -81,7 +81,7 @@ player.on('pause', event => {
 //     element.classList.remove("focused");
 
 
-//   videoPlaying=false; 
+  videoPlaying=false; 
 });
 
 
@@ -91,7 +91,6 @@ player.on('pause', event => {
 
 // Import P5 Sketch Files
 const seriouslyCanvas = require('./sketches/seriously-canvas.js');
-
 const helloP5Title = require('./sketches/hello-p5-title.js');
 const heartAnimation = require('./sketches/heart-animation.js');
 const pointillismLogo = require('./sketches/pointillism-logo.js');
@@ -105,25 +104,22 @@ const rectangles = require('./sketches/rectangles.js');
 const lerpColor = require('./sketches/lerpColor.js');
 const circleExplosion = require('./sketches/circle-explosion.js');
 const forumLink = require('./sketches/forum-link.js');
-
+const stars = require('./sketches/stars.js');
+const webEditorLink = require('./sketches/webeditor-link.js');
+const manyDots = require('./sketches/many-dots.js');
+const leaves = require('./sketches/leaves.js');
+const wavemaker = require('./sketches/wavemaker.js');
 
 
 // Sketch Files- TODO : CLEANUP SKETCHES
-const leaves = require('./sketches/leaves.js');
-const flock2 = require('./sketches/flock2.js');
-const webEditorLink = require('./sketches/webeditor-link.js');
+const flock = require('./sketches/flock.js');
 const waves = require('./sketches/waves.js');
-const wave2 = require('./sketches/wave2.js');
-const visualizer = require('./sketches/visualizer.js');
-const stars = require('./sketches/stars.js');
-const manyDots = require('./sketches/manyDots.js');
-
-
 
 
 //Need work
 const laMonster = require('./sketches/laMonster.js');
 const rainbow = require('./sketches/rainbow.js');
+const visualizer = require('./sketches/visualizer.js');
 
 var sceneChangeMap = [
 {time : 0, sketchfile: laMonster, seriously:true },
@@ -136,7 +132,7 @@ var sceneChangeMap = [
 {time : 17.50, sketchfile: leaves},
 {time : 24.50, sketchfile: noSketch},
 {time : 24.75, sketchfile: pointillismLogo},
-{time : 33.00, sketchfile: wave2},
+{time : 33.00, sketchfile: wavemaker},
 {time : 38.25, sketchfile: stars},
 {time : 50.50, sketchfile: targetSketch},
 {time : 53.50, sketchfile: rainbow},
@@ -155,7 +151,7 @@ var sceneChangeMap = [
 {time : 116.25, sketchfile: waves},
 {time : 121.75, sketchfile: noSketch},
 {time : 122, sketchfile: circleExplosion},
-{time : 135, sketchfile: flock2},
+{time : 135, sketchfile: flock},
 {time : 167, sketchfile: noSketch},
 ];
 
@@ -195,9 +191,9 @@ player.on('timeupdate', event => {
 // Load a sketch if the current time of the video matches the list of sketches above
 function updateSketch(){
   for(var i=0; i<sceneChangeMap.length; i++){
-    if(videoCurrentTime<.50){
-      console.log("hi, its less that .25")
-    }
+    // if(videoCurrentTime<.50){
+    //   console.log("hi, its less that .25")
+    // }
     if(videoCurrentTime==sceneChangeMap[i].time){
 
       // Remove any p5 sketches currently playing
@@ -206,7 +202,7 @@ function updateSketch(){
       }
        // Remove any seriously sketches currently playing
        if(seriouslyScene){
-        // seriouslyScene.remove()
+        seriouslyScene.remove()
       }
       // Play the sketch from the Scene change map
       scene = new p5(sceneChangeMap[i].sketchfile); 
