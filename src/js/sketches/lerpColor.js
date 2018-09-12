@@ -15,6 +15,7 @@ const lerpColor= (s) => {
  let lerpColor2;
 
 
+
  s.setup  = () => {
   s.pixelDensity(1);
   let windowWidth = window.innerWidth ;
@@ -22,6 +23,8 @@ const lerpColor= (s) => {
   s.canvas = s.createCanvas(windowWidth, windowHeight);
   s.canvas.parent('video-overlay');
   s.noStroke();
+  s.test = 20;
+
 };
 
 
@@ -29,7 +32,7 @@ const lerpColor= (s) => {
 s.draw = () => {
     s.frameRate(5); //Slow down the sketch 
     s.clear();
-       s.test= s.map(s.mouseX, 0, s.width, 0, 20)
+ 
 // s.test=s.map(s.mouseX, 0 , s.width, 0 , 30)
     color1 = s.color(255, 0, 0, x * 255);
     color2 = s.color(0, 0, 255, y * 255);
@@ -58,6 +61,7 @@ s.draw = () => {
        s.random(s.width - s.width/4.5, s.width+s.width/20 + s.grow), s.random(s.height), 
        s.random(s.width - s.width/45, s.width+s.width/20 + s.grow), s.random(s.height));
     }
+          s.test= s.map(s.mouseX, 0, s.width, 5, 40)
 
     if(window.videoCurrentTimeGlobal<106){
       if(x < .2){

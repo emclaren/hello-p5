@@ -120,9 +120,9 @@ const laMonster = require('./sketches/laMonster.js');
 const visualizer = require('./sketches/visualizer.js');
 
 var sceneChangeMap = [
-{time : 0, sketchfile: laMonster, seriously:false },
-{time : 3, sketchfile: noSketch},
-{time : 4.75, sketchfile: visualizer, seriously:false},
+{time : 0, sketchfile: laMonster, seriously:true },
+{time : 3.25, sketchfile: noSketch},
+{time : 4.75, sketchfile: visualizer, seriously:true },
 {time : 7.75, sketchfile: noSketch},
 {time : 8.00, sketchfile: helloP5Title},
 {time : 9.75, sketchfile: noSketch},
@@ -140,11 +140,10 @@ var sceneChangeMap = [
 {time : 75.25, sketchfile: noSketch},
 {time : 78.50, sketchfile: sinLines},
 {time : 85.25, sketchfile: noSketch},
-{time : 89, sketchfile: rectangles},
+{time : 89.25, sketchfile: rectangles},
 {time : 93, sketchfile: noSketch},
 {time : 94.5, sketchfile: webEditorLink},
-{time : 104, sketchfile:lerpColor},
-{time : 103, sketchfile: noSketch},
+{time : 104.25, sketchfile:lerpColor},
 {time : 109, sketchfile: forumLink},
 {time : 116.25, sketchfile: waves},
 {time : 121.75, sketchfile: noSketch},

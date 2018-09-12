@@ -45,7 +45,7 @@ var singleCircle = function(s) {
 		s.stroke(255,255,255, fadeIn);
 		s.strokeWeight(4); 
 		xcoord = s.width * 0.25;
-		ycoord = s.height * 0.3;
+		ycoord = s.height * 0.4;
 		xdiameter = s.width * 0.15 + sizeChange;
 		ydiameter = s.width * 0.15 + sizeChange;
 		s.ellipse(xcoord, ycoord, xdiameter, ydiameter); 

@@ -412,64 +412,122 @@ s.titleY = -s.windowWidth/30;;
 //variable that title the planet
 s.titleRotate = 0;
 
+
+
 s.title= function(){
-
-if(s.titleScale<.42){
-s.titleScale= (s.sin(angle) * (s.width/1700)) ;
-console.log(s.titleScale)
-// s.scaleVariable;
-	  angle += (s.width/75000);
-}
-
+	
  //Adjusting title Scale over time
- // if (s.titleScale < .8) {
+  if (s.titleScale < 0.25) {
 
- // 	if (s.titleScale < 0.10) {
- // 		s.titleScale += 0.00466;
+   if (s.titleScale < 0.10) {
+   s.titleScale += 0.00766;
+   }
 
- // 	}
+   if (s.titleScale > 0.10 && s.titleScale < 0.25) {
+    s.titleScale += 0.00452;
 
- // 	if (s.titleScale > 0.10 ) {
- // 			if (s.titleScale > 0.10 && s.titleScale < 0.25) {
- // 		s.titleScale += 0.00252;
- // 		// s.scalefactor= 0.00252
- // 	// 				if(s.scalefactor>0.00252){
-	// 	// 	s.scalefactor-= 0.005
-	// 	// }
+   }
 
- // 	}
+   if (s.titleScale > 0.25) {
+    s.titleScale += 0.00251;
+   }	    
 
- // 	if (s.titleScale > 0.25) {
-	// 	s.titleScale += 0.00052;
-	// 		// s.scalefactor= 0.00052
-	// 	// 	if(s.scalefactor>0.00052){
-	// 	// 	s.scalefactor-= 0.005
-	// 	// }
- // 	}	    
+  }	
 
- // }	
+	
+	//tiltle graphic
+s.push()
 
+ s.translate(s.titleX, s.titleY);
+ s.rotate(s.radians(s.titleRotate));
+ s.scale(s.titleScale);
 
+ s.imageMode(s.CENTER);
+ s.image(s.laMonstersTitle, 0, 0);
 
-// s.titleScale+= s.titleScale + s.scalefactor
-
-// s.scalefactor-= 0.00010
-
-
-	//title graphic
-	s.push()
-	s.translate(s.titleX, s.titleY);
-	s.rotate(s.radians(s.titleRotate));
-	s.scale(s.titleScale);
-
-	s.imageMode(s.CORNERS);
-  // s.image(img, 50, 50, 80, 80); 
-	// s.imageMode(s.CENTER);
-	s.image(s.laMonstersTitle, 0, 0);
-
-	s.pop();
-
+ s.pop();
+	 
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// s.title= function(){
+
+// if(s.titleScale<.42){
+// s.titleScale= (s.sin(angle) * (s.width/1700)) ;
+// console.log(s.titleScale)
+// // s.scaleVariable;
+// 	  angle += (s.width/75000);
+// }
+
+//  //Adjusting title Scale over time
+//  // if (s.titleScale < .8) {
+
+//  // 	if (s.titleScale < 0.10) {
+//  // 		s.titleScale += 0.00466;
+
+//  // 	}
+
+//  // 	if (s.titleScale > 0.10 ) {
+//  // 			if (s.titleScale > 0.10 && s.titleScale < 0.25) {
+//  // 		s.titleScale += 0.00252;
+//  // 		// s.scalefactor= 0.00252
+//  // 	// 				if(s.scalefactor>0.00252){
+// 	// 	// 	s.scalefactor-= 0.005
+// 	// 	// }
+
+//  // 	}
+
+//  // 	if (s.titleScale > 0.25) {
+// 	// 	s.titleScale += 0.00052;
+// 	// 		// s.scalefactor= 0.00052
+// 	// 	// 	if(s.scalefactor>0.00052){
+// 	// 	// 	s.scalefactor-= 0.005
+// 	// 	// }
+//  // 	}	    
+
+//  // }	
+
+
+
+// // s.titleScale+= s.titleScale + s.scalefactor
+
+// // s.scalefactor-= 0.00010
+
+
+// 	//title graphic
+// 	s.push()
+// 	s.translate(s.titleX, s.titleY);
+// 	s.rotate(s.radians(s.titleRotate));
+// 	s.scale(s.titleScale);
+
+// 	s.imageMode(s.CORNERS);
+//   // s.image(img, 50, 50, 80, 80); 
+// 	// s.imageMode(s.CENTER);
+// 	s.image(s.laMonstersTitle, 0, 0);
+
+// 	s.pop();
+
+// }
 
 // }
 

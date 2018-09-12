@@ -39,9 +39,9 @@ const seriouslyCanvas= (s) => {
         s.target.source = s.chroma;
 
         // this is the color that will be keyed (screened) out 
-        let r = 41 / 255;
-        let g = 255 / 255;
-        let b = 60 / 255;
+        let r = 40 / 255;
+        let g = 246 / 255;
+        let b = 45/ 255;
         s.chroma.precision = 0.01;// try deleting later
         s.chroma.screen = [r, g, b, 1];
       

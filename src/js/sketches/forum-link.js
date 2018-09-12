@@ -19,14 +19,14 @@ const forumLink = (s) => {
 		s.canvas.parent('video-overlay');
 
 		if( window.videoLanguage=="es"){
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Foros</a>');
+			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-forum-link focused">Foros</div></a>');
 		}else if( window.videoLanguage=="fr"){
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Forum</a>');
+			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-forum-link focused">Forum</div></a>');
 		}else{
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank">Forum</a>');
+			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-forum-link focused">Forum</div></a>');
 		};
 		forumLinkDiv.parent('video-overlay');
-		forumLinkDiv.addClass('sketch-forum-link focused');
+
 	}
 
 
@@ -34,19 +34,19 @@ const forumLink = (s) => {
 
 	s.draw  = () => {
 		s.clear();
-		if(window.videoCurrentTimeGlobal>112){
+		if(window.videoCurrentTimeGlobal>113){
 			if(notdisplayed){
 				forumLinkDiv.removeClass('focused');
 				if( window.videoLanguage=="es"){
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Comunidad</a>');
+					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-community-link focused">Comunidad</a>');
 				}else if( window.videoLanguage=="fr"){
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Communauté</a>');
+					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-community-link focused">Communauté</a>');
 				}else{
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank">Community</a>');
+					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-community-link focused">Community</a>');
 				};
 				
 				communityLinkDiv.parent('video-overlay');
-				communityLinkDiv.addClass('sketch-community-link focused');
+
 				s.frameRate(0);
 				notdisplayed=false
 			}

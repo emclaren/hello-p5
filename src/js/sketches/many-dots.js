@@ -40,11 +40,11 @@ const manyDots = (s) => {
   s.fill(color1,color2,133);
   s.strokeWeight(2);  
   s.stroke(255,255,255);
-
+console.log(dot.length)
   for(let i = 0; i < dot.length; i++){
     dot[i].display();
   }
-  if(s.dotCount<40){
+  if(dotCount<40){
     s.addDot();
     s.addDot2();
   }

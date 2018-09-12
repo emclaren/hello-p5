@@ -193,35 +193,35 @@ var titleRotate = 0;
 function title() {
 	
  //Adjusting title Scale over time
-  if (titleScale < 0.25) {
+  if (s.titleScale < 0.25) {
 
-   if (titleScale < 0.10) {
-    titleScale += 0.00766;
+   if (s.titleScale < 0.10) {
+   s.titleScale += 0.00766;
    }
 
-   if (titleScale > 0.10 && titleScale < 0.25) {
-    titleScale += 0.00452;
+   if (s.titleScale > 0.10 && s.titleScale < 0.25) {
+    s.titleScale += 0.00452;
 
    }
 
-   if (titleScale > 0.25) {
-    titleScale += 0.00251;
+   if (s.titleScale > 0.25) {
+    s.titleScale += 0.00251;
    }	    
 
   }	
 
 	
 	//tiltle graphic
-push()
+s.push()
 
- translate(titleX, titleY);
- rotate(radians(titleRotate));
- scale(titleScale);
+ s.translate(s.titleX, s.titleY);
+ s.rotate(radians(s.titleRotate));
+ s.scale(s.titleScale);
 
- imageMode(CENTER);
- image(laMonstersTitle, 0, 0);
+ s.imageMode(s.CENTER);
+ s.image(s.laMonstersTitle, 0, 0);
 
- pop();
+ .pop();
 	 
 	
 }
