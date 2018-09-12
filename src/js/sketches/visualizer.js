@@ -7,7 +7,7 @@
 
 
 const p5 = require('p5'); // P5 Source Code
-var audiograb;
+
 
 var visualizer= function(q){
   console.log("sketch started")
@@ -27,9 +27,9 @@ let peakDetect
     
       q.preload = () => {
         console.log('preload');
-        q.song = q.loadSound("../dist/assets/img/song2.mp3");
+        // q.song = q.loadSound("../dist/assets/img/song2.mp3");
         // console.log(q.loadSound())
-        // q.song = 0;
+        q.song = 0;
         q.fft = new p5.FFT();
         q.peakDetect = new p5.PeakDetect();
         console.log(q.song)
