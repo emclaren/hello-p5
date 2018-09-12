@@ -50,17 +50,17 @@ let peakDetect
         // p.parent('visualizer');
         q.canvas.parent('video-overlay');
         // q.canvas.id('visualizer');
-        q.song.setVolume(.5);
+        // q.song.setVolume(.5);
         // q.song.play();
-        q.filter = new p5.LowPass();
+        // q.filter = new p5.LowPass();
 
 
         // Disconnect soundfile from master output.
         // Then, connect it to the filter, so that we only hear the filtered sound
-        q.song.disconnect();
-        q.song.connect(q.filter);
-        q.analyzer = new p5.Amplitude();
-        q.analyzer.setInput(q.song);
+        // q.song.disconnect();
+        // q.song.connect(q.filter);
+        // q.analyzer = new p5.Amplitude();
+        // q.analyzer.setInput(q.song);
         // 
         // q.masterVolume(0)
         // q.analyzer.setVolume(0);
@@ -107,7 +107,7 @@ let waveform = Array.from({length: 1024}, () => Math.random(-1, 1)/2 );
         q.rms = 1;
 
         if ( q.peakDetect.isDetected ) {
-          q.rms = q.analyzer.getLevel();
+          // q.rms = q.analyzer.getLevel();
           r = 127;
           g = -170;
           b = -190;
@@ -118,7 +118,7 @@ let waveform = Array.from({length: 1024}, () => Math.random(-1, 1)/2 );
           g = g * .85;
           b = b * .85;
           o = o * .85;
-          q.rms = q.analyzer.getLevel();
+          // q.rms = q.analyzer.getLevel();
         }
         q.fill('rgba('+parseInt(50 + r)+','+parseInt(50 + g)+','+parseInt(100 + b)+','+(.5 + o)+')');
   
