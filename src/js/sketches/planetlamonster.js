@@ -221,7 +221,7 @@ s.push()
  s.imageMode(s.CENTER);
  s.image(s.laMonstersTitle, 0, 0);
 
- .pop();
+ s.pop();
 	 
 	
 }

@@ -180,13 +180,47 @@ player.on('timeupdate', event => {
      }
    }
 
+// Resize  P5 and Seriously Canvases when the window size changes
+window.onresize = function() {
+  // scene.windowWidth=window.innerWidth;
+  // scene.windowHeight=window.innerWidth * .562;
+  // if(scene){
+  //   scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
+  // }
+  // if(seriouslyScene){
+  //   seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
+  // }
 
+
+    // scene.windowWidth=window.innerWidth;
+  // scene.windowHeight=window.innerWidth * .562;
+  if(scene){
+    scene.remove();
+    // scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
+  }
+  if(seriouslyScene){
+
+    seriouslyScene.remove();
+    // seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
+  }
+  // console.log("running new window on resize")
+  // updateSketch();
+
+    for(let i=0; i< sceneChangeMap.length;i++){
+      if(videoCurrentTime >= sceneChangeMap[i].time  && videoCurrentTime < sceneChangeMap[i+1].time){
+        videoCurrentTime = sceneChangeMap[i].time ;
+        updateSketch();
+      }
+       // videoTimeSeeked = false; //reset this variable to false so this if statement only runs once
+     }
+} 
 
 
 
 
 // Load a sketch if the current time of the video matches the list of sketches above
 function updateSketch(){
+  // console.log("updateSke/tch");
   for(var i=0; i<sceneChangeMap.length; i++){
     // if(videoCurrentTime<.50){
     //   console.log("hi, its less that .25")
@@ -234,31 +268,9 @@ player.on('seeked', event => {
 
 
 
+
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -299,18 +311,6 @@ document.getElementById('video-overlay').onclick=function(){
   }
 }
 
-
-// Resize  P5 and Seriously Canvases when the window size changes
-window.onresize = function() {
-  scene.windowWidth=window.innerWidth;
-  scene.windowHeight=window.innerWidth * .562;
-  if(scene){
-    scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
-  }
-  if(seriouslyScene){
-    seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
-  }
-} 
 
 
 

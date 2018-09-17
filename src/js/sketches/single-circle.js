@@ -31,7 +31,7 @@ var singleCircle = function(s) {
 		}
 
 		//Create example html code block, styling can be found in canvas.scss
-		s.div = s.createDiv('<code>function setup() \{ <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}<br> <a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank">' + languageText +'</a></code>');
+		s.div = s.createDiv('<code>function setup() \{ <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}<br> <a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank"><strong>' + languageText +'</a></strong></code>');
 		s.div.parent('video-overlay');
 		s.div.addClass('p5-single-circle-code-example');	
 	};

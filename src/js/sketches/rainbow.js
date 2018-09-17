@@ -17,7 +17,7 @@ s.offset = 30;
 s.decrease=0;
 s.k2=100;
 s.j2=100;
-s.c=0;
+s.c=255;
 s.index = 0;
 s.firstTime=true;
 s.cutshape=0
@@ -30,51 +30,8 @@ s.setup  = () => {
 	s.canvas.parent('video-overlay');
 	s.offset = s.windowWidth/34;
 	s.distanceFromTop = s.height/4;
-}
-
-s.draw = function(){
-	
-	if(s.firstTime){
-		s.c1 =s.c -100
-		s.c2 =s.c1 -100
-		s.c3 =s.c2 -100
-		s.c4 =s.c3 -100
-		s.c5 =s.c4 -100
-		s.c6 =s.c5 -100
-		s.c+=40;
-	}
-	// s.c7 =s.c6 -100
-	s.j= s.map(s.mouseX, 0, s.windowWidth, 1, 50);
-	s.k= s.map(s.mouseY, 0, s.windowHeight, 1, 100);
 	s.noStroke();
-	s.clear();
-
-
- if(window.videoCurrentTimeGlobal>54){
-		s.firstTime=false;
-		if(s.test%3==0){
-			// s.index++;
-		}
-		s.offset+=7
-		
-			// s.frameRate(30)
-			s.c=255-s.decrease;
-			s.c1=255-s.decrease;
-			s.c2=255-s.decrease;
-			s.c3=255-s.decrease;
-			s.c4=255-s.decrease;
-			s.c5=255-s.decrease;
-			s.c6 = 255-s.decrease;
-			s.test++;
-			// s.decrease+=20;
-
-			s.distanceFromTop-=15
-			console.log("decrease" +s.decrease);
-			console.log("s.c"+s.c)
-			s.cutshape+=20;
-		}
-
-	s.colors = [[255,0,5,s.c],[255, 170, 0,s.c1],[255, 255, 0,s.c2],[30,237,58,s.c3],[0, 100, 255,s.c4],[153, 17, 170,s.c5],[164, 66, 220,s.c6]]
+	s.colors = [[255,0,5,s.c],[255, 170, 0,s.c],[255, 255, 0,s.c],[30,237,58,s.c],[0, 100, 255,s.c],[153, 17, 170,s.c],[164, 66, 220,s.c]]
 
 		s.numCurves = 6;
 
@@ -114,7 +71,24 @@ console.log(s.colors)
 	}
 
 
+
+
+
+}
+
+s.draw = function(){
+
+
+
+ if(window.videoCurrentTimeGlobal>54){
+
+
+			s.cutshape+=10;
+		
+}
+
 	s.cutout();
+
 }
 
 s.cutout =function(){
