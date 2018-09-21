@@ -55,16 +55,16 @@ s.fadeout=0
 
 s.preload = function(){
 	console.log("this is the updated version of la monster with the base url part")
-	s.planetlamonster = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/planet.png");
-	s.laMonstersTitle = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/laMonsters _Title-02.png");
-	s.asteriod1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
-	s.asteriod2 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
-	s.asteriod3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
-	s.asteriod4 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
-	s.star1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/LaMonsters-Assets-Star.png");
-	s.star2 = s.loadImage("https://emclaren.github.io/hello-p5//dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png");
-	s.star3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-3.png"); ///fix this!
-	s.starBackground = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/stars-background.png");
+	s.planetlamonster = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/planet.png");
+	s.laMonstersTitle = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/laMonsters _Title-02.png");
+	s.asteriod1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/LaMonsters-Assets-Asteroid-2.png");
+	s.asteriod2 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/LaMonsters-Assets-Asteroid-2.png");
+	s.asteriod3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/LaMonsters-Assets-Asteroid-4.png");
+	s.asteriod4 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/LaMonsters-Assets-Asteroid-4.png");
+	s.star1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/LaMonsters-Assets-Star.png");
+	s.star2 = s.loadImage("https://emclaren.github.io/hello-p5//dist/assets/img/sketch-imgs/LaMonsters-Assets-Star-2.png");
+	s.star3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/LaMonsters-Assets-Star-3.png"); ///fix this!
+	s.starBackground = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-imgs/stars-background.png");
 	// s.playButton = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/worldButton.png");
 	// s.clickedplayButton = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/clickedworldButton.png");
 
