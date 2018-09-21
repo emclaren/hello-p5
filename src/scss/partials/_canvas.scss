@@ -25,19 +25,17 @@ canvas{
 		position:relative;
 		margin: 0 auto;
 		z-index:10;
-		// top: 100px;
 		transition: all .5s ease;
-		// top: 57%;
 		left:0;
-		// transform: translate(0,-50%);
 	}
 }
+
 .container.hide{
 	@include breakpoint(lg) {
 		transition: all .5s ease;
-
 	}
 }
+
 
 video{
 	width:100%;
@@ -46,251 +44,125 @@ video{
 
 
 
-
-
-
-
-
-@-webkit-keyframes scaling {
-  From {
-    -webkit-transform: scale(1.0);
-  }
-  To {
-    -webkit-transform: scale(2.0);
-  }
+// Disable the default p5 loading text
+#p5_loading{
+  display:none;
 }
-.sketch-webeditor-link{
-
-  font-size: calc(8px + 6 * ((100vw - 320px) / 680));
-  top:6vw;
-  padding:6px 3px;
-  width: 22%;
-    right:5%;
-  color:white;
-  border-radius:32px;
-  position: absolute;
-  background-color: rgba(237,34,93,.95);
-  border:2px solid white;
-
-  z-index: 3000000;
-    // background-color: rgba(237,34,93,.5);
-    // background-color:orange;
-    // top: calc(15px + 6 * ((100vw - 320px) / 680));
 
 
-    // font-size: 1.5rem; 
-    text-align:center;
-    text-decoration:underline;
-    
-    // left:72.75%;
-    right:3%;
-    	// -webkit-animation: scaling 5s infinite alternate;
-
-@include breakpoint(sm) {
- padding:10px 5px;
-}
-      @include breakpoint(md) {
-       width: 18%;
-       font-size: calc(15px + 6 * ((100vw - 320px) / 680));
-       top:15vw;
-       padding:20px 10px;
-       border:4px solid white;
-       right:9%;
-     }
 
 
-     a{
-       color:white;
-     }
-     &:hover{
-      background-color: rgba(237,34,93,.90);
-    }
 
-  }
 
-  .focused{
-  //     height: 250px;
-  // width: 250px;
+// Pulsing state is used in web editor-link and forum-link sketches to make the div pulse
+.pulsing-animation{
   margin: 0 auto;
-  // background-color: red;
   animation-name: stretch;
   animation-duration: .3s; 
   animation-timing-function: ease-out; 
   animation-delay: .5s;
   animation-direction: alternate;
-  animation-iteration-count: 8;
+  animation-iteration-count: 4;
   animation-fill-mode: none;
   animation-play-state: running;
 }
 
-
+// Animation Keyframes for focused state (used in webeditor-link and forum-link sketches)
 @keyframes stretch {
   0% {
     transform: scale(1);
     background-color: rgba(237,34,93,.9);
-    // border-radius:32px;
   }
-  50% {
 
-    // background-color: rgba(237,34,93,);
-  }
   100% {
     transform: scale(1.05);
     background-color: rgba(237,34,93,.9);
-      // border-radius:36px;
-    }
   }
-
-
-
-  .sketch-download-link{
-	// left: 73.75%;  
-
-  font-size: calc(8px + 6 * ((100vw - 320px) / 680));
-  top:20vw;
-  padding:6px 3px;
-  width: 22%;
-    right:3%;
-  color:white;
-    border:2px solid white;
-
-  border-radius:32px;
-  position: absolute;
-  background-color: rgba(237,34,93,.95);
-
-  text-decoration:underline;
-  // padding:20px 10px;
-  z-index: 3000000;
-    // background-color: rgba(237,34,93,.5);
-    // background-color:orange;
-    // top: calc(15px + 6 * ((100vw - 320px) / 680));
-    // width: 18%;
-    // font-size: calc(15px + 6 * ((100vw - 320px) / 680));
-    // font-size: 1.5rem; 
-    text-align:center;
-    // top:30vw;
-    // left:72.75%;
-    // right:9%;
-
-@include breakpoint(sm) {
- padding:10px 5px;
 }
-    @include breakpoint(md) {
-     width: 18%;
-     font-size: calc(15px + 6 * ((100vw - 320px) / 680));
-     top:30vw;
-     padding:20px 10px;
-     border:4px solid white;
-     right:9%;
-   }
-   a{
-     color:white;
-   }
-   &:hover{
-    background-color: rgba(237,34,93,.90);
-          // width: 20%;
-        }
-      }
 
-      .sketch-forum-link{
-	// left: 73.75%;
-    font-size: calc(8px + 6 * ((100vw - 320px) / 680));
+
+
+
+.sketch-pulsing-link-upper{
+  font-size: calc(8px + 6 * ((100vw - 320px) / 680));
   top:6vw;
   padding:6px 3px;
   width: 22%;
-    right:3%;
-  color:white;
-    border:2px solid white;
+  right:5%;
   color:white;
   border-radius:32px;
   position: absolute;
-  background-color: rgba(237,34,93,.9);
-  border:4px solid white;
-  padding:20px 10px;
-  text-decoration:underline;
+  background-color: rgba(237,34,93,.95);
+  border:2px solid white;
   z-index: 3000000;
-  
-    text-align:center;
-   
-@include breakpoint(sm) {
- padding:10px 5px;
+
+  text-align:center;
+  text-decoration:underline;
+
+  right:3%;
+
+  @include breakpoint(sm) {
+   padding:10px 5px;
+ }
+ @include breakpoint(md) {
+   width: 18%;
+   font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+   top:15vw;
+   padding:20px 10px;
+   border:4px solid white;
+   right:9%;
+ }
+
+ a{
+   color:white;
+ }
+ &:hover{
+  background-color: rgba(237,34,93,.90);
 }
-    @include breakpoint(md) {
-     width: 18%;
-     font-size: calc(15px + 6 * ((100vw - 320px) / 680));
-     top:15vw;
-     padding:20px 10px;
-     border:4px solid white;
-     right:9%;
-   }
-    a{
-    	color:white;
-    }
 
-    &:hover{
-      background-color: rgba(237,34,93,.90);
-    }
-  }
-  .sketch-community-link {
+}
 
+
+
+
+.sketch-pulsing-link-lower{
   font-size: calc(8px + 6 * ((100vw - 320px) / 680));
   top:20vw;
   padding:6px 3px;
   width: 22%;
-    right:3%;
-  // color:white;
-    border:2px solid white;
-
-	// left: 73.75%;
+  right:3%;
   color:white;
+  border:2px solid white;
   border-radius:32px;
   position: absolute;
+  background-color: rgba(237,34,93,.95);
   text-decoration:underline;
-  background-color: rgba(237,34,93,1);
-  // border:4px solid white;
-  padding:20px 10px;
   z-index: 3000000;
-    // background-color: rgba(237,34,93,.5);
-    // background-color:orange;
-    // top: calc(15px + 6 * ((100vw - 320px) / 680));
-    // width: 18%;
-    // font-size: calc(15px + 6 * ((100vw - 320px) / 680));
-    // font-size: 1.5rem; 
-    text-align:center;
-    // top:30vw;
-    // left:72.75%;
-    // right:9%;
-
-
-@include breakpoint(sm) {
- padding:10px 5px;
-}
-    @include breakpoint(md) {
-     width: 18%;
-     font-size: calc(15px + 6 * ((100vw - 320px) / 680));
-    top:30vw;
-     padding:20px 10px;
-     border:4px solid white;
-     right:9%;
-   }
-    a{
-    	color:white;
-    }
-
-    &:hover{
-     background-color: rgba(237,34,93,.90);
-   }
+  text-align:center;
+  @include breakpoint(sm) {
+   padding:10px 5px;
  }
+ @include breakpoint(md) {
+   width: 18%;
+   font-size: calc(15px + 6 * ((100vw - 320px) / 680));
+   top:30vw;
+   padding:20px 10px;
+   border:4px solid white;
+   right:9%;
+ }
+ a{
+   color:white;
+ }
+ &:hover{
+  background-color: rgba(237,34,93,.90);
 
+}
+}
 
-
-
-
-
- .p5-single-circle-code-example{
+.p5-single-circle-code-example{
   position: absolute;
   z-index: 3000000;
-  background-color: rgba(237,34,93,.5);
+  background-color: rgba(237,34,93,.7);
   padding:1%;
     font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
     width: 30%;
@@ -314,10 +186,7 @@ video{
 
 
 
-// Disable the default p5 loading text
-#p5_loading{
-	display:none;
-}
+
 
 
 

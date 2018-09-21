@@ -2,7 +2,7 @@
 const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
-const p5sound = require('../../node_modules/p5/lib/addons/p5.sound');//P5 Dom
+// const p5sound = require('../../node_modules/p5/lib/addons/p5.sound');//P5 Dom
 
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
@@ -16,6 +16,21 @@ let scene; // Name of current p5 sketch
 let seriouslyScene; // Name of current seriously chroma sketh
 let noSketch; // Placeholder variable when no p5 sketch required
 
+console.dir(document);
+// console.log("hi")
+console.log(document.URL)
+
+console.group("say hello")
+console.log("hi john")
+console.log("hi john2")
+console.log("hi john3")
+console.log("hi john4")
+
+console.time('For Loop')
+  for(var i =0; i<200; i++){
+  console.log(i)
+  }
+  console.timeEnd('For Loop')
 
 
 //Plyr Setup Code
@@ -45,7 +60,7 @@ player.on('ready', event =>{
 // Triggered when video start
 player.on('playing', event => {
 
-
+window.videoPlaying=true; 
     // adds the class of hide on play, to make the header shrink on play
     let header = document.querySelector('.header');
     let container = document.querySelector('.container');
@@ -68,7 +83,7 @@ player.on('playing', event => {
 
 // Triggered when video paused
 player.on('pause', event => {
-
+window.videoPlaying=false; 
   // stop p5 sketch when video is paused
   if(scene){
     scene.frameRate(0); 
@@ -151,6 +166,43 @@ var sceneChangeMap = [
 {time : 135, sketchfile: flock},
 {time : 167, sketchfile: noSketch},
 ];
+
+
+
+// // Resize  P5 and Seriously Canvases when the window size changes
+// window.onresize = function() {
+//   // scene.windowWidth=window.innerWidth;
+//   // scene.windowHeight=window.innerWidth * .562;
+//   // if(scene){
+//   //   scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
+//   // }
+//   // if(seriouslyScene){
+//   //   seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
+//   // }
+
+
+//     // scene.windowWidth=window.innerWidth;
+//   // scene.windowHeight=window.innerWidth * .562;
+//   if(scene){
+//     scene.remove();
+//     // scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
+//   }
+//   if(seriouslyScene){
+
+//     seriouslyScene.remove();
+//     // seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
+//   }
+//   // console.log("running new window on resize")
+//   // updateSketch();
+
+//     for(let i=0; i< sceneChangeMap.length;i++){
+//       if(videoCurrentTime >= sceneChangeMap[i].time  && videoCurrentTime < sceneChangeMap[i+1].time){
+//         videoCurrentTime = sceneChangeMap[i].time ;
+//         player.updateSketch();
+//       }
+//        // videoTimeSeeked = false; //reset this variable to false so this if statement only runs once
+//      }
+// } 
 
 
 

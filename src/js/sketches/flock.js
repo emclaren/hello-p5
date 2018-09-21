@@ -329,25 +329,27 @@ const p5 = require('p5'); // P5 Source Code
 
 var flock= function(s){
  s.boidnum=1;
-  s.flock;
-  s.r;
-s.time=0;
+ s.flock;
+ s.r;
+ s.time=0;
+let textOpacity=0;
+let textOpacitySpeed=5;
+ s.setup = function(){
+  s.pixelDensity(1);
+  s.windowWidth = window.innerWidth ;
+  s.windowHeight = s.windowWidth * .562
+  s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
+  s.canvas.parent('video-overlay');
 
-  s.setup = function(){
-    s.pixelDensity(1);
-    s.windowWidth = window.innerWidth ;
-    s.windowHeight = s.windowWidth * .562
-    s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
-    s.canvas.parent('video-overlay');
-
-       s.flock = new s.Flock();
+  s.flock = new s.Flock();
 
   // Add an initial set of boids into the system
   // for (var i = 0; i < 1; i++) {
     // s.b = new s.Boid(s.windowWidth/1.2,s.windowHeight/1.2);
-      s.b = new s.Boid(s.random(s.windowWidth/4),s.random(s.windowHeight));
+    s.b = new s.Boid(s.random(s.windowWidth/4),s.random(s.windowHeight));
          // s.c = new s.Boid(s.random(s.windowWidth- s.windowWidth/4, s.windowWidth),s.random(s.windowHeight));
-    s.flock.addBoid(s.b);
+         s.flock.addBoid(s.b);
+       s.textAlign(s.CENTER, s.CENTER); //Center align the text
     // s.flock.addBoid(s.c);
 
   // }
@@ -376,57 +378,151 @@ s.time=0;
 
 
 
-
-
 s.draw = function(){
-  if(s.boidnum%100==0 && s.boidnum<800){
-  // Add an initial set of boids into the system
-   s.b = new s.Boid(s.random(s.windowWidth/4),s.random(s.windowHeight));
-         // s.c = new s.Boid(s.random(s.windowWidth- s.windowWidth/4, s.windowWidth),s.random(s.windowHeight));
-    s.flock.addBoid(s.b);
-    // s.flock.addBoid(s.c);
+ s.clear();
 
-     if(window.videoCurrentTimeGlobal>143.0&&window.videoCurrentTimeGlobal<145.0){
+  console.log(textOpacity)
+ if(textOpacity<255 ){
+  // textOpacitySpeed *= -1;
+    textOpacity+=textOpacitySpeed;
+ }
 
-    s.fill('hotpink')
-    s.textSize(32);
-    s.text("special thanks to...", 100, s.windowHeight/2);
-    s.text("List Names", 200, s.windowHeight/2);
-    s.text("List Names", 250, s.windowHeight/2);
-    s.text("List Names", 300, s.windowHeight/2);
-    s.text("List Names", 400, s.windowHeight/2);
+
+ if(window.videoCurrentTimeGlobal>143.0 &&window.videoCurrentTimeGlobal<153.0 ){
+  s.push()
+  s.fill(0,0,0, 255)
+
+  s.stroke(255,112,149)
+  s.textSize(s.windowWidth/40);
+  s.translate(s.width / 2, s.height / 3);
+  s.text("special thanks to...", 0, 0);
+  s.pop()
+
 }
-       if(window.videoCurrentTimeGlobal>145.0 &&window.videoCurrentTimeGlobal<149.0){
-    s.text("to view the examples Click Here", 100, s.windowHeight/2);
-   }
+if(window.videoCurrentTimeGlobal>143.0&&window.videoCurrentTimeGlobal<146.0){
 
+  console.log("this should work, between 143-145")
 
-         if(window.videoCurrentTimeGlobal>149.0){
-    s.text("This project was completed as part of GSOC", 100, s.windowHeight/2);
-   }
-  // for (var i = 0; i < s.boidnum; i++) {
-  //   // s.b = new s.Boid(s.windowWidth/1.2,s.windowHeight/1.2);
-     
+  s.push()
 
-  // }
+  s.fill(0,0,0, 255)
+
+  s.stroke(255,112,149, textOpacity)
+  s.textSize(s.windowWidth/60);
+  s.translate(s.width / 2, s.height / 3);
+
+  s.text("Name 1", 0,60);
+  s.text("Name 2", 0, 100);
+  s.text("Name 3", 0, 140);
+  s.text("Name 4", 0,  180);
+  s.text("Name 5", 0,  220);
+  s.pop()
+  if(window.videoCurrentTimeGlobal>142.0 &&window.videoCurrentTimeGlobal<146.0 ){
+textOpacitySpeed = -5;
 }
-s.boidnum++;
-    s.noFill();
-    // s.fill(255,255,255,100)
-    s.clear();
-    s.flock.run();
-    s.time++;
-        // this.boids.splice(0, this.boids.length-20)
- 
-  if(window.videoCurrentTimeGlobal<138.5){
-s.cutout();
 }
+
+if(window.videoCurrentTimeGlobal>146.0 &&window.videoCurrentTimeGlobal<149.0){
+
+  s.push()
+  s.fill(0,0,0, 255)
+
+  s.stroke(255,112,149, textOpacity)
+   s.textSize(s.windowWidth/60);
+  s.translate(s.width / 2, s.height / 3);
+
+  s.text("Name 6", 0,60);
+  s.text("Name 7", 0, 100);
+  s.text("Name 8", 0, 140);
+  s.text("Name 9", 0,  180);
+  s.text("Name 10", 0,  220);
+
+  s.pop()
+  if(window.videoCurrentTimeGlobal>147.0 &&window.videoCurrentTimeGlobal<149.0 ){
+textOpacitySpeed = -5;
+}
+
+
+}
+if(window.videoCurrentTimeGlobal>149.0 &&window.videoCurrentTimeGlobal<153.0){
+
+  s.push()
+  s.fill(0,0,0, 255)
+
+  s.stroke(255,112,149, textOpacity)
+    // s.fill(0,0,0, 255)
+  // s.stroke(255,112,149)
+  s.textSize(s.windowWidth/60);
+  s.translate(s.width / 2, s.height / 3);
+
+  s.text("Name 11", 0,60);
+  s.text("Name 12", 0, 100);
+  s.text("Name 13", 0, 140);
+  s.text("Name 14", 0,  180);
+  s.text("Name 15", 0,  220);
+
+  s.pop()
+    if(window.videoCurrentTimeGlobal>151.0 &&window.videoCurrentTimeGlobal<153.0 ){
+textOpacitySpeed = -5;
+}
+
+}
+
+if(window.videoCurrentTimeGlobal>153.0 ){
+
+  s.push()
+  // s.fill(255,112,149)
+    // s.fill(0,0,0, 255)
+    s.stroke(255,112,149)
+    s.textSize(s.windowWidth/20);
+    s.translate(s.width / 2, s.height / 3);
+    s.text("This project was part e", 0, 0);
+  s.text(" of Google Summer of Code", 0, 60);
+
+    s.pop()
+
   }
 
 
 
 
-s.mouseMoved = function() {
+  if(s.boidnum%100==0 && s.boidnum<800){
+  // Add an initial set of boids into the system
+  s.b = new s.Boid(s.random(s.windowWidth/4),s.random(s.windowHeight));
+         // s.c = new s.Boid(s.random(s.windowWidth- s.windowWidth/4, s.windowWidth),s.random(s.windowHeight));
+         s.flock.addBoid(s.b);
+    // s.flock.addBoid(s.c);
+
+
+   //     if(window.videoCurrentTimeGlobal>145.0 &&window.videoCurrentTimeGlobal<149.0){
+   // console.log("this should work, between 145-149")
+   //  s.text("to view the examples Click Here", 100, s.windowHeight/2);
+   // }
+
+
+  // for (var i = 0; i < s.boidnum; i++) {
+  //   // s.b = new s.Boid(s.windowWidth/1.2,s.windowHeight/1.2);
+
+
+  // }
+}
+s.boidnum++;
+s.noFill();
+    // s.fill(255,255,255,100)
+
+    s.flock.run();
+    s.time++;
+        // this.boids.splice(0, this.boids.length-20)
+
+        if(window.videoCurrentTimeGlobal<138.5){
+          s.cutout();
+        }
+      }
+
+
+
+
+      s.mouseMoved = function() {
 // s.background(255,0,=0);
 // console.log("distance"+s.dist(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY))
 if(s.dist(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY)>50){
@@ -435,27 +531,27 @@ if(s.dist(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY)>50){
 
 }
 
-    
+
 }
 
 
 
-  s.Flock = function() {
-    this.boids = [];
-  }
+s.Flock = function() {
+  this.boids = [];
+}
 
 
 
 
-  s.Flock.prototype.run = function() {
-    for (var i = 0; i < this.boids.length; i++) {
+s.Flock.prototype.run = function() {
+  for (var i = 0; i < this.boids.length; i++) {
     this.boids[i].run(this.boids);  // Passing the entire list of boids to each boid individually
   }
 }
 
 s.Flock.prototype.addBoid = function(b) {
   this.boids.push(b);
-   if(this.boids.length >20){
+  if(this.boids.length >20){
     this.boids.splice(0, this.boids.length-20)
     // this.boids.delete()
 

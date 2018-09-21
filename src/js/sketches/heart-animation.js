@@ -4,7 +4,6 @@
 // Credit: waiting for release
 *********************/
 
-
 const heart = (s) => {
   let R = 8; 
   let maxVal = 0;
@@ -15,7 +14,7 @@ const heart = (s) => {
   let phase = 0;
   let oy = 0;
   let c = s.random(360);
-  let size;
+  let heartSize;
   let xpos;
   let ypos;
   let sizeChange; 
@@ -23,22 +22,23 @@ const heart = (s) => {
   let y = 0;
   let move;
 
-   s.setup  = () => {
+  s.setup  = () => {
     s.pixelDensity(1);
     let windowWidth = window.innerWidth ;
     let windowHeight = windowWidth  * 0.562;
     s.canvas = s.createCanvas(windowWidth, windowHeight);
     s.canvas.parent('video-overlay');
     s.colorMode(s.HSB, 360, 100, 100, 255); //use Hue-Saturation-Brightness Color Model
-    s.strokeJoin(s.ROUND);
+    s.strokeJoin(s.ROUND); //round the corners of the line intersections
     s.strokeWeight(5);
-    xpos=s.width / 5;
-    ypos=s.height / 3 + oy;
+
   };
 
   s.draw = () => {
     s.clear();
-    size=s.width / 1280;
+    heartSize=s.width / 1280;
+    xpos=s.width / 5;
+    ypos=s.height / 3 + oy;
     sizeChange = s.map(s.mouseX, 0, s.width, 0.5, 1);  
     s.fill(c, 80, 100, alp);
     s.stroke(c, 80, 100, stAlp);
@@ -51,12 +51,18 @@ const heart = (s) => {
         2 * s.cos(s.radians(3 * theta)) - s.cos(s.radians(4 * theta)));
       s.vertex(x, y);
     }
-    let distancemouse= s.dist(s.mouseX, s.mouseY, x, y);
-    move = s.map( distancemouse, 0, s.width, 0, 50);
-    s.scale(size * sizeChange); 
+
+    // make the hearts move depending on location of mouse
+    let distancemouse= s.dist(s.mouseX, s.mouseY, s.width/2, s.height/2);
+    move = s.map( distancemouse, 0, s.width, -s.width/60, s.width/60);
+
+
+    s.scale(heartSize * sizeChange); 
     s.endShape();
     s.pop();
 
+
+    // phase 0: draw heart by increasing maxVal
     if (phase == 0) {
       maxVal += 5;
       if (maxVal > 360) {
@@ -64,6 +70,8 @@ const heart = (s) => {
         phase = 1;
       }
     }
+
+    // phase 1: heart wiggle
     if (phase == 1) {
       R = 8 + s.abs(s.sin(s.radians(rt)));
       rt += 20;
@@ -73,6 +81,7 @@ const heart = (s) => {
       }
     }
 
+     // phase 2 : heart fill fades in
     if (phase == 2) {
       alp += 5;
       fillCount += 5;
@@ -84,10 +93,11 @@ const heart = (s) => {
       }
     }
 
+  // / phase  3: heart fly up & fade out
     if (phase == 3) {
-      oy -= 10;
-      alp -= 15;
-      stAlp -= 15;
+      oy -= 10; //move upwards
+      alp -= 15; //opacity
+      stAlp -= 15; //stroke opacity
       if (oy < -s.height) {
         maxVal = 0;
         rt = 0;
@@ -96,16 +106,22 @@ const heart = (s) => {
         phase = 0;
         oy = 0;
         fillCount = 0;
-        c = s.random(360);
-        xpos = s.width - s.width/8;
-        ypos = s.height - s.height / 3 + oy;
+        s.reset();
       }
     }
+ };
+
+
+// Move the heart from upper left corner to lower right corner
+  s.reset= () => {
+    c = s.random(360);
+    xpos = s.width - s.width/8;
+    ypos = s.height - s.height / 3 + oy;
   };
 
-};
+  };
 
-module.exports= heart;
+  module.exports= heart;
 
 
 

@@ -33,16 +33,14 @@ s.setup  = () => {
 	s.noStroke();
 	s.colors = [[255,0,5,s.c],[255, 170, 0,s.c],[255, 255, 0,s.c],[30,237,58,s.c],[0, 100, 255,s.c],[153, 17, 170,s.c],[164, 66, 220,s.c]]
 
-		s.numCurves = 6;
+	s.numCurves = 6;
 
-		let j = s.map(s.mouseX, 0, s.width, -20, 250);
+	let j = s.map(s.mouseX, 0, s.width, -20, 250);
+	s.numCurves = 7;
+	console.log(s.colors)
 
-
-		s.numCurves = 7;
-console.log(s.colors)
-		
-		s.yMobileValue = s.windowWidth/10.24;
-		for (s.i = 0; s.i < s.numCurves; s.i++) {
+	s.yMobileValue = s.windowWidth/10.24;
+	for (s.i = 0; s.i < s.numCurves; s.i++) {
 		// x ranges width of canvas
 		s.index = s.index % s.colors.length;
 		if (s.index == s.colors.length) {
@@ -80,12 +78,9 @@ s.draw = function(){
 
 
 
- if(window.videoCurrentTimeGlobal>54){
-
-
-			s.cutshape+=10;
-		
-}
+	if(window.videoCurrentTimeGlobal>54){
+		s.cutshape+=10;		
+	}
 
 	s.cutout();
 

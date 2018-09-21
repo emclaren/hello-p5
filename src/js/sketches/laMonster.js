@@ -21,8 +21,8 @@ s.star2;
 s.star3;
 s.starBackground;
 
-s.playButton;
-s.clickedplayButton;
+// s.playButton;
+// s.clickedplayButton;
 s.titleScale=0
 s.scalefactor = 0.00466;
 s.test=.05
@@ -65,8 +65,8 @@ s.preload = function(){
 	s.star2 = s.loadImage("https://emclaren.github.io/hello-p5//dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png");
 	s.star3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-3.png"); ///fix this!
 	s.starBackground = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/stars-background.png");
-	s.playButton = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/worldButton.png");
-	s.clickedplayButton = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/clickedworldButton.png");
+	// s.playButton = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/worldButton.png");
+	// s.clickedplayButton = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch_imgs/clickedworldButton.png");
 
 }
 

@@ -1,15 +1,14 @@
 /*********************
 // Forum Link
 // Description: Link to the Processing Forum & Community pages
-// Credit: 
 *********************/
 
 
 const forumLink = (s) => {
-	let notdisplayed = true;
 	let forumLinkDiv;
 	let communityLinkDiv;
-	let opacity = 230;
+	let forumLinkText;
+	let communityLinkText;
 
 	s.setup  = () => {
 		s.pixelDensity(1);
@@ -18,53 +17,44 @@ const forumLink = (s) => {
 		s.canvas = s.createCanvas(windowWidth, windowHeight);
 		s.canvas.parent('video-overlay');
 
-		if( window.videoLanguage=="es"){
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-forum-link focused">Foros</div></a>');
-		}else if( window.videoLanguage=="fr"){
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-forum-link focused">Forum</div></a>');
+		//Change language of link text depending on the selected language 
+		if(window.videoLanguage == "es"){
+			forumLinkText = "Foros";
+			communityLinkText	= "Comunidad";
+		}else if(window.videoLanguage == "fr"){
+			forumLinkText = "Forum";
+			communityLinkText = "Communauté";
 		}else{
-			forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-forum-link focused">Forum</div></a>');
-		};
+			forumLinkText = "Forum";
+			communityLinkText = "Community";
+		}
+
+		// Create the upper link on load (note the styling is done with css)
+		forumLinkDiv = s.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-pulsing-link-upper pulsing-animation">' + forumLinkText + '</div></a>');
 		forumLinkDiv.parent('video-overlay');
-
-	}
-
-
+	};
 
 
 	s.draw  = () => {
 		s.clear();
+
+		// Create the lower link when the time is appropriate
 		if(window.videoCurrentTimeGlobal>113){
-			if(notdisplayed){
-				forumLinkDiv.removeClass('focused');
-				if( window.videoLanguage=="es"){
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-community-link focused">Comunidad</a>');
-				}else if( window.videoLanguage=="fr"){
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-community-link focused">Communauté</a>');
-				}else{
-					communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-community-link focused">Community</a>');
-				};
-				
-				communityLinkDiv.parent('video-overlay');
+			forumLinkDiv.removeClass('pulsing-animation');
+			communityLinkDiv = s.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-pulsing-link-lower pulsing-animation">'+communityLinkText+'</a>');
+			communityLinkDiv.parent('video-overlay');
+			s.frameRate(0); //pause the sketch so it doesn't keep creating new divs
 
-				s.frameRate(0);
-				notdisplayed=false
-			}
 		}
-		if(window.videoCurrentTimeGlobal>114){
-			opacity--;
+		if(window.videoPlaying=false){
+			forumLinkDiv.removeClass('pulsing-animation');
+			communityLinkDiv.removeClass('pulsing-animation')
 		}
-	}
+	};
+};
 
 
-	// s.mouseMoved  = () => {
-	// 	s.stroke(237, 30, 97, opacity);
-	// 	s.strokeWeight(4);
-	// 	s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
-	// 	s.pmouseX=s.mouseX;
-	// 	s.pmouseY=s.mouseY;
-	// }
 
-}
+
 
 module.exports= forumLink;

@@ -1,16 +1,13 @@
-
 /*********************
 // Webeditor Link
 // Description: Link to the Webeditor & Download pages
-// Credit: 
 *********************/
 
-
 const webeditorLink = (s) => {
-	let notdisplayed = true;
 	let webeditorLinkDiv;
 	let downloadLinkDiv;
-	let opacity = 230;
+	let webeditorLinkText;
+	let downloadLinkText;
 
 	s.setup  = () => {
 		s.pixelDensity(1);
@@ -19,54 +16,37 @@ const webeditorLink = (s) => {
 		s.canvas = s.createCanvas(windowWidth, windowHeight);
 		s.canvas.parent('video-overlay');
 
-		if( window.videoLanguage=="es"){
-			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-webeditor-link focused"> Editor web p5</div></a>');
-		}else if( window.videoLanguage=="fr"){
-			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-webeditor-link focused">P5  web editor</div></a>');
+		//Change language of link text depending on the selected language 
+		if(window.videoLanguage == "es"){
+			webeditorLinkText = "Editor web p5";
+			downloadLinkText	="Descargar";
+		}else if(window.videoLanguage == "fr"){
+			webeditorLinkText = "P5 web editor";
+			downloadLinkText = "Télécharger";
 		}else{
-			webeditorLinkDiv=s.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-webeditor-link focused">P5 Web Editor</div></a>');
+			webeditorLinkText = "P5 Web Editor";
+			downloadLinkText = "Download";
 		}
+
+		// Create the upper link on load (note the styling is done with css)
+		webeditorLinkDiv = s.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-pulsing-link-upper pulsing-animation">' + webeditorLinkText + '</div></a>');
 		webeditorLinkDiv.parent('video-overlay');
-	
-	}
+
+	};
 
 
 	s.draw  = () => {
 		s.clear();
-		if(window.videoCurrentTimeGlobal>100){
-			if(notdisplayed){
-				webeditorLinkDiv.removeClass('focused');
-				if( window.videoLanguage=="es"){
-					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-download-link focused">Descargar</div></a>');
-				}else if( window.videoLanguage=="fr"){
-					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-download-link focused">Télécharger</div></a>');
-				}else{
-					downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-download-link focused">Download</div></a>');
-				};
-				
-				downloadLinkDiv.parent('video-overlay');
 
-				s.frameRate(0);
-				notdisplayed=false
-			}
+		// Create the lower link when the time is appropriate
+		if(window.videoCurrentTimeGlobal>98){
+			webeditorLinkDiv.removeClass('pulsing-animation');
+			downloadLinkDiv = s.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-pulsing-link-lower pulsing-animation">' + downloadLinkText + '</div></a>');
+			downloadLinkDiv.parent('video-overlay');
+			s.frameRate(0); //pause the sketch so it doesn't keep creating new divs
 		}
-		if(window.videoCurrentTimeGlobal>104){
-			opacity--;
-		}
-	}
-
-
-
-
-	// s.mouseMoved  = () => {
-	// 	s.stroke(237, 30, 97, opacity);
-	// 	s.strokeWeight(4);
-	// 	s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
-	// 	s.pmouseX=s.mouseX;
-	// 	s.pmouseY=s.mouseY;
-	// }
-
-}
+	};
+};
 
 module.exports= webeditorLink;
 

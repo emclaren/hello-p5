@@ -29,9 +29,9 @@ let peakDetect
         console.log('preload');
         // q.song = q.loadSound("../dist/assets/img/song2.mp3");
         // console.log(q.loadSound())
-        q.song = 0;
-        q.fft = new p5.FFT();
-        q.peakDetect = new p5.PeakDetect();
+        // q.song = 0;
+        // q.fft = new p5.FFT();
+        // q.peakDetect = new p5.PeakDetect();
         console.log(q.song)
         // q.pauseButton = q.createButton("pause");
           console.log("sketch sarted2")
@@ -106,20 +106,20 @@ let waveform = Array.from({length: 1024}, () => Math.random(-1, 1)/2 );
 
         q.rms = 1;
 
-        if ( q.peakDetect.isDetected ) {
-          // q.rms = q.analyzer.getLevel();
-          r = 127;
-          g = -170;
-          b = -190;
-          o = .5;
+        // if ( q.peakDetect.isDetected ) {
+        //   // q.rms = q.analyzer.getLevel();
+        //   r = 127;
+        //   g = -170;
+        //   b = -190;
+        //   o = .5;
 
-        } else {
-          r = r * .85;
-          g = g * .85;
-          b = b * .85;
-          o = o * .85;
-          // q.rms = q.analyzer.getLevel();
-        }
+        // } else {
+        //   r = r * .85;
+        //   g = g * .85;
+        //   b = b * .85;
+        //   o = o * .85;
+        //   // q.rms = q.analyzer.getLevel();
+        // }
         q.fill('rgba('+parseInt(50 + r)+','+parseInt(50 + g)+','+parseInt(100 + b)+','+(.5 + o)+')');
   
         // Get the average (root mean square) amplitude
