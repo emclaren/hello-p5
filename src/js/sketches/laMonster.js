@@ -53,6 +53,7 @@ s.fadeout=0
 
 
 
+
 s.preload = function(){
 	console.log("this is the updated version of la monster with the base url part")
 	s.planetlamonster = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/planet.png");
