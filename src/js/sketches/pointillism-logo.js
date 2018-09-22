@@ -50,7 +50,7 @@ const pointillismLogo = (s) => {
       dotNumber--; //Reduce the number of dots so they dont keep overwriting the rectangle
       opacity++; //Slowly increase the opacity
       s.fill(255, 255, 255, opacity);
-      s.rect(-20, -20, 300, 300);
+      s.rect(-20, -20, 330, 330);
     }
   };
 };
