@@ -9,7 +9,7 @@
   "bugs": "https://github.com/emclaren/hello-p5/issues",
   "scripts": {
     "autoprefixer": "postcss -u autoprefixer --map -r dist/css/main.css",
-    "scss": "node-sass --output-style compressed  -o dist/css/ src/scss",
+    "scss": "node-sass --output-style compressed -x -o dist/css/ src/scss",
     "lint": "eslint src/js || true",
     "lint-scss": "stylelint src/scss/*.scss --syntax scss || true",
     "serve": "browser-sync start --server --files \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html\"",
