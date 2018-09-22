@@ -1,8 +1,6 @@
-
 /*********************
 BASE STYLING
 *********************/
-
 
 * {
 	box-sizing: border-box;
@@ -12,7 +10,7 @@ html{
 	font-size:1.25em;
 	font-size:100%;
 	-webkit-text-size-adjust:100%;
-	-ms-text-size-adjust:100%
+	-ms-text-size-adjust:100%;
 }
 
 body{
@@ -28,36 +26,6 @@ body{
 	@include breakpoint(md){
 		display:block;
 	}
-}
-
-
-
-h1, h2, h3, h4, h5, h6{
-	color: $brand-color-main;
-}
-
-h1{
-	font-size:2em;
-	margin:.67em 0
-}
-h2{
-	margin:.83em 0
-}
-h3{
-	font-size:1.17em;
-	margin:1em 0
-}
-h4{
-	font-size:1em;
-	margin:1.33em 0
-}
-h5{
-	font-size:.83em;
-	margin:1.67em 0
-}
-h6{
-	font-size:.67em;
-	margin:2.33em 0
 }
 
 // Asterisk in the page background

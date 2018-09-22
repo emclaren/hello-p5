@@ -1,4 +1,3 @@
-
 /*********************
 CANVAS ELEMENT & VIDEO STYLING
 *********************/
@@ -41,18 +40,10 @@ video{
 	width:100%;
 }
 
-
-
-
 // Disable the default p5 loading text
 #p5_loading{
   display:none;
 }
-
-
-
-
-
 
 // Pulsing state is used in web editor-link and forum-link sketches to make the div pulse
 .pulsing-animation{
@@ -80,9 +71,6 @@ video{
   }
 }
 
-
-
-
 .sketch-pulsing-link-upper{
   font-size: calc(8px + 6 * ((100vw - 320px) / 680));
   top:6vw;
@@ -95,12 +83,9 @@ video{
   background-color: rgba(237,34,93,.95);
   border:2px solid white;
   z-index: 3000000;
-
   text-align:center;
   text-decoration:underline;
-
   right:3%;
-
   @include breakpoint(sm) {
    padding:10px 5px;
  }
@@ -121,9 +106,6 @@ video{
 }
 
 }
-
-
-
 
 .sketch-pulsing-link-lower{
   font-size: calc(8px + 6 * ((100vw - 320px) / 680));
@@ -155,7 +137,6 @@ video{
  }
  &:hover{
   background-color: rgba(237,34,93,.90);
-
 }
 }
 
@@ -182,11 +163,3 @@ video{
       top:15%;
     }
   }
-
-
-
-
-
-
-
-

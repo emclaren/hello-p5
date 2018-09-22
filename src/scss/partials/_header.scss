@@ -1,4 +1,3 @@
-
 /*********************
 HEADER STYLING
 *********************/
@@ -38,7 +37,6 @@ header{
 	nav{
 		display:flex;
 		height:100%;
-
 		ul{
 			list-style: none;
 			margin: 0rem auto 1rem auto;
@@ -58,7 +56,6 @@ header{
 				align-items:center;
 			}
 		}
-
 		li{
 			font-family: "AvenirNextLTW01-Medium", sans-serif;
 			list-style-type:none;	
@@ -68,7 +65,6 @@ header{
 			@include breakpoint(md) {
 				margin:0 .3rem;
 			}
-
 			//nth-child classes style nav menu into grid on mobile 
 			&:nth-child(odd){
 				width:5.2rem;
@@ -89,19 +85,17 @@ header{
 				display:block;
 				width:auto;
 				@include breakpoint(md) {
-					height:1.5rem;
+					height:1.7rem;
 				}
 				@include breakpoint(lg) {
 					font-size:1.3rem;
 					width:auto !important;
 				}
-
 				&:hover {
 					width:auto !important;
 					cursor:pointer;
 				}
 			}
-
 		}
 
 		.language-list-container{
@@ -118,12 +112,12 @@ header{
 			width:12.5rem;
 			text-align:center;
 			margin:0 auto;
+
 			@include breakpoint(md) {
 				width:7.5rem!important;
 			}	
 			@include breakpoint(lg) {
 				width:8.75rem!important;
-
 			}
 		}
 
@@ -134,28 +128,23 @@ header{
 				display:inline-block;
 			}
 		}
-
 		a, a:link, a:visited {
 			color: $brand-color-main;
 			text-decoration: none;
 			user-select: none;
 			font-size: 1rem;
-
-
 			@include breakpoint(lg) {
 				font-size:1.3rem;
-
 			}
 		}
 		a:active, a:hover, a:focus,.language-link:hover, .language-link:active, .language-link:focus {
 			outline:0;
 			text-decoration:none;
-			padding-bottom:.11em;
-			border-bottom:.11em dashed;
+			padding-bottom:.11rem;
+			border-bottom:.11rem dashed;
 			border-bottom-color:$brand-color-main;
 		}
 	}
-
 
 	///The .shrink class is added to the header when the video starts playing, it makes the header shrink on play 
 	&.shrink{
@@ -165,20 +154,17 @@ header{
 		}
 		@include breakpoint(xl) {
 			height:3.13rem;
-
 		}
 		.logo{
 			@include breakpoint(md){
 				max-width: 3rem;
 				margin:0 auto;	
 				transition: height .5s ease, margin .5 ease;	
-
 			}
 			@include breakpoint(xl) {
 				max-width: 4rem;
 			}	
 		}
-
 		#menu li a:link, #menu li a:visited, .language-link{
 			@include breakpoint(md){
 				font-size: 1.1em;
@@ -186,14 +172,12 @@ header{
 			}
 		}
 		.language-link {
-			@include breakpoint(xl) {
-				height: 1.6rem !important;
+			@include breakpoint(md) {
+				height:1.5rem;
 			}
-
 		}
 	}
 }
-
 
 // Header text doesn't fit properly in french, this styling reduced french font size so the text fits
 .french{
@@ -207,4 +191,3 @@ header{
 		}
 	}
 }
-

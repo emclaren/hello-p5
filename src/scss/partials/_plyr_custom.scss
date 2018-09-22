@@ -1,4 +1,3 @@
-
 // Change color of plyr control icons
 .plyr__control--overlaid{
     background: $brand-color-main;
@@ -26,7 +25,6 @@
     background:$brand-color-main;
 }
 
-
 // Ensure plyr controls load above p5 canvas overlay
 .plyr__controls {
     z-index:2147483647 !important;
@@ -34,8 +32,6 @@
 .plyr__menu__container{
     z-index:500;
 }
-
-
 
 // Ensure the captions are above the canvas element
 .plyr__captions{
@@ -51,7 +47,6 @@
     }
 }
 
-
 //Prevent two buffer bars from loading
 .plyr__progress__buffer{
     display:none;  
@@ -66,9 +61,6 @@
 .plyr--stopped .plyr__poster {
     opacity: 0;
 }
-
-
-
 
 .plyr__poster{
     top:auto;
