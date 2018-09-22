@@ -4,10 +4,6 @@ const p5 = require('../../node_modules/p5/lib/p5.min'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
 
 
-
-
-
-
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
 let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas overlay
@@ -20,24 +16,6 @@ let scene; // Name of current p5 sketch
 let seriouslyScene; // Name of current seriously chroma sketh
 let noSketch; // Placeholder variable when no p5 sketch required
 
-// console.dir(document);
-// // console.log("hi")
-// console.log(document.URL)
-
-// console.group("say hello")
-// console.log("hi john")
-// console.log("hi john2")
-// console.log("hi john3")
-// console.log("hi john4")
-
-// console.time('For Loop')
-
-
-
-//   for(var i =0; i<200; i++){
-//   console.log(i)
-//   }
-//   console.timeEnd('For Loop')
 
 
 //Plyr Setup Code
@@ -56,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
    // updateSketch(); 
 
 player.on('ready', event =>{
-  console.log("hi");
   const seriouslyCanvas = require('./sketches/seriously-canvas.js');
   const laMonster = require('./sketches/laMonster.js');
    scene = new p5(laMonster); 
@@ -142,7 +119,7 @@ const laMonster = require('./sketches/laMonster.js');
 const visualizer = require('./sketches/visualizer.js');
 
 var sceneChangeMap = [
-{time : 0, sketchfile: laMonster, seriously:true },
+{time : 0, sketchfile: laMonster, seriously:true},
 {time : 3.25, sketchfile: noSketch},
 {time : 4.75, sketchfile: visualizer, seriously:true },
 {time : 7.75, sketchfile: noSketch},
@@ -325,36 +302,7 @@ player.on('seeked', event => {
 });
 
 
-
-
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
