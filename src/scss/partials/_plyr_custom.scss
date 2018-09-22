@@ -7,6 +7,9 @@
 .plyr__control--overlaid:hover{
     background: $brand-color-hover;
 }
+.plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]{
+    background: $brand-color-hover;
+}
 
 .plyr__video-wrapper{
     background: $brand-color-main;
