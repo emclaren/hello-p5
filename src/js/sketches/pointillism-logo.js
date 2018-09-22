@@ -16,13 +16,12 @@ const pointillismLogo = (s) => {
   let pix; 
   let dotSize;
 
-  // s.preload  = () => {
-  //   img = 
-  // };
+  s.preload  = () => {
+    img = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-pointilism-asterisk.png"); //Preload the log image 
+  };
 
 
   s.setup  = () => {
-   img= s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-pointilism-asterisk.png"); //Preload the log image 
     s.pixelDensity(1);
     let windowWidth = window.innerWidth ;
     let windowHeight = windowWidth * 0.562;
