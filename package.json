@@ -49,8 +49,8 @@
     "stylelint": "^9.5.0"
   },
   "dependencies": {
-    "p5": "^0.7.2",
     "plyr": "^3.4.3",
+    "p5": "^0.7.2",
     "uglifyify": "^5.0.1"
   },
   "browserify": {

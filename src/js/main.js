@@ -4,6 +4,10 @@ const p5 = require('../../node_modules/p5/lib/p5.min'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
 
 
+
+
+
+
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
 let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas overlay
