@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 player.on('ready', event =>{
   const seriouslyCanvas = require('./sketches/seriously-canvas.js');
-  const laMonster = require('./sketches/laMonster.js');
-   scene = new p5(laMonster); 
+  // const laMonster = require('./sketches/laMonster.js');
+  //  scene = new p5(laMonster); 
       seriouslyScene= new p5(seriouslyCanvas);
   // player.timeupdate;
 });
@@ -119,7 +119,7 @@ const laMonster = require('./sketches/laMonster.js');
 const visualizer = require('./sketches/visualizer.js');
 
 var sceneChangeMap = [
-{time : 0, sketchfile: laMonster, seriously:true},
+// {time : 0, sketchfile: laMonster, seriously:true},
 {time : 3.25, sketchfile: noSketch},
 {time : 4.75, sketchfile: visualizer, seriously:true },
 {time : 7.75, sketchfile: noSketch},

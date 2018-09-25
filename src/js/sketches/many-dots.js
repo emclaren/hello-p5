@@ -36,11 +36,9 @@ const manyDots = (s) => {
   s.clear();
   color1 = s.map(s.mouseX, 0, s.width, 0, 255);
   color2 = s.map(s.mouseY, 0, s.width, 0, 255);
-
   s.fill(color1,color2,133);
   s.strokeWeight(2);  
   s.stroke(255,255,255);
-console.log(dot.length)
   for(let i = 0; i < dot.length; i++){
     dot[i].display();
   }
@@ -128,6 +126,11 @@ s.mouseMoved = function() {
   s.addDot2(new s.Dot(s.mouseX));
 }
 
+
+s.mouseDragged = function() {
+  s.addDot(new s.Dot(s.mouseX));
+  s.addDot2(new s.Dot(s.mouseX));
+}
 
 
 }

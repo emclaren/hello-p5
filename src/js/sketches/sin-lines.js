@@ -30,6 +30,7 @@ const sinLines = (s) => {
     s.clear();
     s.fill(255);
     strokeThickness = s.map(s.mouseX, 0, s.width, 1, s.width/50)
+    s.push()
     s.translate(0, lineHeight )
     for (let i = 0; i < s.width+5 ; i += lineSpacing){
       s.strokeWeight(strokeThickness);
@@ -42,6 +43,7 @@ const sinLines = (s) => {
       strokeThickness = strokeThickness+.1;
       speed+=.1
     }
+    s.pop();
 
     t += 0.01;
     s.cutout();
@@ -52,6 +54,7 @@ const sinLines = (s) => {
     let c=document.getElementById("defaultCanvas0");
     let ctx=c.getContext("2d");
     ctx.clearRect((s.width/2) - ((s.width/1.65)/2), 0, s.width/1.65 , s.height*4.1);
+ 
   }
 
 
