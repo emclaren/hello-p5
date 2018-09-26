@@ -8,8 +8,7 @@
 const waves = (s) => {
 
   let waves = [];
-  let waveNumber = 2;
-  let waveNumber2 = 0;
+  let waveNumber = 0;
   let changeSize = 0;
 
 
@@ -32,9 +31,9 @@ const waves = (s) => {
 
   s.draw = () => {
     s.clear();
-    let size = s.dist(s.mouseX, s.mouseY, s.width/2, s.height/2);
-    waveNumber2 = s.map(size, 0, s.width/2, 0, 30);
-    for(let i = 0; i < waveNumber2; i++){
+    let size = s.dist(s.mouseX, s.mouseY, s.width/2, s.height/2); //measure distance of the ouse fromthe center of the pge
+    waveNumber = s.map(size, 0, s.width/2, 0, 30);
+    for(let i = 0; i < waveNumber; i++){
       waves[i].display();
     }
 

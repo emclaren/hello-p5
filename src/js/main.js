@@ -1,7 +1,17 @@
+
 // required JS libraries
 const Plyr = require('plyr'); //Plyr Video Player Source Code
-const p5 = require('../../node_modules/p5/lib/p5.min'); // P5 Source Code
+// const p5 = require('../../node_modules/p5/lib/p5.min'); // P5 Source Code
+// const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
+
+
+// breaks if i try to use the minified version of the file. 
+const p5 = require('p5'); // P5 Source Code
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
+
+console.log(p5dom)
+
+
 
 
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
@@ -10,12 +20,12 @@ let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas
 
 const header = document.querySelector('.header'); // For changing header styling on "play", and language change
 
+
 let languageArray; // For toggling the text in the header on language change
 
 let scene; // Name of current p5 sketch
 let seriouslyScene; // Name of current seriously chroma sketh
 let noSketch; // Placeholder variable when no p5 sketch required
-
 
 
 //Plyr Setup Code

@@ -4,6 +4,8 @@
 *********************/
 
 var singleCircle = function(s) {
+	// const p5dom = require('../../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
+
 	let fadeIn = 0;
 	let pulseSpeed = 0.5;
 	let sizeChange = 0;

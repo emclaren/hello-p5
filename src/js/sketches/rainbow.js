@@ -6,13 +6,15 @@
 
 const rainbow = (s) => {
 
-	let cutshape=0;
-	let offset;
-	let distanceFromTop;
-	let index=0;
-	let colors;
-	let numCurves;
-	let y;
+	
+	let cutshape=0;// this is for the effect where the rainbows slide out to the side
+
+	let offset; //thickness of rainbow lines
+	let distanceFromTop; //start higher or lower
+	let index=0; // to paint them line the apprirpiate color
+	let colors; //array to store the colors in 
+	let numCurves; //number rainbow Lines
+	let ycoord; //y coordinate of the ellipse
 
 	s.setup  = () => {
 		s.pixelDensity(1);
@@ -20,28 +22,36 @@ const rainbow = (s) => {
 		let windowHeight = windowWidth  * 0.562;
 		s.canvas = s.createCanvas(windowWidth, windowHeight);
 		s.canvas.parent('video-overlay');
-		
-		
-		offset = s.width/34;
-		distanceFromTop = s.height/4;
-		
+
+	
 		s.noStroke();
-		
+		offset = s.width/34;
+
+
+		distanceFromTop = s.height/4; //good
+	
+		// Rainbow colors - RED, ORANGE, YELLOW GREEN BLUE PURPLE VIOLET (?)
 		colors = [[255,0,5],[255, 170, 0],[255, 255, 0],[30,237,58],[0, 100, 255],[153, 17, 170],[164, 66, 220]]
 		
 		
-		numCurves = 7;
+		numCurves = 7; //number of lines in the rainbw
+
 		for (i = 0; i < numCurves; i++) {
 			// x ranges width of canvas
 			index = index % colors.length;
+
+			// reset to first color if there are more lines than colores;
 			if (index == colors.length) {
 				index = 0;
 			}
+
+
 			s.fill(colors[index])
-			for (x = 0; x < s.width+5; x++) {
+			for (let xcoord = 0; xcoord < s.width; xcoord++) {
+				let scale=s.width/9.5
 				// scaled so fewer and higher curves on screen
-				y = s.sin(x / 100) * 100;
-				s.ellipse(x, y  + distanceFromTop + offset * i, offset);	
+				ycoord = s.sin(xcoord / scale) * scale;   //mobile looks pretty good around 20;
+				s.ellipse(xcoord, ycoord  + distanceFromTop + offset * i, offset);	
 			}
 			index++;	
 		}
