@@ -80,74 +80,74 @@ window.videoPlaying=false;
 });
 
 
-// Import P5 Sketch Files
-const seriouslyCanvas = require('./sketches/seriously-canvas.js');
-const helloP5Title = require('./sketches/hello-p5-title.js');
-const heartAnimation = require('./sketches/heart-animation.js');
-const pointillismLogo = require('./sketches/pointillism-logo.js');
-const targetSketch = require('./sketches/target-sketch.js');
-const singleCircle= require('./sketches/single-circle.js');
-const stars = require('./sketches/stars.js');
-const leaves = require('./sketches/leaves.js');
-const wavemaker = require('./sketches/wavemaker.js');
-const rainbow = require('./sketches/rainbow.js');
-const lerpColor = require('./sketches/lerpColor.js');
-const waves = require('./sketches/waves.js');
-const sinLines = require('./sketches/sin-lines.js');
-const manyDots = require('./sketches/many-dots.js');
-const rectangles = require('./sketches/rectangles.js');
+// // Import P5 Sketch Files
+// const seriouslyCanvas = require('./sketches/seriously-canvas.js');
+// const helloP5Title = require('./sketches/hello-p5-title.js');
+// const heartAnimation = require('./sketches/heart-animation.js');
+// const pointillismLogo = require('./sketches/pointillism-logo.js');
+// const targetSketch = require('./sketches/target-sketch.js');
+// const singleCircle= require('./sketches/single-circle.js');
+// const stars = require('./sketches/stars.js');
+// const leaves = require('./sketches/leaves.js');
+// const wavemaker = require('./sketches/wavemaker.js');
+// const rainbow = require('./sketches/rainbow.js');
+// const lerpColor = require('./sketches/lerpColor.js');
+// const waves = require('./sketches/waves.js');
+// const sinLines = require('./sketches/sin-lines.js');
+// const manyDots = require('./sketches/many-dots.js');
+// const rectangles = require('./sketches/rectangles.js');
 
 
-// Sketch Files- TODO : Partially cleaned
+// // Sketch Files- TODO : Partially cleaned
 
-const circleExplosion = require('./sketches/circle-explosion.js');
-const forumLink = require('./sketches/forum-link.js');
-const webEditorLink = require('./sketches/webeditor-link.js');
-
-
-
-// Sketch Files- TODO : CLEANUP SKETCHES
-// const flock = require('./sketches/flock.js'); 
+// const circleExplosion = require('./sketches/circle-explosion.js');
+// const forumLink = require('./sketches/forum-link.js');
+// const webEditorLink = require('./sketches/webeditor-link.js');
 
 
 
-//Need work
-const laMonster = require('./sketches/laMonster.js');
-const visualizer = require('./sketches/visualizer.js');
+// // Sketch Files- TODO : CLEANUP SKETCHES
+// // const flock = require('./sketches/flock.js'); 
 
-var sceneChangeMap = [
-// {time : 0, sketchfile: laMonster, seriously:true},
-{time : 3.25, sketchfile: noSketch},
-{time : 4.75, sketchfile: visualizer, seriously:true },
-{time : 7.75, sketchfile: noSketch},
-{time : 8.00, sketchfile: helloP5Title},
-{time : 9.75, sketchfile: noSketch},
-{time : 10.75, sketchfile: heartAnimation},
-{time : 17.50, sketchfile: leaves},
-{time : 24.50, sketchfile: noSketch},
-{time : 24.75, sketchfile: pointillismLogo},
-{time : 33.00, sketchfile: wavemaker},
-{time : 38.25, sketchfile: stars},
-{time : 50.50, sketchfile: targetSketch},
-{time : 53.50, sketchfile: rainbow},
-{time : 56.00, sketchfile: noSketch},
-{time : 56.5, sketchfile: singleCircle},
-{time : 63.25, sketchfile: manyDots},
-{time : 75.25, sketchfile: noSketch},
-{time : 78.50, sketchfile: sinLines},
-{time : 85.25, sketchfile: noSketch},
-{time : 89.50, sketchfile: rectangles},
-{time : 93, sketchfile: noSketch},
-{time : 94.5, sketchfile: webEditorLink},
-{time : 104.25, sketchfile:lerpColor},
-{time : 109, sketchfile: forumLink},
-{time : 116.25, sketchfile: waves},
-// {time : 121.75, sketchfile: noSketch},
-{time : 121.75, sketchfile: circleExplosion},
-// {time : 150, sketchfile: flock},
-// {time : 137, sketchfile: noSketch},
 
-];
+
+// //Need work
+// const laMonster = require('./sketches/laMonster.js');
+// const visualizer = require('./sketches/visualizer.js');
+
+// var sceneChangeMap = [
+// // {time : 0, sketchfile: laMonster, seriously:true},
+// {time : 3.25, sketchfile: noSketch},
+// {time : 4.75, sketchfile: visualizer, seriously:true },
+// {time : 7.75, sketchfile: noSketch},
+// {time : 8.00, sketchfile: helloP5Title},
+// {time : 9.75, sketchfile: noSketch},
+// {time : 10.75, sketchfile: heartAnimation},
+// {time : 17.50, sketchfile: leaves},
+// {time : 24.50, sketchfile: noSketch},
+// {time : 24.75, sketchfile: pointillismLogo},
+// {time : 33.00, sketchfile: wavemaker},
+// {time : 38.25, sketchfile: stars},
+// {time : 50.50, sketchfile: targetSketch},
+// {time : 53.50, sketchfile: rainbow},
+// {time : 56.00, sketchfile: noSketch},
+// {time : 56.5, sketchfile: singleCircle},
+// {time : 63.25, sketchfile: manyDots},
+// {time : 75.25, sketchfile: noSketch},
+// {time : 78.50, sketchfile: sinLines},
+// {time : 85.25, sketchfile: noSketch},
+// {time : 89.50, sketchfile: rectangles},
+// {time : 93, sketchfile: noSketch},
+// {time : 94.5, sketchfile: webEditorLink},
+// {time : 104.25, sketchfile:lerpColor},
+// {time : 109, sketchfile: forumLink},
+// {time : 116.25, sketchfile: waves},
+// // {time : 121.75, sketchfile: noSketch},
+// {time : 121.75, sketchfile: circleExplosion},
+// // {time : 150, sketchfile: flock},
+// // {time : 137, sketchfile: noSketch},
+
+// ];
 
 
 
