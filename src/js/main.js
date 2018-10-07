@@ -93,14 +93,17 @@ const wavemaker = require('./sketches/wavemaker.js');
 const rainbow = require('./sketches/rainbow.js');
 const lerpColor = require('./sketches/lerpColor.js');
 const waves = require('./sketches/waves.js');
+const sinLines = require('./sketches/sin-lines.js');
+const manyDots = require('./sketches/many-dots.js');
+const rectangles = require('./sketches/rectangles.js');
+
 
 // Sketch Files- TODO : Partially cleaned
-const sinLines = require('./sketches/sin-lines.js');
-const rectangles = require('./sketches/rectangles.js');
+
 const circleExplosion = require('./sketches/circle-explosion.js');
 const forumLink = require('./sketches/forum-link.js');
 const webEditorLink = require('./sketches/webeditor-link.js');
-const manyDots = require('./sketches/many-dots.js');
+
 
 
 // Sketch Files- TODO : CLEANUP SKETCHES
@@ -133,7 +136,7 @@ var sceneChangeMap = [
 {time : 75.25, sketchfile: noSketch},
 {time : 78.50, sketchfile: sinLines},
 {time : 85.25, sketchfile: noSketch},
-{time : 89.25, sketchfile: rectangles},
+{time : 89.50, sketchfile: rectangles},
 {time : 93, sketchfile: noSketch},
 {time : 94.5, sketchfile: webEditorLink},
 {time : 104.25, sketchfile:lerpColor},
@@ -142,7 +145,7 @@ var sceneChangeMap = [
 // {time : 121.75, sketchfile: noSketch},
 {time : 121.75, sketchfile: circleExplosion},
 // {time : 150, sketchfile: flock},
-{time : 137, sketchfile: noSketch},
+// {time : 137, sketchfile: noSketch},
 
 ];
 

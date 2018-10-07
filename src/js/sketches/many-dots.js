@@ -6,8 +6,7 @@
 
 const manyDots = (p5) => {
   let dot = []; // array to hold the dots
-  let dotCount = 0; 
-  let dotNumber = 60; //intial set of dots 
+  let dotInitNumber = 60; //intial set of dots 
   let leavingSpeed = 0.5; //speed dots leave the screen at end 
   let redValue; //variable for making interactive fill color
   let greenValue; //variable for making interactive fill color
@@ -37,21 +36,19 @@ const manyDots = (p5) => {
       dot[i].display();
     }
     // start with an initial set of dots on the screen
-    if(dot.length < dotNumber){
+    if(dot.length < dotInitNumber){
       p5.addDot();
     } //once the initial dots are on screen, make them wiggle
     else{
       for(let i = 0; i < dot.length; i++){
         dot[i].move();
       }
-      console.log(dotCount);
     }
     
     // Make the dots start leaving the screen in the middle of the sketch
     if(window.videoCurrentTimeGlobal > 68.5){
       for(let i = 0; i < dot.length; i++){
         // make the dot move to the side of the screen that it's closest to on the x-axis
-        
         if(dot[i].x > p5.width / 2){
           dot[i].x = dot[i].x + leavingSpeed;
         }
@@ -66,8 +63,7 @@ const manyDots = (p5) => {
           dot[i].y = dot[i].y - leavingSpeed;
         }
       }
-    }
-    
+    }    
     // Reduce the size of the generated dots and speed up the animation at end of sketch
     if(window.videoCurrentTimeGlobal>72){
       if(lowerBound>0 && upperBound>0){
@@ -95,23 +91,21 @@ const manyDots = (p5) => {
       this.y += p5.random(-this.moveSpeed, this.moveSpeed);
     };
   };
-
+  
   // create new pair of dots on opposite sides of the screen
   p5.addDot = function(){
     let xcoord = p5.random(p5.width / 3.2);
-    dot[dotCount] = new p5.Dot(xcoord);
-    dotCount++;
-    dot[dotCount] = new p5.Dot(p5.width-xcoord);
-    dotCount++;
+    dot[dot.length] = new p5.Dot(xcoord);
+    dot[dot.length] = new p5.Dot(p5.width-xcoord);
   };
   
   // Create new dots when mouse moved on screen
   p5.mouseMoved = function() {
-    p5.addDot(new p5.Dot());
+    p5.addDot();
   };
   // Create new dots when finger dragged on screen
   p5.mouseDragged = function() {
-    p5.addDot(new p5.Dot());
+    p5.addDot();
   };
 };
 

@@ -24,7 +24,6 @@ const circleExplosion = (p5) => {
 		p5.canvas.parent('video-overlay');
 		p5.noFill();
 	};
-	
 	p5.draw = () => {
 		p5.clear();
 		// Add a new circle once every 15 frames for a max of 7 circles
@@ -103,6 +102,13 @@ const circleExplosion = (p5) => {
 				// p5.strokeWeight(test2)
 				// console.log(test2);
 			}
+			if(window.videoCurrentTimeGlobal > 150){
+			
+				webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-pulsing-link-upper pulsing-animation">' + webeditorLinkText + '</div></a>');
+				webeditorLinkDiv.parent('video-overlay');
+			}
+
+
 		};
 	};
 	

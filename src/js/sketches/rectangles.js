@@ -5,68 +5,59 @@
 // Link: Insert Link
 *********************/
 
-const rectangles = (s) => {
-  let distance=1
-  let fade=0;
-  let fadeSpeed=1;
-  let opacity=255
-  let rectangle = [];
-  let rectangleCount = 0;
-
-  s.setup  = () => {
-    s.pixelDensity(1);
+const rectangles = (p5) => {
+  let distance=0; //initial distance between rectangles
+  let initialOpacity=150; //starting opacity for rectangles
+  let rectangle = []; //array to store the rectangles
+  let strokeThickness //make stroke thickness interactive
+  
+  p5.setup  = () => {
+    p5.pixelDensity(1);
     let windowWidth = window.innerWidth ;
     let windowHeight = windowWidth  * 0.562;
-    s.canvas = s.createCanvas(windowWidth, windowHeight);
-    s.canvas.parent('video-overlay');
-    s.frameRate(30);
-  }
-
-
-  s.draw  = () => {
-    s.clear();
+    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+    p5.canvas.parent('video-overlay');
+    p5.frameRate(30); //slow down the sketch
+    p5.noFill();
+  };
+  
+  p5.draw  = () => {
+    p5.clear();
+    // display existing rectangles
     for(let i = 0; i<rectangle.length; i++){
       rectangle[i].display();
     }
-    if(rectangleCount<150){
-      s.addRectangle();
-
+    // create new rectangles
+    if(rectangle.length<50){
+      p5.addRectangle();
     }
-
-    s.noFill();
-    s.strokeWeight(3);
-    if(window.videoCurrentTimeGlobal<123.5){
-
-      fade=fade+fadeSpeed;
-    }
-
-    if(window.videoCurrentTimeGlobal>123.5){
-     fade=fade-fadeSpeed;
-   }
-
-
-   distance +=s.random(10,25);
-}
-
-
-
-s.Rectangle = function(xcoord, ycoord, wide, tall, colorOpacity){
-  this.x = xcoord;
-  this.y = ycoord;
-  this.strokecolor = colorOpacity;
-  this.display = function() {
-    this.strokecolor-= 10;
-    s.stroke(237,30,90, this.strokecolor)
-    s.rect(this.x, this.y, wide, tall);
+    // make the width of the stroke interactive
+    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 1, 300); 
+    p5.strokeWeight(strokeThickness);
+    //random distance between rectangles
+    distance += p5.random(2,50); 
   };
-}
-s.addRectangle= function(){
-  rectangle[rectangleCount] = new s.Rectangle(distance, distance, s.width-(distance*2) , s.height-(distance*2), opacity);
-  rectangleCount++;
-}
-
-
-}
+  
+  p5.Rectangle = function(xcoord, ycoord, wide, tall, opacity){
+    this.x = xcoord;
+    this.y = ycoord;
+    this.strokecolor = opacity; //initial opacity
+    this.display = function() {
+      //reduce the opacity over time
+      this.strokecolor-= 10; 
+      p5.stroke(237,30,90, this.strokecolor);   
+      // draw the rectangles 
+      p5.rect(this.x, this.y, wide, tall);
+    };
+  };
+  
+  
+  // create new rectangles, starting from the center of the page and then growing
+  p5.addRectangle= function(){
+    rectangle[rectangle.length] = new p5.Rectangle(p5.width/2-distance, p5.height/2-distance, 0+ distance*2 , 0+ distance*2, initialOpacity);
+  };
+  
+};
 
 module.exports= rectangles;
 
