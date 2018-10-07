@@ -1,18 +1,8 @@
 
 // required JS libraries
 const Plyr = require('plyr'); //Plyr Video Player Source Code
-// const p5 = require('../../node_modules/p5/lib/p5.min'); // P5 Source Code
-// const p5dom = require('../../node_modules/p5/lib/addons/p5.dom');//P5 Dom Source Code
-
-
-// breaks if i try to use the minified version of the file. 
-const p5 = require('p5'); // P5 Source Code
+const p5 = require('p5'); // P5 Source Code, note it breaks if you try to use the minified version of the file. 
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
-
-console.log(p5dom)
-
-
-
 
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
@@ -20,13 +10,11 @@ let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas
 
 const header = document.querySelector('.header'); // For changing header styling on "play", and language change
 
-
 let languageArray; // For toggling the text in the header on language change
 
 let scene; // Name of current p5 sketch
 let seriouslyScene; // Name of current seriously chroma sketh
 let noSketch; // Placeholder variable when no p5 sketch required
-
 
 //Plyr Setup Code
 document.addEventListener('DOMContentLoaded', () => { 
@@ -39,15 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
       "global":true,
       "focused":true
     }
-
   });
    // updateSketch(); 
 
 player.on('ready', event =>{
-  const seriouslyCanvas = require('./sketches/seriously-canvas.js');
+  // const seriouslyCanvas = require('./sketches/seriously-canvas.js');
   // const laMonster = require('./sketches/laMonster.js');
   //  scene = new p5(laMonster); 
-      seriouslyScene= new p5(seriouslyCanvas);
+      // seriouslyScene= new p5(seriouslyCanvas);
   // player.timeupdate;
 });
 
@@ -93,10 +80,6 @@ window.videoPlaying=false;
 });
 
 
-
-
-
-
 // Import P5 Sketch Files
 const seriouslyCanvas = require('./sketches/seriously-canvas.js');
 const helloP5Title = require('./sketches/hello-p5-title.js');
@@ -104,25 +87,26 @@ const heartAnimation = require('./sketches/heart-animation.js');
 const pointillismLogo = require('./sketches/pointillism-logo.js');
 const targetSketch = require('./sketches/target-sketch.js');
 const singleCircle= require('./sketches/single-circle.js');
-
+const stars = require('./sketches/stars.js');
+const leaves = require('./sketches/leaves.js');
+const wavemaker = require('./sketches/wavemaker.js');
+const rainbow = require('./sketches/rainbow.js');
+const lerpColor = require('./sketches/lerpColor.js');
+const waves = require('./sketches/waves.js');
 
 // Sketch Files- TODO : Partially cleaned
 const sinLines = require('./sketches/sin-lines.js');
 const rectangles = require('./sketches/rectangles.js');
-const lerpColor = require('./sketches/lerpColor.js');
 const circleExplosion = require('./sketches/circle-explosion.js');
 const forumLink = require('./sketches/forum-link.js');
-const stars = require('./sketches/stars.js');
 const webEditorLink = require('./sketches/webeditor-link.js');
 const manyDots = require('./sketches/many-dots.js');
-const leaves = require('./sketches/leaves.js');
-const wavemaker = require('./sketches/wavemaker.js');
 
 
 // Sketch Files- TODO : CLEANUP SKETCHES
-const flock = require('./sketches/flock.js');
-const waves = require('./sketches/waves.js');
-const rainbow = require('./sketches/rainbow.js');
+// const flock = require('./sketches/flock.js'); 
+
+
 
 //Need work
 const laMonster = require('./sketches/laMonster.js');
@@ -155,10 +139,11 @@ var sceneChangeMap = [
 {time : 104.25, sketchfile:lerpColor},
 {time : 109, sketchfile: forumLink},
 {time : 116.25, sketchfile: waves},
-{time : 121.75, sketchfile: noSketch},
-{time : 122, sketchfile: circleExplosion},
-{time : 135, sketchfile: flock},
-{time : 167, sketchfile: noSketch},
+// {time : 121.75, sketchfile: noSketch},
+{time : 121.75, sketchfile: circleExplosion},
+// {time : 150, sketchfile: flock},
+{time : 137, sketchfile: noSketch},
+
 ];
 
 

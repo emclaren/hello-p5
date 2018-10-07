@@ -4,7 +4,7 @@
 // Credit: waiting for release
 *********************/
 
-const heart = (s) => {
+const heart = (p5) => {
   let R = 8; 
   let maxVal = 0;
   let rt = 0;
@@ -13,7 +13,7 @@ const heart = (s) => {
   let fillCount = 0;
   let phase = 0;
   let oy = 0;
-  let c = s.random(360);
+  let color = p5.random(360);
   let heartSize;
   let xpos;
   let ypos;
@@ -21,47 +21,46 @@ const heart = (s) => {
   let x = 0;
   let y = 0;
   let move;
-
-  s.setup  = () => {
-    s.pixelDensity(1);
+  
+  p5.setup  = () => {
+    p5.pixelDensity(1);
     let windowWidth = window.innerWidth ;
     let windowHeight = windowWidth  * 0.562;
-    s.canvas = s.createCanvas(windowWidth, windowHeight);
-    s.canvas.parent('video-overlay');
-    s.colorMode(s.HSB, 360, 100, 100, 255); //use Hue-Saturation-Brightness Color Model
-    s.strokeJoin(s.ROUND); //round the corners of the line intersections
-    s.strokeWeight(5);
-
+    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+    p5.canvas.parent('video-overlay');
+    p5.colorMode(p5.HSB, 360, 100, 100, 255); //use Hue-Saturation-Brightness Color Model
+    p5.strokeJoin(p5.ROUND); //round the corners of the line intersections
+    p5.strokeWeight(5);
+    xpos=p5.width / 5;
+    ypos=p5.height / 3 + oy;
   };
-
-  s.draw = () => {
-    s.clear();
-    heartSize=s.width / 1280;
-    xpos=s.width / 5;
-    ypos=s.height / 3 + oy;
-    sizeChange = s.map(s.mouseX, 0, s.width, 0.5, 1);  
-    s.fill(c, 80, 100, alp);
-    s.stroke(c, 80, 100, stAlp);
-    s.push();
-    s.translate(xpos-move, ypos+move);
-    s.beginShape();
+  
+  p5.draw = () => {
+    p5.clear();
+    heartSize=p5.width / 1280;
+    sizeChange = p5.map(p5.mouseX, 0, p5.width, 0.5, 1);  
+    p5.fill(color, 80, 100, alp);
+    p5.stroke(color, 80, 100, stAlp);
+    p5.push();
+    p5.translate(xpos-move, ypos+move);
+    p5.beginShape();
     for (let theta = 0; theta < maxVal; theta++) {
-      x = R * (16 * s.sin(s.radians(theta)) * s.sin(s.radians(theta)) * s.sin(s.radians(theta)));
-      y = (-1) * R * (13 * s.cos(s.radians(theta)) - 5 * s.cos(s.radians(2 * theta)) -
-        2 * s.cos(s.radians(3 * theta)) - s.cos(s.radians(4 * theta)));
-      s.vertex(x, y);
+      x = R * (16 * p5.sin(p5.radians(theta)) * p5.sin(p5.radians(theta)) * p5.sin(p5.radians(theta)));
+      y = (-1) * R * (13 * p5.cos(p5.radians(theta)) - 5 * p5.cos(p5.radians(2 * theta)) -
+      2 * p5.cos(p5.radians(3 * theta)) - p5.cos(p5.radians(4 * theta)));
+      p5.vertex(x, y);
     }
-
+    
     // make the hearts move depending on location of mouse
-    let distancemouse= s.dist(s.mouseX, s.mouseY, s.width/2, s.height/2);
-    move = s.map( distancemouse, 0, s.width, -s.width/60, s.width/60);
-
-
-    s.scale(heartSize * sizeChange); 
-    s.endShape();
-    s.pop();
-
-
+    let distancemouse= p5.dist(p5.mouseX, p5.mouseY, p5.width/2, p5.height/2);
+    move = p5.map(distancemouse, 0, p5.width, -p5.width/60, p5.width/60);
+    
+    
+    p5.scale(heartSize * sizeChange); 
+    p5.endShape();
+    p5.pop();
+    
+    
     // phase 0: draw heart by increasing maxVal
     if (phase == 0) {
       maxVal += 5;
@@ -70,18 +69,18 @@ const heart = (s) => {
         phase = 1;
       }
     }
-
+    
     // phase 1: heart wiggle
     if (phase == 1) {
-      R = 8 + s.abs(s.sin(s.radians(rt)));
+      R = 8 + p5.abs(p5.sin(p5.radians(rt)));
       rt += 20;
       if (rt > 360) {
         rt = 360;
         phase = 2;
       }
     }
-
-     // phase 2 : heart fill fades in
+    
+    // phase 2 : heart fill fades in
     if (phase == 2) {
       alp += 5;
       fillCount += 5;
@@ -92,13 +91,13 @@ const heart = (s) => {
         phase = 3;
       }
     }
-
-  // / phase  3: heart fly up & fade out
+    
+    // / phase  3: heart fly up & fade out
     if (phase == 3) {
       oy -= 10; //move upwards
       alp -= 15; //opacity
       stAlp -= 15; //stroke opacity
-      if (oy < -s.height) {
+      if (oy < -p5.height) {
         maxVal = 0;
         rt = 0;
         alp = 0;
@@ -106,22 +105,20 @@ const heart = (s) => {
         phase = 0;
         oy = 0;
         fillCount = 0;
-        s.reset();
+        p5.reset();
       }
     }
- };
-
-
-// Move the heart from upper left corner to lower right corner
-  s.reset= () => {
-    c = s.random(360);
-    xpos = s.width - s.width/8;
-    ypos = s.height - s.height / 3 + oy;
   };
-
+  
+  // Move the heart from upper left corner to lower right corner
+  p5.reset= () => {
+    color = p5.random(360);
+    xpos = p5.width - p5.width/8;
+    ypos = p5.height - p5.height / 3 + oy;
   };
+};
 
-  module.exports= heart;
+module.exports= heart;
 
 
 

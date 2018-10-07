@@ -3,128 +3,106 @@
 // Description: Draws randomly falling leaves 
 // Credit: waiting for release
 *********************/
-
-
-const leaves = (s) => {
-
-  let sakuraNum = 100;
-  let fubuki = [];
-  let colors = [];
-  let transparency;
-
-  s.setup  = () => {
-   s.pixelDensity(1);
-   let windowWidth = window.innerWidth ;
-   let windowHeight = windowWidth  * 0.562;
-   s.canvas = s.createCanvas(windowWidth, windowHeight);
-   s.canvas.parent('video-overlay');
-   for (let i = 0; i < sakuraNum; i++) {
-    fubuki.push(new s.Sakura());
-
+const leaves = (p5) => {  
+  let sakuraNum = 100; // number of leaf objects
+  let fubuki = []; // array of leaf objects
+  let colors = [];  // array containing the colors
+  let vertexPoint;
+  p5.setup  = () => {
+    p5.pixelDensity(1);
+    let windowWidth = window.innerWidth ;
+    let windowHeight = windowWidth  * 0.562;
+    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+    p5.canvas.parent('video-overlay');
+    for (let i = 0; i < sakuraNum; i++) {
+      fubuki.push(new p5.Sakura());
+    }
+    p5.noStroke();
+    colors.push(p5.color(0, 255, 255, 155));
+    colors.push(p5.color(237, 34, 93, 155));
+    colors.push(p5.color(0, 0, 2, 155));
   }
-
-  s.noStroke();
-  colors.push(s.color(0, 255, 255, 155));
-  colors.push(s.color(237, 34, 93, 155));
-  colors.push(s.color(0, 0, 2, 155));
-
-}
-
-
-s.draw = () => {
-  // s.background(0,255,255);
-  s.clear();
-  for (let i = 0; i < sakuraNum; i++) {
-    fubuki[i].draw();
-    fubuki[i].move();
-  }
-
-  if(window.videoCurrentTimeGlobal > 22){
-    sakuraNum--
-  }
-  s.cutout();
-}
-
-
-s.Sakura = function() {
-  let n = 4;
-  let a, md, r, x, y;
-  this.xDef = s.random(s.width);
   
-  this.xAmp = s.random(50,100);
-  this.xSpeed = s.random(1,2);
-  this.xTheta = s.random(360);
-  
-  this.ox = this.xDef + this.xAmp * s.sin(s.radians(this.xTheta));
-  this.oy = s.random(s.height);
-  this.rotateT = s.random(360);
-  this.size = s.random(20, 50);
-
-  this.ySpeed = this.size / 20;
-  this.sizeYScale = 1;
-  this.sizeYT = s.random(360);
-  this.sizeYSpeed = this.size / 30;
-  this.c = s.floor(s.random(3));
-
-  if(window.videoCurrentTimeGlobal > 23){
-    this.xSpeed -= 1
-    this.ySpeed -= 1
-  }
-  this.draw = function() {
-    s.fill(colors[this.c]);
-    s.push();
-    s.translate(this.ox, this.oy);
-    s.rotate(s.radians(this.rotateT));
-    s.beginShape();
-    s.vertex(s.random(10), 20);
-    s.vertex(s.random(10), 10);
-    s.vertex(s.random(10), 10);
-    s.vertex(s.random(10), 15);
-    s.endShape(s.CLOSE);
-    s.pop();
+  p5.draw = () => {
+    p5.clear();
+    for (let i = 0; i < sakuraNum; i++) {
+      fubuki[i].draw();
+      fubuki[i].move();
+    }
+    // Reduce the number of leaves as the 
+    if(window.videoCurrentTimeGlobal > 22){
+      sakuraNum--;
+    }  
+    // Hide part of the canvas to prevent the leaves from falling over the person in the video
+    p5.cutout();
   };
-
-  this.move = function() {
-    this.ox = this.xDef + this.xAmp * s.sin(s.radians(this.xTheta));
-    this.xTheta += this.xSpeed;
-    
-    this.oy += this.ySpeed;
-    this.sizeYT += this.sizeYSpeed;
-    this.sizeYScale = s.abs(s.sin(s.radians(this.sizeYT)));
-
-    if (this.oy > s.windowHeight + this.size) {
-      this.oy = -this.size;
+  
+  p5.Sakura = function() {
+    this.xDef = p5.random(p5.width); 
+    this.xAmp = p5.random(50,100);
+    this.xSpeed = p5.random(1,2); 
+    this.xTheta = p5.random(360);
+    this.xcoord= this.xDef + this.xAmp * p5.sin(p5.radians(this.xTheta));
+    this.ycoord = p5.random(p5.height);
+    this.rotateT = p5.random(360);
+    this.size = p5.random(20, 50);
+    this.ySpeed = this.size / 20;
+    this.sizeYScale = 1;
+    this.sizeYT = p5.random(360);
+    this.sizeYSpeed = this.size / 30;
+    this.c = p5.floor(p5.random(3));
+    // make leaf size responsive
+    if(p5.width>740){
+      vertexPoint=p5.width/110;
+    }else{
+      vertexPoint=p5.width/80;
     }
-
-    if(s.dist(s.mouseX, s.mouseY, this.ox, this.oy)<(s.width/10)){
-      this.ySpeed = s.random(-15,15);
-      this.xSpeed = s.random(10,15);
-
-      s.fill(255,0,0)
-    }
-    else{
-     this.ySpeed = this.size / 20;
-     this.xSpeed = s.random(1,2);
-   }
- };
-}
-
-s.calcH = function(x) {
-  if (x < 0.8) {
-    return 0;
-  } else {
-    return 0.8 - x;
-  }
-}
-
-
-s.cutout =function(){
-  var c=document.getElementById("defaultCanvas0");
-  var ctx=c.getContext("2d");
-  ctx.clearRect((s.width/2)-((s.width/3.2)/3),0,  s.width/3.2 ,s.height);
-}
-
-}
+    // Create each leaf
+    this.draw = function() {
+      p5.fill(colors[this.c]);
+      p5.push();
+      p5.translate(this.xcoord, this.ycoord);
+      p5.rotate(p5.radians(this.rotateT));
+      p5.beginShape();
+      p5.vertex(p5.random(vertexPoint), vertexPoint*2);
+      p5.vertex(p5.random(vertexPoint), vertexPoint);
+      p5.vertex(p5.random(vertexPoint), vertexPoint);
+      p5.vertex(p5.random(vertexPoint), vertexPoint*1.5);
+      p5.endShape(p5.CLOSE);
+      p5.pop();
+    };
+    // make the leaf fall.
+    this.move = function() {
+      this.xcoord = this.xDef + this.xAmp * p5.sin(p5.radians(this.xTheta));
+      this.xTheta += this.xSpeed;
+      this.ycoord += this.ySpeed;
+      this.sizeYT += this.sizeYSpeed;
+      this.sizeYScale = p5.abs(p5.sin(p5.radians(this.sizeYT)));
+      // reset leaf to top once it goes fully off the screen
+      if (this.ycoord > p5.height + this.size) {
+        this.ycoord = 0;
+      }
+      // change speed of the leaf depending on the mouse position 
+      if(p5.dist(p5.mouseX, p5.mouseY, this.xcoord, this.ycoord)<(p5.width/10)){
+        // move fast when close
+        this.ySpeed = p5.random(-15,15); 
+        this.xSpeed = p5.random(10,15);
+      }
+      else{
+        // move slower when far
+        this.ySpeed = this.size / 20;
+        this.xSpeed = p5.random(1,2);
+      }
+    };
+  };
+  
+  // Hide part of the canvas to prevent the leaves from falling over the person in the video
+  p5.cutout =function(){
+    var c=document.getElementById("defaultCanvas0");
+    var ctx=c.getContext("2d");
+    ctx.clearRect((p5.width/2)-((p5.width/3.2)/3),0,  p5.width/3.2 ,p5.height);
+  };
+};
 
 
 

@@ -2,10 +2,10 @@
 // P5 Logo Pointillism
 // Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
 // Credit: Based on sketch by Daniel Shiffman
-// Link: https://p5js.org/examples/image-pointillism.html
+// Link: https://p5jp5.org/examples/image-pointillism.html
 *********************/
 
-const pointillismLogo = (s) => {
+const pointillismLogo = (p5) => {
   let smallDot = 5; 
   let largeDot = 40;
   let dotNumber = 20;
@@ -16,41 +16,42 @@ const pointillismLogo = (s) => {
   let pix; 
   let dotSize;
 
-  s.preload  = () => {
-    img = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-pointilism-asterisk.png"); //Preload the log image 
+  p5.preload  = () => {
+    img = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-pointilism-asterisk.png"); //Preload the log image 
   };
 
-
-  s.setup  = () => {
-    s.pixelDensity(1);
+  p5.setup  = () => {
+    p5.pixelDensity(1);
     let windowWidth = window.innerWidth ;
     let windowHeight = windowWidth * 0.562;
-    s.canvas = s.createCanvas(windowWidth, windowHeight);
-    s.canvas.parent('video-overlay');
+    p5.canvas = p5.createCanvas(windowWidth/2.3, windowHeight/1.5);
+    p5.canvas.parent('video-overlay');
     img.loadPixels();
-    s.noStroke();
+    p5.noStroke();
   };
 
-  s.draw  = () => {
-    s.translate(s.width * 0.20, s.height * 0.25); // Move image to upper left corner
-    s.scale(s.width/1280);  // Scale to fit the size of the video
+  p5.draw  = () => {
+    p5.push();
+    p5.translate(p5.width * 0.20, p5.height * 0.25); // Move image to upper left corner
+    p5.scale(p5.width/600);  // Scale to fit the size of the video
 
     //randomly add dots to create the image
     for(let i = 0; i < dotNumber; i++){
-      dotSize = s.map(s.mouseX, 0, s.width, smallDot, largeDot);
-      x = s.floor(s.random(img.width));
-      y = s.floor(s.random(img.height));
+      dotSize = p5.map(p5.mouseX, 0, p5.width, smallDot, largeDot);
+      x = p5.floor(p5.random(img.width));
+      y = p5.floor(p5.random(img.height));
       pix = img.get(x, y);
-      s.fill(pix, 128);
-      s.ellipse(x, y, dotSize, dotSize);
+      p5.fill(pix);
+      p5.ellipse(x, y, dotSize, dotSize);
     }
+    p5.pop();
 
      // Simulate fading the dots out by fading in a white rectangle at 31 seconds
      if(window.videoCurrentTimeGlobal>31){
       dotNumber--; //Reduce the number of dots so they dont keep overwriting the rectangle
-      opacity++; //Slowly increase the opacity
-      s.fill(255, 255, 255, opacity);
-      s.rect(-20, -20, 330, 330);
+      opacity++; //Slowly increase the opacity of the rectangle
+      p5.fill(255, 255, 255, opacity);
+      p5.rect(0, 0, p5.width, p5.height);
     }
   };
 };

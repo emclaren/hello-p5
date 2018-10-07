@@ -163,3 +163,41 @@ video{
       top:15%;
     }
   }
+
+
+
+  .p5-single-circle-code-example{
+    position: absolute;
+    z-index: 3000000;
+    background-color: rgba(237,34,93,.7);
+    padding:1%;
+      font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
+      width: 30%;
+      top:7%;
+      left:65%;
+      a{
+        color:white;
+      }
+      ul{
+        margin:.1rem;
+        padding-left: calc(10px + 6 * ((100vw - 320px) / 680))
+      }
+      li{
+        list-style:none;
+      }
+      @include breakpoint(lg) {
+        top:15%;
+      }
+    }
+  
+
+    .p5-sketch-logo {
+      position: absolute;
+      z-index: 3000000;
+      padding:1%;
+        font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
+        width: 20%;
+        margin:0 auto;
+        top:30%;
+        left:50%;
+    }

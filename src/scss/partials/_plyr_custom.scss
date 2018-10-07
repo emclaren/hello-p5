@@ -58,11 +58,8 @@
 
 }
 
-.plyr--stopped .plyr__poster {
-    opacity: 0;
-}
-
+// make sure the poster thumbnail loads correctly
 .plyr__poster{
-    top:auto;
-   filter: blur(5px);
+    top:0;
+    background-size: 100% 100%;
 }

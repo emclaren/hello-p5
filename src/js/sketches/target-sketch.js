@@ -1,4 +1,3 @@
-
 /*********************
 // Target Sketch
 // Description: Randomly colored ellipses increasing in size
@@ -6,31 +5,28 @@
 // Link: Insert Link
 *********************/
 
-const targetSketch = (s) => {
+const targetSketch = (p5) => {
   let speed = 0;
 
-  s.setup  = () => {
-    s.pixelDensity(1);
+  p5.setup  = () => {
+    p5.pixelDensity(1);
     let windowWidth = window.innerWidth ;
     let windowHeight = windowWidth  * 0.562;
-    s.canvas = s.createCanvas(windowWidth, windowHeight);
-    s.canvas.parent('video-overlay');
-    s.frameRate(30);
+    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+    p5.canvas.parent('video-overlay');
+    p5.frameRate(30);
   };
 
-  s.draw = () => {
-    s.clear();
-
+  p5.draw = () => {
+    p5.clear();
     // style attributes
-    s.noFill();
-    s.strokeWeight(3);
-    s.stroke(s.random(255), s.random(255), s.random(255));
-
+    p5.noFill();
+    p5.strokeWeight(3);
+    p5.stroke(p5.random(255), p5.random(255), p5.random(255));
     // Draw 3 circles 20 pixels apart
     for(let i = 0; i < 60; i+=20){
-      s.ellipse(s.width/2, s.height/2, speed+i, speed+i);
+      p5.ellipse(p5.width/2, p5.height/2, speed+i, speed+i);
     }
-
     // Increase the size of the circle over time
     speed += 30;    
   }; 

@@ -6,7 +6,6 @@
 var laMonster= function(s){
 
 s.planetlamonster;
-
 //Bolean parameters for game
 s.welcomeScreen = true;
 s.laMonstersTitle;
@@ -34,57 +33,57 @@ s.fadeout=0
 
 
 
-// s.preload = function(){
-// 	console.log("this is the updated version of la monster with the base url part")
-// 	s.planetlamonster = s.loadImage("/dist/assets/img/sketch_imgs/planet.png");
-// 	s.laMonstersTitle = s.loadImage("./../dist/assets/img/sketch_imgs/laMonsters _Title-02.png");
-// 	s.asteriod1 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
-// 	s.asteriod2 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-2.png");
-// 	s.asteriod3 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
-// 	s.asteriod4 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Asteroid-4.png");
-// 	s.star1 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star.png");
-// 	s.star2 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-2.png");
-// 	s.star3 = s.loadImage("./../dist/assets/img/sketch_imgs/LaMonsters-Assets-Star-3.png"); ///fix this!
-// 	s.starBackground = s.loadImage("./../dist/assets/img/sketch_imgs/stars-background.png");
-// 	s.playButton = s.loadImage("./../dist/assets/img/sketch_imgs/worldButton.png");
-// 	s.clickedplayButton = s.loadImage("./../dist/assets/img/sketch_imgs/clickedworldButton.png");
-
-// }
-
-
-
-
 s.preload = function(){
 	console.log("this is the updated version of la monster with the base url part")
-
-s.planetlamonster = 0
-	s.laMonstersTitle = 0
-	s.asteriod1 = 0
-	s.asteriod2 = 0
-	s.asteriod3 = 0
-	s.asteriod4 = 0
-	s.star1 = 0
-	s.star2 = 0
-	s.star3 = 0
-	s.starBackground = 0
-
-
-
-
-
-
-	// s.planetlamonster = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/planet.png");
-	// s.laMonstersTitle = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/laMonsters _Title-02.png");
-	// s.asteriod1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-2.png");
-	// s.asteriod2 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/Monsters-Assets-Asteroid-2.png");
-	// s.asteriod3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
-	// s.asteriod4 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
-	// s.star1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Star.png");
-	// s.star2 = s.loadImage("https://emclaren.github.io/hello-p5//dist/assets/img/LaMonsters-Assets-Star-2.png");
-	// s.star3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Star-3.png"); ///fix this!
-	// s.starBackground = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/stars-background.png");
+	s.planetlamonster = s.loadImage("/dist/assets/img/planet.png");
+	s.laMonstersTitle = s.loadImage("./../dist/assets/img/laMonsters _Title-01.png");
+	s.asteriod1 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-2.png");
+	s.asteriod2 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-2.png");
+	s.asteriod3 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
+	s.asteriod4 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
+	s.star1 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Star.png");
+	s.star2 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Star-2.png");
+	s.star3 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Star-3.png"); ///fix this!
+	s.starBackground = s.loadImage("./../dist/assets/img/stars-background.png");
+	// s.playButton = s.loadImage("./../dist/assets/img/worldButton.png");
+	// s.clickedplayButton = s.loadImage("./../dist/assets/img/clickedworldButton.png");
 
 }
+
+
+
+
+// s.preload = function(){
+// 	console.log("this is the updated version of la monster with the base url part")
+
+// s.planetlamonster = 0
+// 	s.laMonstersTitle = 0
+// 	s.asteriod1 = 0
+// 	s.asteriod2 = 0
+// 	s.asteriod3 = 0
+// 	s.asteriod4 = 0
+// 	s.star1 = 0
+// 	s.star2 = 0
+// 	s.star3 = 0
+// 	s.starBackground = 0
+
+
+
+
+
+
+// 	// s.planetlamonster = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/planet.png");
+// 	// s.laMonstersTitle = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/laMonsters _Title-02.png");
+// 	// s.asteriod1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-2.png");
+// 	// s.asteriod2 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/Monsters-Assets-Asteroid-2.png");
+// 	// s.asteriod3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
+// 	// s.asteriod4 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
+// 	// s.star1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Star.png");
+// 	// s.star2 = s.loadImage("https://emclaren.github.io/hello-p5//dist/assets/img/LaMonsters-Assets-Star-2.png");
+// 	// s.star3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Star-3.png"); ///fix this!
+// 	// s.starBackground = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/stars-background.png");
+
+// }
 
 
 
