@@ -54,13 +54,9 @@ const heart = (p5) => {
     // make the hearts move depending on location of mouse
     let distancemouse= p5.dist(p5.mouseX, p5.mouseY, p5.width/2, p5.height/2);
     move = p5.map(distancemouse, 0, p5.width, -p5.width/60, p5.width/60);
-    
-    
     p5.scale(heartSize * sizeChange); 
     p5.endShape();
     p5.pop();
-    
-    
     // phase 0: draw heart by increasing maxVal
     if (phase == 0) {
       maxVal += 5;
@@ -69,7 +65,6 @@ const heart = (p5) => {
         phase = 1;
       }
     }
-    
     // phase 1: heart wiggle
     if (phase == 1) {
       R = 8 + p5.abs(p5.sin(p5.radians(rt)));
@@ -79,7 +74,6 @@ const heart = (p5) => {
         phase = 2;
       }
     }
-    
     // phase 2 : heart fill fades in
     if (phase == 2) {
       alp += 5;
@@ -91,7 +85,6 @@ const heart = (p5) => {
         phase = 3;
       }
     }
-    
     // / phase  3: heart fly up & fade out
     if (phase == 3) {
       oy -= 10; //move upwards

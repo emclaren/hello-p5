@@ -1,571 +1,199 @@
-/*********************
-// La Monster Club Sketch 
-// Credit: waiting for release
-*********************/
 
-var laMonster= function(s){
-
-s.planetlamonster;
-//Bolean parameters for game
-s.welcomeScreen = true;
-s.laMonstersTitle;
-
-s.asteriod1;
-s.asteriod2;
-s.asteriod3;
-s.asteriod4;
-
-s.star1;
-s.star2;
-s.star3;
-s.starBackground;
-
-// s.playButton;
-// s.clickedplayButton;
-s.titleScale=0
-s.scalefactor = 0.00466;
-s.test=.05
-var angle = 0;
-s.fadeout=0
-
-
-
-
-
-
-s.preload = function(){
-	console.log("this is the updated version of la monster with the base url part")
-	s.planetlamonster = s.loadImage("/dist/assets/img/planet.png");
-	s.laMonstersTitle = s.loadImage("./../dist/assets/img/laMonsters _Title-01.png");
-	s.asteriod1 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-2.png");
-	s.asteriod2 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-2.png");
-	s.asteriod3 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
-	s.asteriod4 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
-	s.star1 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Star.png");
-	s.star2 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Star-2.png");
-	s.star3 = s.loadImage("./../dist/assets/img/LaMonsters-Assets-Star-3.png"); ///fix this!
-	s.starBackground = s.loadImage("./../dist/assets/img/stars-background.png");
-	// s.playButton = s.loadImage("./../dist/assets/img/worldButton.png");
-	// s.clickedplayButton = s.loadImage("./../dist/assets/img/clickedworldButton.png");
-
-}
-
-
-
-
-// s.preload = function(){
-// 	console.log("this is the updated version of la monster with the base url part")
-
-// s.planetlamonster = 0
-// 	s.laMonstersTitle = 0
-// 	s.asteriod1 = 0
-// 	s.asteriod2 = 0
-// 	s.asteriod3 = 0
-// 	s.asteriod4 = 0
-// 	s.star1 = 0
-// 	s.star2 = 0
-// 	s.star3 = 0
-// 	s.starBackground = 0
-
-
-
-
-
-
-// 	// s.planetlamonster = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/planet.png");
-// 	// s.laMonstersTitle = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/laMonsters _Title-02.png");
-// 	// s.asteriod1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-2.png");
-// 	// s.asteriod2 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/Monsters-Assets-Asteroid-2.png");
-// 	// s.asteriod3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
-// 	// s.asteriod4 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Asteroid-4.png");
-// 	// s.star1 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Star.png");
-// 	// s.star2 = s.loadImage("https://emclaren.github.io/hello-p5//dist/assets/img/LaMonsters-Assets-Star-2.png");
-// 	// s.star3 = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/LaMonsters-Assets-Star-3.png"); ///fix this!
-// 	// s.starBackground = s.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/stars-background.png");
-
-// }
-
-
-
-
-s.setup = function(){
-	console.log("this is the updated version of la monster 2")
-	s.pixelDensity(1);
-	s.windowWidth = window.innerWidth ;
-	s.windowHeight = s.windowWidth * .562
-	s.canvas= s.createCanvas(s.windowWidth, s.windowHeight);
-	s.canvas.parent('video-overlay');
-	s.background('#000032');
-	s.frameRate(0)
-	s.image(s.starBackground, 0, 0);
-}
-
-
-s.draw = function(){
-	s.fadein=s.map(s.mouseX, 0, s.width, 0, 255)
-
- console.log("windowwidth in sketch" + s.windowWidth)
-	s.background('#000032');
-	 //boolean that triggers use of functions
-	 if (s.welcomeScreen) {
-		 //run astreiods drawing
-		 s.asteriods();
-		 //draw tile 
-		 	
-		 s.title(); 
-
-		 //drawing stars
-		 s.stars();
-		 //Run planet function
-		 s.planet();
-		}
-		// s.noTint();
-// 		if(window.videoCurrentTimeGlobal>2.25){
-// 		s.fill(0,0,50, s.fadeout)
-
-// s.rect(0,0, s.width, s.height);
-// s.fadeout+=10;
-// }
-}
-
-
-
-//The aim to is to get all the sketches using one asset file that lies in the deepest folder
-
-//Variables for editing planet
-//variables that position the planet on canvas
-s.planetX = 1000;
-s.planetY = 0;
-//variables that size the planet
-s.planetScale = 0.005;
-//variable that rotate the planet
-s.planetRotate = 20;
-
-
-s.planet=function() {
+var laMonster= function(p5){
 	
-   //Animations for Planet
-  //Adjusting planetX position over time
-  if (s.planetX > s.windowWidth / 3.5) {
-
-  	if (s.planetX > 900) {
-  		s.planetX -= 6.23;
-  	}
-  	if (s.planetX > 650 && s.planetX < 900) {
-  		s.planetX -= 6.7;
-  	}
-  	if (s.planetX < 650) {
-  		s.planetX -= 2.7;
-  	}
-  }
-
-
-	//adjusting planetY position over time     
-	if (s.planetY < 550) {
-
-		if (s.planetY < 150) {
-			s.planetY += 3.23;
-		}
-
-		if (s.planetY < 250 && s.planetY > 150) {
-			s.planetY += 2.75;
-		}
-
-		if (s.planetY < 350 && s.planetY > 250) {
-			s.planetY += 2.25;
-		}
-
-		if (s.planetY < 450 && s.planetY > 350) {
-			s.planetY += 1.95;
-		}
-
-		if (s.planetY < 550) {
-			s.planetY += 1.7;
-		}
-
+	let monsterlooBackground;
+	let monsterloo;
+	let fastmove = false;
+	
+	let musicShop;
+	let garbagebin;
+	let loneTree;
+	let park;
+	
+	let instruct1;
+	let instruct2;
+	let instruct3;
+	
+	let standmonster1;
+	let standmonster2;
+	let standmonster3;
+	
+	let moveright = false;
+	let moveleft = true;
+	
+	let magicX = 300;
+	let monster;
+	
+	let SCENE_W = 3000;
+	let SCENE_H = 600;
+	
+	let collisionTest = false;
+	
+	let resize=true;
+	p5.preload = () => {
+		monsterlooBackground = p5.loadImage("./../dist/assets/img/MonsterLoo_Background.png"); 
 	}
 	
-  //Adjusting planet Scale over time
-  if (s.planetScale < 0.60) {
-
-  	if (s.planetScale < 0.20) {
-  		s.planetScale += 0.00766;
-  	}
-
-  	if (s.planetScale > 0.20 && s.planetScale < 0.40) {
-  		s.planetScale += 0.00452;
-  	}
-
-  	if (s.planetScale > 0.40) {
-  		s.planetScale += 0.00251;
-  	}
-
-  }
-  s.push()
-
-  s.translate(s.planetX, s.planetY);
-  s.rotate(s.radians(s.planetRotate));
-  s.scale(s.planetScale);
-
-  s.imageMode(s.CENTER);
-  s.image(s.planetlamonster, 0, 0);
-
-
-  s.pop();
-
-
- //create images of universe to and slowly reveal them to show the universe of montsers
- //create zoom effect that makes planet bigger over time. 
-
- //create text graphic that introduces the planet "welcome to Planet Lamonster"
- s.planetRotate += 0.3;
-
-}
-
-
-
-
-
-//Variables for editing asteriods
-//variables that position the asteriods
-
-s.asteriod1X = 90;
-s.asteriod1Y = 500;
-
-s.asteriod2X = 820;
-s.asteriod2Y = 200;
-
-s.asteriod3X = 90;
-s.asteriod3Y = 100;
-
-s.asteriod4X = 300;
-s.asteriod4Y = 300;
-
-//variables that title the asteriods
-s.asteriod1Scale = 0.40;
-
-s.asteriod2Scale = 0.75;
-
-s.asteriod3Scale = 0.55;
-
-s.asteriod4Scale = 0.50;
-
-//variable that title the asteriods
-s.asteriod1Rotate = 0;
-
-s.asteriod2Rotate = 0;
-
-s.asteriod3Rotate = 0;
-
-s.asteriod4Rotate = 0;
-
-
-s.asteriods=function() {
 	
-
-
 	
-//asteriod placments
-s.push()
-s.translate(s.asteriod1X,  s.asteriod1Y);
-s.rotate(s.radians( s.asteriod1Rotate));
-s.scale( s.asteriod1Scale);
+	p5.setup = () => {
+		
+		p5.pixelDensity(1);
+		p5.windowWidth = window.innerWidth;
+		p5.windowHeight = p5.windowWidth  * 0.562;
+		p5.canvas= p5.createCanvas(p5.windowWidth/2.8, p5.windowHeight/2.5);
+		p5.canvas.parent('video-overlay');
+		p5.canvas.class('la-monster-canvas');
+		// p5.background('#000032');
+		monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
+		// monster = p5.createSprite(200, 490, 120, 179);
+		monster.addAnimation("floating", "./../dist/assets/img/BS_1.png", "./../dist/assets/img/BS_5.png");
+		monster.addAnimation("right", "./../dist/assets/img/BR_1.png", "./../dist/assets/img/BR_9.png");
+		monster.addAnimation("left", "./../dist/assets/img/BL_1.png", "./../dist/assets/img/BL_9.png");
+		monster.depth = 5;
+		monster.scale = 0.25;
+		
+		loneTree = p5.createSprite(800, 370);
+		loneTree.addAnimation("normal", "./../dist/assets/img/foregroundTree.png");
+		loneTree.depth = 1;
+		
+	
+		
+		standmonster1 = p5.createSprite(p5.width*1.8, p5.height/1.2);  
+		standmonster1.addAnimation("normal", "./../dist/assets/img/EM_2.png");
+		standmonster1.setCollider("rectangle", 0,0, 170,280);
+		standmonster1.debug = collisionTest;
+		standmonster1.depth = 3;
+		standmonster1.scale = 0.25;
+		
+		
+		let magicX = p5.width/2;
+		// standmonster2 = createSprite(2550, 510);  
+		// standmonster2.addAnimation("normal", "assets/EM_4.png");
+		// standmonster2.setCollider("rectangle", 0,0, 380,â€†417);
+		// standmonster2.debug = collisionTest;
+		// standmonster2.depth = 3;
+		// standmonster2.scale = 0.35;
+		
 
-s.imageMode(s.CENTER);
-s.image(s.asteriod1, 0, 0);
-
-s.pop();
-
-
-//asteriod placments
-s.push()
-s.translate(s.asteriod2X,  s.asteriod2Y);
-s.rotate(s.radians( s.asteriod2Rotate));
-s.scale( s.asteriod2Scale);
-
-s.imageMode(s.CENTER);
-s.image(s.asteriod2, 0, 0);
-
-s.pop();
-
-//asteriod placments
-s.push()
-s.translate(s.asteriod3X,  s.asteriod3Y);
-s.rotate(s.radians( s.asteriod3Rotate));
-s.scale( s.asteriod3Scale);
-
-s.imageMode(s.CENTER);
-s.image(s.asteriod3, 0, 0);
-
-s.pop();
-
-
-//asteriod placments
-s.push()
-s.translate(s.asteriod4X,  s.asteriod4Y);
-s.rotate(s.radians( s.asteriod4Rotate));
-s.scale( s.asteriod4Scale);
-
-s.imageMode(s.CENTER);
-s.image(s.asteriod4, 0, 0);
-
-s.pop();
-
-	//Adjusting position over time
-	if (s.asteriod1X > 80) {
-
-		s.asteriod1X -= 0.005;
-		s.asteriod1Rotate -= 0.2;
+		// standmonster3 = createSprite(2980, 510);  
+		// standmonster3.addAnimation("normal", "assets/EM_3.png");
+		// standmonster3.setCollider("rectangle", 0,0, 460,â€†417);
+		// standmonster3.debug = collisionTest;
+		// standmonster3.depth = 3;
+		// standmonster3.scale = 0.35;
+				
 	}
 	
-	if (s.asteriod2X < 840) {
-
-		s.asteriod2X -= 0.05;
-		s.asteriod2Rotate += 0.2;
-	}
-
 	
-	if (s.asteriod3X > 80) {
+	
+	
+	p5.draw = () => {
+		// p5.image(monsterlooBackground, -2, 0, monsterlooBackground.width, p5.height );  
+		// magicX = p5.mouseX;
 
-		s.asteriod3X += 0.05; 
-		s.asteriod3Rotate -= 0.3;
+		// if(window.videoCurrentTimeGlobal<2.75){
+		p5.image(monsterlooBackground, -2, 0, monsterlooBackground.width, p5.height); 
+		// }
+		
+		if(window.videoCurrentTimeGlobal>2.75){
+			p5.clear()
+
+		}
+
+		p5.monsterdraw();
+		p5.cameraview();
+		p5.drawSprites();
+		p5.camera.on();
+		console.log(monster.position.x )
 	}
 	
 
-	if (s.asteriod4X > 290) {
 
-		s.asteriod4X += 0.07; 
-		s.asteriod4Rotate -= 0.3;
+	p5.cameraview = () => {	
+		
+		
+		p5.camera.position.x = magicX;
+		
+		// monster.velocity.x = (p5.camera.mouseX-monster.position.x)/20;
+		
+		// p5.camera.zoom = 1;
+		
+		if ( p5.mouseX > 700 && p5.mouseX < 800){
+			
+			fastmove = false;
+			
+			if( p5.camera.position.x < 3000) {
+				moveright = true;
+				magicX += 2;
+			
+			}
+			
+		} 
+		else if ( p5.mouseX > 800){
+			
+			fastmove = true;
+			
+				if( p5.camera.position.x < 3000) {
+					// moveright = true;
+					magicX += 4;
+			}
+			
+			
+		} 
+		else if ( p5.mouseX < 200){
+			
+				// magicX -= 40;
+			fastmove = false;
+			
+				if( p5.camera.position.x > 500){
+					// magicX = 500;
+					magicX -= 5;
+				}
+			
+		} 
+		// else{
+			
+		// 	moveright = false;
+		// 	moveleft = false;
+		// } 	
 	}
-
 	
-	
-}
+	p5.monsterdraw = () => {	
 
-
-
-//Variables for editing stars
-//variables that position the stars
-
-s.star1X = 200;
-s.star1Y = 450;
-
-s.star2X = 820;
-s.star2Y = 500;
-
-s.star3X = 550;
-s.star3Y = 200;
-
-
-
-//variables that title the asteriods
-s.star1Scale = 0.75;
-
-s.star2Scale = 0.75;
-
-s.star3Scale = 0.75;
-
-
-//variable that title the asteriods
-s.star1Rotate = 0;
-
-s.star2Rotate = 0;
-
-s.star3Rotate = 0;
-
-s.stars=function(){
-
-
-//background stars
-s.image(s.starBackground, 0, 0);
-
-//stars placments
-s.push()
-s.translate(s.star1X,  s.star1Y);
-s.rotate(s.radians( s.star1Rotate));
-s.scale( s.star1Scale);
-
-s.imageMode(s.CENTER);
-s.image(s.star1, 0, 0);
-
-s.pop();
-
-
-//starts placments
-s.push()
-s.translate(s.star2X, s.star2Y);
-s.rotate(s.radians( s.star2Rotate));
-s.scale( s.star2Scale);
-
-s.imageMode(s.CENTER);
-s.image(s.star2, 0, 0);
-
-s.pop();
-
-//stars placments
-s.push()
-s.translate(s.star3X, s.star3Y);
-s.rotate(s.radians(s.star3Rotate));
-s.scale( s.star3Scale);
-
-s.imageMode(s.CENTER);
-s.image(s.star3, 0, 0);
-
-s.pop();
-
-}
-
-
-
-
-//Variables for editing Title
-//variables that position the title on canvas
-s.titleX = .08*s.windowWidth;
-s.titleY = -s.windowWidth/30;;
-//variables that title the planet
-
-//variable that title the planet
-s.titleRotate = 0;
-
-
-
-s.title= function(){
-	
- //Adjusting title Scale over time
-  if (s.titleScale < 0.25) {
-
-   if (s.titleScale < 0.10) {
-   s.titleScale += 0.00766;
-   }
-
-   if (s.titleScale > 0.10 && s.titleScale < 0.25) {
-    s.titleScale += 0.00452;
-
-   }
-
-   if (s.titleScale > 0.25) {
-    s.titleScale += 0.00251;
-   }	    
-
-  }	
-
-	
-	//tiltle graphic
-s.push()
-
- s.translate(s.titleX, s.titleY);
- s.rotate(s.radians(s.titleRotate));
- s.scale(s.titleScale);
-
- s.imageMode(s.CENTER);
- s.image(s.laMonstersTitle, 0, 0);
-
- s.pop();
-	 
+		// -------- creating Monster -------		
+		//if mouse is to the left
+		if(p5.camera.mouseX < monster.position.x - 10) {
+			monster.changeAnimation("right");
+			//flip horizontally
+			monster.mirrorX(-1);
+			//negative x velocity: move left
+			monster.velocity.x = -3;
+			console.log("one side")
+			
+		} else if(p5.camera.mouseX > monster.position.x + 10){
+			console.log("twoside")
+			monster.changeAnimation("right");
+			//unflip 
+			monster.mirrorX(1);
+			if( fastmove == true){ 
+				monster.velocity.x = 4.1;
+			} else {
+				monster.velocity.x = 2.3;
+			}
+			
+		} else {
+			console.log("three side")
+			//if close to the mouse, don't move
+			monster.changeAnimation("floating");
+			monster.velocity.x = 0;
+		}
+		
+		
+	}	
 	
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// s.title= function(){
-
-// if(s.titleScale<.42){
-// s.titleScale= (s.sin(angle) * (s.width/1700)) ;
-// console.log(s.titleScale)
-// // s.scaleVariable;
-// 	  angle += (s.width/75000);
-// }
-
-//  //Adjusting title Scale over time
-//  // if (s.titleScale < .8) {
-
-//  // 	if (s.titleScale < 0.10) {
-//  // 		s.titleScale += 0.00466;
-
-//  // 	}
-
-//  // 	if (s.titleScale > 0.10 ) {
-//  // 			if (s.titleScale > 0.10 && s.titleScale < 0.25) {
-//  // 		s.titleScale += 0.00252;
-//  // 		// s.scalefactor= 0.00252
-//  // 	// 				if(s.scalefactor>0.00252){
-// 	// 	// 	s.scalefactor-= 0.005
-// 	// 	// }
-
-//  // 	}
-
-//  // 	if (s.titleScale > 0.25) {
-// 	// 	s.titleScale += 0.00052;
-// 	// 		// s.scalefactor= 0.00052
-// 	// 	// 	if(s.scalefactor>0.00052){
-// 	// 	// 	s.scalefactor-= 0.005
-// 	// 	// }
-//  // 	}	    
-
-//  // }	
-
-
-
-// // s.titleScale+= s.titleScale + s.scalefactor
-
-// // s.scalefactor-= 0.00010
-
-
-// 	//title graphic
-// 	s.push()
-// 	s.translate(s.titleX, s.titleY);
-// 	s.rotate(s.radians(s.titleRotate));
-// 	s.scale(s.titleScale);
-
-// 	s.imageMode(s.CORNERS);
-//   // s.image(img, 50, 50, 80, 80); 
-// 	// s.imageMode(s.CENTER);
-// 	s.image(s.laMonstersTitle, 0, 0);
-
-// 	s.pop();
-
-// }
-
-// }
-
-// window.onresize = function() {
-// 	s.windowWidth = window.innerWidth;
-// 	s.windowHeight = s.windowWidth * .562
-// 	s.resizeCanvas(s.windowWidth, s.windowHeight);
-// 	// console.log("I'm a new size")
-// } 
-
-//    s.sizeChange = function(){
-//    	console.log("test size change")
-// }
-
-}
 
 module.exports= laMonster;
-
-
-
-
-
-
-
-
-

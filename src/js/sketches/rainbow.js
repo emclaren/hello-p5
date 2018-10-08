@@ -50,12 +50,6 @@ const rainbow = (p5) => {
 		p5.cutout();	
 	};
 	
-	// p5.cutout =function(){
-	// 	var c=document.getElementById("defaultCanvas0");
-	// 	var ctx=c.getContext("2d");
-	// 	ctx.clearRect((p5.width/2)-((p5.width/3.166)/2)-cutshape,0,  p5.width/3.166 +(cutshape*2), p5.height);
-	// };
-
 	p5.cutout  = function() {
 		var c = document.getElementById("defaultCanvas0");
 		var ctx = c.getContext("2d");

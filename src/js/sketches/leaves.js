@@ -1,7 +1,7 @@
 /*********************
 // Leaves
 // Description: Draws randomly falling leaves 
-// Credit: waiting for release
+// Credit: @reona396
 *********************/
 const leaves = (p5) => {  
   let sakuraNum = 100; // number of leaf objects

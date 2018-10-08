@@ -9,7 +9,7 @@ const rectangles = (p5) => {
   let distance=0; //initial distance between rectangles
   let initialOpacity=150; //starting opacity for rectangles
   let rectangle = []; //array to store the rectangles
-  let strokeThickness //make stroke thickness interactive
+  let strokeThickness =150 //make stroke thickness interactive
   
   p5.setup  = () => {
     p5.pixelDensity(1);
@@ -32,7 +32,7 @@ const rectangles = (p5) => {
       p5.addRectangle();
     }
     // make the width of the stroke interactive
-    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 1, 300); 
+    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
     p5.strokeWeight(strokeThickness);
     //random distance between rectangles
     distance += p5.random(2,50); 

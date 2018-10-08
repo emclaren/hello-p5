@@ -1,7 +1,7 @@
 /*********************
-// Waves
+// Waves: 
 // Description: Draws interactive waves on the screen
-// Credit: 
+// Credit: @reona396
 *********************/
 const waves = (p5) => {
   let waves = []; //array to store the waves

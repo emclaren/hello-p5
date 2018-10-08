@@ -8,7 +8,7 @@ const webeditorLink = (p5) => {
 	let downloadLinkDiv;
 	let webeditorLinkText;
 	let downloadLinkText;
-
+	let linkHidden=true;
 	p5.setup  = () => {
 		p5.pixelDensity(1);
 		let windowWidth = window.innerWidth ;
@@ -27,20 +27,20 @@ const webeditorLink = (p5) => {
 			downloadLinkText = "Download";
 		}
 		// Create the upper link on load (note the styling is done with css)
-		webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-pulsing-link-upper pulsing-animation">' + webeditorLinkText + '</div></a>');
+		webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation">' + webeditorLinkText + ' >> </div></a>');
 		webeditorLinkDiv.parent('video-overlay');
 	};
 
 
 	p5.draw  = () => {
 		p5.clear();
-
 		// Create the lower link when the time is appropriate
 		if(window.videoCurrentTimeGlobal>98){
-			webeditorLinkDiv.removeClass('pulsing-animation');
-			downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-pulsing-link-lower pulsing-animation">' + downloadLinkText + '</div></a>');
+			if(linkHidden){
+			downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation">' + downloadLinkText + ' >> </div></a>');
 			downloadLinkDiv.parent('video-overlay');
-			p5.frameRate(0); //pause the sketch so it doesn't keep creating new divs
+			linkHidden = false;
+			}
 		}
 	};
 };
