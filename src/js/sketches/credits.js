@@ -31,14 +31,14 @@ const credits = (p5) => {
 			circle[i].display();
 		}   
 
-		
+
 	
 
 
 
     // only let the credits div get created once, styling is done using CSS
     if(creditsHidden){
-      let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div> <div class=\'credits-name\'>Seyitan Oke</div> <div class=\'credits-name\'>@reona396</div><div class=\'credits-name\'>Tristan Espinoza</div> <div class=\'credits-name\'>Eliza Struthers-jobin</div> <div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> <div class=\'credits-name\'></div> <div class=\'credits-name\'>sailor winkelman</div><div class=\'credits-name\'>Cat Janowitz</div><div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'>Kate Hollenbach</div><div class=\'credits-name\'>Dongqi Han</div> <div class=\'credits-name\'>	Uddipana Baishya</div><div class=\'credits-name\'>Punyashlok Dash</div> <div class=\'credits-name\'>Vincent Hopkins</div><div class=\'credits-name\'>Other members of the p5 community</div><div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div>  <div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div> </div> ');
+      let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div> <div class=\'credits-name\'>Seyitan Oke</div> <div class=\'credits-name\'>@reona396</div><div class=\'credits-name\'>Tristan Espinoza</div> <div class=\'credits-name\'>Eliza Struthers-jobin</div> <div class=\'credits-name\'>Miguel Elizalde</div><div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> <div class=\'credits-name\'>Max Frischknecht & Philipp Möckli (Début Début)</div><div class=\'credits-name\'></div><div class=\'credits-name\'>Suraj Rai</div><div class=\'credits-name\'>sailor winkelman</div><div class=\'credits-name\'>Cat Janowitz</div><div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'>Kate Hollenbach</div><div class=\'credits-name\'>Dongqi Han</div> <div class=\'credits-name\'>Uddipana Baishya</div> <div class=\'credits-name\'>Brennan Jones</div><div class=\'credits-name\'>Punyashlok Dash</div> <div class=\'credits-name\'>Vincent Hopkins</div><div class=\'credits-name\'>Other members of the p5 community</div><div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div>  <div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div> </div> ');
       p5SketchCredits.parent('container');
       p5SketchCredits.addClass("p5-sketch-logo-parent");
       creditsHidden = false;
@@ -65,20 +65,10 @@ const credits = (p5) => {
 			// Make circles near center less opaque than those far away
 			this.colorgradient=p5.dist(this.xPosition, this.yPosition, p5.width/2, p5.height/2);
 			this.opacity= p5.map(this.colorgradient, 0, p5.width/2, -200, 255);
-			// change color of circles at different time points
-			if(window.videoCurrentTimeGlobal < 125.0){
-				// Blue
-				p5.stroke(0, 255, 255, this.opacity);
-			} else if(window.videoCurrentTimeGlobal < 130.0){
-				// Pink
-				p5.stroke(239, 34, 90, this.opacity);
-			}else if(window.videoCurrentTimeGlobal < 132.75){
-				// yellow
-				p5.stroke(255, 255, 0, this.opacity);
-			}else{
-				// pink
-				p5.stroke(239, 34, 90, this.opacity);
-			}
+	
+			
+				p5.stroke(239, 34, 90, this.opacity); 	// pink
+		
 			// Draw the circle
 			p5.ellipse(this.xPosition, this.yPosition, this.diameter, this.diameter);
 			this.diameter += 0.5; //grow the circle each frame

@@ -37,8 +37,8 @@ const wavemaker = (p5) => {
       let yAngle = p5.map(p5.mouseY, 0, p5.height, -4 * p5.PI, 4 * p5.PI, true);
       for (let y = 0; y <= p5.height; y = y + dotDistance ) {
         // have the opacity increase as the squares are further from the center
-        colorgradient=p5.dist(x, y, halfWidth, p5.height/2.5) - (p5.width/2.5);
-        strokeThickness=p5.map(colorgradient, 0, halfWidth, 0, 10);
+        colorgradient=p5.dist(x, y, halfWidth, p5.height/2.5) - (p5.width/2.5)+squareWidth;
+        strokeThickness=p5.map(colorgradient, 0, halfWidth, 0, 15);
         // Increase the thickness of the stroke as the squares are further from the center
         p5.strokeWeight(strokeThickness);
         p5.stroke(238, 34, 90,  colorgradient + fadeIn);

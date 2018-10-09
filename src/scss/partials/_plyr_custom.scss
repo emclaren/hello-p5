@@ -11,14 +11,14 @@
 }
 
 .plyr__video-wrapper{
-    background: background-color-main;
+    background: $background-color-main;
 }
 .plyr:-webkit-full-screen {
     background: $brand-color-main;
 }
 
 .plyr__poster{
-    background: background-color-main;
+    background: $background-color-main;
 }
 
 .plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{

@@ -6,13 +6,10 @@ CANVAS ELEMENT & VIDEO STYLING
 canvas{
 	position: absolute; 
 	top: 0px; 
-	left: 0px;
+  left: 0px;
+  z-index:20;
 }
 
-//Ensure seriously canvas lies above P5 sketches.
-#seriously-canvas{
-	z-index:400;
-}
 
 //Video Styling 
 .container {
@@ -242,5 +239,5 @@ video{
 
 
 .lazy-load-background{
-  background-image: url("/dist/assets/img/poster2.png") !important;
+  background-image: url("https://emclaren.github.io/hello-p5/dist/assets/img/poster2.png") !important;
 }
