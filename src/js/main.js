@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     videoCurrentTime=roundTimeInVideo/4;
     
     // Useful for testing
-    console.log("video current time" + videoCurrentTime)
+    // console.log("video current time" + videoCurrentTime)
     
     window.videoCurrentTimeGlobal = videoCurrentTime; //create a global variable so that current time can be used within p5 sketches
     updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
