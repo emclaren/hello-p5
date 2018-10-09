@@ -3,6 +3,9 @@ video::-webkit-media-controls {
   display: none;
 }
 
+// make sure the poster thumbnail loads correctly
+
+
 @import 'partials/normalize';
 @import 'partials/plyr_base';
 @import 'partials/variables';

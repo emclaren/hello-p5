@@ -1,9 +1,8 @@
-
 // required JS libraries
 const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code, note it breaks if you try to use the minified version of the file. 
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
-// const p5play = require('./sketches/play.js');;
+// const p5play = require('./sketches/play.js');
 
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
@@ -37,9 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // const laMonster = require('./sketches/laMonster.js');
     //  scene = new p5(laMonster);  
-    if(scene){
-      scene.frameRate(0);
-    }
+
+    //  Freeze the game on load
+    // if(scene){
+    //   scene.frameRate(0);
+    // }
     // lazy load the plyer poster
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background')
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   // Import P5 Sketch Files
-  // const laMonster = require('./sketches/laMonster.js');
+  const laMonster = require('./sketches/laMonster.js');
   const visualizer = require('./sketches/visualizer.js');
   const helloP5Title = require('./sketches/hello-p5-title.js');
   const heartAnimation = require('./sketches/heart-animation.js');
@@ -113,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const credits = require('./sketches/credits.js'); 
   
   var sceneChangeMap = [
-    // {time : 0, sketchfile: laMonster},
+    {time : 0, sketchfile: laMonster},
     {time : 2.75, sketchfile: noSketch},
     {time : 5.00, sketchfile: visualizer },
     {time : 7.75, sketchfile: noSketch},
@@ -143,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     {time : 136.5, sketchfile: noSketch},
     {time : 142, sketchfile: credits},
     {time : 168, sketchfile: noSketch},
-
   ];
   
   
