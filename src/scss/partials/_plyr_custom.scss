@@ -11,14 +11,14 @@
 }
 
 .plyr__video-wrapper{
-    background: $brand-color-main;
+    background: background-color-main;
 }
 .plyr:-webkit-full-screen {
     background: $brand-color-main;
 }
 
 .plyr__poster{
-    background: $brand-color-main;
+    background: background-color-main;
 }
 
 .plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
@@ -39,11 +39,11 @@
     padding:0;
     @include breakpoint(md) {
         padding:10px;
-
+        
     }   
     @include breakpoint(lg) {
         padding:20px;
-
+        
     }
 }
 
@@ -54,12 +54,16 @@
 
 //Prevent unnecessary controls from loading
 .plyr [data-plyr=fullscreen], .plyr [data-plyr=settings], .plyr [data-plyr=pip], .plyr [data-plyr=airplay]   {
-    display:none;
-
+    display:none;  
 }
 
 // make sure the poster thumbnail loads correctly
 .plyr__poster{
     top:0;
     background-size: 100% 100%;
+}
+
+// make progress bars match brand colors
+.plyr--full-ui input[type=range] {
+    color: $brand-color-main;
 }

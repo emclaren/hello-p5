@@ -4,15 +4,10 @@ var laMonster= function(p5){
 	let monsterlooBackground;
 	let monsterloo;
 	let fastmove = false;
-	
-	let musicShop;
-	let garbagebin;
 	let loneTree;
-	let park;
-	
-	let instruct1;
-	let instruct2;
-	let instruct3;
+
+
+
 	
 	let standmonster1;
 	let standmonster2;
@@ -31,7 +26,7 @@ var laMonster= function(p5){
 	
 	let resize=true;
 	p5.preload = () => {
-		monsterlooBackground = p5.loadImage("./../dist/assets/img/MonsterLoo_Background.png"); 
+		monsterlooBackground = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/MonsterLoo_Background.png"); 
 	}
 	
 	
@@ -47,20 +42,20 @@ var laMonster= function(p5){
 		// p5.background('#000032');
 		monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
 		// monster = p5.createSprite(200, 490, 120, 179);
-		monster.addAnimation("floating", "./../dist/assets/img/BS_1.png", "./../dist/assets/img/BS_5.png");
-		monster.addAnimation("right", "./../dist/assets/img/BR_1.png", "./../dist/assets/img/BR_9.png");
-		monster.addAnimation("left", "./../dist/assets/img/BL_1.png", "./../dist/assets/img/BL_9.png");
+		monster.addAnimation("floating", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_5.png");
+		monster.addAnimation("right", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_9.png");
+		monster.addAnimation("left", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_9.png");
 		monster.depth = 5;
 		monster.scale = 0.25;
 		
-		loneTree = p5.createSprite(800, 370);
-		loneTree.addAnimation("normal", "./../dist/assets/img/foregroundTree.png");
+		loneTree = p5.createSprite(800, p5.height/1.2);
+		loneTree.addAnimation("normal", "https://emclaren.github.io/hello-p5/dist/assets/img/foregroundTree.png");
 		loneTree.depth = 1;
 		
 	
 		
 		standmonster1 = p5.createSprite(p5.width*1.8, p5.height/1.2);  
-		standmonster1.addAnimation("normal", "./../dist/assets/img/EM_2.png");
+		standmonster1.addAnimation("normal", "https://emclaren.github.io/hello-p5/dist/assets/img/EM_2.png");
 		standmonster1.setCollider("rectangle", 0,0, 170,280);
 		standmonster1.debug = collisionTest;
 		standmonster1.depth = 3;
@@ -68,20 +63,7 @@ var laMonster= function(p5){
 		
 		
 		let magicX = p5.width/2;
-		// standmonster2 = createSprite(2550, 510);  
-		// standmonster2.addAnimation("normal", "assets/EM_4.png");
-		// standmonster2.setCollider("rectangle", 0,0, 380,â€†417);
-		// standmonster2.debug = collisionTest;
-		// standmonster2.depth = 3;
-		// standmonster2.scale = 0.35;
-		
 
-		// standmonster3 = createSprite(2980, 510);  
-		// standmonster3.addAnimation("normal", "assets/EM_3.png");
-		// standmonster3.setCollider("rectangle", 0,0, 460,â€†417);
-		// standmonster3.debug = collisionTest;
-		// standmonster3.depth = 3;
-		// standmonster3.scale = 0.35;
 				
 	}
 	

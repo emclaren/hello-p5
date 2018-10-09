@@ -239,3 +239,8 @@ video{
   -o-animation-play-state:paused; 
   animation-play-state:paused;
 }
+
+
+.lazy-load-background{
+  background-image: url("/dist/assets/img/poster2.png") !important;
+}

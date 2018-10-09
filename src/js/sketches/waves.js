@@ -74,6 +74,7 @@ const waves = (p5) => {
     var c = document.getElementById("defaultCanvas0");
     var ctx = c.getContext("2d");
     ctx.clearRect((p5.width / 2) - cutoutSize, 0, cutoutSize * 2, p5.height);
+
   };  
 };
 

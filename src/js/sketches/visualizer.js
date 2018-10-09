@@ -237,6 +237,10 @@ var visualizer= function(q){
     var c = document.getElementById("defaultCanvas0");
     var ctx = c.getContext("2d");
     ctx.clearRect((q.width / 2) - cutoutSize, 0, cutoutSize * 2, q.height);
+
+    // ctx.beginPath();
+    // ctx.clearRect(this.x - 6, this.y - 6, 2 * Math.PI, 2 * Math.PI);
+    // ctx.closePath();
   };  
   
   

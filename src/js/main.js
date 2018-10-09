@@ -14,7 +14,6 @@ const header = document.querySelector('.header'); // For changing header styling
 let languageArray; // For toggling the text in the header on language change
 
 let scene; // Name of current p5 sketch
-let seriouslyScene; // Name of current seriously chroma sketh
 let noSketch; // Placeholder variable when no p5 sketch required
 
 //Plyr Setup Code
@@ -35,11 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
    // updateSketch(); 
 
 player.on('ready', event =>{
-  // const seriouslyCanvas = require('./sketches/seriously-canvas.js');
+
   const laMonster = require('./sketches/laMonster.js');
    scene = new p5(laMonster);  
-      // seriouslyScene= new p5(seriouslyCanvas);
-  // player.timeupdate;
+scene.frameRate(0);
+
+// lazy load the plyer poster
+   let posterClass = document.getElementsByClassName('plyr__poster');
+   console.log("poster class"+ posterClass)
+   posterClass[0].classList.add('lazy-load-background')
 });
 
 // Triggered when video start
@@ -89,36 +92,35 @@ window.videoPlaying=false;
 
 
 // Import P5 Sketch Files
-const seriouslyCanvas = require('./sketches/seriously-canvas.js');
+
+const laMonster = require('./sketches/laMonster.js');
+const visualizer = require('./sketches/visualizer.js');
 const helloP5Title = require('./sketches/hello-p5-title.js');
 const heartAnimation = require('./sketches/heart-animation.js');
-const pointillismLogo = require('./sketches/pointillism-logo.js');
-const targetSketch = require('./sketches/target-sketch.js');
-const singleCircle= require('./sketches/single-circle.js');
-const stars = require('./sketches/stars.js');
 const leaves = require('./sketches/leaves.js');
+const pointillismLogo = require('./sketches/pointillism-logo.js');
 const wavemaker = require('./sketches/wavemaker.js');
+const stars = require('./sketches/stars.js');
+const targetSketch = require('./sketches/target-sketch.js');
 const rainbow = require('./sketches/rainbow.js');
+const singleCircle= require('./sketches/single-circle.js');
+const manyDots = require('./sketches/many-dots.js');
+const sinLines = require('./sketches/sin-lines.js');
+
+const rectangles = require('./sketches/rectangles.js');
 const lerpColor = require('./sketches/lerpColor.js');
 const waves = require('./sketches/waves.js');
-const sinLines = require('./sketches/sin-lines.js');
-const manyDots = require('./sketches/many-dots.js');
-const rectangles = require('./sketches/rectangles.js');
+
+
 const forumLink = require('./sketches/forum-link.js');
 const webEditorLink = require('./sketches/webeditor-link.js');
 
-// Sketch Files- TODO : Partially cleaned
 
 const circleExplosion = require('./sketches/circle-explosion.js');
-
-// Sketch Files- TODO : CLEANUP SKETCHES
 const credits = require('./sketches/credits.js'); 
 
 
 
-//Need work
-const laMonster = require('./sketches/laMonster.js');
-const visualizer = require('./sketches/visualizer.js');
 
 var sceneChangeMap = [
 {time : 0, sketchfile: laMonster},
@@ -222,27 +224,28 @@ player.on('timeupdate', event => {
 
 // Resize  P5 and Seriously Canvases when the window size changes
 window.onresize = function() {
-  // scene.windowWidth=window.innerWidth;
-  // scene.windowHeight=window.innerWidth * .562;
-  // if(scene){
-  //   scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
-  // }
-  // if(seriouslyScene){
-  //   seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
-  // }
+  scene.windowWidth=window.innerWidth;
+  scene.windowHeight=window.innerWidth * .562;
+  
+  if(scene){
+    scene.frameRate(0);
+    scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
+  
+  }
+
 
 
     // scene.windowWidth=window.innerWidth;
   // scene.windowHeight=window.innerWidth * .562;
-  if(scene){
-    scene.remove();
-    // scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
-  }
-  if(seriouslyScene){
+  // if(scene){
+  //   scene.remove();
+  //   // scene.resizeCanvas(scene.windowWidth, scene.windowHeight); //If there is a p5 Canvas, resize
+  // }
+  // if(seriouslyScene){
 
-    seriouslyScene.remove();
-    // seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
-  }
+  //   seriouslyScene.remove();
+  //   // seriouslyScene.resizeCanvas(scene.windowWidth, scene.windowHeight);//If there is a seriously Canvas, resize
+  // }
   // console.log("running new window on resize")
   // updateSketch();
 
@@ -271,17 +274,9 @@ function updateSketch(){
       if(scene){
         scene.remove();
       }
-       // Remove any seriously sketches currently playing
-       if(seriouslyScene){
-        seriouslyScene.remove()
-      }
+
       // Play the sketch from the Scene change map
       scene = new p5(sceneChangeMap[i].sketchfile); 
-
-        // if "seriously" is set to true in the scene change map, start seriously
-        if(sceneChangeMap[i].seriously){
-         seriouslyScene= new p5(seriouslyCanvas);
-       }
      }
 
    }
@@ -292,9 +287,6 @@ function updateSketch(){
 player.on('seeking', event => {
   if(scene){
    scene.remove(); 
-   if(seriouslyScene){
-    seriouslyScene.remove();
-  }
 }
 videoTimeSeeked  = true;
 });
@@ -373,5 +365,10 @@ function languageToggle(){
 
 
 });
+
+
+// window.onload = function() {
+
+// };
 
 

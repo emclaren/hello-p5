@@ -9,6 +9,7 @@ const leaves = (p5) => {
   let colors = [];  // array containing the colors
   let vertexPoint;
   p5.setup  = () => {
+    
     p5.pixelDensity(1);
     let windowWidth = window.innerWidth ;
     let windowHeight = windowWidth  * 0.562;
