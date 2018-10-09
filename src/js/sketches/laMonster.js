@@ -29,6 +29,7 @@ var laMonster= function(p5){
 	
 	
 	p5.setup = () => {
+		console.log("sketch started")
 		p5.pixelDensity(1);
 		p5.windowWidth = window.innerWidth;
 		p5.windowHeight = p5.windowWidth  * 0.562;
@@ -65,6 +66,7 @@ var laMonster= function(p5){
 	
 	
 	p5.draw = () => {
+		console.log("sketch running")
 		// p5.image(monsterlooBackground, -2, 0, monsterlooBackground.width, p5.height );  
 		// magicX = p5.mouseX;
 
