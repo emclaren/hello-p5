@@ -38,13 +38,13 @@ var laMonster= function(p5){
 		// p5.background('#000032');
 		monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
 		// monster = p5.createSprite(200, 490, 120, 179);
-		// monster.addAnimation("floating", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_5.png");
-		// monster.addAnimation("right", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_9.png");
-		// monster.addAnimation("left", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_9.png");
+		monster.addAnimation("floating", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_5.png");
+		monster.addAnimation("right", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_9.png");
+		monster.addAnimation("left", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_9.png");
 	
-		monster.addAnimation("floating", "dist/assets/img/BS_1.png", "dist/assets/img/BS_5.png");
-		monster.addAnimation("right", "dist/assets/img/BR_1.png", "dist/assets/img/BR_9.png");
-		monster.addAnimation("left", "dist/assets/img/BL_1.png", "dist/assets/img/BL_9.png");
+		// monster.addAnimation("floating", "dist/assets/img/BS_1.png", "dist/assets/img/BS_5.png");
+		// monster.addAnimation("right", "dist/assets/img/BR_1.png", "dist/assets/img/BR_9.png");
+		// monster.addAnimation("left", "dist/assets/img/BL_1.png", "dist/assets/img/BL_9.png");
 		
 		monster.depth = 5;
 		monster.scale = p5.width/2000;
