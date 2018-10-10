@@ -32,6 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // updateSketch(); 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   player.on('ready', event =>{
     
     // const laMonster = require('./sketches/laMonster.js');
@@ -92,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   // Import P5 Sketch Files
-  const laMonster = require('./sketches/laMonster.js');
+  // const laMonster = require('./sketches/laMonster.js');
   const visualizer = require('./sketches/visualizer.js');
   const helloP5Title = require('./sketches/hello-p5-title.js');
   const heartAnimation = require('./sketches/heart-animation.js');
@@ -114,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const credits = require('./sketches/credits.js'); 
   
   var sceneChangeMap = [
-    {time : 0, sketchfile: laMonster},
+    // {time : 0, sketchfile: laMonster},
     {time : 2.75, sketchfile: noSketch},
     {time : 5.00, sketchfile: visualizer },
     {time : 7.75, sketchfile: noSketch},
