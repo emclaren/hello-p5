@@ -54,13 +54,19 @@
     <!--This project uses the PLYR video player https://github.com/sampotts/plyr for HTML video styling -->
     <video  id="player" poster="dist/assets/img/poster.jpg" playsinline controls data-plyr-config='{ }' >
       <source src="dist/assets/video/p5video.mp4" type="video/mp4"> 
-      <source src="dist/assets/video/p5video.webm" type="video/webm"> 
+      <!-- <source src="dist/assets/video/p5video.webm" type="video/webm">  -->
+        <!--Create different Sizes-->
+      <!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+          <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440"> -->
       <!-- CAPTION FILES -->
-      <!-- To do: validate caption files once video is complete- see plyr website for link -->
-      <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en" >
-      <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es" >
-      <track kind="captions" label="French" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr">
-    </video>
+      <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en" default>
+      <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es">
+      <track kind="captions" label="French" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr"> 
+       
+    
+      </video>
 
 
     <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->

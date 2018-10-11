@@ -15,6 +15,7 @@ let languageArray; // For toggling the text in the header on language change
 let scene; // Name of current p5 sketch
 let noSketch; // Placeholder variable when no p5 sketch required
 
+
 //Plyr Setup Code
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player',{
@@ -23,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "enabled":false
     },
     "captions": {
-      "active":true
+      "active":true,
+      "update":true
     },
     "keyboard": {
       "global":true,
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
+  
 
 
 
@@ -164,6 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   //Watch time in video and trigger P5 events 
   player.on('timeupdate', event => {
+    console.log(player);
+
+
 
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
     
