@@ -1,8 +1,6 @@
 # Hello P5.js Webpage
 
 
-# Updating hello.p5js.org
-
 ## Overview
 The goal of this project was to modernize the hello.p5js.org website though development of a new trailer featuring diverse members of the Processing community.
 
