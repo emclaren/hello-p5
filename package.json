@@ -51,13 +51,9 @@
   },
   "dependencies": {
     "plyr": "^3.4.3",
-    "p5": "^0.7.2",
-    "uglifyify": "^5.0.1"
+    "p5": "^0.7.2"
   },
   "browserify": {
-    "transform": [
-      "uglifyify"
-    ],
     "debug": true
   },
   "babel": {
