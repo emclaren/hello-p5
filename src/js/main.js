@@ -33,11 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   // updateSketch(); 
-  
-
-
-
-
 
 
 
