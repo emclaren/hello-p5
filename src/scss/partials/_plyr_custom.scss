@@ -45,6 +45,15 @@
         padding:20px;
         
     }
+    span{
+        background: rgba(0,0,0,0.8);
+        border-radius: 2px;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        line-height: 185%;
+        padding: .2em .5em;
+        white-space: pre-wrap;
+    }
 }
 
 //Prevent two buffer bars from loading
