@@ -24,6 +24,17 @@ var laMonster= function(p5){
 	let resize=true;
 	p5.preload = () => {
 		monsterlooBackground = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/MonsterLoo_Background.png"); 
+	
+		
+		// monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
+		// monster.addAnimation("floating", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_5.png");
+		// monster.addAnimation("right", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_9.png");
+		// monster.addAnimation("left", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_9.png");
+	
+		// monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
+		// monster.addAnimation("floating", "dist/assets/img/BS_1.png", "dist/assets/img/BS_5.png");
+		// monster.addAnimation("right", "dist/assets/img/BR_1.png", "dist/assets/img/BR_9.png");
+		// monster.addAnimation("left", "dist/assets/img/BL_1.png", "dist/assets/img/BL_9.png");
 	}
 	
 	
@@ -38,15 +49,9 @@ var laMonster= function(p5){
 		p5.canvas.class('la-monster-canvas');
 		// p5.background('#000032');
 		monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
-		// monster = p5.createSprite(200, 490, 120, 179);
-		monster.addAnimation("floating", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_5.png");
-		monster.addAnimation("right", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_9.png");
-		monster.addAnimation("left", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_9.png");
-	
-		// monster.addAnimation("floating", "dist/assets/img/BS_1.png", "dist/assets/img/BS_5.png");
-		// monster.addAnimation("right", "dist/assets/img/BR_1.png", "dist/assets/img/BR_9.png");
-		// monster.addAnimation("left", "dist/assets/img/BL_1.png", "dist/assets/img/BL_9.png");
-		
+		monster.addAnimation("floating", "hello-p5/dist/assets/img/BS_1.png", "hello-p5/assets/img/BS_5.png");
+		monster.addAnimation("right", "hello-p5/assets/img/BR_1.png", "hello-p5/assets/img/BR_9.png");
+
 		monster.depth = 5;
 		monster.scale = p5.width/2000;
 
@@ -66,7 +71,7 @@ var laMonster= function(p5){
 	
 	
 	p5.draw = () => {
-		console.log("sketch running")
+
 		// p5.image(monsterlooBackground, -2, 0, monsterlooBackground.width, p5.height );  
 		// magicX = p5.mouseX;
 
