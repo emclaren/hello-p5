@@ -21,13 +21,10 @@
     background: $background-color-main;
 }
 
-.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded=true]{
-    background:$brand-color-main;
-}
 
-// Ensure plyr controls load above p5 canvas overlay
-.plyr__controls {
-    z-index:2147483647 
+// // Ensure plyr controls load above p5 canvas overlay
+.plyr--video .plyr__controls{
+    z-index:2147483647 !important;
 }
 .plyr__menu__container{
     z-index:500;
