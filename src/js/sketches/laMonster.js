@@ -6,17 +6,12 @@ var laMonster= function(p5){
 	let monsterlooBackground;
 	let monsterloo;
 	let fastmove = false;
-
 	let standmonster1;
 	let standmonster2;
 	let standmonster3;
-	
 	let moveright = false;
 	let moveleft = true;
-	
 	let magicX = 300;
-
-
 
 	let monster;
 
@@ -24,19 +19,11 @@ var laMonster= function(p5){
 	let a =0 ; 
 	let resize=true;
 	p5.preload = () => {
-		monsterlooBackground = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/MonsterLoo_Background.png"); 
+		monsterlooBackground = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/MonsterLoo_Background2.jpg"); 
 	}
 	
 
-
-
-
-
-
-
 	
-
-
 	
 	
 	p5.setup = () => {
@@ -47,24 +34,12 @@ var laMonster= function(p5){
 		p5.canvas= p5.createCanvas(p5.windowWidth/2.8, p5.windowHeight/2);
 		p5.canvas.parent('video-overlay');
 		p5.canvas.addClass('la-monster-sketch');
-
-		monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
+		monster = p5.createSprite( p5.width/2, p5.height/1.25, 40, 40);
 		monster.addAnimation("floating", "dist/assets/img/BS_1.png", "dist/assets/img/BS_5.png");
 		monster.addAnimation("right", "dist/assets/img/BR_1.png", "dist/assets/img/BR_9.png");
-
 		monster.depth = 5;
 		monster.scale = p5.width/2000;
 
-
-
-
-
-
-
-
-
-
-		
 		standmonster1 = p5.createSprite(p5.width*1.8, p5.height/1.2);  
 		standmonster1.addAnimation("normal", "https://emclaren.github.io/hello-p5/dist/assets/img/EM_2.png");
 		standmonster1.setCollider("rectangle", 0,0, 170,280);
