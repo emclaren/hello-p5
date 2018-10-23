@@ -5,7 +5,7 @@ video::-webkit-media-controls {
 
 
 @import 'partials/normalize';
-@import '../../node_modules/plyr/dist/plyr.css';
+@import 'partials/plyr_base';
 @import 'partials/variables';
 @import 'partials/breakpoints';
 @import 'partials/plyr_custom';
