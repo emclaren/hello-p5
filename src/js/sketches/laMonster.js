@@ -6,8 +6,6 @@ var laMonster= function(p5){
 	let monsterlooBackground;
 	let monsterloo;
 	let fastmove = false;
-	// let loneTree;
-
 
 	let standmonster1;
 	let standmonster2;
@@ -20,34 +18,24 @@ var laMonster= function(p5){
 	let monster;
 
 	let collisionTest = false;
-	
+	let a =0 ; 
 	let resize=true;
 	p5.preload = () => {
 		monsterlooBackground = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/MonsterLoo_Background.png"); 
-	
-		
-		// monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
-		// monster.addAnimation("floating", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BS_5.png");
-		// monster.addAnimation("right", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BR_9.png");
-		// monster.addAnimation("left", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_1.png", "https://emclaren.github.io/hello-p5/dist/assets/img/BL_9.png");
-	
-		// monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
-		// monster.addAnimation("floating", "dist/assets/img/BS_1.png", "dist/assets/img/BS_5.png");
-		// monster.addAnimation("right", "dist/assets/img/BR_1.png", "dist/assets/img/BR_9.png");
-		// monster.addAnimation("left", "dist/assets/img/BL_1.png", "dist/assets/img/BL_9.png");
 	}
 	
 	
 	
+	
 	p5.setup = () => {
-		console.log("sketch started")
+		
 		p5.pixelDensity(1);
 		p5.windowWidth = window.innerWidth;
 		p5.windowHeight = p5.windowWidth  * 0.562;
 		p5.canvas= p5.createCanvas(p5.windowWidth/2.8, p5.windowHeight/2);
 		p5.canvas.parent('video-overlay');
-		p5.canvas.class('la-monster-canvas');
-		// p5.background('#000032');
+		p5.canvas.addClass('la-monster-sketch');
+
 		monster = p5.createSprite( p5.width, p5.height/1.25, 40, 40);
 		monster.addAnimation("floating", "dist/assets/img/BS_1.png", "dist/assets/img/BS_5.png");
 		monster.addAnimation("right", "dist/assets/img/BR_1.png", "dist/assets/img/BR_9.png");
@@ -63,7 +51,7 @@ var laMonster= function(p5){
 		standmonster1.depth = 3;
 		standmonster1.scale = p5.width/2000;
 		let magicX = p5.width/3;
-
+		p5.noStroke();
 				
 	}
 	
@@ -71,40 +59,32 @@ var laMonster= function(p5){
 	
 	
 	p5.draw = () => {
-
-		// p5.image(monsterlooBackground, -2, 0, monsterlooBackground.width, p5.height );  
-		// magicX = p5.mouseX;
-
-		// if(window.videoCurrentTimeGlobal<2.75){
-		p5.image(monsterlooBackground, -p5.width/2, 0, monsterlooBackground.width, p5.height); 
-		// }
-
-	
-		
-		if(window.videoCurrentTimeGlobal>2.75){
-			p5.clear()
-
+		if(a<255){
+		a+=10;
 		}
 
+		if(window.videoCurrentTimeGlobal > 2.25){
+			a-=30;
+		}
+		p5.image(monsterlooBackground, -p5.width/3, 0, p5.height*3, p5.height); 
+
+		if(window.videoCurrentTimeGlobal>2.75){
+			p5.clear()
+		}
 		p5.monsterdraw();
 		p5.cameraview();
 		p5.drawSprites();
 		p5.camera.on();
+		p5.fill(255,255,255,255-a);
+		p5.rect(0, 0, p5.width*3, p5.height)
 	}
 	
 
 
 	p5.cameraview = () => {	
-		
-		
-		p5.camera.position.x = magicX;
-		
-		// monster.velocity.x = (p5.camera.mouseX-monster.position.x)/20;
-		
-		// p5.camera.zoom = 1;
 
-	
-	
+		p5.camera.position.x = magicX;
+
 		if ( p5.mouseX > 200 && p5.mouseX < 800 || p5.mouseX == 0){
 			
 			fastmove = false;

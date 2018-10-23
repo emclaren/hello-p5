@@ -43,7 +43,6 @@
     }   
     @include breakpoint(lg) {
         padding:20px;
-        
     }
     span{
         background: rgba(0,0,0,0.8);
@@ -61,6 +60,10 @@
     display:none;  
 }
 
+.plyr__progress--buffer{
+    display:none;
+}
+
 //Prevent unnecessary controls from loading
 .plyr [data-plyr=fullscreen], .plyr [data-plyr=settings], .plyr [data-plyr=pip], .plyr [data-plyr=airplay]   {
     display:none;  
@@ -70,7 +73,7 @@
 .plyr__poster{
     top:0;
     background-size: 100% 100%;
-    background-color: #FFF;
+    background-color: $background-color-main;
 }
 
 // make progress bars match brand colors
@@ -79,5 +82,10 @@
 }
 
 .plyr--video, .plyr__video-wrapper{
-    background-color:#FFF;
+    background-color:$background-color-main;
+}
+
+.plyr:not(.plyr--hide-controls) .plyr__controls:not(:empty) ~ .plyr__captions {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px);
 }

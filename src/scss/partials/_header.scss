@@ -18,6 +18,11 @@ header{
 		text-align:left;	
 		position:absolute;
 	}
+	@include breakpoint(portrait) {
+		display:block;
+		text-align:center;	
+		position:relative;
+	}
 	.logo{
 		max-width: 6rem;
 		margin:1.5rem auto;
@@ -32,6 +37,12 @@ header{
 		@include breakpoint(lg) {
 			max-width: 5rem;
 		}
+		@include breakpoint(portrait) {
+			margin:3.5rem auto 1.5rem auto;
+			max-width:7rem;
+
+		}
+		
 	}
 	
 	nav{
@@ -52,9 +63,19 @@ header{
 			@include breakpoint(md){
 				flex-wrap: none;
 				max-width:100%;	
-				display:flex;
 				align-items:center;
+				@include breakpoint(portrait) {
+					flex-wrap: wrap;
+					max-width:20rem;
+				}
 			}
+			@include breakpoint(lg && portrait){
+				
+				
+				max-width:21rem;
+			}
+			
+			
 		}
 		li{
 			font-family: "AvenirNextLTW01-Medium", sans-serif;
@@ -97,7 +118,7 @@ header{
 				}
 			}
 		}
-
+		
 		.language-list-container{
 			width:100% !important;
 			margin:0 auto;
@@ -105,26 +126,29 @@ header{
 				width:auto !important;
 			}	
 		}
-
+		
 		.language-list{
 			display:flex;
 			flex-wrap:wrap;
 			width:12.5rem;
 			text-align:center;
 			margin:0 auto;
-
+			
 			@include breakpoint(md) {
 				width:7.5rem!important;
 			}	
 			@include breakpoint(lg) {
 				width:8.75rem!important;
+				@include breakpoint(landscape) {
+				margin-left: .5rem;
 			}
 		}
-
+		}
+		
 		//Hide-On-Mobile class is used to hide some asterisk separators from the header
 		.hide-on-mobile{
 			display:none;
-			@include breakpoint(md) {
+			@include breakpoint(md && landscape) {
 				display:inline-block;
 			}
 		}
@@ -145,35 +169,36 @@ header{
 			border-bottom-color:$brand-color-main;
 		}
 	}
-
-	///The .shrink class is added to the header when the video starts playing, it makes the header shrink on play 
-	&.shrink{
-		@include breakpoint(md){
-			height:2.5rem;
-			transition: height .5s ease;
-		}
-		@include breakpoint(xl) {
-			height:3.13rem;
-		}
-		.logo{
+	@include breakpoint(landscape) {
+		///The .shrink class is added to the header when the video starts playing, it makes the header shrink on play 
+		&.shrink{
 			@include breakpoint(md){
-				max-width: 3rem;
-				margin:0 auto;	
-				transition: height .5s ease, margin .5 ease;	
+				height:2.5rem;
+				transition: height .5s ease;
 			}
 			@include breakpoint(xl) {
-				max-width: 4rem;
-			}	
-		}
-		#menu li a:link, #menu li a:visited, .language-link{
-			@include breakpoint(md){
-				font-size: 1.1em;
-				transition: font-size .5s ease, height .5s ease;	
+				height:3.13rem;
 			}
-		}
-		.language-link {
-			@include breakpoint(md) {
-				height:1.5rem;
+			.logo{
+				@include breakpoint(md){
+					max-width: 3rem;
+					margin:0 auto;	
+					transition: height .5s ease, margin .5 ease;	
+				}
+				@include breakpoint(xl) {
+					max-width: 4rem;
+				}	
+			}
+			#menu li a:link, #menu li a:visited, .language-link{
+				@include breakpoint(md){
+					font-size: 1.1em;
+					transition: font-size .5s ease, height .5s ease;	
+				}
+			}
+			.language-link {
+				@include breakpoint(md) {
+					height:1.5rem;
+				}
 			}
 		}
 	}

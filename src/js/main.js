@@ -32,11 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "focused":true
     }
   });
-  // updateSketch(); 
-
-
-
-  
+ 
 
 
 
@@ -159,10 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   
+
+
   //Watch time in video and trigger P5 events 
   player.on('timeupdate', event => {
-  
 
+ 
+    // console.log( event)
+
+    // console.log(player)
+    // console.log(plyr)
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
     
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75

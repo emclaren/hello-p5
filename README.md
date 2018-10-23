@@ -10,13 +10,27 @@ hello.p5js.org is likely to be many users’ first introduction to p5.js (and po
 ## Shout Outs
 I would like to thank my mentor Evelyn Masso, and Lauren McCarthy for their support and feedback. I would also like to acknowledge the awesome community members who contributed survey responses, videos and code:
 
-Video Participants
-**paste in names**
-
-
-Media Consultant: Joey Chaos 
-Background Music: Ah, Venice!
-
+### Video Participants
+Seyitan Oke
+@reona396
+Tristan Espinoza
+Eliza Struthers-jobin
+Miguel Elizalde
+Computational Thinkers® of Hawaii
+Max Frischknecht & Philipp Möckli (Début Début)
+Suraj Rai
+sailor winkelmanCat Janowitz
+STEM Coding
+Kate Hollenbach
+Dongqi HanUddipana Baishya
+Brennan Jones
+Punyashlok Dash
+Vincent Hopkins
+Other members of the p5 community
+Music By Ah, Venice
+Video Consulting by Joey Chaos
+Peter Manson
+Mayra
 
 ## Tasks Completed
 * Met with Lauren McCarthy and mentor to determine requirements for the new hello.p5.js website

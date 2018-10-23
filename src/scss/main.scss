@@ -3,11 +3,9 @@ video::-webkit-media-controls {
   display: none;
 }
 
-// make sure the poster thumbnail loads correctly
-
 
 @import 'partials/normalize';
-@import 'partials/plyr_base';
+@import '../../node_modules/plyr/dist/plyr.css';
 @import 'partials/variables';
 @import 'partials/breakpoints';
 @import 'partials/plyr_custom';

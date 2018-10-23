@@ -20,10 +20,8 @@ body{
 	background-color: $background-color-main;
 	font-family: $brand-font;
 	min-height:100vh;
-	max-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	height:100vh;
 	@include breakpoint(md){
 		display:block;
 	}
@@ -53,5 +51,8 @@ body{
 		right: -12%;
 		height:30em;
 		width:30em;
+	}
+	@include breakpoint(landscape){
+		display:none;
 	}
 }

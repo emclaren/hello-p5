@@ -50,9 +50,10 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "dependencies": {
-    "plyr": "^3.4.3",
+    "plyr": "3.4.3",
     "p5": "^0.7.2"
   },
+
   "browserify": {
     "debug": true
   },

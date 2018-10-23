@@ -21,6 +21,7 @@ var visualizer= function(p5){
     cutoutSize = p5.width/7
   }
   
+  
  
   
   p5.draw= ()=> {

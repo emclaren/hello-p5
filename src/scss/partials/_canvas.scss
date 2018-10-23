@@ -17,13 +17,19 @@ canvas{
 	width:100%;
   top:2.4rem;
   overflow:hidden;
+  
 	@include breakpoint(xl) {
-		position:relative;
 		margin: 0 auto;
 		z-index:10;
 		transition: all .5s ease;
-		left:0;
-	}
+    left:0;
+  }
+  @include breakpoint(md){
+    @include breakpoint(portrait){
+      margin: auto;
+      top:15rem;
+  }
+}
 }
 
 .container.hide{
@@ -43,13 +49,10 @@ video{
 }
 
 // Add some space between the la Monster sketch and the side of the screen
-.la-monster-canvas{
+.la-monster-sketch{
   top:4vw;
   left:3vw;
 }
-
-
-
 
 // Styling for single circle text box
 .p5-single-circle-code-example{
@@ -62,7 +65,7 @@ video{
   top:7%;
   left:65%;
   a{
-    color:white;
+    color: $background-color-main;
   }
   ul{
     margin:.1rem;
@@ -76,8 +79,6 @@ video{
   }
 }
 
-
-
 .p5-single-circle-code-example{
   position: absolute;
   z-index: 3000000;
@@ -88,7 +89,7 @@ video{
   top:7%;
   left:65%;
   a{
-    color:white;
+    color: $background-color-main;
   }
   ul{
     margin:.1rem;
@@ -134,7 +135,7 @@ video{
   border-radius:3px;
   position: absolute;
   background-color: rgba(237,34,93,.95);
-  border:2px solid white;
+  border:2px solid $background-color-main;
   z-index: 3000000;
   line-height:3.3vw;
   @include breakpoint(md) {
@@ -142,15 +143,15 @@ video{
     font-size:1.8vw;
     top:3vw;
     padding:2vw 1vw;
-    border:4px solid white;
+    border:4px solid $background-color-main;
     right:0;
     line-height:2vw;
   }
   a{
-    color:white;
+    color: $background-color-main;
   }
   &:hover{
-    background-color: rgba(237,34,93,0.80);
+    background-color: rgba(237,34,93, 0.80);
     font-size: 3.3vw;
     @include breakpoint(md) {
       font-size:1.85vw;
@@ -202,20 +203,18 @@ video{
   top: 100%;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
+  color: $background-color-main;
   animation: 60s credits linear ;
   width: 80%;
   margin:0 auto;
   animation-iteration-count: 1;
-
+  
 }
-
 
 .credits-title {
   margin-top:2vw;
   margin-bottom: .1vw;
   font-size: 2vw;
- 
 }
 
 .credits-name {
@@ -223,9 +222,8 @@ video{
   font-size: 3vw;
 }
 
-
 @keyframes credits {
-    0% { top:  100%; }
+  0% { top:  100%; }
   100% { top: -500%; }
 }
 
@@ -238,5 +236,5 @@ video{
 
 
 // .lazy-load-background{
-//   background-image: url("https://emclaren.github.io/hello-p5/dist/assets/img/poster2.png") !important;
-// }
+  //   background-image: url("https://emclaren.github.io/hello-p5/dist/assets/img/poster2.png") !important;
+  // }
