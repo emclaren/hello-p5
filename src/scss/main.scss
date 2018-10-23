@@ -1,13 +1,7 @@
-// Prevent default html video controls from showing
-video::-webkit-media-controls {
-  display: none;
-}
-
-
 @import 'partials/normalize';
+@import 'partials/variables';
 @import 'partials/loader';
 @import 'partials/plyr_base';
-@import 'partials/variables';
 @import 'partials/breakpoints';
 @import 'partials/plyr_custom';
 @import 'partials/fonts';
