@@ -11,21 +11,23 @@ hello.p5js.org is likely to be many users’ first introduction to p5.js (and po
 I would like to thank my mentor Evelyn Masso, and Lauren McCarthy for their support and feedback. I would also like to acknowledge the awesome community members who contributed survey responses, videos and code:
 
 ### Video Participants
-Seyitan Oke
-@reona396
-Tristan Espinoza
-Eliza Struthers-jobin
-Miguel Elizalde
-Computational Thinkers® of Hawaii
-Max Frischknecht & Philipp Möckli (Début Début)
-Suraj Rai
-sailor winkelmanCat Janowitz
-STEM Coding
-Kate Hollenbach
-Dongqi HanUddipana Baishya
-Brennan Jones
+Uddipana Baishya
 Punyashlok Dash
+Miguel Elizalde
+Tristan Espinoza
+Max Frischknecht & Philipp Möckli (Début Début)
+Dongqi Han
+Kate Hollenbach
 Vincent Hopkins
+Cat Janowitz
+Brennan Jones
+Seyitan Oke
+Suraj Rai
+@reona396
+Eliza Struthers-Jobin
+Sailor Winkelman
+Computational Thinkers® of Hawaii
+STEM Coding
 Other members of the p5 community
 Music By Ah, Venice
 Video Consulting by Joey Chaos

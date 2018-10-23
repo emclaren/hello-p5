@@ -15,6 +15,9 @@ var laMonster= function(p5){
 	let moveleft = true;
 	
 	let magicX = 300;
+
+
+
 	let monster;
 
 	let collisionTest = false;
@@ -24,7 +27,16 @@ var laMonster= function(p5){
 		monsterlooBackground = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/MonsterLoo_Background.png"); 
 	}
 	
+
+
+
+
+
 	
+
+	
+
+
 	
 	
 	p5.setup = () => {
@@ -43,6 +55,15 @@ var laMonster= function(p5){
 		monster.depth = 5;
 		monster.scale = p5.width/2000;
 
+
+
+
+
+
+
+
+
+
 		
 		standmonster1 = p5.createSprite(p5.width*1.8, p5.height/1.2);  
 		standmonster1.addAnimation("normal", "https://emclaren.github.io/hello-p5/dist/assets/img/EM_2.png");
@@ -50,6 +71,10 @@ var laMonster= function(p5){
 		standmonster1.debug = collisionTest;
 		standmonster1.depth = 3;
 		standmonster1.scale = p5.width/2000;
+
+
+
+
 		let magicX = p5.width/3;
 		p5.noStroke();
 				
