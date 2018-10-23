@@ -32,7 +32,7 @@ Other members of the p5 community
 Music By Ah, Venice
 Video Consulting by Joey Chaos
 Peter Manson
-Mayra
+Mayra Barrera Machuca
 
 ## Tasks Completed
 * Met with Lauren McCarthy and mentor to determine requirements for the new hello.p5.js website

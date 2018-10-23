@@ -23,9 +23,9 @@
 
 
 // // Ensure plyr controls load above p5 canvas overlay
-.plyr--video .plyr__controls{
-    z-index:2147483647 !important;
-}
+// .plyr--video .plyr__controls{
+//     // z-index:2147483647 !important;
+// }
 .plyr__menu__container{
     z-index:500;
 }
