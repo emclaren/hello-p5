@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
-  }, 3);
+  }, 2000);
 });
 
 // required JS libraries
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  
+
   
   player.on('ready', event =>{
     

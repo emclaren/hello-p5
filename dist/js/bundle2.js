@@ -81591,7 +81591,7 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
 document.addEventListener("DOMContentLoaded", function(event) { 
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
-  }, 3);
+  }, 2000);
 });
 
 // required JS libraries
@@ -81628,7 +81628,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  
+
   
   player.on('ready', event =>{
     
