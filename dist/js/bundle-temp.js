@@ -81594,7 +81594,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }, 2000);
 
   setTimeout(function(){
-
     document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
   }, 3000);
 
@@ -81749,10 +81748,6 @@ document.addEventListener('DOMContentLoaded', () => {
     {time : 142, sketchfile: credits},
     {time : 168, sketchfile: noSketch},
   ];
-  
-  
-  
-  
   
   //Watch time in video and trigger P5 events 
   player.on('timeupdate', event => {
@@ -81913,7 +81908,7 @@ const circleExplosion = (p5) => {
 	
 	p5.setup  = () => {
 		p5.pixelDensity(1);
-		let windowWidth = window.innerWidth;
+		let windowWidth = document.documentElement.clientWidth;
 		let windowHeight = windowWidth  * 0.562;
 		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
@@ -82027,7 +82022,7 @@ const credits = (p5) => {
 	
 	p5.setup  = () => {
     p5.pixelDensity(1);
-		let windowWidth = window.innerWidth;
+		let windowWidth = document.documentElement.clientWidth;
 		let windowHeight = windowWidth  * 0.562;
 		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
@@ -82138,7 +82133,7 @@ const forumLink = (p5) => {
 
 	p5.setup  = () => {
 		p5.pixelDensity(1);
-		let windowWidth = window.innerWidth ;
+		let windowWidth = document.documentElement.clientWidth;
 		let windowHeight = windowWidth  * 0.562;
 		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
@@ -82204,7 +82199,7 @@ const heart = (p5) => {
   
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth ;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -82321,7 +82316,7 @@ const helloP5Title = (p5) => {
   let mappedY = 0;
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -82429,7 +82424,7 @@ var laMonster= function(p5){
 
 
 
-	
+
 
 	
 
@@ -82439,7 +82434,7 @@ var laMonster= function(p5){
 	p5.setup = () => {
 		
 		p5.pixelDensity(1);
-		p5.windowWidth = window.innerWidth;
+		p5.windowWidth = document.documentElement.clientWidth;
 		p5.windowHeight = p5.windowWidth  * 0.562;
 		p5.canvas= p5.createCanvas(p5.windowWidth/2.8, p5.windowHeight/2);
 		p5.canvas.parent('video-overlay');
@@ -82618,7 +82613,7 @@ const leaves = (p5) => {
   p5.setup  = () => {
     
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -82739,7 +82734,7 @@ const lerpColor= (p5) => {
   
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -82828,7 +82823,7 @@ const manyDots = (p5) => {
   
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -87299,7 +87294,7 @@ const pointillismLogo = (p5) => {
 
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth * 0.562;
     p5.canvas = p5.createCanvas(windowWidth/2.3, windowHeight/1.5);
     p5.canvas.parent('video-overlay');
@@ -87354,7 +87349,7 @@ const rainbow = (p5) => {
 	
 	p5.setup  = () => {
 		p5.pixelDensity(1);
-		let windowWidth = window.innerWidth ;
+		let windowWidth = document.documentElement.clientWidth;;
 		let windowHeight = windowWidth  * 0.562;
 		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
@@ -87420,7 +87415,7 @@ const rectangles = (p5) => {
   
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -87486,7 +87481,7 @@ const sinLines = (p5) => {
 
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -87556,7 +87551,7 @@ var singleCircle = function(p5) {
 	p5.setup  = () => {
 		// Create p5 canvas
 		p5.pixelDensity(1);
-		let windowWidth = window.innerWidth ;
+		let windowWidth = document.documentElement.clientWidth;
 		let windowHeight = windowWidth  * 0.562;
 		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');		
@@ -87622,9 +87617,10 @@ const stars = (p5) => {
   let variableSpeed; //variable to make speed change using the mouse
   let mouseDistance; //variable to track mouse's distance from the center of the screen
   
+
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -87739,7 +87735,7 @@ const targetSketch = (p5) => {
 
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -87786,7 +87782,7 @@ var visualizer= function(p5){
     p5.windowHeight = p5.windowWidth * .562;
     p5.canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight);
     p5.canvas.parent('video-overlay');
-    cutoutSize = p5.width/7.25
+    cutoutSize = p5.width/6
   }
   
   
@@ -87794,7 +87790,7 @@ var visualizer= function(p5){
   
   p5.draw= ()=> {
     p5.background(75, 121, 161, 25-opacity2);
-    
+
     p5.fill('#4ca1af');
     // p5.stroke('rgba(50,50,50, 0.1)');
     p5.strokeWeight(1);
@@ -87899,7 +87895,7 @@ const wavemaker = (p5) => {
 
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -87966,7 +87962,7 @@ const waves = (p5) => {
   
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
@@ -88071,7 +88067,7 @@ const webeditorLink = (p5) => {
 	let linkHidden=true;
 	p5.setup  = () => {
 		p5.pixelDensity(1);
-		let windowWidth = window.innerWidth ;
+		let windowWidth = document.documentElement.clientWidth;
 		let windowHeight = windowWidth  * 0.562;
 		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');

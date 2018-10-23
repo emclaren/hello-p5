@@ -18,7 +18,7 @@ var singleCircle = function(p5) {
 	p5.setup  = () => {
 		// Create p5 canvas
 		p5.pixelDensity(1);
-		let windowWidth = window.innerWidth ;
+		let windowWidth = document.documentElement.clientWidth;
 		let windowHeight = windowWidth  * 0.562;
 		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');		

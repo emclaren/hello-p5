@@ -18,7 +18,7 @@ var visualizer= function(p5){
     p5.windowHeight = p5.windowWidth * .562;
     p5.canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight);
     p5.canvas.parent('video-overlay');
-    cutoutSize = p5.width/7.25
+    cutoutSize = p5.width/6
   }
   
   
@@ -26,7 +26,7 @@ var visualizer= function(p5){
   
   p5.draw= ()=> {
     p5.background(75, 121, 161, 25-opacity2);
-    
+
     p5.fill('#4ca1af');
     // p5.stroke('rgba(50,50,50, 0.1)');
     p5.strokeWeight(1);

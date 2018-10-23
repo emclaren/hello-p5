@@ -22,10 +22,6 @@
 }
 
 
-// // // Ensure plyr controls load above p5 canvas overlay
-// .plyr--video .plyr__controls{
-//     z-index:2147483647 !important;
-// }
 .plyr__menu__container{
     z-index:500;
 }
@@ -36,7 +32,6 @@
     padding:0;
     @include breakpoint(md) {
         padding:10px;
-        
     }   
     @include breakpoint(lg) {
         padding:20px;
@@ -70,7 +65,7 @@
 .plyr__poster{
     top:0;
     background-size: 100% 100%;
-    background-color: $background-color-main;
+    // background-color: $background-color-main;
     filter: blur(10px);
     transform: scale(1.1); 
 }
@@ -80,6 +75,7 @@
     color: $brand-color-main;
 }
 
+// remove grey border at top on mobile
 .plyr--video, .plyr__video-wrapper{
-    background-color:$background-color-main;
+    background-color:#fff;
 }

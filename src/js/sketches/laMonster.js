@@ -32,7 +32,7 @@ var laMonster= function(p5){
 
 
 
-	
+
 
 	
 
@@ -42,7 +42,7 @@ var laMonster= function(p5){
 	p5.setup = () => {
 		
 		p5.pixelDensity(1);
-		p5.windowWidth = window.innerWidth;
+		p5.windowWidth = document.documentElement.clientWidth;
 		p5.windowHeight = p5.windowWidth  * 0.562;
 		p5.canvas= p5.createCanvas(p5.windowWidth/2.8, p5.windowHeight/2);
 		p5.canvas.parent('video-overlay');

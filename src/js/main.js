@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }, 2000);
 
   setTimeout(function(){
-
     document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
   }, 3000);
 
@@ -159,10 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
     {time : 142, sketchfile: credits},
     {time : 168, sketchfile: noSketch},
   ];
-  
-  
-  
-  
   
   //Watch time in video and trigger P5 events 
   player.on('timeupdate', event => {

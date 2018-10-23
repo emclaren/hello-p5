@@ -14,9 +14,10 @@ const stars = (p5) => {
   let variableSpeed; //variable to make speed change using the mouse
   let mouseDistance; //variable to track mouse's distance from the center of the screen
   
+
   p5.setup  = () => {
     p5.pixelDensity(1);
-    let windowWidth = window.innerWidth ;
+    let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
