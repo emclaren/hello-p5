@@ -11,8 +11,8 @@ header{
 	text-align:center;
 	top:0;
 	transition: all .5s ease;
-	z-index:1000;
-	@include breakpoint(md) {
+	z-index: 2147483647 !important;
+	@include breakpoint(lg and landscape) {
 		display:flex;
 		height:5rem;
 		text-align:left;	
