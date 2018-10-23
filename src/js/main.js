@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
   }, 2000);
+
+  setTimeout(function(){
+
+    document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
+  }, 3000);
+
 });
 
 // required JS libraries

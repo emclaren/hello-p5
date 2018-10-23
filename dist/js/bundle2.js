@@ -81592,6 +81592,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
   }, 2000);
+
+  setTimeout(function(){
+
+    document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
+  }, 3000);
+
 });
 
 // required JS libraries
@@ -87780,7 +87786,7 @@ var visualizer= function(p5){
     p5.windowHeight = p5.windowWidth * .562;
     p5.canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight);
     p5.canvas.parent('video-overlay');
-    cutoutSize = p5.width/7
+    cutoutSize = p5.width/7.25
   }
   
   

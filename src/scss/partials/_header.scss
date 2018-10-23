@@ -12,7 +12,7 @@ header{
 	top:0;
 	transition: all .5s ease;
 	z-index: 2147483647 !important;
-	@include breakpoint(lg ) {
+	@include breakpoint(md) {
 		@include breakpoint(landscape){
 		display:flex;
 		height:5rem;
@@ -72,8 +72,6 @@ header{
 				}
 			}
 			@include breakpoint(lg && portrait){
-				
-				
 				max-width:21rem;
 			}
 			
