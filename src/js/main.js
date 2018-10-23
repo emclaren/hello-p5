@@ -1,8 +1,13 @@
+document.addEventListener("DOMContentLoaded", function(event) { 
+  setTimeout(function(){
+    document.getElementById("body").classList.add("loaded");
+  }, 3);
+});
+
 // required JS libraries
 const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code, note it breaks if you try to use the minified version of the file. 
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
-// const p5play = require('./sketches/play.js');
 
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
@@ -32,19 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
       "focused":true
     }
   });
- 
-
-
-
-
-
+  
   
   player.on('ready', event =>{
     
     // const laMonster = require('./sketches/laMonster.js');
-    //  scene = new p5(laMonster);  
-
-    //  Freeze the game on load
+    // scene = new p5(laMonster);  
+    
+    // //  Freeze the game on load
     // if(scene){
     //   scene.frameRate(0);
     // }
@@ -155,16 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   
-
-
+  
+  
   //Watch time in video and trigger P5 events 
   player.on('timeupdate', event => {
-
- 
-    // console.log( event)
-
-    // console.log(player)
-    // console.log(plyr)
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
     
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
@@ -180,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // This part plays the correct sketch if a user jumps to a different part of the video 
     if(videoTimeSeeked){
-     
+      
       for(let i=0; i< sceneChangeMap.length;i++){
         if(videoCurrentTime >= sceneChangeMap[i].time  && videoCurrentTime < sceneChangeMap[i+1].time){
           videoCurrentTime = sceneChangeMap[i].time ;
@@ -196,14 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if(videoCurrentTime >= sceneChangeMap[i].time  && videoCurrentTime < sceneChangeMap[i+1].time){
           videoCurrentTime = sceneChangeMap[i].time ;
           updateSketch();
-      
+          
         } 
         
-      }
-
-
-
-
+      } 
     } 
     
     
@@ -230,9 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Pause P5 sketch when a new time in video is selected by user
     player.on('seeked', event => {
-
       videoTimeSeeked  = true; //trigger an if statement to udpdate the sketch
-      
       if(scene){
         scene.frameRate(0); 
       }
@@ -267,28 +255,28 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   
-  
-  
   //*** Language Controls ***/
   ///Toggle Language of Header & Captions Based on Selection
   document.getElementById('language-link-english').onclick=function(){
     languageArray=["Download", "Start", "Reference", "Libraries", "Learn", "Community"] //Words that will replace the menu links
-    player.captions.language="en"
+    player.captions.currentTrack = 0;
     languageToggle();
   };
   
   document.getElementById('language-link-spanish').onclick=function(){
     languageArray= ["Descargar","Empezar","Referencia","Bibliotecas","Aprender","Comunidad"] //Words that will replace the menu links
-    player.captions.language="es";
+    player.captions.currentTrack = 1;
     languageToggle() ;  
   };
   
   document.getElementById('language-link-french').onclick=function(){
     languageArray= ["Télécharger","Commencer","Référence","Bibliothèques","Apprendre","Communauté"] //Words that will replace the menu links
     player.captions.language="fr"
+    player.captions.currentTrack = 2;
     languageToggle();
     header.classList.add('french'); //"french" class name is used to decrease header font size when French is selected
   };
+  
   
   
   function languageToggle(){

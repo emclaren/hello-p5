@@ -27,7 +27,7 @@
 
 // Ensure plyr controls load above p5 canvas overlay
 .plyr__controls {
-    z-index:2147483647 !important;
+    z-index:2147483647 
 }
 .plyr__menu__container{
     z-index:500;
@@ -74,6 +74,7 @@
     top:0;
     background-size: 100% 100%;
     background-color: $background-color-main;
+    filter: blur(10px);
 }
 
 // make progress bars match brand colors
@@ -83,9 +84,4 @@
 
 .plyr--video, .plyr__video-wrapper{
     background-color:$background-color-main;
-}
-
-.plyr:not(.plyr--hide-controls) .plyr__controls:not(:empty) ~ .plyr__captions {
-    -webkit-transform: translateY(-40px);
-    transform: translateY(-40px);
 }

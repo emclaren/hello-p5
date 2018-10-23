@@ -148,8 +148,10 @@ header{
 		//Hide-On-Mobile class is used to hide some asterisk separators from the header
 		.hide-on-mobile{
 			display:none;
-			@include breakpoint(md && landscape) {
+			@include breakpoint(md ) {
+				@include breakpoint(landscape){
 				display:inline-block;
+				}
 			}
 		}
 		a, a:link, a:visited {

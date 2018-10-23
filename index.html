@@ -10,7 +10,8 @@
   <meta name="Description" content="Introduction video for p5js">
   <meta name="theme-color" content="#ED225D">
 </head>
-<body>
+
+<body id="body">
 
 
   <!-- MAIN HEADER-->
@@ -52,7 +53,7 @@
   <div class="container" id="container">
 
     <!--This project uses the PLYR video player https://github.com/sampotts/plyr for HTML video styling -->
-    <video  id="player" poster="dist/assets/img/poster.jpg" playsinline controls data-plyr-config='{ }' >
+    <video  id="player" poster="dist/assets/img/poster2.png" playsinline controls data-plyr-config='{ }' >
       <source src="dist/assets/video/p5video.mp4" type="video/mp4"> 
       <!-- <source src="dist/assets/video/p5video.webm" type="video/webm">  -->
         <!--Create different Sizes-->
@@ -64,17 +65,26 @@
       <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en" default>
       <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es">
       <track kind="captions" label="French" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr"> 
-       
-    
-      </video>
+    </video>
 
 
     <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
     <div id="video-overlay" class="video-overlay"> </div>
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+   
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+   
+  </div>
 
     <!-- Empty p5_loading div to prevent the the text: "Loading..." from appearing during preload -->
     <div id="p5_loading" class="loadingclass"></div>
   </div>
+
+
+
+
 
 
 <!-- ASTERISK VISIBLE AT THE BOTTOM OF THE PAGE ON MOBILE -->
