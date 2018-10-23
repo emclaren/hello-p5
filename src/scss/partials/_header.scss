@@ -83,13 +83,13 @@ header{
 			display: inline-block;
 			color: $brand-color-main;
 			margin:0 .2rem 1rem;
-			@include breakpoint(md) {
+			@include breakpoint(md and landscape) {
 				margin:0 .3rem;
 			}
 			//nth-child classes style nav menu into grid on mobile 
 			&:nth-child(odd){
 				width:5.2rem;
-				@include breakpoint(md) {
+				@include breakpoint(md and landscape) {
 					width:auto;
 				}
 				&:nth-child(3n+1) {
@@ -99,13 +99,14 @@ header{
 					text-align:right;
 				}
 			}
+			
 			// Used to style ES/EN/FR in nav as though they are a link, required because they are not <a> elements
 			&.language-link{
 				margin:.3rem;
 				font-size:1rem;
 				display:block;
 				width:auto;
-				@include breakpoint(md) {
+				@include breakpoint(md and landscape) {
 					height:1.7rem;
 				}
 				@include breakpoint(lg) {

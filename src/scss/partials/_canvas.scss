@@ -24,11 +24,11 @@ canvas{
 		transition: all .5s ease;
     left:0;
   }
-  @include breakpoint(md){
+  @include breakpoint(md){  
     @include breakpoint(portrait){
-      margin: auto;
-      top:15rem;
-  }
+      // margin: auto;
+      top:5rem;
+    }
 }
 }
 

@@ -13,11 +13,13 @@
     display: block;
     position: relative;
     left: 50%;
-    top: 50%;
- 
-   
+    top:60%;
     border-radius: 50%;
     border: 3px solid transparent; 
+
+    @include breakpoint(lg){
+        top: 40%;
+	}
 }
 #loader-svg{
     animation: spin-loader 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */   
