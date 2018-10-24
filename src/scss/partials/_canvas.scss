@@ -29,7 +29,7 @@ canvas{
       // margin: auto;
       top:5rem;
     }
-}
+  }
 }
 
 .container.hide{
@@ -204,7 +204,7 @@ video{
   text-align: center;
   text-transform: uppercase;
   color: $background-color-main;
-  animation: 60s credits linear ;
+  animation: 30s credits linear ;
   width: 80%;
   margin:0 auto;
   animation-iteration-count: 1;
@@ -218,8 +218,8 @@ video{
 }
 
 .credits-name {
-  margin-bottom: 1vw;
-  font-size: 3vw;
+  margin-bottom: .75vw;
+  font-size: 2.75vw;
 }
 
 @keyframes credits {
