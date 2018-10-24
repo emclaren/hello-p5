@@ -14,10 +14,10 @@ header{
 	z-index: 2147483647 !important;
 	@include breakpoint(md) {
 		@include breakpoint(landscape){
-		display:flex;
-		height:5rem;
-		text-align:left;	
-		position:absolute;
+			display:flex;
+			height:5rem;
+			text-align:left;	
+			position:absolute;
 		}
 	}
 	@include breakpoint(portrait) {
@@ -42,7 +42,7 @@ header{
 		@include breakpoint(portrait) {
 			margin:3.5rem auto 1.5rem auto;
 			max-width:7rem;
-
+			
 		}
 		
 	}
@@ -134,14 +134,16 @@ header{
 			width:12.5rem;
 			text-align:center;
 			margin:0 auto;
-			
+			@include breakpoint(landscape){
+		
 			@include breakpoint(md) {
 				width:7.5rem!important;
 			}	
 			@include breakpoint(lg) {
 				width:8.75rem!important;
 				@include breakpoint(landscape) {
-				margin-left: .5rem;
+					margin-left: .5rem;
+				}
 			}
 		}
 		}
@@ -151,7 +153,7 @@ header{
 			display:none;
 			@include breakpoint(md ) {
 				@include breakpoint(landscape){
-				display:inline-block;
+					display:inline-block;
 				}
 			}
 		}

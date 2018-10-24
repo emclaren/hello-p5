@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
+window.addEventListener("load", function(event) { 
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
   }, 3000);
@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }, 3500);
 
 });
+
+
+// window.onload = function() {
+// setTimeout(function(){
+//   document.getElementById("body").classList.add("loaded");
+// }, 3000);
+// }
+
 
 // required JS libraries
 const Plyr = require('plyr'); //Plyr Video Player Source Code

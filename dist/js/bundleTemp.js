@@ -81588,7 +81588,7 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],4:[function(require,module,exports){
-document.addEventListener("DOMContentLoaded", function(event) { 
+window.addEventListener("load", function(event) { 
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
   }, 3000);
@@ -81598,6 +81598,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }, 3500);
 
 });
+
+
+// window.onload = function() {
+// setTimeout(function(){
+//   document.getElementById("body").classList.add("loaded");
+// }, 3000);
+// }
+
 
 // required JS libraries
 const Plyr = require('plyr'); //Plyr Video Player Source Code
