@@ -13,10 +13,11 @@ canvas{
 //Video Styling 
 .container {
 	//to position in the middle of screen on mobile
-	position:relative;
+	// position:relative;
 	width:100%;
   top:2.4rem;
   overflow:hidden;
+  position:relative;
   
 	@include breakpoint(xl) {
 		margin: 0 auto;
