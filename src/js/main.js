@@ -62,7 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Triggered when video start
   player.on('playing', event => {
-    
+    console.log(document.documentElement.clientWidth)
+    console.log(document.documentElement.clientHeight)
+    console.log(document.documentElement.clientWidth / document.documentElement.clientHeight)
+
+    if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
+    console.log("its true");
     window.videoPlaying=true; 
     // adds the class of hide on play, to make the header shrink on play
     let header = document.querySelector('.header');
@@ -75,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       top: document.documentElement.scrollHeight,
       behavior: "smooth"
     });
-    
+  }
     // Start P5 Sketch if it is paused 
     if(scene){
       scene.frameRate(60); 

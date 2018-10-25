@@ -30,6 +30,25 @@ body{
 
 }
 
+body{
+	background-image:url(../assets/img/asterisk.svg);
+
+	background-repeat: no-repeat; /*Prevent showing multiple background images*/
+	background-size: 83% 72%;
+	background-position: bottom -150% right -150%;
+
+		display:flex;
+	@include breakpoint(landscape){
+	justify-content: space-evenly;
+	background-size: 79% 61%;
+	}
+	@include breakpoint(portrait){
+		overflow: hidden;
+		height:100vh;
+	}
+
+}
+
 // Asterisk in the page background
 #asterisk-design-element{
 	// position:fixed;
@@ -61,41 +80,3 @@ body{
 }
 
 
-.bottom-logo{
-	background: url(../assets/img/asterisk.svg);
-	background-size: 100px 82px;
-}
-
-// // Asterisk in the page background
-// #asterisk-design-element{
-// 	// position:fixed;
-// 	// top:70%;
-// 	// right:-23%;
-// 	height:20em;
-// 	width:20em;
-// 	z-index:-10;
-// 	transform:rotate(-20deg);
-// 	// margin: 0 0 -40% 50%;
-// 	// display:none
-// 	position:relative;
-// 	// min-height: 100%;
-//     // min-width: 100%;
-// 	// @include breakpoint(landscape){
-// 	// 	// visibility: hidden;
-// 	// }
-// 	// top: 50%; left: 50%; transform: translate(-50%, -50%)
-
-// }
-
-body{
-	// 
-	display:flex;
-	@include breakpoint(landscape){
-	justify-content: space-evenly;
-	}
-	@include breakpoint(portrait){
-		overflow: hidden;
-		height:100vh;
-	}
-
-}
