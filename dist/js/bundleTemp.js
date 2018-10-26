@@ -81592,12 +81592,13 @@ window.addEventListener("load", function(event) {
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
   }, 3000);
-
+  
   setTimeout(function(){
     document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
   }, 3500);
-
+  
 });
+
 
 
 
@@ -81648,29 +81649,46 @@ document.addEventListener('DOMContentLoaded', () => {
     // lazy load the plyer poster
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background')
+    
+    
+    console.log(player);
+    console.log(player.source);
+    console.log(player.options.quality[1])
+    console.log(player.source);
+    player.options.quality= 2;    
+    for(var i=0; i< player.options.quality.length ; i++){
+      // console.log(i);
+      //   if(document.documentElement.clientWidth <= player.options.quality[player.options.quality.length - i]){
+      //   console.log(player.options.quality[player.options.quality.length-1 - i])
+      //   console.log("its smaller?")
+      //   }
+      //   var videoQuality=i
+    }
+
+    console.log(player.sources);
+
+    
   });
   
   // Triggered when video start
   player.on('playing', event => {
-    console.log(document.documentElement.clientWidth)
-    console.log(document.documentElement.clientHeight)
-    console.log(document.documentElement.clientWidth / document.documentElement.clientHeight)
-
-    if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
-    console.log("its true");
-    window.videoPlaying=true; 
-    // adds the class of hide on play, to make the header shrink on play
-    let header = document.querySelector('.header');
-    let container = document.querySelector('.container');
-    header.classList.add('shrink'); 
-    container.classList.add('shrink'); 
     
-    // Scroll to the bottom of the page when the player starts to simulate full-screen
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth"
-    });
-  }
+    console.log(player)
+    if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
+      
+      window.videoPlaying=true; 
+      // adds the class of hide on play, to make the header shrink on play
+      let header = document.querySelector('.header');
+      let container = document.querySelector('.container');
+      header.classList.add('shrink'); 
+      container.classList.add('shrink'); 
+      
+      // Scroll to the bottom of the page when the player starts to simulate full-screen
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth"
+      });
+    }
     // Start P5 Sketch if it is paused 
     if(scene){
       scene.frameRate(60); 
@@ -81701,7 +81719,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   // Import P5 Sketch Files
-  const laMonster = require('./sketches/laMonster.js');
+  const laMonster = require('./sketches/la-monster');
   const visualizer = require('./sketches/visualizer.js');
   const helloP5Title = require('./sketches/hello-p5-title.js');
   const heartAnimation = require('./sketches/heart-animation.js');
@@ -81899,7 +81917,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } 
   }
 });
-},{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle-explosion.js":5,"./sketches/credits.js":6,"./sketches/forum-link.js":7,"./sketches/heart-animation.js":8,"./sketches/hello-p5-title.js":9,"./sketches/laMonster.js":10,"./sketches/leaves.js":11,"./sketches/lerpColor.js":12,"./sketches/many-dots.js":13,"./sketches/pointillism-logo.js":15,"./sketches/rainbow.js":16,"./sketches/rectangles.js":17,"./sketches/sin-lines.js":18,"./sketches/single-circle.js":19,"./sketches/stars.js":20,"./sketches/target-sketch.js":21,"./sketches/visualizer.js":22,"./sketches/wavemaker.js":23,"./sketches/waves.js":24,"./sketches/webeditor-link.js":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
+},{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle-explosion.js":5,"./sketches/credits.js":6,"./sketches/forum-link.js":7,"./sketches/heart-animation.js":8,"./sketches/hello-p5-title.js":9,"./sketches/la-monster":10,"./sketches/leaves.js":11,"./sketches/lerpColor.js":12,"./sketches/many-dots.js":13,"./sketches/pointillism-logo.js":15,"./sketches/rainbow.js":16,"./sketches/rectangles.js":17,"./sketches/sin-lines.js":18,"./sketches/single-circle.js":19,"./sketches/stars.js":20,"./sketches/target-sketch.js":21,"./sketches/visualizer.js":22,"./sketches/wavemaker.js":23,"./sketches/waves.js":24,"./sketches/webeditor-link.js":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
 /*********************
 // Circle Explosion
 // Description: Draws random exploding circles on the screen 

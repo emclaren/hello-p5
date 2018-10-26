@@ -1,59 +1,21 @@
+/*********************
+CUSTOM OVERRIDE OF PLYR DEFAULT STYLES
+*********************/
+
+
 // Change color of plyr control icons
 .plyr__control--overlaid{
     background: $brand-color-main;
     z-index:500;
 }
-.plyr__control--overlaid:hover{
+
+.plyr__control--overlaid:hover, .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]{
     background: $brand-color-hover;
 }
-.plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]{
-    background: $brand-color-hover;
-}
 
-.plyr__video-wrapper{
+// Change background from default black
+.plyr__video-wrapper, .plyr__poster{
     background: $background-color-main;
-}
-.plyr:-webkit-full-screen {
-    background: $brand-color-main;
-}
-
-.plyr__poster{
-    background: $background-color-main;
-}
-
-
-.plyr__menu__container{
-    z-index:500;
-}
-
-// Ensure the captions are above the canvas element
-.plyr__captions{
-    z-index:2147483647;
-    padding:0;
-    @include breakpoint(md) {
-        padding:10px;
-    }   
-    @include breakpoint(lg) {
-        padding:20px;
-    }
-    span{
-        background: rgba(0,0,0,0.8);
-        border-radius: 2px;
-        -webkit-box-decoration-break: clone;
-        box-decoration-break: clone;
-        line-height: 185%;
-        padding: .2em .5em;
-        white-space: pre-wrap;
-    }
-}
-
-//Prevent two buffer bars from loading
-.plyr__progress__buffer{
-    display:none;  
-}
-
-.plyr__progress--buffer{
-    display:none;
 }
 
 //Prevent unnecessary controls from loading
@@ -77,4 +39,21 @@
 // remove grey border at top on mobile
 .plyr--video, .plyr__video-wrapper{
     background-color:#fff;
+}
+
+// Ensure the captions are above the canvas element and don't take up too much space
+.plyr__captions{
+    z-index:2147483647;
+    padding:0;
+
+}
+@include breakpoint(md) {
+    .plyr__captions{
+    padding:10px;
+    }
+}   
+@include breakpoint(lg) {
+    .plyr__captions{
+    padding:20px;
+    }
 }

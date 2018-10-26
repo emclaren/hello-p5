@@ -1,6 +1,12 @@
 /*********************
-CANVAS ELEMENT & VIDEO STYLING
+VIDEO CONTAINER & CANVAS STYLING
 *********************/
+
+// Container to hold Plyr video & p5 sketches
+.container {
+	width:100%;
+  position:relative;
+}
 
 //P5 Canvas Overlay
 canvas{
@@ -10,228 +16,19 @@ canvas{
   z-index:20;
 }
 
-//Video Styling 
-.container {
-	//to position in the middle of screen on mobile
-	// position:relative;
-	width:100%;
-  // top:2.4rem;
-  overflow:hidden;
-  position:relative;
-  
-	@include breakpoint(xl) {
-		margin: 0 auto;
-		z-index:10;
-		transition: all .5s ease;
-    left:0;
-  }
-  @include breakpoint(md){  
-    @include breakpoint(portrait){
-      // margin: auto;
-      top:5rem;
-    }
-  }
-}
-
-.container.hide{
-	@include breakpoint(lg) {
-		transition: all .5s ease;
-	}
-}
-
-
 video{
 	width:100%;
 }
 
-// Disable the default p5 loading text
+//  Prevents the default p5 loading text from appearing
 #p5_loading{
   display:none;
 }
 
-// Add some space between the la Monster sketch and the side of the screen
-.la-monster-sketch{
-  top:4vw;
-  left:3vw;
-}
-
-// Styling for single circle text box
-.p5-single-circle-code-example{
-  position: absolute;
-  z-index: 3000000;
-  background-color: rgba(237,34,93,.7);
-  padding:1%;
-  font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
-  width: 30%;
-  top:7%;
-  left:65%;
-  a{
-    color: $background-color-main;
-  }
-  ul{
-    margin:.1rem;
-    padding-left: calc(10px + 6 * ((100vw - 320px) / 680))
-  }
-  li{
-    list-style:none;
-  }
-  @include breakpoint(lg) {
-    top:15%;
-  }
-}
-
-.p5-single-circle-code-example{
-  position: absolute;
-  z-index: 3000000;
-  background-color: rgba(237,34,93,.7);
-  padding:1%;
-  font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
-  width: 30%;
-  top:7%;
-  left:65%;
-  a{
-    color: $background-color-main;
-  }
-  ul{
-    margin:.1rem;
-    padding-left: calc(10px + 6 * ((100vw - 320px) / 680))
-  }
-  li{
-    list-style:none;
-  }
-  @include breakpoint(lg) {
-    top:15%;
-  }
-}
-
-
-
-// Styling for the links that slide in from the webeditor-link sketches, and the forum-link sketch
-@keyframes slide-in {
-  0% {
-    right: -100%
-  }
-  100% {
-    right: 0px
-  }
-}
-
-.sketch-link-animation{
-  animation-name: slide-in;
-  animation-duration: .3s; 
-  animation-timing-function: ease-out; 
-  animation-iteration-count: 1;
-}
-
-.sketch-link{
-  text-align:center;
-  text-decoration:underline;
-  right:0;
-  font-size: 3.2vw;
-  top:2vw;
-  padding:5vw .8vw;
-  transition: all .5s ease;
-  width: 30%;
-  color:white;
-  border-radius:3px;
-  position: absolute;
-  background-color: rgba(237,34,93,.95);
-  border:2px solid $background-color-main;
-  z-index: 3000000;
-  line-height:3.3vw;
-  @include breakpoint(md) {
-    width: 25%;
-    font-size:1.8vw;
-    top:3vw;
-    padding:2vw 1vw;
-    border:4px solid $background-color-main;
-    right:0;
-    line-height:2vw;
-  }
-  a{
-    color: $background-color-main;
-  }
-  &:hover{
-    background-color: rgba(237,34,93, 0.80);
-    font-size: 3.3vw;
-    @include breakpoint(md) {
-      font-size:1.85vw;
-    }
-  }  
-}
-
-.sketch-link-upper{
-  top: 1vw;
-  @include breakpoint(md) {
-    top:3vw;
-  }
-}
-
-.sketch-link-lower{
-  top: 20vw;
-  @include breakpoint(md) {
-    top:11vw;
-  }
-}
-
-
-// Layout for logo in circle-explosion sketch
-.p5-sketch-logo-parent{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.p5-sketch-logo {
-  position: absolute;
-  top:35%;
-  max-width:30%;
-  text-align:center;
-  z-index: 3000000;
-  @include breakpoint(md) {
-    max-width:100%;
-  }
-}
 
 
 
 
 
-// Credits Styling
 
-.credits-wrapper {
-  position: absolute;
-  top: 100%;
-  text-align: center;
-  text-transform: uppercase;
-  color: $background-color-main;
-  animation: 30s credits linear ;
-  width: 80%;
-  margin:0 auto;
-  animation-iteration-count: 1;
-  
-}
-
-.credits-title {
-  margin-top:2vw;
-  margin-bottom: .1vw;
-  font-size: 2vw;
-}
-
-.credits-name {
-  margin-bottom: .75vw;
-  font-size: 2.75vw;
-}
-
-@keyframes credits {
-  0% { top:  100%; }
-  100% { top: -500%; }
-}
-
-.paused{
-  -webkit-animation-play-state:paused;
-  -moz-animation-play-state:paused;
-  -o-animation-play-state:paused; 
-  animation-play-state:paused;
-}
 
