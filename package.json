@@ -52,10 +52,9 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "dependencies": {
-    "plyr": "3.4.3",
-    "p5": "^0.7.2"
+    "p5": "^0.7.2",
+    "plyr": "^3.4.6"
   },
-
   "browserify": {
     "debug": true
   },
@@ -66,8 +65,7 @@
     ],
     "sourceMaps": "false"
   },
-  "stylelint":{
-  "extends": "stylelint-config-standard"
+  "stylelint": {
+    "extends": "stylelint-config-standard"
   }
-
 }

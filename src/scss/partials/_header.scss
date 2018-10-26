@@ -140,10 +140,7 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 
 
 @include breakpoint(md) {
-	header nav .language-list-container{
-		width:auto !important;
-	}
-	
+
 	header .logo{
 		max-width:4rem;
 		margin:1rem auto;	
@@ -155,10 +152,7 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 		align-items:center;	
 	}
 	
-	header nav .language-list{
-		width:7.5rem!important;
-	}	
-	
+
 	.french a, .french a:link,.french a:visited,.french .language-link{
 		font-size:.9rem;
 	}
@@ -178,6 +172,14 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 			height:2.5rem;
 			transition: height .5s ease;
 		}
+
+		header nav .language-list-container{
+			width:auto !important;
+		}
+		
+		header nav .language-list{
+			width:7.5rem;
+		}	
 		
 		header.shrink	.language-link {
 			height:1.5rem;
@@ -217,6 +219,19 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 			flex-wrap: wrap;
 			max-width:20rem;
 		}
+		
+		header nav .language-list{
+			display:flex;
+			flex-wrap:wrap;
+			width: 12.5rem;
+			text-align:center;
+			margin: 0 auto;
+		}
+
+		header nav .language-list-container li{
+			margin: 0 auto;
+		}
+		
 	}
 }
 
@@ -232,9 +247,11 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 	}
 	
 	.french a, .french a:link,.french a:visited,.french .language-link{
-		font-size:1.3rem;
+		font-size:1.1rem;
 	}
-	
+	.french header .logo{
+		font-size:4rem;
+	}
 	header nav .language-list{
 		width:8.75rem!important;
 	}
@@ -252,7 +269,10 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 
 	@include breakpoint(portrait) {
 		header nav ul{
-			max-width:23rem
+			max-width:25rem
+		}
+		header nav li:nth-child(odd){
+			width:6.5rem;
 		}
 	}
 }
@@ -266,5 +286,11 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 		header.shrink .logo{
 			max-width: 4rem;
 		}	
+		.french a, .french a:link,.french a:visited,.french .language-link{
+			font-size:1.3rem;
+		}
+		
 	}
+
+
 }

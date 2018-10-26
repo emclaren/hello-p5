@@ -45,29 +45,24 @@ P5-DOM SKETCHES CSS STYLING
 
 // Styling for the links that slide in 
 
-.sketch-link-animation{
-  animation-name: slide-in;
-  animation-duration: .3s; 
-  animation-timing-function: ease-out; 
-  animation-iteration-count: 1;
-}
+
 
 .sketch-link{
-  text-align:center;
-  text-decoration:underline;
-  right:0;
-  font-size: 3.2vw;
-  top:2vw;
-  padding:5vw .8vw;
+  // text-align:center;
+  // text-decoration:underline;
+  right:-10%;
+  // font-size: 3.2vw;
+  // top:2vw;
+  // padding:5vw .8vw;
   transition: all .5s ease;
-  width: 30%;
+  // width: 30%;
   color:white;
   border-radius:3px;
   position: absolute;
   background-color: rgba(237,34,93,.95);
   border:2px solid $background-color-main;
   z-index: 3000000;
-  line-height:3.3vw;
+  // line-height:3.3vw;
 }
 
 .sketch-link a{
@@ -80,12 +75,13 @@ P5-DOM SKETCHES CSS STYLING
 }  
 
 .sketch-link-upper{
-  top: 1vw;
+  // top: 1vw;
+  top:0;
 }
 
-.sketch-link-lower{
-  top: 20vw;
-}
+// .sketch-link-lower{
+//   top: 20vw;
+// }
 
 @include breakpoint(md) {
   .sketch-link{
@@ -94,8 +90,9 @@ P5-DOM SKETCHES CSS STYLING
     top:3vw;
     padding:2vw 1vw;
     border:4px solid $background-color-main;
-    right:0;
+    // left:0;
     line-height:2vw;
+    // transform: translate(100%, 0)
   }
   
   .sketch-link:hover{
@@ -111,12 +108,22 @@ P5-DOM SKETCHES CSS STYLING
   }
 }
 
+.sketch-link-animation{
+  animation-name: slide-in;
+  animation-duration: .3s; 
+  animation-timing-function: ease-out; 
+  animation-iteration-count: 1;
+}
+
+
 @keyframes slide-in {
   0% {
-    right: -100%
+    transform: translate(0, 0)
+
   }
   100% {
-    right: 0px
+    transform: translate(0px, 100)
+
   }
 }
 
@@ -183,3 +190,4 @@ P5-DOM SKETCHES CSS STYLING
   0% { top:  100%; }
   100% { top: -500%; }
 }
+

@@ -5,7 +5,7 @@ CSS LOADING ANIMATION STYLING
 
 /********************* While loading *********************/
 
-#loader-wrapper {
+#loader-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -18,13 +18,15 @@ CSS LOADING ANIMATION STYLING
     display: block;
     position: relative;
     left: 50%;
+    left:0;
+    width:100%;
     top:60%;
     border-radius: 50%;
     border: 3px solid transparent; 
 }
 
 // loading animation
-#loader-wrapper .loader-section {
+#loader-container .loader-section {
     position: fixed;
     top: 0;
     width: 100%;
@@ -32,55 +34,102 @@ CSS LOADING ANIMATION STYLING
     background: $brand-color-main;
     z-index: 2147483646 !important;
 }
- 
-#loader-wrapper .loader-section{
+
+#loader-container .loader-section{
     left: 0;
 }
- 
 
 #loader {
-    z-index: 2147483647 !important; /* anything higher than z-index: 1000 of .loader-section */
+    z-index: 2147483647 !important;
+}
+#loader-text{
+    color:#FFF;
+    text-align:center;
+    margin:0 auto;
+}
+#loader-text:first-child{
+    opacity:0;
+    animation: fade-text 6s ease-in infinite; 
+    
+}
+#loader-text:second-child{
+    opacity:0;
+    animation-delay: 2s;
+    animation: fade-text 6s ease-in infinite; 
+    
+}
+#loader-text:third-child{
+    opacity:0;
+    animation-delay: 4s;
+    animation: fade-text 6s ease-in infinite;   
+}
+
+#loader-svg-container{
+    width:100%;
+    margin:0 auto;
 }
 
 #loader-svg{
-    animation: animate-icon 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */   
-     margin: -100px 0 0 -100px;
-     width: 200px;
-     height: 50px;
+    animation: animate-icon 6s linear infinite;
+    margin: -100px 0 0 40%;
+    width: 20%;
+    height: 50px;
 }
 
 @include breakpoint(lg){
     #loader {
-    top: 40%;
+        top: 40%;
     }
 }
 
 @keyframes animate-icon {
     0%   {
-    transform: translate(-50%, 0)scale(0) rotate(0); 
-    opacity:0;
+        transform: translate(-50%, 0)scale(0) rotate(0); 
+        opacity:0;
     }
-
-    45% {
+    
+    25% {
         transform: translate(-5%, 0%) scale(.95) rotate(80deg);    opacity:1;
     }
-
-    50% {
+    
+    30% {
         transform: translate(0%, 0%) scale(1) rotate(130deg);  opacity:1;
     }
-
-    55% {
+    
+    35% {
         transform: translate(5%, 0%) scale(.95) rotate(200deg);  opacity:1;
-
     }
+
+    60% {
+        transform: translate(50%, 0) scale(0) rotate(360deg);  opacity:0;
+    }
+    
     100% {
         transform: translate(50%, 0) scale(0) rotate(360deg);  opacity:0;
     }
 }
 
+@keyframes fade-text{
+    0%   {
+        opacity:0;
+    }
+
+    60% {
+        opacity:0;
+    }
+    
+    80% {
+        opacity:1;
+    }
+    
+    100% {
+        opacity:0;
+    }
+}
+
 
 /********************* After Load *********************/
-.loaded #loader-wrapper .loader-section{
+.loaded #loader-container .loader-section{
     transform: translate(0, 100%);  
 }
 
@@ -89,7 +138,7 @@ CSS LOADING ANIMATION STYLING
 }
 
 // hide icon 
-.loaded #loader-wrapper {
+.loaded #loader-container {
     visibility: hidden;
 }
 
@@ -97,11 +146,11 @@ CSS LOADING ANIMATION STYLING
 .loaded #loader {
     opacity: 0;
     -webkit-transition: all 0.3s ease-out; 
-            transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 // speed the background leaves
-.loaded #loader-wrapper .loader-section {
+.loaded #loader-container .loader-section {
     -webkit-transition: all .3s ease-out; 
-            transition: all .3s ease-out;
+    transition: all .3s ease-out;
 }

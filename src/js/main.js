@@ -1,12 +1,11 @@
 window.addEventListener("load", function(event) { 
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
+    setTimeout(function(){
+      document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
+    }, 500);
+    
   }, 3000);
-  
-  setTimeout(function(){
-    document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
-  }, 3500);
-  
 });
 
 
@@ -29,6 +28,27 @@ let scene; // Name of current p5 sketch
 let noSketch; // Placeholder variable when no p5 sketch required
 
 
+
+// <!-- Did not use Plyr code, as the size/quality feature was under development -->
+var source = document.getElementById('mp4');
+
+if(document.documentElement.clientWidth <= 480){
+  
+  source.setAttribute('src', 'dist/assets/video/p5video_480.mp4');
+}else if(document.documentElement.clientWidth <= 720){
+  
+  source.setAttribute('src', 'dist/assets/video/p5video_720.mp4');
+}
+else if(document.documentElement.clientWidth <= 720){
+  
+  source.setAttribute('src', 'dist/assets/video/p5video_1080.mp4');
+}
+else{
+  
+  source.setAttribute('src', 'dist/assets/video/p5video_1440.mp4');
+}
+
+
 //Plyr Setup Code
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player',{
@@ -48,42 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   player.on('ready', event =>{
-    
-    // const laMonster = require('./sketches/laMonster.js');
-    // scene = new p5(laMonster);  
-    
-    // //  Freeze the game on load
-    // if(scene){
-    //   scene.frameRate(0);
-    // }
-    // lazy load the plyer poster
+
     let posterClass = document.getElementsByClassName('plyr__poster');
-    posterClass[0].classList.add('lazy-load-background')
-    
-    
-    console.log(player);
-    console.log(player.source);
-    console.log(player.options.quality[1])
-    console.log(player.source);
-    player.options.quality= 2;    
-    for(var i=0; i< player.options.quality.length ; i++){
-      // console.log(i);
-      //   if(document.documentElement.clientWidth <= player.options.quality[player.options.quality.length - i]){
-      //   console.log(player.options.quality[player.options.quality.length-1 - i])
-      //   console.log("its smaller?")
-      //   }
-      //   var videoQuality=i
-    }
-
-    console.log(player.sources);
-
+    posterClass[0].classList.add('lazy-load-background');  
     
   });
   
   // Triggered when video start
-  player.on('playing', event => {
-    
-    console.log(player)
+  player.on('playing', event => {    
     if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
       
       window.videoPlaying=true; 
@@ -161,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {time : 17.50, sketchfile: leaves},
     {time : 24.50, sketchfile: noSketch},
     {time : 24.75, sketchfile: pointillismLogo},
+    {time : 32.75, sketchfile: noSketch},
     {time : 33.00, sketchfile: wavemaker},
     {time : 38.25, sketchfile: stars},
     {time : 50.50, sketchfile: targetSketch},
@@ -186,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //Watch time in video and trigger P5 events 
   player.on('timeupdate', event => {
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
-    
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
     let multipleTimeInVideo = timeInVideo * 4
     let roundTimeInVideo = Math.round(multipleTimeInVideo)

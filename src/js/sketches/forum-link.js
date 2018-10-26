@@ -30,12 +30,13 @@ const forumLink = (p5) => {
 		// Create the upper link on load (note the styling is done with css)
 		forumLinkDiv = p5.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-link-upper sketch-link sketch-link-animation">' + forumLinkText + ' >> </div></a>');
 		forumLinkDiv.parent('video-overlay');
+		forumLinkDiv.class('test2');
 	};
 
 
 	p5.draw  = () => {
 		p5.clear();
-		// Create the lower link when the time is appropriate
+		// Create the lower link when the time is appropriate, if statement prevents it from continuously running
 		if(window.videoCurrentTimeGlobal>113){
 			if(linkHidden){
 			communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation">'+communityLinkText+' >> </a>');
