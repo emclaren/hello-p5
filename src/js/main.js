@@ -48,7 +48,8 @@ const credits = require('./sketches/credits.js');
 
 /*** Timing for starting each p5 sketch ***/
 let sceneChangeMap = [
-  {time : 0.00, sketchfile: laMonster},
+  {time : 0.00, sketchfile: noSketch},
+  {time : 0.25, sketchfile: laMonster},
   {time : 2.75, sketchfile: noSketch},
   {time : 5.00, sketchfile: visualizer },
   {time : 7.75, sketchfile: noSketch},
@@ -82,7 +83,7 @@ let sceneChangeMap = [
 ];
 
 /*** Dynamically adjust video size to download  ***/
-/* did not use Plyr code, as the size/quality feature was under active development */
+/* did not use Plyr code, as the size/quality f eature was under active development */
 let source = document.getElementById('mp4');
 if(document.documentElement.clientWidth <= 480){
   source.setAttribute('src', 'dist/assets/video/p5video_480.mp4');
@@ -118,11 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background');  
     // Add sketch on load so it will appear when you first press play, fixes glitch
-    scene = new p5(laMonster);  
+    // scene = new p5(laMonster);  
     // Freeze the sketch on load
-    if(scene){
-      scene.frameRate(0);
-    }
+    // if(scene){
+    //   scene.frameRate(0);
+    // }
+    // updateSketch(); 
   });
   
   /*** Plyr - triggered when video starts ***/
@@ -202,7 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
       } 
     } 
-    
     
     // Load a sketch if the current time of the video matches the timing array (Scene Change Map)
     function updateSketch(){
