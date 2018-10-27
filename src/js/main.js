@@ -47,7 +47,7 @@ const circleExplosion = require('./sketches/circle-explosion.js');
 const credits = require('./sketches/credits.js'); 
 
 /*** Timing for starting each p5 sketch ***/
-var sceneChangeMap = [
+let sceneChangeMap = [
   {time : 0.25, sketchfile: laMonster},
   {time : 2.75, sketchfile: noSketch},
   {time : 5.00, sketchfile: visualizer },
@@ -83,7 +83,7 @@ var sceneChangeMap = [
 
 /*** Dynamically adjust video size to download  ***/
 /* did not use Plyr code, as the size/quality feature was under active development */
-var source = document.getElementById('mp4');
+let source = document.getElementById('mp4');
 if(document.documentElement.clientWidth <= 480){
   source.setAttribute('src', 'dist/assets/video/p5video_480.mp4');
 }else if(document.documentElement.clientWidth <= 720){
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let roundTimeInVideo = Math.round(multipleTimeInVideo)
     videoCurrentTime=roundTimeInVideo/4;
     // // Uncomment this when testing:
-    // console.log("video current time" + videoCurrentTime)
+    console.log("video current time" + videoCurrentTime)
     window.videoCurrentTimeGlobal = videoCurrentTime; //create a global variable so that current time can be used within p5 sketches
     updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
     // This part plays the correct sketch if a user jumps to a different part of the video 
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Load a sketch if the current time of the video matches the timing array (Scene Change Map)
     function updateSketch(){
-      for(var i=0; i<sceneChangeMap.length; i++){
+      for(let i=0; i<sceneChangeMap.length; i++){
         if(videoCurrentTime==sceneChangeMap[i].time){
           // Remove any p5 sketches currently playing
           if(scene){
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     header.classList.add('french'); //"french" class name is used to decrease header font size when French is selected
   };
   
-  function languageToggle(){
+    let languageToggle = () =>{
     //"french" class name is used to decrease header font size when French is selected, should be removed from EN & ES, and applied for FR
     header.classList.remove('french'); 
     
