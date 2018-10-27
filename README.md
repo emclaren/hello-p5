@@ -10,7 +10,7 @@ hello.p5js.org is likely to be many users’ first introduction to p5.js (and po
 ## Shout Outs
 I would like to thank my mentor Evelyn Masso, and Lauren McCarthy for their support and feedback. I would also like to acknowledge the awesome community members who contributed survey responses, videos and code:
 
-### Video Participants
+### Video & Code Contributors
 Mayra Barrera Machuca
 Uddipana Baishya
 Punyashlok Dash
@@ -22,6 +22,8 @@ Kate Hollenbach
 Vincent Hopkins
 Cat Janowitz
 Brennan Jones
+Sam Kissee
+Ginger Kretschmer
 Peter Manson
 Seyitan Oke
 Suraj Rai
@@ -33,7 +35,6 @@ STEM Coding
 Other members of the p5 community
 Music By Ah, Venice
 Video Consulting by Joey Chaos
-
 
 
 ## Tasks Completed

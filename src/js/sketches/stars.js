@@ -1,8 +1,7 @@
 /*********************
 // Stars
 // Description: Draws ellipses in a circle on the screen with a cutout for the video
-// Credit: waiting for release
-// Link: 
+// Credit: @reona396, source https://www.openprocessing.org/sketch/559382
 *********************/
 
 const stars = (p5) => {
@@ -22,6 +21,12 @@ const stars = (p5) => {
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
     p5.noStroke();
+    // fewer stars on mobile to help performance
+    if(p5.width>900){
+      starsNum = 600;
+     }else{
+      starsNum = 250;
+     }
     // Add new stars to the stars array in the different colors
     for (let i = 0; i < starsNum; i++) {
       // make 1/3 of stars each color

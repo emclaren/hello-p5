@@ -1,8 +1,9 @@
 /*********************
 // Rainbow
-// Description: Draws randomly coloured hearts on screen 
-// Credit: waiting for release
+// Description: 
+// Credit: https://www.openprocessing.org/sketch/565531 
 *********************/
+
 
 const rainbow = (p5) => {
 	let offset; //thickness of rainbow lines

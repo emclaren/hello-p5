@@ -2,7 +2,7 @@
 // Sin Lines
 // Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness. 
 // Credit: Based on sketch by waiting for release
-// Link:
+// Link: https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
 *********************/
 
 const sinLines = (p5) => {

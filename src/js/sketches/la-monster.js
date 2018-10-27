@@ -1,4 +1,11 @@
-const p5play = require('./play.js');
+/*********************
+// La Monster Club Sketch
+// Description: Game starring adorable monsters, direction & speed of monster changes based on mouse position 
+// Credit: Seyitan Oke, source: http://oke.design/lamonsters
+*********************/
+
+
+const p5play = require('./sketch-libraries/play.js');
 
 var laMonster= function(p5){
 	let monsterlooBackground; // background image
@@ -8,26 +15,28 @@ var laMonster= function(p5){
 	let monster; // game spirte
 	let fade = 0 ;  // variable to fade in/out the sketch
 	let magicX; // speed the character
-	
-	
+	let windowWidth;
+	let windowHeight;
+
+	// preload images so there is less delay once the sketch starts to when it's visible
 	p5.preload = () => {
+		windowWidth = document.documentElement.clientWidth / 2.8;
+		windowHeight = (document.documentElement.clientWidth  * 0.562)/2;
 		monsterlooBackground = p5.loadImage("dist/assets/img/MonsterLoo_Background.png"); // preload the background image
+		monster = p5.createSprite(windowWidth/2, windowHeight/1.25, 40, 40); // location of monster sprite
+		monster.addAnimation("floating", "dist/assets/img/laMonsterLeftStanding_1.png", "dist/assets/img/laMonsterLeftStanding_5.png"); 
+		monster.addAnimation("right", "dist/assets/img/laMonsterLeftMove_1.png", "dist/assets/img/laMonsterLeftMove_9.png");
+		standmonster = p5.createSprite(windowWidth*1.8, windowHeight/1.2);  // pink monster in the background location
+		standmonster.addAnimation("normal", "dist/assets/img/laMonsterBackgroundSprite.png"); //pink monster iamage
 	};
 	
 	p5.setup = () => {
 		p5.pixelDensity(1);
-		p5.windowWidth = document.documentElement.clientWidth;
-		p5.windowHeight = p5.windowWidth  * 0.562;
-		p5.canvas= p5.createCanvas(p5.windowWidth/2.8, p5.windowHeight/2);
+		p5.canvas= p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
 		p5.canvas.addClass('la-monster-sketch'); // Add class to add margin to the canvas
-		monster = p5.createSprite( p5.width/2, p5.height/1.25, 40, 40); // location of monster sprite
-		monster.addAnimation("floating", "dist/assets/img/laMonsterLeftStanding_1.png", "dist/assets/img/laMonsterLeftStanding_5.png"); 
-		monster.addAnimation("right", "dist/assets/img/laMonsterLeftMove_1.png", "dist/assets/img/laMonsterLeftMove_9.png");
 		monster.depth = 5; // the z-index of the characters
 		monster.scale = p5.width/2000; //reduce the size of the monster
-		standmonster = p5.createSprite(p5.width*1.8, p5.height/1.2);  // pink monster in the background location
-		standmonster.addAnimation("normal", "dist/assets/img/laMonsterBackgroundSprite.png"); //pink monster iamage
 		standmonster.depth = 3; // the z-index of the characters
 		standmonster.scale = p5.width/2000; //reduce the size of the monster
 		magicX = p5.width/3; // initial character position
@@ -35,6 +44,12 @@ var laMonster= function(p5){
 	};
 	
 	p5.draw = () => {
+		p5.image(monsterlooBackground, -p5.width/3, 0, p5.height*6, p5.height); // position the background
+		p5.monsterdraw(); 
+		p5.cameraview(); 
+		p5.drawSprites();
+		p5.camera.on();
+
 		// fade in the sketch using an overlapping rectangle
 		if(fade < 255){
 			fade += 10;
@@ -44,15 +59,7 @@ var laMonster= function(p5){
 			fade -= 30;
 		}	
 		p5.fill(255,255,255,255-fade);
-		p5.rect(0, 0, p5.width * 5, p5.height);
-
-
-		p5.image(monsterlooBackground, -p5.width/3, 0, p5.height*6, p5.height); // position the background
-		p5.monsterdraw(); 
-		p5.cameraview(); 
-		p5.drawSprites();
-		p5.camera.on();
-
+		p5.rect(-p5.width, 0 , p5.width  * 5, p5.height);
 	};
 	
 	p5.cameraview = () => {	
@@ -72,7 +79,7 @@ var laMonster= function(p5){
 		} 
 		else if ( p5.mouseX < 200){
 			fastmove = false;
-			if( p5.camera.position.x > p5.mouseX){
+			if( p5.camera.position.x > p5.mouseX){ 
 				magicX -= 3; //move sprite
 			}	
 		} 
@@ -113,7 +120,5 @@ var laMonster= function(p5){
 		}
 	};
 };
-
-
 
 module.exports= laMonster;

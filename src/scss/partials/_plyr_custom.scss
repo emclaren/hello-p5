@@ -9,7 +9,7 @@ CUSTOM OVERRIDE OF PLYR DEFAULT STYLES
     z-index:500;
 }
 
-.plyr__control--overlaid:hover, .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]{
+.plyr__control--overlaid:hover, .plyr__control--overlaid:focus, .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]{
     background: $brand-color-hover;
 }
 

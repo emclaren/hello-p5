@@ -1,8 +1,9 @@
 /*********************
-// Waves: 
+// Waves
 // Description: Draws interactive waves on the screen
-// Credit: @reona396
+// Credit: @reona396 https://www.openprocessing.org/sketch/521545
 *********************/
+
 const waves = (p5) => {
   let waves = []; //array to store the waves
   let waveNumber = 0; 
@@ -27,7 +28,12 @@ const waves = (p5) => {
   p5.draw = () => {
     p5.clear();
     let mouseDistance = p5.dist(p5.mouseX, p5.mouseY, p5.width/2, p5.height/2); //measure distance of the mouse from the center of the page
+   // fewer waves on mobile to help performance
+    if(p5.width>900){
     waveNumber = p5.map(mouseDistance, 0, p5.width/2, 0, 30);//use the distance to determine the number of waves on the screen
+   }else{
+    waveNumber = p5.map(mouseDistance, 0, p5.width/2, 0, 10);//use the distance to determine the number of waves on the screen
+   }
     // display the correct number of waves on the screen
     for(let i = 0; i < waveNumber; i++){
       waves[i].display();

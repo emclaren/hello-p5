@@ -1,8 +1,7 @@
 /*********************
 // P5 Logo Pointillism
 // Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
-// Credit: Based on sketch by Daniel Shiffman
-// Link: https://p5jp5.org/examples/image-pointillism.html
+// Credit: P5 example sketch by Daniel Shiffman, source: https://p5jp5.org/examples/image-pointillism.html
 *********************/
 
 const pointillismLogo = (p5) => {
@@ -28,6 +27,12 @@ const pointillismLogo = (p5) => {
     p5.canvas.parent('video-overlay');
     img.loadPixels();
     p5.noStroke();
+    // reduce the number of dots printed on mobile to improve performance
+    if(windowWidth>900){
+      dotNumber = 20;
+       }else{
+        dotNumber = 10;
+      }
   };
 
   p5.draw  = () => {

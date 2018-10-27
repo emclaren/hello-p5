@@ -27,7 +27,7 @@ const webeditorLink = (p5) => {
 			downloadLinkText = "Download";
 		}
 		// Create the upper link on load (note the styling is done with css)
-		webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation">' + webeditorLinkText + ' >> </div></a>');
+		webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation"><span>' + webeditorLinkText + '</span> >> </div></a>');
 		webeditorLinkDiv.parent('video-overlay');
 	};
 
@@ -37,7 +37,7 @@ const webeditorLink = (p5) => {
 		// Create the lower link when the time is appropriate
 		if(window.videoCurrentTimeGlobal>98){
 			if(linkHidden){
-			downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation">' + downloadLinkText + ' >> </div></a>');
+			downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + downloadLinkText + '</span> >> </div></a>');
 			downloadLinkDiv.parent('video-overlay');
 			linkHidden = false;
 			}

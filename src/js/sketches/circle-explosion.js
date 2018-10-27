@@ -1,7 +1,6 @@
 /*********************
 // Circle Explosion
-// Description: Draws random exploding circles on the screen 
-// Credit: waiting for release
+// Description: Draws random exploding circles on the screen. After a set amount of time, the circles grow in size and the p5 logo appears
 *********************/
 
 const circleExplosion = (p5) => {
@@ -53,7 +52,7 @@ const circleExplosion = (p5) => {
 			}
 			// Make the circle increase in size at the end of the sketch
 			else{
-				strokeThickness += 3.5;
+				// strokeThickness += 3.5;
 				p5.strokeWeight(strokeThickness);
 			}
 			// Make circles near center less opaque than those far away

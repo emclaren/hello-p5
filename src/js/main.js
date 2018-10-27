@@ -1,3 +1,4 @@
+/*** Loading CSS Animation turns off when page is ready ***/
 window.addEventListener("load", function(event) { 
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
@@ -8,48 +9,95 @@ window.addEventListener("load", function(event) {
   }, 3000);
 });
 
-
-
-
-// required JS libraries
+/*** Required JS libraries ***/
 const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code, note it breaks if you try to use the minified version of the file. 
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
 
+
+/*** Variables ***/
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
 let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas overlay
-
 const header = document.querySelector('.header'); // For changing header styling on "play", and language change
-
 let languageArray; // For toggling the text in the header on language change
-
 let scene; // Name of current p5 sketch
 let noSketch; // Placeholder variable when no p5 sketch required
 
+/*** Import P5 Sketch Files ***/
+const laMonster = require('./sketches/la-monster');
+const visualizer = require('./sketches/visualizer.js');
+const helloP5Title = require('./sketches/hello-p5-title.js');
+const heartAnimation = require('./sketches/heart-animation.js');
+const leaves = require('./sketches/leaves.js');
+const pointillismLogo = require('./sketches/pointillism-logo.js');
+const wavemaker = require('./sketches/wavemaker.js');
+const stars = require('./sketches/stars.js');
+const targetSketch = require('./sketches/target-sketch.js');
+const rainbow = require('./sketches/rainbow.js');
+const singleCircle= require('./sketches/single-circle.js');
+const manyDots = require('./sketches/many-dots.js');
+const sinLines = require('./sketches/sin-lines.js');
+const rectangles = require('./sketches/rectangles.js');
+const lerpColor = require('./sketches/lerpColor.js');
+const waves = require('./sketches/waves.js');
+const forumLink = require('./sketches/forum-link.js');
+const webEditorLink = require('./sketches/webeditor-link.js');
+const circleExplosion = require('./sketches/circle-explosion.js');
+const credits = require('./sketches/credits.js'); 
 
+/*** Timing for starting each p5 sketch ***/
+var sceneChangeMap = [
+  {time : 0.25, sketchfile: laMonster},
+  {time : 2.75, sketchfile: noSketch},
+  {time : 5.00, sketchfile: visualizer },
+  {time : 7.75, sketchfile: noSketch},
+  {time : 8.00, sketchfile: helloP5Title},
+  {time : 9.75, sketchfile: noSketch},
+  {time : 10.75, sketchfile: heartAnimation},
+  {time : 17.50, sketchfile: leaves},
+  {time : 24.50, sketchfile: noSketch},
+  {time : 24.75, sketchfile: pointillismLogo},
+  {time : 32.75, sketchfile: noSketch},
+  {time : 33.00, sketchfile: wavemaker},
+  {time : 38.25, sketchfile: stars},
+  {time : 50.50, sketchfile: targetSketch},
+  {time : 53.75, sketchfile: rainbow},
+  {time : 56.00, sketchfile: noSketch},
+  {time : 56.5, sketchfile: singleCircle},
+  {time : 63.25, sketchfile: manyDots},
+  {time : 75.25, sketchfile: noSketch},
+  {time : 78.50, sketchfile: sinLines},
+  {time : 85.25, sketchfile: noSketch},
+  {time : 89.50, sketchfile: rectangles},
+  {time : 93, sketchfile: noSketch},
+  {time : 94.5, sketchfile: webEditorLink},
+  {time : 103.25, sketchfile:lerpColor},
+  {time : 109, sketchfile: forumLink},
+  {time : 116.25, sketchfile: waves},
+  {time : 121.75, sketchfile: circleExplosion},
+  {time : 136.5, sketchfile: noSketch},
+  {time : 142, sketchfile: credits},
+  {time : 168, sketchfile: noSketch},
+];
 
-// <!-- Did not use Plyr code, as the size/quality feature was under development -->
+/*** Dynamically adjust video size to download  ***/
+/* did not use Plyr code, as the size/quality feature was under active development */
 var source = document.getElementById('mp4');
-
 if(document.documentElement.clientWidth <= 480){
-  
   source.setAttribute('src', 'dist/assets/video/p5video_480.mp4');
 }else if(document.documentElement.clientWidth <= 720){
-  
   source.setAttribute('src', 'dist/assets/video/p5video_720.mp4');
 }
 else if(document.documentElement.clientWidth <= 720){
-  
   source.setAttribute('src', 'dist/assets/video/p5video_1080.mp4');
 }
 else{
-  
   source.setAttribute('src', 'dist/assets/video/p5video_1440.mp4');
 }
 
 
-//Plyr Setup Code
+/*** Plyr Set-up code ***/
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player',{
     "debug":false,
@@ -66,18 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  
   player.on('ready', event =>{
-
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background');  
-    
   });
   
-  // Triggered when video start
+  /*** Plyr - triggered when video starts ***/
   player.on('playing', event => {    
     if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
-      
       window.videoPlaying=true; 
       // adds the class of hide on play, to make the header shrink on play
       let header = document.querySelector('.header');
@@ -104,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   
-  // Triggered when video paused
+  /*** Plyr - triggered on video pause ***/
   player.on('pause', event => {
     window.videoPlaying=false; 
     // make the css animation in the credits pause when the sketch is paused
@@ -119,80 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
     videoPlaying=false; 
   });
   
-  
-  // Import P5 Sketch Files
-  const laMonster = require('./sketches/la-monster');
-  const visualizer = require('./sketches/visualizer.js');
-  const helloP5Title = require('./sketches/hello-p5-title.js');
-  const heartAnimation = require('./sketches/heart-animation.js');
-  const leaves = require('./sketches/leaves.js');
-  const pointillismLogo = require('./sketches/pointillism-logo.js');
-  const wavemaker = require('./sketches/wavemaker.js');
-  const stars = require('./sketches/stars.js');
-  const targetSketch = require('./sketches/target-sketch.js');
-  const rainbow = require('./sketches/rainbow.js');
-  const singleCircle= require('./sketches/single-circle.js');
-  const manyDots = require('./sketches/many-dots.js');
-  const sinLines = require('./sketches/sin-lines.js');
-  const rectangles = require('./sketches/rectangles.js');
-  const lerpColor = require('./sketches/lerpColor.js');
-  const waves = require('./sketches/waves.js');
-  const forumLink = require('./sketches/forum-link.js');
-  const webEditorLink = require('./sketches/webeditor-link.js');
-  const circleExplosion = require('./sketches/circle-explosion.js');
-  const credits = require('./sketches/credits.js'); 
-  
-  var sceneChangeMap = [
-    {time : 0.25, sketchfile: laMonster},
-    {time : 2.75, sketchfile: noSketch},
-    {time : 5.00, sketchfile: visualizer },
-    {time : 7.75, sketchfile: noSketch},
-    {time : 8.00, sketchfile: helloP5Title},
-    {time : 9.75, sketchfile: noSketch},
-    {time : 10.75, sketchfile: heartAnimation},
-    {time : 17.50, sketchfile: leaves},
-    {time : 24.50, sketchfile: noSketch},
-    {time : 24.75, sketchfile: pointillismLogo},
-    {time : 32.75, sketchfile: noSketch},
-    {time : 33.00, sketchfile: wavemaker},
-    {time : 38.25, sketchfile: stars},
-    {time : 50.50, sketchfile: targetSketch},
-    {time : 53.75, sketchfile: rainbow},
-    {time : 56.00, sketchfile: noSketch},
-    {time : 56.5, sketchfile: singleCircle},
-    {time : 63.25, sketchfile: manyDots},
-    {time : 75.25, sketchfile: noSketch},
-    {time : 78.50, sketchfile: sinLines},
-    {time : 85.25, sketchfile: noSketch},
-    {time : 89.50, sketchfile: rectangles},
-    {time : 93, sketchfile: noSketch},
-    {time : 94.5, sketchfile: webEditorLink},
-    {time : 103.25, sketchfile:lerpColor},
-    {time : 109, sketchfile: forumLink},
-    {time : 116.25, sketchfile: waves},
-    {time : 121.75, sketchfile: circleExplosion},
-    {time : 136.5, sketchfile: noSketch},
-    {time : 142, sketchfile: credits},
-    {time : 168, sketchfile: noSketch},
-  ];
-  
-  //Watch time in video and trigger P5 events 
+  /*** Plyr - triggered 4 times every second while playing, this is used to trigger p5 events ***/  
   player.on('timeupdate', event => {
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
     let multipleTimeInVideo = timeInVideo * 4
     let roundTimeInVideo = Math.round(multipleTimeInVideo)
     videoCurrentTime=roundTimeInVideo/4;
-    
-    // Useful for testing
+    // // Uncomment this when testing:
     // console.log("video current time" + videoCurrentTime)
-    
     window.videoCurrentTimeGlobal = videoCurrentTime; //create a global variable so that current time can be used within p5 sketches
     updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
-    
     // This part plays the correct sketch if a user jumps to a different part of the video 
     if(videoTimeSeeked){
-      
       for(let i=0; i< sceneChangeMap.length;i++){
         if(videoCurrentTime >= sceneChangeMap[i].time  && videoCurrentTime < sceneChangeMap[i+1].time){
           videoCurrentTime = sceneChangeMap[i].time ;
@@ -215,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } 
     
     
-    // Load a sketch if the current time of the video matches the list of sketches above
+    // Load a sketch if the current time of the video matches the timing array (Scene Change Map)
     function updateSketch(){
       for(var i=0; i<sceneChangeMap.length; i++){
         if(videoCurrentTime==sceneChangeMap[i].time){
@@ -259,13 +242,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  
   // Enable video pause by clicking on a sketch:
   // required because the video by clicking on video to pause is obstructed by P5 cavas overlay
   document.getElementById('video-overlay').onclick=function(){
     if(videoPlaying){
       player.pause();
-      
     }else{
       player.play();
     }
@@ -294,8 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
     languageToggle();
     header.classList.add('french'); //"french" class name is used to decrease header font size when French is selected
   };
-  
-  
   
   function languageToggle(){
     //"french" class name is used to decrease header font size when French is selected, should be removed from EN & ES, and applied for FR

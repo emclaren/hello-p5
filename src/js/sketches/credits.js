@@ -1,7 +1,6 @@
 /*********************
 // Credits Sketch
-// Description: Credits pan up the screen while random interactive circles explode on the screen 
-// Credit: Elgin-Skye McLaren
+// Description: Creates movie-credits style text. Text pans up the screen while random interactive circles explode in the background
 *********************/
 
 const credits = (p5) => {
@@ -31,14 +30,9 @@ const credits = (p5) => {
 			circle[i].display();
 		}   
 
-
-	
-
-
-
     // only let the credits div get created once, styling is done using CSS
     if(creditsHidden){
-			let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div><div class=\'credits-name\'>Uddipana Baishya</div><div class=\'credits-name\'>Mayra Barrera Machuca</div> <div class=\'credits-name\'>Punyashlok Dash</div>	<div class=\'credits-name\'>Miguel Elizalde</div>			<div class=\'credits-name\'>Tristan Espinoza</div>			<div class=\'credits-name\'>Max Frischknecht & Philipp Möckli (Début Début)</div>			<div class=\'credits-name\'>Dongqi Han</div> 	<div class=\'credits-name\'>Kate Hollenbach</div>			<div class=\'credits-name\'>Vincent Hopkins</div>	<div class=\'credits-name\'>Cat Janowitz</div>			<div class=\'credits-name\'>Brennan Jones</div> 	<div class=\'credits-name\'>Peter Manson</div>			<div class=\'credits-name\'>Seyitan Oke</div>	<div class=\'credits-name\'>Suraj Rai</div><div class=\'credits-name\'>@reona396</div>  <div class=\'credits-name\'>Eliza Struthers-jobin</div> 	 <div class=\'credits-name\'>Sailor Winkelman</div>			 <div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> 		<div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'>Plus more members of the p5 community</div><div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div>  <div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div> </div> ');
+			let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div>	<div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div>	<br> <div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div><div class=\'credits-name\'>Uddipana Baishya</div> <div class=\'credits-name\'>Punyashlok Dash</div>	<div class=\'credits-name\'>Miguel Elizalde</div>			<div class=\'credits-name\'>Tristan Espinoza</div>			<div class=\'credits-name\'>Max Frischknecht & Philipp Möckli (Début Début)</div>			<div class=\'credits-name\'>Dongqi Han</div> 	<div class=\'credits-name\'>Kate Hollenbach</div>			<div class=\'credits-name\'>Vincent Hopkins</div>	<div class=\'credits-name\'>Cat Janowitz</div>			<div class=\'credits-name\'>Brennan Jones</div> <div class=\'credits-name\'>Sam Kissee</div><div class=\'credits-name\'>ZK</div>		<div class=\'credits-name\'>Ginger Kretschmer</div>				<div class=\'credits-name\'>Seyitan Oke</div>	<div class=\'credits-name\'>Suraj Rai</div><div class=\'credits-name\'>@reona396</div>  <div class=\'credits-name\'>Eliza Struthers-jobin</div> <div class=\'credits-name\'>DW</div>		 <div class=\'credits-name\'>Sailor Winkelman</div>			 <div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> 		<div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'> + more members of the p5 community</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div> <div class=\'credits-title\'>Translation </div> <div class=\'credits-name\'>Mayra Barrera Machuca</div> <div class=\'credits-title\'> Translation </div> <div class=\'credits-name\'>Peter Manson</div>  </div> ');
       p5SketchCredits.parent('container');
       p5SketchCredits.addClass("p5-sketch-logo-parent");
       creditsHidden = false;

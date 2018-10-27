@@ -1,7 +1,7 @@
 /*********************
-// Heart Animation
-// Description: Draws randomly coloured hearts on screen 
-// Credit: waiting for release
+// Heart Animation Sketch
+// Description: Draws randomly coloured, interactive hearts on screen 
+// Credit: @reona396, source: https://www.openprocessing.org/sketch/561609
 *********************/
 
 const heart = (p5) => {

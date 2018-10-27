@@ -1,7 +1,6 @@
 /*********************
 // Many Dots
 // Description: Draws interactive dots on the screen
-// Credit: 
 *********************/
 
 const manyDots = (p5) => {

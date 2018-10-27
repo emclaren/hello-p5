@@ -1,8 +1,6 @@
 /*********************
 // Rectangles
 // Description: Fading Rectangles into the center of the screen
-// Credit: Based on sketch by awaiting confirmation
-// Link: Insert Link
 *********************/
 
 const rectangles = (p5) => {

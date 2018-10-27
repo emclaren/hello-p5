@@ -119,6 +119,9 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 		margin:3.5rem auto 1.5rem auto;
 		max-width:6rem;	
 	}
+	header nav{
+		display:block; //fixes the glitch on firefox that adds extra space to bottom of the li items
+	}
 }
 
 

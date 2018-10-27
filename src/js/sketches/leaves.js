@@ -1,20 +1,27 @@
 /*********************
 // Leaves
-// Description: Draws randomly falling leaves 
-// Credit: @reona396
+// Description: Draws randomly falling confetti-like leaves 
+// Credit: based on a sketch by @reona396 https://www.openprocessing.org/sketch/521545
 *********************/
+
 const leaves = (p5) => {  
   let sakuraNum = 100; // number of leaf objects
   let fubuki = []; // array of leaf objects
   let colors = [];  // array containing the colors
   let vertexPoint;
-  p5.setup  = () => {
-    
+  
+  p5.setup  = () => {  
     p5.pixelDensity(1);
     let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
+    // fewer leaves on mobile to help performance
+    if(p5.width>900){
+      sakuraNum  = 100;
+    }else{
+      sakuraNum  = 60;
+    }
     for (let i = 0; i < sakuraNum; i++) {
       fubuki.push(new p5.Sakura());
     }
@@ -108,7 +115,6 @@ const leaves = (p5) => {
 
 
 module.exports = leaves;
-
 
 
 

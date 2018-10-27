@@ -1,6 +1,7 @@
 /*********************
 // Single Circle
 // Description: Pulsing Circle & Example Code Block
+Credit NA
 *********************/
 
 var singleCircle = function(p5) {

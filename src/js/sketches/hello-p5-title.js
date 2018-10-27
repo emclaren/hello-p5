@@ -1,7 +1,7 @@
 /*********************
 // Hello P5 Title Sketch
 // Description: Interactive Title Text for the Video
-// Credit: waiting for release
+// Credit: Based on a sketch by , source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
 *********************/
 
 

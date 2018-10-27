@@ -1,8 +1,7 @@
 /*********************
 // Wavemaker
-// Description: Draws randomly coloured hearts on screen 
-// Credit: 
-// Link: https://p5js.org/examples/interaction-wavemaker.html
+// Description: Draws a wavey interactive grid of rectangles around the perimeter of the screen
+// Credit: Based on the P5js Wavemaker example by Aatish Bhatia  https://p5js.org/examples/interaction-wavemaker.html
 *********************/
 
 const wavemaker = (p5) => {

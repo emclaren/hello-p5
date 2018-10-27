@@ -81588,6 +81588,7 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],4:[function(require,module,exports){
+/*** Loading CSS Animation turns off when page is ready ***/
 window.addEventListener("load", function(event) { 
   setTimeout(function(){
     document.getElementById("body").classList.add("loaded");
@@ -81598,48 +81599,95 @@ window.addEventListener("load", function(event) {
   }, 3000);
 });
 
-
-
-
-// required JS libraries
+/*** Required JS libraries ***/
 const Plyr = require('plyr'); //Plyr Video Player Source Code
 const p5 = require('p5'); // P5 Source Code, note it breaks if you try to use the minified version of the file. 
 const p5dom = require('../../node_modules/p5/lib/addons/p5.dom.min');//P5 Dom Source Code
 
+
+/*** Variables ***/
 let videoCurrentTime=0; // For keeping track of current time from plyr video playback
 let videoTimeSeeked = false; // For adjusting the sketch if user jumps to different time in the video
 let videoPlaying=false;  // For toggling plyr playback by clicking on the canvas overlay
-
 const header = document.querySelector('.header'); // For changing header styling on "play", and language change
-
 let languageArray; // For toggling the text in the header on language change
-
 let scene; // Name of current p5 sketch
 let noSketch; // Placeholder variable when no p5 sketch required
 
+/*** Import P5 Sketch Files ***/
+const laMonster = require('./sketches/la-monster');
+const visualizer = require('./sketches/visualizer.js');
+const helloP5Title = require('./sketches/hello-p5-title.js');
+const heartAnimation = require('./sketches/heart-animation.js');
+const leaves = require('./sketches/leaves.js');
+const pointillismLogo = require('./sketches/pointillism-logo.js');
+const wavemaker = require('./sketches/wavemaker.js');
+const stars = require('./sketches/stars.js');
+const targetSketch = require('./sketches/target-sketch.js');
+const rainbow = require('./sketches/rainbow.js');
+const singleCircle= require('./sketches/single-circle.js');
+const manyDots = require('./sketches/many-dots.js');
+const sinLines = require('./sketches/sin-lines.js');
+const rectangles = require('./sketches/rectangles.js');
+const lerpColor = require('./sketches/lerpColor.js');
+const waves = require('./sketches/waves.js');
+const forumLink = require('./sketches/forum-link.js');
+const webEditorLink = require('./sketches/webeditor-link.js');
+const circleExplosion = require('./sketches/circle-explosion.js');
+const credits = require('./sketches/credits.js'); 
 
+/*** Timing for starting each p5 sketch ***/
+var sceneChangeMap = [
+  {time : 0.25, sketchfile: laMonster},
+  {time : 2.75, sketchfile: noSketch},
+  {time : 5.00, sketchfile: visualizer },
+  {time : 7.75, sketchfile: noSketch},
+  {time : 8.00, sketchfile: helloP5Title},
+  {time : 9.75, sketchfile: noSketch},
+  {time : 10.75, sketchfile: heartAnimation},
+  {time : 17.50, sketchfile: leaves},
+  {time : 24.50, sketchfile: noSketch},
+  {time : 24.75, sketchfile: pointillismLogo},
+  {time : 32.75, sketchfile: noSketch},
+  {time : 33.00, sketchfile: wavemaker},
+  {time : 38.25, sketchfile: stars},
+  {time : 50.50, sketchfile: targetSketch},
+  {time : 53.75, sketchfile: rainbow},
+  {time : 56.00, sketchfile: noSketch},
+  {time : 56.5, sketchfile: singleCircle},
+  {time : 63.25, sketchfile: manyDots},
+  {time : 75.25, sketchfile: noSketch},
+  {time : 78.50, sketchfile: sinLines},
+  {time : 85.25, sketchfile: noSketch},
+  {time : 89.50, sketchfile: rectangles},
+  {time : 93, sketchfile: noSketch},
+  {time : 94.5, sketchfile: webEditorLink},
+  {time : 103.25, sketchfile:lerpColor},
+  {time : 109, sketchfile: forumLink},
+  {time : 116.25, sketchfile: waves},
+  {time : 121.75, sketchfile: circleExplosion},
+  {time : 136.5, sketchfile: noSketch},
+  {time : 142, sketchfile: credits},
+  {time : 168, sketchfile: noSketch},
+];
 
-// <!-- Did not use Plyr code, as the size/quality feature was under development -->
+/*** Dynamically adjust video size to download  ***/
+/* did not use Plyr code, as the size/quality feature was under active development */
 var source = document.getElementById('mp4');
-
 if(document.documentElement.clientWidth <= 480){
-  
   source.setAttribute('src', 'dist/assets/video/p5video_480.mp4');
 }else if(document.documentElement.clientWidth <= 720){
-  
   source.setAttribute('src', 'dist/assets/video/p5video_720.mp4');
 }
 else if(document.documentElement.clientWidth <= 720){
-  
   source.setAttribute('src', 'dist/assets/video/p5video_1080.mp4');
 }
 else{
-  
   source.setAttribute('src', 'dist/assets/video/p5video_1440.mp4');
 }
 
 
-//Plyr Setup Code
+/*** Plyr Set-up code ***/
 document.addEventListener('DOMContentLoaded', () => { 
   const player = new Plyr('#player',{
     "debug":false,
@@ -81656,21 +81704,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  
   player.on('ready', event =>{
-
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background');  
-    
   });
   
-  // Triggered when video start
-  player.on('playing', event => {
-    
-    console.log(player)
-    
+  /*** Plyr - triggered when video starts ***/
+  player.on('playing', event => {    
     if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
-      
       window.videoPlaying=true; 
       // adds the class of hide on play, to make the header shrink on play
       let header = document.querySelector('.header');
@@ -81697,7 +81738,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   
-  // Triggered when video paused
+  /*** Plyr - triggered on video pause ***/
   player.on('pause', event => {
     window.videoPlaying=false; 
     // make the css animation in the credits pause when the sketch is paused
@@ -81712,82 +81753,19 @@ document.addEventListener('DOMContentLoaded', () => {
     videoPlaying=false; 
   });
   
-  
-  // Import P5 Sketch Files
-  const laMonster = require('./sketches/la-monster');
-  const visualizer = require('./sketches/visualizer.js');
-  const helloP5Title = require('./sketches/hello-p5-title.js');
-  const heartAnimation = require('./sketches/heart-animation.js');
-  const leaves = require('./sketches/leaves.js');
-  const pointillismLogo = require('./sketches/pointillism-logo.js');
-  const wavemaker = require('./sketches/wavemaker.js');
-  const stars = require('./sketches/stars.js');
-  const targetSketch = require('./sketches/target-sketch.js');
-  const rainbow = require('./sketches/rainbow.js');
-  const singleCircle= require('./sketches/single-circle.js');
-  const manyDots = require('./sketches/many-dots.js');
-  const sinLines = require('./sketches/sin-lines.js');
-  const rectangles = require('./sketches/rectangles.js');
-  const lerpColor = require('./sketches/lerpColor.js');
-  const waves = require('./sketches/waves.js');
-  const forumLink = require('./sketches/forum-link.js');
-  const webEditorLink = require('./sketches/webeditor-link.js');
-  const circleExplosion = require('./sketches/circle-explosion.js');
-  const credits = require('./sketches/credits.js'); 
-  
-  var sceneChangeMap = [
-    {time : 0.25, sketchfile: laMonster},
-    {time : 2.75, sketchfile: noSketch},
-    {time : 5.00, sketchfile: visualizer },
-    {time : 7.75, sketchfile: noSketch},
-    {time : 8.00, sketchfile: helloP5Title},
-    {time : 9.75, sketchfile: noSketch},
-    {time : 10.75, sketchfile: heartAnimation},
-    {time : 17.50, sketchfile: leaves},
-    {time : 24.50, sketchfile: noSketch},
-    {time : 24.75, sketchfile: pointillismLogo},
-    {time : 32.75, sketchfile: noSketch},
-    {time : 33.00, sketchfile: wavemaker},
-    {time : 38.25, sketchfile: stars},
-    {time : 50.50, sketchfile: targetSketch},
-    {time : 53.75, sketchfile: rainbow},
-    {time : 56.00, sketchfile: noSketch},
-    {time : 56.5, sketchfile: singleCircle},
-    {time : 63.25, sketchfile: manyDots},
-    {time : 75.25, sketchfile: noSketch},
-    {time : 78.50, sketchfile: sinLines},
-    {time : 85.25, sketchfile: noSketch},
-    {time : 89.50, sketchfile: rectangles},
-    {time : 93, sketchfile: noSketch},
-    {time : 94.5, sketchfile: webEditorLink},
-    {time : 103.25, sketchfile:lerpColor},
-    {time : 109, sketchfile: forumLink},
-    {time : 116.25, sketchfile: waves},
-    {time : 121.75, sketchfile: circleExplosion},
-    {time : 136.5, sketchfile: noSketch},
-    {time : 142, sketchfile: credits},
-    {time : 168, sketchfile: noSketch},
-  ];
-  
-  //Watch time in video and trigger P5 events 
+  /*** Plyr - triggered 4 times every second while playing, this is used to trigger p5 events ***/  
   player.on('timeupdate', event => {
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
-    console.log(event.detail.quality)// not a thing
-    console.log(event.detail.plyr.quality)// not a thing
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
     let multipleTimeInVideo = timeInVideo * 4
     let roundTimeInVideo = Math.round(multipleTimeInVideo)
     videoCurrentTime=roundTimeInVideo/4;
-    
-    // Useful for testing
+    // // Uncomment this when testing:
     // console.log("video current time" + videoCurrentTime)
-    
     window.videoCurrentTimeGlobal = videoCurrentTime; //create a global variable so that current time can be used within p5 sketches
     updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
-    
     // This part plays the correct sketch if a user jumps to a different part of the video 
     if(videoTimeSeeked){
-      
       for(let i=0; i< sceneChangeMap.length;i++){
         if(videoCurrentTime >= sceneChangeMap[i].time  && videoCurrentTime < sceneChangeMap[i+1].time){
           videoCurrentTime = sceneChangeMap[i].time ;
@@ -81810,7 +81788,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } 
     
     
-    // Load a sketch if the current time of the video matches the list of sketches above
+    // Load a sketch if the current time of the video matches the timing array (Scene Change Map)
     function updateSketch(){
       for(var i=0; i<sceneChangeMap.length; i++){
         if(videoCurrentTime==sceneChangeMap[i].time){
@@ -81854,13 +81832,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  
   // Enable video pause by clicking on a sketch:
   // required because the video by clicking on video to pause is obstructed by P5 cavas overlay
   document.getElementById('video-overlay').onclick=function(){
     if(videoPlaying){
       player.pause();
-      
     }else{
       player.play();
     }
@@ -81890,8 +81866,6 @@ document.addEventListener('DOMContentLoaded', () => {
     header.classList.add('french'); //"french" class name is used to decrease header font size when French is selected
   };
   
-  
-  
   function languageToggle(){
     //"french" class name is used to decrease header font size when French is selected, should be removed from EN & ES, and applied for FR
     header.classList.remove('french'); 
@@ -81914,11 +81888,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } 
   }
 });
-},{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle-explosion.js":5,"./sketches/credits.js":6,"./sketches/forum-link.js":7,"./sketches/heart-animation.js":8,"./sketches/hello-p5-title.js":9,"./sketches/la-monster":10,"./sketches/leaves.js":11,"./sketches/lerpColor.js":12,"./sketches/many-dots.js":13,"./sketches/pointillism-logo.js":15,"./sketches/rainbow.js":16,"./sketches/rectangles.js":17,"./sketches/sin-lines.js":18,"./sketches/single-circle.js":19,"./sketches/stars.js":20,"./sketches/target-sketch.js":21,"./sketches/visualizer.js":22,"./sketches/wavemaker.js":23,"./sketches/waves.js":24,"./sketches/webeditor-link.js":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
+},{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle-explosion.js":5,"./sketches/credits.js":6,"./sketches/forum-link.js":7,"./sketches/heart-animation.js":8,"./sketches/hello-p5-title.js":9,"./sketches/la-monster":10,"./sketches/leaves.js":11,"./sketches/lerpColor.js":12,"./sketches/many-dots.js":13,"./sketches/pointillism-logo.js":14,"./sketches/rainbow.js":15,"./sketches/rectangles.js":16,"./sketches/sin-lines.js":17,"./sketches/single-circle.js":18,"./sketches/stars.js":20,"./sketches/target-sketch.js":21,"./sketches/visualizer.js":22,"./sketches/wavemaker.js":23,"./sketches/waves.js":24,"./sketches/webeditor-link.js":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
 /*********************
 // Circle Explosion
-// Description: Draws random exploding circles on the screen 
-// Credit: waiting for release
+// Description: Draws random exploding circles on the screen. After a set amount of time, the circles grow in size and the p5 logo appears
 *********************/
 
 const circleExplosion = (p5) => {
@@ -81970,7 +81943,7 @@ const circleExplosion = (p5) => {
 			}
 			// Make the circle increase in size at the end of the sketch
 			else{
-				strokeThickness += 3.5;
+				// strokeThickness += 3.5;
 				p5.strokeWeight(strokeThickness);
 			}
 			// Make circles near center less opaque than those far away
@@ -82032,8 +82005,7 @@ module.exports= circleExplosion;
 },{}],6:[function(require,module,exports){
 /*********************
 // Credits Sketch
-// Description: Credits pan up the screen while random interactive circles explode on the screen 
-// Credit: Elgin-Skye McLaren
+// Description: Creates movie-credits style text. Text pans up the screen while random interactive circles explode in the background
 *********************/
 
 const credits = (p5) => {
@@ -82063,14 +82035,9 @@ const credits = (p5) => {
 			circle[i].display();
 		}   
 
-
-	
-
-
-
     // only let the credits div get created once, styling is done using CSS
     if(creditsHidden){
-			let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div><div class=\'credits-name\'>Uddipana Baishya</div><div class=\'credits-name\'>Mayra Barrera Machuca</div> <div class=\'credits-name\'>Punyashlok Dash</div>	<div class=\'credits-name\'>Miguel Elizalde</div>			<div class=\'credits-name\'>Tristan Espinoza</div>			<div class=\'credits-name\'>Max Frischknecht & Philipp Möckli (Début Début)</div>			<div class=\'credits-name\'>Dongqi Han</div> 	<div class=\'credits-name\'>Kate Hollenbach</div>			<div class=\'credits-name\'>Vincent Hopkins</div>	<div class=\'credits-name\'>Cat Janowitz</div>			<div class=\'credits-name\'>Brennan Jones</div> 	<div class=\'credits-name\'>Peter Manson</div>			<div class=\'credits-name\'>Seyitan Oke</div>	<div class=\'credits-name\'>Suraj Rai</div><div class=\'credits-name\'>@reona396</div>  <div class=\'credits-name\'>Eliza Struthers-jobin</div> 	 <div class=\'credits-name\'>Sailor Winkelman</div>			 <div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> 		<div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'>Plus more members of the p5 community</div><div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div>  <div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div> </div> ');
+			let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div>	<div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div>	<br> <div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div><div class=\'credits-name\'>Uddipana Baishya</div> <div class=\'credits-name\'>Punyashlok Dash</div>	<div class=\'credits-name\'>Miguel Elizalde</div>			<div class=\'credits-name\'>Tristan Espinoza</div>			<div class=\'credits-name\'>Max Frischknecht & Philipp Möckli (Début Début)</div>			<div class=\'credits-name\'>Dongqi Han</div> 	<div class=\'credits-name\'>Kate Hollenbach</div>			<div class=\'credits-name\'>Vincent Hopkins</div>	<div class=\'credits-name\'>Cat Janowitz</div>			<div class=\'credits-name\'>Brennan Jones</div> <div class=\'credits-name\'>Sam Kissee</div><div class=\'credits-name\'>ZK</div>		<div class=\'credits-name\'>Ginger Kretschmer</div>				<div class=\'credits-name\'>Seyitan Oke</div>	<div class=\'credits-name\'>Suraj Rai</div><div class=\'credits-name\'>@reona396</div>  <div class=\'credits-name\'>Eliza Struthers-jobin</div> <div class=\'credits-name\'>DW</div>		 <div class=\'credits-name\'>Sailor Winkelman</div>			 <div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> 		<div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'> + more members of the p5 community</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div> <div class=\'credits-title\'>Translation </div> <div class=\'credits-name\'>Mayra Barrera Machuca</div> <div class=\'credits-title\'> Translation </div> <div class=\'credits-name\'>Peter Manson</div>  </div> ');
       p5SketchCredits.parent('container');
       p5SketchCredits.addClass("p5-sketch-logo-parent");
       creditsHidden = false;
@@ -82170,7 +82137,7 @@ const forumLink = (p5) => {
 			communityLinkText = "Community";
 		}
 		// Create the upper link on load (note the styling is done with css)
-		forumLinkDiv = p5.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-link-upper sketch-link sketch-link-animation">' + forumLinkText + ' >> </div></a>');
+		forumLinkDiv = p5.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-link-upper sketch-link sketch-link-animation"><span>' + forumLinkText + '</span> >> </div></a>');
 		forumLinkDiv.parent('video-overlay');
 		forumLinkDiv.class('test2');
 	};
@@ -82181,7 +82148,7 @@ const forumLink = (p5) => {
 		// Create the lower link when the time is appropriate, if statement prevents it from continuously running
 		if(window.videoCurrentTimeGlobal>113){
 			if(linkHidden){
-			communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation">'+communityLinkText+' >> </a>');
+			communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>'+communityLinkText+'</span> >> </a>');
 			communityLinkDiv.parent('video-overlay');
 			linkHidden = false;
 			}
@@ -82196,9 +82163,9 @@ const forumLink = (p5) => {
 module.exports= forumLink;
 },{}],8:[function(require,module,exports){
 /*********************
-// Heart Animation
-// Description: Draws randomly coloured hearts on screen 
-// Credit: waiting for release
+// Heart Animation Sketch
+// Description: Draws randomly coloured, interactive hearts on screen 
+// Credit: @reona396, source: https://www.openprocessing.org/sketch/561609
 *********************/
 
 const heart = (p5) => {
@@ -82320,7 +82287,7 @@ module.exports= heart;
 /*********************
 // Hello P5 Title Sketch
 // Description: Interactive Title Text for the Video
-// Credit: waiting for release
+// Credit: Based on a sketch by , source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
 *********************/
 
 
@@ -82412,7 +82379,14 @@ module.exports = helloP5Title;
 
 
 },{}],10:[function(require,module,exports){
-const p5play = require('./play.js');
+/*********************
+// La Monster Club Sketch
+// Description: Game starring adorable monsters, direction & speed of monster changes based on mouse position 
+// Credit: Seyitan Oke, source: http://oke.design/lamonsters
+*********************/
+
+
+const p5play = require('./sketch-libraries/play.js');
 
 var laMonster= function(p5){
 	let monsterlooBackground; // background image
@@ -82422,26 +82396,28 @@ var laMonster= function(p5){
 	let monster; // game spirte
 	let fade = 0 ;  // variable to fade in/out the sketch
 	let magicX; // speed the character
-	
-	
+	let windowWidth;
+	let windowHeight;
+
+	// preload images so there is less delay once the sketch starts to when it's visible
 	p5.preload = () => {
+		windowWidth = document.documentElement.clientWidth / 2.8;
+		windowHeight = (document.documentElement.clientWidth  * 0.562)/2;
 		monsterlooBackground = p5.loadImage("dist/assets/img/MonsterLoo_Background.png"); // preload the background image
+		monster = p5.createSprite(windowWidth/2, windowHeight/1.25, 40, 40); // location of monster sprite
+		monster.addAnimation("floating", "dist/assets/img/laMonsterLeftStanding_1.png", "dist/assets/img/laMonsterLeftStanding_5.png"); 
+		monster.addAnimation("right", "dist/assets/img/laMonsterLeftMove_1.png", "dist/assets/img/laMonsterLeftMove_9.png");
+		standmonster = p5.createSprite(windowWidth*1.8, windowHeight/1.2);  // pink monster in the background location
+		standmonster.addAnimation("normal", "dist/assets/img/laMonsterBackgroundSprite.png"); //pink monster iamage
 	};
 	
 	p5.setup = () => {
 		p5.pixelDensity(1);
-		p5.windowWidth = document.documentElement.clientWidth;
-		p5.windowHeight = p5.windowWidth  * 0.562;
-		p5.canvas= p5.createCanvas(p5.windowWidth/2.8, p5.windowHeight/2);
+		p5.canvas= p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
 		p5.canvas.addClass('la-monster-sketch'); // Add class to add margin to the canvas
-		monster = p5.createSprite( p5.width/2, p5.height/1.25, 40, 40); // location of monster sprite
-		monster.addAnimation("floating", "dist/assets/img/laMonsterLeftStanding_1.png", "dist/assets/img/laMonsterLeftStanding_5.png"); 
-		monster.addAnimation("right", "dist/assets/img/laMonsterLeftMove_1.png", "dist/assets/img/laMonsterLeftMove_9.png");
 		monster.depth = 5; // the z-index of the characters
 		monster.scale = p5.width/2000; //reduce the size of the monster
-		standmonster = p5.createSprite(p5.width*1.8, p5.height/1.2);  // pink monster in the background location
-		standmonster.addAnimation("normal", "dist/assets/img/laMonsterBackgroundSprite.png"); //pink monster iamage
 		standmonster.depth = 3; // the z-index of the characters
 		standmonster.scale = p5.width/2000; //reduce the size of the monster
 		magicX = p5.width/3; // initial character position
@@ -82449,6 +82425,12 @@ var laMonster= function(p5){
 	};
 	
 	p5.draw = () => {
+		p5.image(monsterlooBackground, -p5.width/3, 0, p5.height*6, p5.height); // position the background
+		p5.monsterdraw(); 
+		p5.cameraview(); 
+		p5.drawSprites();
+		p5.camera.on();
+
 		// fade in the sketch using an overlapping rectangle
 		if(fade < 255){
 			fade += 10;
@@ -82458,15 +82440,7 @@ var laMonster= function(p5){
 			fade -= 30;
 		}	
 		p5.fill(255,255,255,255-fade);
-		p5.rect(0, 0, p5.width * 5, p5.height);
-
-
-		p5.image(monsterlooBackground, -p5.width/3, 0, p5.height*6, p5.height); // position the background
-		p5.monsterdraw(); 
-		p5.cameraview(); 
-		p5.drawSprites();
-		p5.camera.on();
-
+		p5.rect(-p5.width, 0 , p5.width  * 5, p5.height);
 	};
 	
 	p5.cameraview = () => {	
@@ -82486,7 +82460,7 @@ var laMonster= function(p5){
 		} 
 		else if ( p5.mouseX < 200){
 			fastmove = false;
-			if( p5.camera.position.x > p5.mouseX){
+			if( p5.camera.position.x > p5.mouseX){ 
 				magicX -= 3; //move sprite
 			}	
 		} 
@@ -82528,27 +82502,32 @@ var laMonster= function(p5){
 	};
 };
 
-
-
 module.exports= laMonster;
-},{"./play.js":14}],11:[function(require,module,exports){
+},{"./sketch-libraries/play.js":19}],11:[function(require,module,exports){
 /*********************
 // Leaves
-// Description: Draws randomly falling leaves 
-// Credit: @reona396
+// Description: Draws randomly falling confetti-like leaves 
+// Credit: based on a sketch by @reona396 https://www.openprocessing.org/sketch/521545
 *********************/
+
 const leaves = (p5) => {  
   let sakuraNum = 100; // number of leaf objects
   let fubuki = []; // array of leaf objects
   let colors = [];  // array containing the colors
   let vertexPoint;
-  p5.setup  = () => {
-    
+  
+  p5.setup  = () => {  
     p5.pixelDensity(1);
     let windowWidth = document.documentElement.clientWidth;
     let windowHeight = windowWidth  * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
+    // fewer leaves on mobile to help performance
+    if(p5.width>900){
+      sakuraNum  = 100;
+    }else{
+      sakuraNum  = 60;
+    }
     for (let i = 0; i < sakuraNum; i++) {
       fubuki.push(new p5.Sakura());
     }
@@ -82646,12 +82625,11 @@ module.exports = leaves;
 
 
 
-
 },{}],12:[function(require,module,exports){
 /*********************
 // Lerp Color
 // Description: Random shapes in four colors, MouseX and MouseY affect the number of shapes and the size
-// Credit: Based on the sketch by , available here:https://p5js.org/examples/color-lerp-color.html
+// Credit: Based on the P5 Lerp Color example sketch, available here:https://p5js.org/examples/color-lerp-color.html
 *********************/
 
 const lerpColor= (p5) => {
@@ -82741,7 +82719,6 @@ module.exports = lerpColor;
 /*********************
 // Many Dots
 // Description: Draws interactive dots on the screen
-// Credit: 
 *********************/
 
 const manyDots = (p5) => {
@@ -82852,6 +82829,342 @@ const manyDots = (p5) => {
 module.exports= manyDots;
 
 },{}],14:[function(require,module,exports){
+/*********************
+// P5 Logo Pointillism
+// Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
+// Credit: P5 example sketch by Daniel Shiffman, source: https://p5jp5.org/examples/image-pointillism.html
+*********************/
+
+const pointillismLogo = (p5) => {
+  let smallDot = 5; 
+  let largeDot = 40;
+  let dotNumber = 20;
+  let opacity = 0;
+  let img;
+  let x;
+  let y;
+  let pix; 
+  let dotSize;
+
+  p5.preload  = () => {
+    img = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-pointilism-asterisk.png"); //Preload the log image 
+  };
+
+  p5.setup  = () => {
+    p5.pixelDensity(1);
+    let windowWidth = document.documentElement.clientWidth;
+    let windowHeight = windowWidth * 0.562;
+    p5.canvas = p5.createCanvas(windowWidth/2.3, windowHeight/1.5);
+    p5.canvas.parent('video-overlay');
+    img.loadPixels();
+    p5.noStroke();
+    // reduce the number of dots printed on mobile to improve performance
+    if(windowWidth>900){
+      dotNumber = 20;
+       }else{
+        dotNumber = 10;
+      }
+  };
+
+  p5.draw  = () => {
+    p5.push();
+    p5.translate(p5.width * 0.20, p5.height * 0.25); // Move image to upper left corner
+    p5.scale(p5.width/600);  // Scale to fit the size of the video
+
+    //randomly add dots to create the image
+    for(let i = 0; i < dotNumber; i++){
+      dotSize = p5.map(p5.mouseX, 0, p5.width, smallDot, largeDot);
+      x = p5.floor(p5.random(img.width));
+      y = p5.floor(p5.random(img.height));
+      pix = img.get(x, y);
+      p5.fill(pix);
+      p5.ellipse(x, y, dotSize, dotSize);
+    }
+    p5.pop();
+
+     // Simulate fading the dots out by fading in a white rectangle at 31 seconds
+     if(window.videoCurrentTimeGlobal>31){
+      dotNumber--; //Reduce the number of dots so they dont keep overwriting the rectangle
+      opacity++; //Slowly increase the opacity of the rectangle
+      p5.fill(255, 255, 255, opacity);
+      p5.rect(0, 0, p5.width, p5.height);
+    }
+  };
+};
+
+module.exports= pointillismLogo;
+
+
+},{}],15:[function(require,module,exports){
+/*********************
+// Rainbow
+// Description: 
+// Credit: https://www.openprocessing.org/sketch/565531 
+*********************/
+
+
+const rainbow = (p5) => {
+	let offset; //thickness of rainbow lines
+	let distanceFromTop; //start higher or lower
+	let index=0; // to paint them line the apprirpiate color
+	let colors; //array to store the colors in 
+	let numCurves; //number rainbow Lines
+	let ycoord; //y coordinate of each ellipse in the rainbow
+	let cutoutSize;
+	
+	p5.setup  = () => {
+		p5.pixelDensity(1);
+		let windowWidth = document.documentElement.clientWidth;;
+		let windowHeight = windowWidth  * 0.562;
+		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+		p5.canvas.parent('video-overlay');
+		p5.noStroke();
+		offset = p5.width/34;
+		distanceFromTop = p5.height/4; 
+		// Rainbow colors - RED, ORANGE, YELLOW, GREEN BLUE INDIGO VIOLET 
+		colors = [[255,0,5],[255, 170, 0],[255, 255, 0],[30,237,58],[0, 100, 255],[153, 17, 170],[164, 66, 220]];
+		numCurves = 7; //number of lines in the rainbow
+		for (let i = 0; i < numCurves; i++) {
+			// x ranges width of canvas
+			index = index % colors.length;
+			// reset to first color if there are more lines than colores;
+			if (index == colors.length) {
+				index = 0;
+			}
+			p5.fill(colors[index])
+			for (let xcoord = 0; xcoord < p5.width; xcoord++) {
+				let scale=p5.width/9.5; // scaled so fewer and higher curves on screen
+				ycoord = p5.sin(xcoord / scale) * scale; // ycoordinate of elipses in a sin wave shape
+				p5.ellipse(xcoord, ycoord  + distanceFromTop + offset * i, offset);	
+			}
+			index++;	
+		}
+			cutoutSize = p5.width/6.32;//this is to cut away part of the canvas
+	};
+	
+	p5.draw = function(){
+		if(window.videoCurrentTimeGlobal>54){
+			cutoutSize+=10;		
+		}
+		p5.cutout();	
+	};
+	
+	p5.cutout  = function() {
+		var c = document.getElementById("defaultCanvas0");
+		var ctx = c.getContext("2d");
+		ctx.clearRect((p5.width / 2) - cutoutSize, 0, cutoutSize*2, p5.height);
+	  };  
+};
+
+module.exports= rainbow;
+
+
+
+
+
+
+
+},{}],16:[function(require,module,exports){
+/*********************
+// Rectangles
+// Description: Fading Rectangles into the center of the screen
+*********************/
+
+const rectangles = (p5) => {
+  let distance=0; //initial distance between rectangles
+  let initialOpacity=150; //starting opacity for rectangles
+  let rectangle = []; //array to store the rectangles
+  let strokeThickness =150 //make stroke thickness interactive
+  
+  p5.setup  = () => {
+    p5.pixelDensity(1);
+    let windowWidth = document.documentElement.clientWidth;
+    let windowHeight = windowWidth  * 0.562;
+    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+    p5.canvas.parent('video-overlay');
+    p5.frameRate(30); //slow down the sketch
+    p5.noFill();
+  };
+  
+  p5.draw  = () => {
+    p5.clear();
+    // display existing rectangles
+    for(let i = 0; i<rectangle.length; i++){
+      rectangle[i].display();
+    }
+    // create new rectangles
+    if(rectangle.length<50){
+      p5.addRectangle();
+    }
+    // make the width of the stroke interactive
+    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
+    p5.strokeWeight(strokeThickness);
+    //random distance between rectangles
+    distance += p5.random(2,50); 
+  };
+  
+  p5.Rectangle = function(xcoord, ycoord, wide, tall, opacity){
+    this.x = xcoord;
+    this.y = ycoord;
+    this.strokecolor = opacity; //initial opacity
+    this.display = function() {
+      //reduce the opacity over time
+      this.strokecolor-= 10; 
+      p5.stroke(237,30,90, this.strokecolor);   
+      // draw the rectangles 
+      p5.rect(this.x, this.y, wide, tall);
+    };
+  };
+  
+  
+  // create new rectangles, starting from the center of the page and then growing
+  p5.addRectangle= function(){
+    rectangle[rectangle.length] = new p5.Rectangle(p5.width/2-distance, p5.height/2-distance, 0+ distance*2 , 0+ distance*2, initialOpacity);
+  };
+  
+};
+
+module.exports= rectangles;
+
+
+},{}],17:[function(require,module,exports){
+/*********************
+// Sin Lines
+// Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness. 
+// Credit: Based on sketch by waiting for release
+// Link: https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
+*********************/
+
+const sinLines = (p5) => {
+  let strokeThickness; //thickness of the lines
+  let lineSpacing; //variable to store the space between the lines
+  let move = 0; //variable to move the sinwave as the sketch draws
+  let yOffset = 0; 
+  let cutoutSize;
+
+  p5.setup  = () => {
+    p5.pixelDensity(1);
+    let windowWidth = document.documentElement.clientWidth;
+    let windowHeight = windowWidth  * 0.562;
+    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+    p5.canvas.parent('video-overlay');
+    p5.colorMode(p5.HSL,100);
+    lineSpacing = p5.width/79; // distance between each line 
+    cutoutSize = p5.width/3.3; // size of the canvas to remove to show the video underneath
+  };
+  
+  p5.draw  = () => { 
+    p5.clear();
+    //make the weight of the stroke interactive 
+    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 1, p5.width/50); 
+    p5.strokeWeight(strokeThickness);
+    // draw the lines
+    for (let i = 0; i < p5.width+5; i += lineSpacing){
+      p5.stroke(p5.map(i, 0, p5.width, 50, 100), 100, 50);
+      p5.line(i, p5.height, i, p5.height/1.5 - (p5.sin( move+ i / (p5.width/20)) * p5.width/10)-yOffset);
+    }
+    move += 0.01; // make the sinewave move when the sketch runs
+    // increase the height of the lines at the end of the sketches
+    if(window.videoCurrentTimeGlobal>80){    
+      yOffset += 5;
+      }
+    //once the lines are as tall as the canvas, increase the size of the cutout 
+    if(yOffset > p5.height){
+      cutoutSize += 4;
+    }
+    p5.cutout(); // run function to cut out part of the canvas
+  };
+  // Hide part of the canvas to prevent the sketch from overlapping on the video
+  p5.cutout  = function() {
+    var c = document.getElementById("defaultCanvas0");
+    var ctx = c.getContext("2d");
+    ctx.clearRect((p5.width / 2) - cutoutSize, 0, cutoutSize*2, p5.height);
+  };  
+};
+
+module.exports= sinLines;
+
+
+
+
+
+
+
+
+
+
+},{}],18:[function(require,module,exports){
+/*********************
+// Single Circle
+// Description: Pulsing Circle & Example Code Block
+Credit NA
+*********************/
+
+var singleCircle = function(p5) {
+	let fadeIn = 0;
+	let pulseSpeed = 0.5;
+	let sizeChange = 0;
+	let mousePosition;
+	let xcoord;
+	let ycoord;
+	let diam;
+	let languageText;
+	let lineThickness;
+
+
+	p5.setup  = () => {
+		// Create p5 canvas
+		p5.pixelDensity(1);
+		let windowWidth = document.documentElement.clientWidth;
+		let windowHeight = windowWidth  * 0.562;
+		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
+		p5.canvas.parent('video-overlay');		
+		// Change visible text based on language chosen
+		if( window.videoLanguage == "es"){
+			languageText = "haga clic aquí";
+		}else if( window.videoLanguage == "fr"){
+			languageText = "Voir ici";
+		}else{
+			languageText = "Click here to try it";
+		}
+		//Create example html code block, styling can be found in canvas.scss
+		p5.div = p5.createDiv('<code>function setup() \{ <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}<br> <a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank"><strong>' + languageText +'</a></strong></code>');
+		p5.div.parent('video-overlay');
+		p5.div.addClass('p5-single-circle-code-example');	
+		lineThickness = p5.width/350;
+	};
+
+	p5.draw = () => {
+		//Clear the p5 canvas each frame
+		p5.clear();
+		//Create pulsing circle 
+		p5.fill(237,34,93, fadeIn);
+		p5.stroke(255,255,255, fadeIn);
+		p5.strokeWeight(lineThickness); 
+		xcoord = p5.width * 0.25;
+		ycoord = p5.height * 0.4;
+		mousePosition = p5.map(p5.mouseX, 0, p5.width, 0, 30);
+		diam = p5.width * 0.12 + sizeChange + mousePosition;
+
+		p5.ellipse(xcoord, ycoord, diam, diam); 
+		sizeChange += pulseSpeed;
+		//Reverse direction of pulse once it reaches limit
+		if(sizeChange > 3 || sizeChange < -3){
+			pulseSpeed  *=  -1;
+		}
+		//Fade in circle when plyr video reaches 57 seconds.
+		if(window.videoCurrentTimeGlobal  >57){
+			if(fadeIn < 255){
+				fadeIn += 15;
+			}
+		}
+	};
+};
+
+module.exports = singleCircle;
+
+
+},{}],19:[function(require,module,exports){
 /*
 p5.play
 by Paolo Pedercini/molleindustria, 2015
@@ -87201,343 +87514,11 @@ http://molleindustria.org/
   };
   
   }));
-},{"p5":2}],15:[function(require,module,exports){
-/*********************
-// P5 Logo Pointillism
-// Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
-// Credit: Based on sketch by Daniel Shiffman
-// Link: https://p5jp5.org/examples/image-pointillism.html
-*********************/
-
-const pointillismLogo = (p5) => {
-  let smallDot = 5; 
-  let largeDot = 40;
-  let dotNumber = 20;
-  let opacity = 0;
-  let img;
-  let x;
-  let y;
-  let pix; 
-  let dotSize;
-
-  p5.preload  = () => {
-    img = p5.loadImage("https://emclaren.github.io/hello-p5/dist/assets/img/sketch-pointilism-asterisk.png"); //Preload the log image 
-  };
-
-  p5.setup  = () => {
-    p5.pixelDensity(1);
-    let windowWidth = document.documentElement.clientWidth;
-    let windowHeight = windowWidth * 0.562;
-    p5.canvas = p5.createCanvas(windowWidth/2.3, windowHeight/1.5);
-    p5.canvas.parent('video-overlay');
-    img.loadPixels();
-    p5.noStroke();
-  };
-
-  p5.draw  = () => {
-    p5.push();
-    p5.translate(p5.width * 0.20, p5.height * 0.25); // Move image to upper left corner
-    p5.scale(p5.width/600);  // Scale to fit the size of the video
-
-    //randomly add dots to create the image
-    for(let i = 0; i < dotNumber; i++){
-      dotSize = p5.map(p5.mouseX, 0, p5.width, smallDot, largeDot);
-      x = p5.floor(p5.random(img.width));
-      y = p5.floor(p5.random(img.height));
-      pix = img.get(x, y);
-      p5.fill(pix);
-      p5.ellipse(x, y, dotSize, dotSize);
-    }
-    p5.pop();
-
-     // Simulate fading the dots out by fading in a white rectangle at 31 seconds
-     if(window.videoCurrentTimeGlobal>31){
-      dotNumber--; //Reduce the number of dots so they dont keep overwriting the rectangle
-      opacity++; //Slowly increase the opacity of the rectangle
-      p5.fill(255, 255, 255, opacity);
-      p5.rect(0, 0, p5.width, p5.height);
-    }
-  };
-};
-
-module.exports= pointillismLogo;
-
-
-},{}],16:[function(require,module,exports){
-/*********************
-// Rainbow
-// Description: Draws randomly coloured hearts on screen 
-// Credit: waiting for release
-*********************/
-
-const rainbow = (p5) => {
-	let offset; //thickness of rainbow lines
-	let distanceFromTop; //start higher or lower
-	let index=0; // to paint them line the apprirpiate color
-	let colors; //array to store the colors in 
-	let numCurves; //number rainbow Lines
-	let ycoord; //y coordinate of each ellipse in the rainbow
-	let cutoutSize;
-	
-	p5.setup  = () => {
-		p5.pixelDensity(1);
-		let windowWidth = document.documentElement.clientWidth;;
-		let windowHeight = windowWidth  * 0.562;
-		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
-		p5.canvas.parent('video-overlay');
-		p5.noStroke();
-		offset = p5.width/34;
-		distanceFromTop = p5.height/4; 
-		// Rainbow colors - RED, ORANGE, YELLOW, GREEN BLUE INDIGO VIOLET 
-		colors = [[255,0,5],[255, 170, 0],[255, 255, 0],[30,237,58],[0, 100, 255],[153, 17, 170],[164, 66, 220]];
-		numCurves = 7; //number of lines in the rainbow
-		for (let i = 0; i < numCurves; i++) {
-			// x ranges width of canvas
-			index = index % colors.length;
-			// reset to first color if there are more lines than colores;
-			if (index == colors.length) {
-				index = 0;
-			}
-			p5.fill(colors[index])
-			for (let xcoord = 0; xcoord < p5.width; xcoord++) {
-				let scale=p5.width/9.5; // scaled so fewer and higher curves on screen
-				ycoord = p5.sin(xcoord / scale) * scale; // ycoordinate of elipses in a sin wave shape
-				p5.ellipse(xcoord, ycoord  + distanceFromTop + offset * i, offset);	
-			}
-			index++;	
-		}
-			cutoutSize = p5.width/6.32;//this is to cut away part of the canvas
-	};
-	
-	p5.draw = function(){
-		if(window.videoCurrentTimeGlobal>54){
-			cutoutSize+=10;		
-		}
-		p5.cutout();	
-	};
-	
-	p5.cutout  = function() {
-		var c = document.getElementById("defaultCanvas0");
-		var ctx = c.getContext("2d");
-		ctx.clearRect((p5.width / 2) - cutoutSize, 0, cutoutSize*2, p5.height);
-	  };  
-};
-
-module.exports= rainbow;
-
-
-
-
-
-
-
-},{}],17:[function(require,module,exports){
-/*********************
-// Rectangles
-// Description: Fading Rectangles into the center of the screen
-// Credit: Based on sketch by awaiting confirmation
-// Link: Insert Link
-*********************/
-
-const rectangles = (p5) => {
-  let distance=0; //initial distance between rectangles
-  let initialOpacity=150; //starting opacity for rectangles
-  let rectangle = []; //array to store the rectangles
-  let strokeThickness =150 //make stroke thickness interactive
-  
-  p5.setup  = () => {
-    p5.pixelDensity(1);
-    let windowWidth = document.documentElement.clientWidth;
-    let windowHeight = windowWidth  * 0.562;
-    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
-    p5.canvas.parent('video-overlay');
-    p5.frameRate(30); //slow down the sketch
-    p5.noFill();
-  };
-  
-  p5.draw  = () => {
-    p5.clear();
-    // display existing rectangles
-    for(let i = 0; i<rectangle.length; i++){
-      rectangle[i].display();
-    }
-    // create new rectangles
-    if(rectangle.length<50){
-      p5.addRectangle();
-    }
-    // make the width of the stroke interactive
-    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
-    p5.strokeWeight(strokeThickness);
-    //random distance between rectangles
-    distance += p5.random(2,50); 
-  };
-  
-  p5.Rectangle = function(xcoord, ycoord, wide, tall, opacity){
-    this.x = xcoord;
-    this.y = ycoord;
-    this.strokecolor = opacity; //initial opacity
-    this.display = function() {
-      //reduce the opacity over time
-      this.strokecolor-= 10; 
-      p5.stroke(237,30,90, this.strokecolor);   
-      // draw the rectangles 
-      p5.rect(this.x, this.y, wide, tall);
-    };
-  };
-  
-  
-  // create new rectangles, starting from the center of the page and then growing
-  p5.addRectangle= function(){
-    rectangle[rectangle.length] = new p5.Rectangle(p5.width/2-distance, p5.height/2-distance, 0+ distance*2 , 0+ distance*2, initialOpacity);
-  };
-  
-};
-
-module.exports= rectangles;
-
-
-},{}],18:[function(require,module,exports){
-/*********************
-// Sin Lines
-// Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness. 
-// Credit: Based on sketch by waiting for release
-// Link:
-*********************/
-
-const sinLines = (p5) => {
-  let strokeThickness; //thickness of the lines
-  let lineSpacing; //variable to store the space between the lines
-  let move = 0; //variable to move the sinwave as the sketch draws
-  let yOffset = 0; 
-  let cutoutSize;
-
-  p5.setup  = () => {
-    p5.pixelDensity(1);
-    let windowWidth = document.documentElement.clientWidth;
-    let windowHeight = windowWidth  * 0.562;
-    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
-    p5.canvas.parent('video-overlay');
-    p5.colorMode(p5.HSL,100);
-    lineSpacing = p5.width/79; // distance between each line 
-    cutoutSize = p5.width/3.3; // size of the canvas to remove to show the video underneath
-  };
-  
-  p5.draw  = () => { 
-    p5.clear();
-    //make the weight of the stroke interactive 
-    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 1, p5.width/50); 
-    p5.strokeWeight(strokeThickness);
-    // draw the lines
-    for (let i = 0; i < p5.width+5; i += lineSpacing){
-      p5.stroke(p5.map(i, 0, p5.width, 50, 100), 100, 50);
-      p5.line(i, p5.height, i, p5.height/1.5 - (p5.sin( move+ i / (p5.width/20)) * p5.width/10)-yOffset);
-    }
-    move += 0.01; // make the sinewave move when the sketch runs
-    // increase the height of the lines at the end of the sketches
-    if(window.videoCurrentTimeGlobal>80){    
-      yOffset += 5;
-      }
-    //once the lines are as tall as the canvas, increase the size of the cutout 
-    if(yOffset > p5.height){
-      cutoutSize += 4;
-    }
-    p5.cutout(); // run function to cut out part of the canvas
-  };
-  // Hide part of the canvas to prevent the sketch from overlapping on the video
-  p5.cutout  = function() {
-    var c = document.getElementById("defaultCanvas0");
-    var ctx = c.getContext("2d");
-    ctx.clearRect((p5.width / 2) - cutoutSize, 0, cutoutSize*2, p5.height);
-  };  
-};
-
-module.exports= sinLines;
-
-
-
-
-
-
-
-
-
-
-},{}],19:[function(require,module,exports){
-/*********************
-// Single Circle
-// Description: Pulsing Circle & Example Code Block
-*********************/
-
-var singleCircle = function(p5) {
-	let fadeIn = 0;
-	let pulseSpeed = 0.5;
-	let sizeChange = 0;
-	let mousePosition;
-	let xcoord;
-	let ycoord;
-	let diam;
-	let languageText;
-	let lineThickness;
-
-
-	p5.setup  = () => {
-		// Create p5 canvas
-		p5.pixelDensity(1);
-		let windowWidth = document.documentElement.clientWidth;
-		let windowHeight = windowWidth  * 0.562;
-		p5.canvas = p5.createCanvas(windowWidth, windowHeight);
-		p5.canvas.parent('video-overlay');		
-		// Change visible text based on language chosen
-		if( window.videoLanguage == "es"){
-			languageText = "haga clic aquí";
-		}else if( window.videoLanguage == "fr"){
-			languageText = "Voir ici";
-		}else{
-			languageText = "Click here to try it";
-		}
-		//Create example html code block, styling can be found in canvas.scss
-		p5.div = p5.createDiv('<code>function setup() \{ <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}<br> <a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank"><strong>' + languageText +'</a></strong></code>');
-		p5.div.parent('video-overlay');
-		p5.div.addClass('p5-single-circle-code-example');	
-		lineThickness = p5.width/350;
-	};
-
-	p5.draw = () => {
-		//Clear the p5 canvas each frame
-		p5.clear();
-		//Create pulsing circle 
-		p5.fill(237,34,93, fadeIn);
-		p5.stroke(255,255,255, fadeIn);
-		p5.strokeWeight(lineThickness); 
-		xcoord = p5.width * 0.25;
-		ycoord = p5.height * 0.4;
-		mousePosition = p5.map(p5.mouseX, 0, p5.width, 0, 30);
-		diam = p5.width * 0.12 + sizeChange + mousePosition;
-
-		p5.ellipse(xcoord, ycoord, diam, diam); 
-		sizeChange += pulseSpeed;
-		//Reverse direction of pulse once it reaches limit
-		if(sizeChange > 3 || sizeChange < -3){
-			pulseSpeed  *=  -1;
-		}
-		//Fade in circle when plyr video reaches 57 seconds.
-		if(window.videoCurrentTimeGlobal  >57){
-			if(fadeIn < 255){
-				fadeIn += 15;
-			}
-		}
-	};
-};
-
-module.exports = singleCircle;
-
-
-},{}],20:[function(require,module,exports){
+},{"p5":2}],20:[function(require,module,exports){
 /*********************
 // Stars
 // Description: Draws ellipses in a circle on the screen with a cutout for the video
-// Credit: waiting for release
-// Link: 
+// Credit: @reona396, source https://www.openprocessing.org/sketch/559382
 *********************/
 
 const stars = (p5) => {
@@ -87557,6 +87538,12 @@ const stars = (p5) => {
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
     p5.noStroke();
+    // fewer stars on mobile to help performance
+    if(p5.width>900){
+      starsNum = 600;
+     }else{
+      starsNum = 250;
+     }
     // Add new stars to the stars array in the different colors
     for (let i = 0; i < starsNum; i++) {
       // make 1/3 of stars each color
@@ -87694,96 +87681,86 @@ module.exports = targetSketch ;
 
 
 },{}],22:[function(require,module,exports){
-
 /*********************
 // Visualizer
-// Description: Link to the Processing Forum & Community pages
-// Credit: https://epi-js-gro.firebaseapp.com
+// Description: Pulsing visualization of audio track data, modified to bypass audio input so it could be in the background without there being additional noise
+// Credit: Sailor Winkelman, Cat Janowitz, Ginger Kretschmer, and Sam Kissee source: https://epi-js-gro.firebaseapp.com
 *********************/
 
 var visualizer= function(p5){
-  let cutoutSize;
-  let fadeIn = 10;
+  let cutoutSize; 
+  let strokeFadeIn = 10;
   let opacity3=10;
   let opacity2=0;
-  let r = 1, g = 1, b = 1, o = 1;
+  let opacity5=0;
   let fillFadeIn=0
+  
   p5.setup = () => {
     p5.pixelDensity(1);
-    p5.windowWidth = window.innerWidth;
-    p5.windowHeight = p5.windowWidth * .562;
-    p5.canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight);
+    let windowWidth = window.innerWidth;
+    let windowHeight = windowWidth * .562;
+    p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
     cutoutSize = p5.width/6
   }
   
-  
- 
+
   
   p5.draw= ()=> {
     p5.background(75, 121, 161, 25-opacity2);
-
-    p5.fill('#4ca1af');
-    // p5.stroke('rgba(50,50,50, 0.1)');
-    p5.strokeWeight(1);
+    if(strokeFadeIn<255){
+      strokeFadeIn ++
+    }
+   
+    if(fillFadeIn<150){
+      fillFadeIn++;
+    }
+    
+    // Create waveform shape - original code had this based on a music track. We've had to simulate it here because the actual audio track for the video is too quiet and adding another track would play over the existing track
+    p5.noFill();
+    p5.stroke(255,255,255, strokeFadeIn); // waveform is white
+    p5.strokeWeight(50);
+    
     
     let waveform = Array.from({length: p5.width*2}, () => Math.random(-1, 1)/2 ); // make a random array of numbers to simulate a waveform
-    
-    p5.noFill();
-    
     p5.beginShape();
-    
-    
-    p5.stroke(255,255,255, fadeIn); // waveform is white
-
-    if(fadeIn<255){
-      fadeIn += 1
-    }
-    p5.strokeWeight(50);
     for (let i = 0; i < waveform.length; i+=10){
-      let x = p5.map(i, 0, waveform.length, 0, p5.windowWidth);
-      let y = p5.map( waveform[i]/8, -1, 1, 0, p5.windowHeight);
+      let x = p5.map(i, 0, waveform.length, 0, p5.width);
+      let y = p5.map( waveform[i]/8, -1, 1, 0, p5.height);
       p5.vertex(x,y);
     }
     p5.endShape();
     
+    
     p5.strokeWeight(4);
-    
-    
     p5.rms = 1;
-    
     p5.fill(50,50,100, fillFadeIn);
-    if(fillFadeIn<150){
-      fillFadeIn++;
-    }
-
-
-    // Get the average (root mean square) amplitude
-    // p5.rms = p5.analyzer.getLevel();
-    
     p5.strokeWeight(0);
-    if(window.videoCurrentTimeGlobal>7.25){
 
-      fadeIn-=3;
-      opacity2+=20;
-      opacity3-=50;
-      fillFadeIn-=50;
-      p5.background(242, 242, 242, 25+opacity2);
-      p5.fill(242, 242, 242, 25+opacity2);
-
-    }
-    p5.sizeChange=p5.random(.5,1.2)
-    //         // Draw an ellipse with size based on volume
-    p5.ellipse(p5.width / 2, p5.height / 2, 200 + p5.rms * (p5.height / 2)* p5.sizeChange, 200 + p5.rms * (p5.height / 2)*p5.sizeChange)
-    
+    // Draw an ellipse - original code had this based on volume. We've had to sub in random numbers for this example
+    p5.sizeChange=p5.random(0.5, 1.2)
+    p5.ellipse(p5.width / 2, p5.height / 2, 200 + (p5.height / 2)* p5.sizeChange, 200 + p5.rms * (p5.height / 2)*p5.sizeChange)    
+   
     p5.cutout();
-    // p5.song.setVolume(0)
+    
+    if(window.videoCurrentTimeGlobal>7.00){
+      // opacity5+=4;
+      // fadeIn-=3;
+      // opacity2+=0;
+      // opacity3-=50;
+      // fillFadeIn-=50;
+      // p5.background(242, 242, 242, 25+opacity2);
+      p5.fill(242, 242, 242, 0+opacity5);
+      
+      p5.rect(0,0, p5.width, p5.height)
+      // if(cutoutSize< p5.width/5){
+        cutoutSize-= p5.width/30
+      // }else if(cutoutSize>0){
+        // cu toutSize=-5
+      // }
+    }
+    
   }
-  
-  
-  
-  
-  
   
   
   p5.cutout  = function() {
@@ -87798,8 +87775,6 @@ var visualizer= function(p5){
 
 
 
-// }
-
 
 module.exports= visualizer;
 
@@ -87810,9 +87785,8 @@ module.exports= visualizer;
 },{}],23:[function(require,module,exports){
 /*********************
 // Wavemaker
-// Description: Draws randomly coloured hearts on screen 
-// Credit: 
-// Link: https://p5js.org/examples/interaction-wavemaker.html
+// Description: Draws a wavey interactive grid of rectangles around the perimeter of the screen
+// Credit: Based on the P5js Wavemaker example by Aatish Bhatia  https://p5js.org/examples/interaction-wavemaker.html
 *********************/
 
 const wavemaker = (p5) => {
@@ -87883,10 +87857,11 @@ module.exports = wavemaker;
 
 },{}],24:[function(require,module,exports){
 /*********************
-// Waves: 
+// Waves
 // Description: Draws interactive waves on the screen
-// Credit: @reona396
+// Credit: @reona396 https://www.openprocessing.org/sketch/521545
 *********************/
+
 const waves = (p5) => {
   let waves = []; //array to store the waves
   let waveNumber = 0; 
@@ -87911,7 +87886,12 @@ const waves = (p5) => {
   p5.draw = () => {
     p5.clear();
     let mouseDistance = p5.dist(p5.mouseX, p5.mouseY, p5.width/2, p5.height/2); //measure distance of the mouse from the center of the page
+   // fewer waves on mobile to help performance
+    if(p5.width>900){
     waveNumber = p5.map(mouseDistance, 0, p5.width/2, 0, 30);//use the distance to determine the number of waves on the screen
+   }else{
+    waveNumber = p5.map(mouseDistance, 0, p5.width/2, 0, 10);//use the distance to determine the number of waves on the screen
+   }
     // display the correct number of waves on the screen
     for(let i = 0; i < waveNumber; i++){
       waves[i].display();
@@ -88015,7 +87995,7 @@ const webeditorLink = (p5) => {
 			downloadLinkText = "Download";
 		}
 		// Create the upper link on load (note the styling is done with css)
-		webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation">' + webeditorLinkText + ' >> </div></a>');
+		webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation"><span>' + webeditorLinkText + '</span> >> </div></a>');
 		webeditorLinkDiv.parent('video-overlay');
 	};
 
@@ -88025,7 +88005,7 @@ const webeditorLink = (p5) => {
 		// Create the lower link when the time is appropriate
 		if(window.videoCurrentTimeGlobal>98){
 			if(linkHidden){
-			downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation">' + downloadLinkText + ' >> </div></a>');
+			downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + downloadLinkText + '</span> >> </div></a>');
 			downloadLinkDiv.parent('video-overlay');
 			linkHidden = false;
 			}
