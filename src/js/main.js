@@ -49,7 +49,7 @@ const credits = require('./sketches/credits.js');
 /*** Timing for starting each p5 sketch ***/
 let sceneChangeMap = [
   {time : 0.00, sketchfile: visualizer},
-  {time : 0.25, sketchfile: laMonster},
+  // {time : 0.25, sketchfile: laMonster},
   {time : 2.75, sketchfile: noSketch},
   {time : 5.00, sketchfile: visualizer },
   {time : 7.75, sketchfile: noSketch},
@@ -210,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for(let i=0; i<sceneChangeMap.length; i++){
         if(videoCurrentTime == sceneChangeMap[i].time){
           // Remove any p5 sketches currently playing
+          console.log(scene)
           if(scene){
             scene.remove();
           }
