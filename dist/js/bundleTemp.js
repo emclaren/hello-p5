@@ -81637,8 +81637,9 @@ const circleExplosion = require('./sketches/circle-explosion.js');
 const credits = require('./sketches/credits.js'); 
 
 /*** Timing for starting each p5 sketch ***/
-var sceneChangeMap = [
-  {time : 0.25, sketchfile: laMonster},
+let sceneChangeMap = [
+  // {time : 0.00, sketchfile: noSketch},
+  {time : 0.00, sketchfile: laMonster},
   {time : 2.75, sketchfile: noSketch},
   {time : 5.00, sketchfile: visualizer },
   {time : 7.75, sketchfile: noSketch},
@@ -81673,7 +81674,7 @@ var sceneChangeMap = [
 
 /*** Dynamically adjust video size to download  ***/
 /* did not use Plyr code, as the size/quality feature was under active development */
-var source = document.getElementById('mp4');
+let source = document.getElementById('mp4');
 if(document.documentElement.clientWidth <= 480){
   source.setAttribute('src', 'dist/assets/video/p5video_480.mp4');
 }else if(document.documentElement.clientWidth <= 720){
@@ -81705,12 +81706,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   player.on('ready', event =>{
+    videoCurrentTime = sceneChangeMap[0].time
+    console.log("player ready just happened" + videoCurrentTime)
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background');  
+    // scene = new p5(laMonster);  
+    // // Freeze the game on load
+    // if(scene){
+    //   scene.frameRate(0);
+    // }
   });
   
   /*** Plyr - triggered when video starts ***/
-  player.on('playing', event => {    
+  player.on('playing', event => { 
+    console.log("playing event just happened" + videoCurrentTime)   
+    console.log("scene" +scene)
     if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
       window.videoPlaying=true; 
       // adds the class of hide on play, to make the header shrink on play
@@ -81755,14 +81765,19 @@ document.addEventListener('DOMContentLoaded', () => {
   
   /*** Plyr - triggered 4 times every second while playing, this is used to trigger p5 events ***/  
   player.on('timeupdate', event => {
+    console.log("time update just happened" + videoCurrentTime)
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
     let multipleTimeInVideo = timeInVideo * 4
     let roundTimeInVideo = Math.round(multipleTimeInVideo)
     videoCurrentTime=roundTimeInVideo/4;
+    console.log("now we've read the most recent time" + videoCurrentTime)
+    
     // // Uncomment this when testing:
-    // console.log("video current time" + videoCurrentTime)
+    console.log("video current time" + videoCurrentTime)
     window.videoCurrentTimeGlobal = videoCurrentTime; //create a global variable so that current time can be used within p5 sketches
+    console.log("now running update sketch" + videoCurrentTime)
+    
     updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
     // This part plays the correct sketch if a user jumps to a different part of the video 
     if(videoTimeSeeked){
@@ -81790,14 +81805,25 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Load a sketch if the current time of the video matches the timing array (Scene Change Map)
     function updateSketch(){
-      for(var i=0; i<sceneChangeMap.length; i++){
-        if(videoCurrentTime==sceneChangeMap[i].time){
+      console.log("function has now been called" + videoCurrentTime)
+      console.log(typeof videoCurrentTime )
+      console.log(videoCurrentTime )
+      console.log(typeof sceneChangeMap[0].time )
+      console.log(sceneChangeMap[0].time )
+      for(let i=0; i<sceneChangeMap.length; i++){
+        console.log("scnece change map function" + sceneChangeMap[i].time)
+        console.log(videoCurrentTime == sceneChangeMap[0].time)
+        if(videoCurrentTime == sceneChangeMap[i].time){
           // Remove any p5 sketches currently playing
           if(scene){
             scene.remove();
           }
+          console.log("does this happen? since it is equal to true")
           // Play the sketch from the Scene change map
           scene = new p5(sceneChangeMap[i].sketchfile); 
+          console.log(sceneChangeMap[i].time)
+          console.log(sceneChangeMap[i].sketchfile)
+          console.log(scene)
         }
       }
     }
@@ -81866,7 +81892,7 @@ document.addEventListener('DOMContentLoaded', () => {
     header.classList.add('french'); //"french" class name is used to decrease header font size when French is selected
   };
   
-  function languageToggle(){
+  let languageToggle = () =>{
     //"french" class name is used to decrease header font size when French is selected, should be removed from EN & ES, and applied for FR
     header.classList.remove('french'); 
     
@@ -82037,7 +82063,7 @@ const credits = (p5) => {
 
     // only let the credits div get created once, styling is done using CSS
     if(creditsHidden){
-			let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div>	<div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div>	<br> <div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div><div class=\'credits-name\'>Uddipana Baishya</div> <div class=\'credits-name\'>Punyashlok Dash</div>	<div class=\'credits-name\'>Miguel Elizalde</div>			<div class=\'credits-name\'>Tristan Espinoza</div>			<div class=\'credits-name\'>Max Frischknecht & Philipp Möckli (Début Début)</div>			<div class=\'credits-name\'>Dongqi Han</div> 	<div class=\'credits-name\'>Kate Hollenbach</div>			<div class=\'credits-name\'>Vincent Hopkins</div>	<div class=\'credits-name\'>Cat Janowitz</div>			<div class=\'credits-name\'>Brennan Jones</div> <div class=\'credits-name\'>Sam Kissee</div><div class=\'credits-name\'>ZK</div>		<div class=\'credits-name\'>Ginger Kretschmer</div>				<div class=\'credits-name\'>Seyitan Oke</div>	<div class=\'credits-name\'>Suraj Rai</div><div class=\'credits-name\'>@reona396</div>  <div class=\'credits-name\'>Eliza Struthers-jobin</div> <div class=\'credits-name\'>DW</div>		 <div class=\'credits-name\'>Sailor Winkelman</div>			 <div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> 		<div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'> + more members of the p5 community</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div> <div class=\'credits-title\'>Translation </div> <div class=\'credits-name\'>Mayra Barrera Machuca</div> <div class=\'credits-title\'> Translation </div> <div class=\'credits-name\'>Peter Manson</div>  </div> ');
+			let p5SketchCredits = p5.createDiv('<div class=\'credits-wrapper\'><div class=\'credits-title\'> This project was made possible as part of </div> <div class=\'credits-name\'>Google Summer of Code</div>	<div class=\'credits-title\'>Google Summer of Code Mentor</div>  <div class=\'credits-name\'>Evelyn Masso</div> <div class=\'credits-title\'>Google Summer of Code Mentor</div>   <div class=\'credits-name\'>Lauren McCarthy</div> <div class=\'credits-title\'>Google Summer of Code Developer</div>  <div class=\'credits-name\'>Elgin-Skye McLaren</div>	<br> <div class=\'credits-title\'> An enormous thank you to all the individuals who generously donated their time, video, and code</div><div class=\'credits-name\'>Uddipana Baishya</div> <div class=\'credits-name\'>Punyashlok Dash</div>	<div class=\'credits-name\'>Miguel Elizalde</div>			<div class=\'credits-name\'>Tristan Espinoza</div>			<div class=\'credits-name\'>Max Frischknecht & Philipp Möckli (Début Début)</div>			<div class=\'credits-name\'>Dongqi Han</div> 	<div class=\'credits-name\'>Kate Hollenbach</div>			<div class=\'credits-name\'>Vincent Hopkins</div>	<div class=\'credits-name\'>Cat Janowitz</div>			<div class=\'credits-name\'>Brennan Jones</div> <div class=\'credits-name\'>Sam Kissee</div><div class=\'credits-name\'>ZK</div>		<div class=\'credits-name\'>Ginger Kretschmer</div>				<div class=\'credits-name\'>Seyitan Oke</div>	<div class=\'credits-name\'>Suraj Rai</div><div class=\'credits-name\'>@reona396</div>  <div class=\'credits-name\'>Eliza Struthers-jobin</div> <div class=\'credits-name\'>Dan Weiner</div>		 <div class=\'credits-name\'>Sailor Winkelman</div>			 <div class=\'credits-name\'>Computational Thinkers® of Hawaii</div> 		<div class=\'credits-name\'>STEM Coding</div><div class=\'credits-name\'> + more members of the p5 community</div><div class=\'credits-title\'> Music </div> <div class=\'credits-name\'>Ah, Venice</div>  <div class=\'credits-title\'> Video Consulting </div> <div class=\'credits-name\'>Joey Chaos</div> <div class=\'credits-title\'>Translation </div> <div class=\'credits-name\'>Mayra Barrera Machuca</div> <div class=\'credits-title\'> Translation </div> <div class=\'credits-name\'>Peter Manson</div>  </div> ');
       p5SketchCredits.parent('container');
       p5SketchCredits.addClass("p5-sketch-logo-parent");
       creditsHidden = false;
@@ -82287,7 +82313,7 @@ module.exports= heart;
 /*********************
 // Hello P5 Title Sketch
 // Description: Interactive Title Text for the Video
-// Credit: Based on a sketch by , source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
+// Credit: Based on a sketch by ZK, source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
 *********************/
 
 
@@ -82898,8 +82924,8 @@ module.exports= pointillismLogo;
 },{}],15:[function(require,module,exports){
 /*********************
 // Rainbow
-// Description: 
-// Credit: https://www.openprocessing.org/sketch/565531 
+// Description: Rainbow made out of ellipses in a sine wave pattern.
+// Credit: Dan Weiner, source https://www.openprocessing.org/sketch/565531 
 *********************/
 
 
@@ -82967,7 +82993,7 @@ module.exports= rainbow;
 },{}],16:[function(require,module,exports){
 /*********************
 // Rectangles
-// Description: Fading Rectangles into the center of the screen
+// Description: Interactive rectangles coming out of the center of the screen 
 *********************/
 
 const rectangles = (p5) => {
@@ -82996,9 +83022,7 @@ const rectangles = (p5) => {
     if(rectangle.length<50){
       p5.addRectangle();
     }
-    // make the width of the stroke interactive
-    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
-    p5.strokeWeight(strokeThickness);
+    
     //random distance between rectangles
     distance += p5.random(2,50); 
   };
@@ -83008,6 +83032,10 @@ const rectangles = (p5) => {
     this.y = ycoord;
     this.strokecolor = opacity; //initial opacity
     this.display = function() {
+      // make the width of the stroke interactive
+      strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
+      p5.strokeWeight(strokeThickness);
+      console.log(strokeThickness);
       //reduce the opacity over time
       this.strokecolor-= 10; 
       p5.stroke(237,30,90, this.strokecolor);   
@@ -83031,8 +83059,7 @@ module.exports= rectangles;
 /*********************
 // Sin Lines
 // Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness. 
-// Credit: Based on sketch by waiting for release
-// Link: https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
+// Credit: ZK https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
 *********************/
 
 const sinLines = (p5) => {
@@ -87571,7 +87598,7 @@ const stars = (p5) => {
       stars[i].display();
     }
     // Fade the stars in 
-    if(window.videoCurrentTimeGlobal < 46){
+    if(window.videoCurrentTimeGlobal <= 44){
       if(fadeIn < starsNum){
         fadeIn +=10;
       }
@@ -87580,7 +87607,10 @@ const stars = (p5) => {
     if(window.videoCurrentTimeGlobal > 44){
       if(fadeIn > 20){
         fadeIn -= 20;
+      }else if(fadeIn>0){
+        fadeIn--;
       }
+    
     }
     // run function to cut out part of the canvas
     p5.cutout();
@@ -87645,8 +87675,7 @@ module.exports= stars;
 /*********************
 // Target Sketch
 // Description: Randomly colored ellipses increasing in size
-// Credit: Based on sketch by awaiting confirmation
-// Link: Insert Link
+// Credit:  ZK
 *********************/
 
 const targetSketch = (p5) => {
@@ -87687,31 +87716,28 @@ module.exports = targetSketch ;
 // Credit: Sailor Winkelman, Cat Janowitz, Ginger Kretschmer, and Sam Kissee source: https://epi-js-gro.firebaseapp.com
 *********************/
 
-var visualizer= function(p5){
+const visualizer= function(p5){
   let cutoutSize; 
   let strokeFadeIn = 10;
-  let opacity3=10;
-  let opacity2=0;
-  let opacity5=0;
-  let fillFadeIn=0
+  let fadeOut = 0;
+  let fillFadeIn = 0
   
   p5.setup = () => {
     p5.pixelDensity(1);
     let windowWidth = window.innerWidth;
-    let windowHeight = windowWidth * .562;
+    let windowHeight = windowWidth * 0.562;
     p5.canvas = p5.createCanvas(windowWidth, windowHeight);
     p5.canvas.parent('video-overlay');
-    cutoutSize = p5.width/6
-  }
-  
-
+    cutoutSize = p5.width/6;
+  };
   
   p5.draw= ()=> {
-    p5.background(75, 121, 161, 25-opacity2);
-    if(strokeFadeIn<255){
-      strokeFadeIn ++
+    p5.background(75, 121, 161, 25);
+
+    // Fade in the stroke and background
+    if(strokeFadeIn < 255){
+      strokeFadeIn++;
     }
-   
     if(fillFadeIn<150){
       fillFadeIn++;
     }
@@ -87720,8 +87746,6 @@ var visualizer= function(p5){
     p5.noFill();
     p5.stroke(255,255,255, strokeFadeIn); // waveform is white
     p5.strokeWeight(50);
-    
-    
     let waveform = Array.from({length: p5.width*2}, () => Math.random(-1, 1)/2 ); // make a random array of numbers to simulate a waveform
     p5.beginShape();
     for (let i = 0; i < waveform.length; i+=10){
@@ -87731,50 +87755,33 @@ var visualizer= function(p5){
     }
     p5.endShape();
     
-    
+    // Draw an ellipse - original code had this based on volume. We've had to sub in random numbers for this example
     p5.strokeWeight(4);
     p5.rms = 1;
-    p5.fill(50,50,100, fillFadeIn);
+    p5.fill(50, 50, 100, fillFadeIn);
     p5.strokeWeight(0);
-
-    // Draw an ellipse - original code had this based on volume. We've had to sub in random numbers for this example
-    p5.sizeChange=p5.random(0.5, 1.2)
-    p5.ellipse(p5.width / 2, p5.height / 2, 200 + (p5.height / 2)* p5.sizeChange, 200 + p5.rms * (p5.height / 2)*p5.sizeChange)    
-   
+    p5.sizeChange=p5.random(0.5, 1.2); //randomly change the size 
+    p5.ellipse(p5.width / 2, p5.height / 2, 200 + (p5.height / 2)* p5.sizeChange, 200 + p5.rms * (p5.height / 2)*p5.sizeChange);
+    
+    // run function to cut out part of the canvas
     p5.cutout();
     
+    // Fade reduce the size of the cutout and put a rectangular overlay at the end of the sketch
     if(window.videoCurrentTimeGlobal>7.00){
-      // opacity5+=4;
-      // fadeIn-=3;
-      // opacity2+=0;
-      // opacity3-=50;
-      // fillFadeIn-=50;
-      // p5.background(242, 242, 242, 25+opacity2);
-      p5.fill(242, 242, 242, 0+opacity5);
-      
-      p5.rect(0,0, p5.width, p5.height)
-      // if(cutoutSize< p5.width/5){
-        cutoutSize-= p5.width/30
-      // }else if(cutoutSize>0){
-        // cu toutSize=-5
-      // }
+      fadeOut+=7;
+      p5.fill(242, 242, 242, 0+fadeOut);
+      p5.rect(0,0, p5.width, p5.height);
+      cutoutSize-= p5.width/40;
     }
-    
-  }
+  };
   
-  
+  // Hide part of the canvas to prevent the sketch from overlapping on the video
   p5.cutout  = function() {
     var c = document.getElementById("defaultCanvas0");
     var ctx = c.getContext("2d");
-    ctx.clearRect((p5.width / 2) - cutoutSize, 0, cutoutSize * 2, p5.height);
-    
+    ctx.clearRect((p5.width / 2) - cutoutSize, 0, cutoutSize*2, p5.height);
   };  
-  
-  
-}
-
-
-
+};
 
 module.exports= visualizer;
 

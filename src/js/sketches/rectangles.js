@@ -1,6 +1,6 @@
 /*********************
 // Rectangles
-// Description: Fading Rectangles into the center of the screen
+// Description: Interactive rectangles coming out of the center of the screen 
 *********************/
 
 const rectangles = (p5) => {
@@ -29,9 +29,7 @@ const rectangles = (p5) => {
     if(rectangle.length<50){
       p5.addRectangle();
     }
-    // make the width of the stroke interactive
-    strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
-    p5.strokeWeight(strokeThickness);
+    
     //random distance between rectangles
     distance += p5.random(2,50); 
   };
@@ -41,6 +39,10 @@ const rectangles = (p5) => {
     this.y = ycoord;
     this.strokecolor = opacity; //initial opacity
     this.display = function() {
+      // make the width of the stroke interactive
+      strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
+      p5.strokeWeight(strokeThickness);
+      console.log(strokeThickness);
       //reduce the opacity over time
       this.strokecolor-= 10; 
       p5.stroke(237,30,90, this.strokecolor);   

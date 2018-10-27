@@ -54,7 +54,7 @@ const stars = (p5) => {
       stars[i].display();
     }
     // Fade the stars in 
-    if(window.videoCurrentTimeGlobal < 46){
+    if(window.videoCurrentTimeGlobal <= 44){
       if(fadeIn < starsNum){
         fadeIn +=10;
       }
@@ -63,7 +63,10 @@ const stars = (p5) => {
     if(window.videoCurrentTimeGlobal > 44){
       if(fadeIn > 20){
         fadeIn -= 20;
+      }else if(fadeIn>0){
+        fadeIn--;
       }
+    
     }
     // run function to cut out part of the canvas
     p5.cutout();

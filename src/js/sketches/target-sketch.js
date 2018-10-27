@@ -1,8 +1,7 @@
 /*********************
 // Target Sketch
 // Description: Randomly colored ellipses increasing in size
-// Credit: Based on sketch by awaiting confirmation
-// Link: Insert Link
+// Credit:  ZK
 *********************/
 
 const targetSketch = (p5) => {

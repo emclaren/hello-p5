@@ -1,7 +1,7 @@
 /*********************
 // Rainbow
-// Description: 
-// Credit: https://www.openprocessing.org/sketch/565531 
+// Description: Rainbow made out of ellipses in a sine wave pattern.
+// Credit: Dan Weiner, source https://www.openprocessing.org/sketch/565531 
 *********************/
 
 
