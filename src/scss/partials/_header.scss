@@ -22,7 +22,7 @@ header .logo{
 }
 
 header nav{
-	display:flex;
+	display:block;
 	height:100%;
 }
 
@@ -119,9 +119,7 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 		margin:3.5rem auto 1.5rem auto;
 		max-width:6rem;	
 	}
-	header nav{
-		display:block; //fixes the glitch on firefox that adds extra space to bottom of the li items
-	}
+
 }
 
 
@@ -165,6 +163,9 @@ header nav	a:active, header nav a:hover, header nav a:focus, header nav .languag
 			display:flex;
 			height:5rem;
 			text-align:left;	
+		}
+		header nav{
+			display:flex; //fixes the glitch on firefox that adds extra space to bottom of the li items
 		}
 		
 		header nav .hide-on-mobile{
