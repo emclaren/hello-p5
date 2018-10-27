@@ -81705,12 +81705,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   player.on('ready', event =>{
-    videoCurrentTime = sceneChangeMap[0].time
-    console.log("player ready just happened" + videoCurrentTime)
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background');  
+    // Add sketch on load so it will appear when you first press play, fixes glitch
     scene = new p5(laMonster);  
-    // Freeze the game on load
+    // Freeze the sketch on load
     if(scene){
       scene.frameRate(0);
     }
@@ -81718,8 +81717,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   /*** Plyr - triggered when video starts ***/
   player.on('playing', event => { 
-    console.log("playing event just happened" + videoCurrentTime)   
-    console.log("scene" +scene)
     if((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65){
       window.videoPlaying=true; 
       // adds the class of hide on play, to make the header shrink on play
@@ -81764,19 +81761,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   /*** Plyr - triggered 4 times every second while playing, this is used to trigger p5 events ***/  
   player.on('timeupdate', event => {
-    console.log("time update just happened" + videoCurrentTime)
     let timeInVideo = event.detail.plyr.currentTime  //Receive current time info from plyr
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
     let multipleTimeInVideo = timeInVideo * 4
     let roundTimeInVideo = Math.round(multipleTimeInVideo)
-    videoCurrentTime=roundTimeInVideo/4;
-    console.log("now we've read the most recent time" + videoCurrentTime)
-    
+    videoCurrentTime=roundTimeInVideo/4;    
     // // Uncomment this when testing:
-    console.log("video current time" + videoCurrentTime)
+    // console.log("video current time" + videoCurrentTime) 
     window.videoCurrentTimeGlobal = videoCurrentTime; //create a global variable so that current time can be used within p5 sketches
-    console.log("now running update sketch" + videoCurrentTime)
-    
     updateSketch(); // Function to see if a scene change should occur at the video CurrentTime
     // This part plays the correct sketch if a user jumps to a different part of the video 
     if(videoTimeSeeked){
@@ -81804,25 +81796,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Load a sketch if the current time of the video matches the timing array (Scene Change Map)
     function updateSketch(){
-      console.log("function has now been called" + videoCurrentTime)
-      console.log(typeof videoCurrentTime )
-      console.log(videoCurrentTime )
-      console.log(typeof sceneChangeMap[0].time )
-      console.log(sceneChangeMap[0].time )
       for(let i=0; i<sceneChangeMap.length; i++){
-        console.log("scnece change map function" + sceneChangeMap[i].time)
-        console.log(videoCurrentTime == sceneChangeMap[0].time)
         if(videoCurrentTime == sceneChangeMap[i].time){
           // Remove any p5 sketches currently playing
           if(scene){
             scene.remove();
           }
-          console.log("does this happen? since it is equal to true")
           // Play the sketch from the Scene change map
           scene = new p5(sceneChangeMap[i].sketchfile); 
-          console.log(sceneChangeMap[i].time)
-          console.log(sceneChangeMap[i].sketchfile)
-          console.log(scene)
         }
       }
     }
