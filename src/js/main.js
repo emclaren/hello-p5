@@ -48,7 +48,6 @@ const credits = require('./sketches/credits.js');
 
 /*** Timing for starting each p5 sketch ***/
 let sceneChangeMap = [
-  // {time : 0.00, sketchfile: noSketch},
   {time : 0.00, sketchfile: laMonster},
   {time : 2.75, sketchfile: noSketch},
   {time : 5.00, sketchfile: visualizer },
@@ -120,11 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("player ready just happened" + videoCurrentTime)
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background');  
-    // scene = new p5(laMonster);  
-    // // Freeze the game on load
-    // if(scene){
-    //   scene.frameRate(0);
-    // }
+    scene = new p5(laMonster);  
+    // Freeze the game on load
+    if(scene){
+      scene.frameRate(0);
+    }
   });
   
   /*** Plyr - triggered when video starts ***/
@@ -239,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Remove P5 sketch when a new time in video is selected by user
-    player.on('seeking', event => {
+    player.on('seeking', event => { 
       if(scene){
         scene.remove(); 
       }
