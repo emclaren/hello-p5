@@ -22,7 +22,7 @@ const wavemaker = (p5) => {
     p5.canvas.parent('video-overlay');
     p5.noFill();
     p5.frameRate(30);
-    dotDistance=p5.width/40;
+    dotDistance=p5.width/20;
     squareWidth=p5.width/20;
     halfWidth = p5.width/2;
   }; 
