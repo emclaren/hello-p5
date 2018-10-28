@@ -48,9 +48,9 @@ const credits = require('./sketches/credits.js');
 
 /*** Timing for starting each p5 sketch ***/
 let sceneChangeMap = [
-  {time : 0.00, sketchfile: visualizer},
-  // {time : 0.25, sketchfile: laMonster},
-  {time : 2.75, sketchfile: noSketch},
+  // {time : 0.00, sketchfile: visualizer},
+  {time : 0.25, sketchfile: laMonster},
+  // {time : 2.75, sketchfile: noSketch},
   {time : 5.00, sketchfile: visualizer },
   {time : 7.75, sketchfile: noSketch},
   {time : 8.00, sketchfile: helloP5Title},

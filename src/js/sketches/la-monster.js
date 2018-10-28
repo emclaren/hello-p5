@@ -4,7 +4,7 @@
 // Credit: Seyitan Oke, source: http://oke.design/lamonsters
 *********************/
 
-
+console.log("hi")
 const p5play = require('./sketch-libraries/play.js');
 
 var laMonster= function(p5){
@@ -20,6 +20,7 @@ var laMonster= function(p5){
 
 	// preload images so there is less delay once the sketch starts to when it's visible
 	p5.preload = () => {
+		console.log("preload starts")
 		windowWidth = document.documentElement.clientWidth / 2.8;
 		windowHeight = (document.documentElement.clientWidth  * 0.562)/2;
 		monsterlooBackground = p5.loadImage("dist/assets/img/MonsterLoo_Background.png"); // preload the background image
@@ -31,19 +32,21 @@ var laMonster= function(p5){
 	};
 	
 	p5.setup = () => {
+		console.log("setup starts")
 		p5.pixelDensity(1);
 		p5.canvas= p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
 		p5.canvas.addClass('la-monster-sketch'); // Add class to add margin to the canvas
 		monster.depth = 5; // the z-index of the characters
-		monster.scale = p5.width/2000; //reduce the size of the monster
+		monster.scale = p5.width/800; //reduce the size of the monster
 		standmonster.depth = 3; // the z-index of the characters
-		standmonster.scale = p5.width/2000; //reduce the size of the monster
+		standmonster.scale = p5.width/800; //reduce the size of the monster
 		magicX = p5.width/3; // initial character position
 		p5.noStroke();
 	};
 	
 	p5.draw = () => {
+		console.log("draw starts")
 		p5.image(monsterlooBackground, -p5.width/3, 0, p5.height*6, p5.height); // position the background
 		p5.monsterdraw(); 
 		p5.cameraview(); 
