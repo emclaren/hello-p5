@@ -2,8 +2,8 @@
 // Hello P5 Title Sketch
 // Description: Interactive Title Text for the Video
 // Credit: Based on a sketch by ZK, source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
+// Try it: https://editor.p5js.org/emclaren/sketches/ryNss2G37
 *********************/
-
 
 const helloP5Title = (p5) => {
   let upperBound;

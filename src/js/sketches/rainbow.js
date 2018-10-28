@@ -1,8 +1,10 @@
 /*********************
 // Rainbow
 // Description: Rainbow made out of ellipses in a sine wave pattern.
-// Credit: Dan Weiner, source https://www.openprocessing.org/sketch/565531 
+// Credit: Dan Weiner, source https://www.openprocessing.org/sketch/565531
+// Try it: https://editor.p5js.org/emclaren/sketches/B1ksahf3m 
 *********************/
+
 
 
 const rainbow = (p5) => {

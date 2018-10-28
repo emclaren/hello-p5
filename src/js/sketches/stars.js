@@ -2,6 +2,7 @@
 // Stars
 // Description: Draws ellipses in a circle on the screen with a cutout for the video
 // Credit: @reona396, source https://www.openprocessing.org/sketch/559382
+// Try it: https://editor.p5js.org/emclaren/sketches/SklF22G2Q
 *********************/
 
 const stars = (p5) => {

@@ -2,6 +2,7 @@
 // Leaves
 // Description: Draws randomly falling confetti-like leaves 
 // Credit: based on a sketch by @reona396 https://www.openprocessing.org/sketch/521545
+// Try It: https://editor.p5js.org/emclaren/sketches/HJaP2dgL7
 *********************/
 
 const leaves = (p5) => {  

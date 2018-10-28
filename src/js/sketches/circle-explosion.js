@@ -1,6 +1,7 @@
 /*********************
 // Circle Explosion
 // Description: Draws random exploding circles on the screen. After a set amount of time, the circles grow in size and the p5 logo appears
+// Try it: https://editor.p5js.org/emclaren/sketches/B1j0a3f2X
 *********************/
 
 const circleExplosion = (p5) => {

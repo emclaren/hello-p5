@@ -81897,6 +81897,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /*********************
 // Circle Explosion
 // Description: Draws random exploding circles on the screen. After a set amount of time, the circles grow in size and the p5 logo appears
+// Try it: https://editor.p5js.org/emclaren/sketches/B1j0a3f2X
 *********************/
 
 const circleExplosion = (p5) => {
@@ -82172,6 +82173,7 @@ module.exports= forumLink;
 // Heart Animation Sketch
 // Description: Draws randomly coloured, interactive hearts on screen 
 // Credit: @reona396, source: https://www.openprocessing.org/sketch/561609
+// Try it: https://editor.p5js.org/emclaren/sketches/SkJaphG3X
 *********************/
 
 const heart = (p5) => {
@@ -82294,8 +82296,8 @@ module.exports= heart;
 // Hello P5 Title Sketch
 // Description: Interactive Title Text for the Video
 // Credit: Based on a sketch by ZK, source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
+// Try it: https://editor.p5js.org/emclaren/sketches/ryNss2G37
 *********************/
-
 
 const helloP5Title = (p5) => {
   let upperBound;
@@ -82513,6 +82515,7 @@ module.exports= laMonster;
 // Leaves
 // Description: Draws randomly falling confetti-like leaves 
 // Credit: based on a sketch by @reona396 https://www.openprocessing.org/sketch/521545
+// Try It: https://editor.p5js.org/emclaren/sketches/HJaP2dgL7
 *********************/
 
 const leaves = (p5) => {  
@@ -82635,7 +82638,9 @@ module.exports = leaves;
 // Lerp Color
 // Description: Random shapes in four colors, MouseX and MouseY affect the number of shapes and the size
 // Credit: Based on the P5 Lerp Color example sketch, available here:https://p5js.org/examples/color-lerp-color.html
+// Try it: https://editor.p5js.org/emclaren/sketches/BkEgChzn7
 *********************/
+
 
 const lerpColor= (p5) => {
   let fadeIn = 0; //Fade in the shapes
@@ -82724,7 +82729,9 @@ module.exports = lerpColor;
 /*********************
 // Many Dots
 // Description: Draws interactive dots on the screen
+// Try it: https://editor.p5js.org/emclaren/sketches/BJUGCnGnm
 *********************/
+
 
 const manyDots = (p5) => {
   let dot = []; // array to hold the dots
@@ -82838,7 +82845,9 @@ module.exports= manyDots;
 // P5 Logo Pointillism
 // Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
 // Credit: P5 example sketch by Daniel Shiffman, source: https://p5jp5.org/examples/image-pointillism.html
+// Try it: https://editor.p5js.org/emclaren/sketches/HyU4C2M37
 *********************/
+
 
 const pointillismLogo = (p5) => {
   let smallDot = 5; 
@@ -82904,8 +82913,10 @@ module.exports= pointillismLogo;
 /*********************
 // Rainbow
 // Description: Rainbow made out of ellipses in a sine wave pattern.
-// Credit: Dan Weiner, source https://www.openprocessing.org/sketch/565531 
+// Credit: Dan Weiner, source https://www.openprocessing.org/sketch/565531
+// Try it: https://editor.p5js.org/emclaren/sketches/B1ksahf3m 
 *********************/
+
 
 
 const rainbow = (p5) => {
@@ -82973,6 +82984,7 @@ module.exports= rainbow;
 /*********************
 // Rectangles
 // Description: Interactive rectangles coming out of the center of the screen 
+// Try it: https://editor.p5js.org/emclaren/sketches/BJXIA3M2Q
 *********************/
 
 const rectangles = (p5) => {
@@ -83038,6 +83050,7 @@ module.exports= rectangles;
 // Sin Lines
 // Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness. 
 // Credit: ZK https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
+// Try it: https://editor.p5js.org/emclaren/sketches/SyWdRnM3m
 *********************/
 
 const sinLines = (p5) => {
@@ -83102,7 +83115,7 @@ module.exports= sinLines;
 /*********************
 // Single Circle
 // Description: Pulsing Circle & Example Code Block
-Credit NA
+// Try it: https://editor.p5js.org/emclaren/sketches/SkO-FKawQ
 *********************/
 
 var singleCircle = function(p5) {
@@ -87524,6 +87537,7 @@ http://molleindustria.org/
 // Stars
 // Description: Draws ellipses in a circle on the screen with a cutout for the video
 // Credit: @reona396, source https://www.openprocessing.org/sketch/559382
+// Try it: https://editor.p5js.org/emclaren/sketches/SklF22G2Q
 *********************/
 
 const stars = (p5) => {
@@ -87654,6 +87668,7 @@ module.exports= stars;
 // Target Sketch
 // Description: Randomly colored ellipses increasing in size
 // Credit:  ZK
+// Try it: https://editor.p5js.org/emclaren/sketches/H1Xin3Gh7
 *********************/
 
 const targetSketch = (p5) => {
@@ -87692,6 +87707,7 @@ module.exports = targetSketch ;
 // Visualizer
 // Description: Pulsing visualization of audio track data, modified to bypass audio input so it could be in the background without there being additional noise
 // Credit: Sailor Winkelman, Cat Janowitz, Ginger Kretschmer, and Sam Kissee source: https://epi-js-gro.firebaseapp.com
+// Try it: https://editor.p5js.org/emclaren/sketches/HyKEF2f2Q
 *********************/
 
 const visualizer= function(p5){
@@ -87772,6 +87788,7 @@ module.exports= visualizer;
 // Wavemaker
 // Description: Draws a wavey interactive grid of rectangles around the perimeter of the screen
 // Credit: Based on the P5js Wavemaker example by Aatish Bhatia  https://p5js.org/examples/interaction-wavemaker.html
+// Try it: https://editor.p5js.org/emclaren/sketches/Hy4uT2z2Q
 *********************/
 
 const wavemaker = (p5) => {
@@ -87845,6 +87862,7 @@ module.exports = wavemaker;
 // Waves
 // Description: Draws interactive waves on the screen
 // Credit: @reona396 https://www.openprocessing.org/sketch/521545
+// Try it: https://editor.p5js.org/emclaren/sketches/rJsL63fhX
 *********************/
 
 const waves = (p5) => {

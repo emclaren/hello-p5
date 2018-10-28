@@ -2,6 +2,7 @@
 // Heart Animation Sketch
 // Description: Draws randomly coloured, interactive hearts on screen 
 // Credit: @reona396, source: https://www.openprocessing.org/sketch/561609
+// Try it: https://editor.p5js.org/emclaren/sketches/SkJaphG3X
 *********************/
 
 const heart = (p5) => {

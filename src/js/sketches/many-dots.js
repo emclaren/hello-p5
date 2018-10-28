@@ -1,7 +1,9 @@
 /*********************
 // Many Dots
 // Description: Draws interactive dots on the screen
+// Try it: https://editor.p5js.org/emclaren/sketches/BJUGCnGnm
 *********************/
+
 
 const manyDots = (p5) => {
   let dot = []; // array to hold the dots

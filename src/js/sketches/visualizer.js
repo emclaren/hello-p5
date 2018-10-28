@@ -2,6 +2,7 @@
 // Visualizer
 // Description: Pulsing visualization of audio track data, modified to bypass audio input so it could be in the background without there being additional noise
 // Credit: Sailor Winkelman, Cat Janowitz, Ginger Kretschmer, and Sam Kissee source: https://epi-js-gro.firebaseapp.com
+// Try it: https://editor.p5js.org/emclaren/sketches/HyKEF2f2Q
 *********************/
 
 const visualizer= function(p5){

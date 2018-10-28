@@ -2,6 +2,7 @@
 // Waves
 // Description: Draws interactive waves on the screen
 // Credit: @reona396 https://www.openprocessing.org/sketch/521545
+// Try it: https://editor.p5js.org/emclaren/sketches/rJsL63fhX
 *********************/
 
 const waves = (p5) => {

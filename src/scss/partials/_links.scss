@@ -1,0 +1,77 @@
+
+.sketch-link-grid-container{
+    display: flex;
+    /*Must!!!! on the container, in order to turn it to flex*/
+    // flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:1rem;
+}
+
+.sketch-link-item{
+max-width:40%;
+// width: 50%;
+// display:inline-block;
+// flex-basis: 50%;
+margin:.5rem;
+padding:.2rem;
+transition:transform .5s ease;
+// transition:all .5s ease;
+
+
+img{
+    width:100%;
+    transition:all .5s ease;
+}
+h3{
+    margin:0;
+    font-size:.8rem;
+    
+}
+a, a:visited{
+    transition:all .5s ease;
+    color: $brand-color-main;
+    }
+    text-align:center;
+    text-decoration:none
+   
+}
+
+.sketch-link-item:hover, .sketch-link-item:active{
+background-color:rgba(237, 34, 93, .9); 
+a{
+    color:#FFF;
+}
+
+    transform: scale(1.1);
+
+}
+
+.sketches-links.back-button{
+    text-align:left
+}
+@include breakpoint(sm) {
+    .sketch-link-item{
+        max-width:30%;
+        h3{
+            font-size:1rem;
+        }
+}
+}
+@include breakpoint(md) {
+    .sketch-link-item{
+        max-width:20%;
+
+}
+}
+@include breakpoint(lg) {
+    .sketch-link-item{
+        max-width:15%;
+
+}
+}
+
+body.links{
+    height:auto;
+
+}

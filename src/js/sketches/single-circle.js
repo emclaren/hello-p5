@@ -1,7 +1,7 @@
 /*********************
 // Single Circle
 // Description: Pulsing Circle & Example Code Block
-Credit NA
+// Try it: https://editor.p5js.org/emclaren/sketches/SkO-FKawQ
 *********************/
 
 var singleCircle = function(p5) {

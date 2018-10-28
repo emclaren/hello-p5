@@ -2,6 +2,7 @@
 // Target Sketch
 // Description: Randomly colored ellipses increasing in size
 // Credit:  ZK
+// Try it: https://editor.p5js.org/emclaren/sketches/H1Xin3Gh7
 *********************/
 
 const targetSketch = (p5) => {
