@@ -48,9 +48,8 @@ const credits = require('./sketches/credits.js');
 
 /*** Timing for starting each p5 sketch ***/
 let sceneChangeMap = [
-  // {time : 0.00, sketchfile: visualizer},
-  {time : 0.25, sketchfile: laMonster},
-  // {time : 2.75, sketchfile: noSketch},
+  {time : -0.25, sketchfile: laMonster},
+  {time : 2.75, sketchfile: noSketch},
   {time : 5.00, sketchfile: visualizer },
   {time : 7.75, sketchfile: noSketch},
   {time : 8.00, sketchfile: helloP5Title},
@@ -118,13 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
   player.on('ready', event =>{
     let posterClass = document.getElementsByClassName('plyr__poster');
     posterClass[0].classList.add('lazy-load-background');  
-    // Add sketch on load so it will appear when you first press play, fixes glitch
-    // scene = new p5(laMonster);  
+    // Add sketch on load so it will appear when you first press play, fixes glitch caused by slow rendering
+    scene = new p5(laMonster);  
     // Freeze the sketch on load
-    // if(scene){
-    //   scene.frameRate(0);
-    // }
-    // updateSketch(); 
+    if(scene){
+      scene.frameRate(0);
+    }
   });
   
   /*** Plyr - triggered when video starts ***/
