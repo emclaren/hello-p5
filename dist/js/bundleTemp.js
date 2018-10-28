@@ -81596,7 +81596,7 @@ window.addEventListener("load", function(event) {
       document.getElementsByClassName("plyr__controls")[0].setAttribute( 'style', 'z-index: 2147483647 !important' );
     }, 500);
     
-  }, 3000);
+  }, 50);
 });
 
 /*** Required JS libraries ***/
