@@ -81798,7 +81798,6 @@ document.addEventListener('DOMContentLoaded', () => {
       for(let i=0; i<sceneChangeMap.length; i++){
         if(videoCurrentTime == sceneChangeMap[i].time){
           // Remove any p5 sketches currently playing
-          console.log(scene)
           if(scene){
             scene.remove();
           }
@@ -82145,7 +82144,7 @@ const forumLink = (p5) => {
 		// Create the upper link on load (note the styling is done with css)
 		forumLinkDiv = p5.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-link-upper sketch-link sketch-link-animation"><span>' + forumLinkText + '</span> >> </div></a>');
 		forumLinkDiv.parent('video-overlay');
-		forumLinkDiv.class('test2');
+		forumLinkDiv.addClass("sketch-link-container")
 	};
 
 
@@ -82156,6 +82155,7 @@ const forumLink = (p5) => {
 			if(linkHidden){
 			communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>'+communityLinkText+'</span> >> </a>');
 			communityLinkDiv.parent('video-overlay');
+			communityLinkDiv.addClass("sketch-link-container")
 			linkHidden = false;
 			}
 		}
@@ -82391,7 +82391,6 @@ module.exports = helloP5Title;
 // Credit: Seyitan Oke, source: http://oke.design/lamonsters
 *********************/
 
-console.log("hi")
 const p5play = require('./sketch-libraries/play.js');
 
 var laMonster= function(p5){
@@ -82407,7 +82406,6 @@ var laMonster= function(p5){
 
 	// preload images so there is less delay once the sketch starts to when it's visible
 	p5.preload = () => {
-		console.log("preload starts")
 		windowWidth = document.documentElement.clientWidth / 2.8;
 		windowHeight = (document.documentElement.clientWidth  * 0.562)/2;
 		monsterlooBackground = p5.loadImage("dist/assets/img/MonsterLoo_Background.png"); // preload the background image
@@ -82419,7 +82417,6 @@ var laMonster= function(p5){
 	};
 	
 	p5.setup = () => {
-		console.log("setup starts")
 		p5.pixelDensity(1);
 		p5.canvas= p5.createCanvas(windowWidth, windowHeight);
 		p5.canvas.parent('video-overlay');
@@ -82433,7 +82430,6 @@ var laMonster= function(p5){
 	};
 	
 	p5.draw = () => {
-		console.log("draw starts")
 		p5.image(monsterlooBackground, -p5.width/3, 0, p5.height*6, p5.height); // position the background
 		p5.monsterdraw(); 
 		p5.cameraview(); 
@@ -83018,7 +83014,6 @@ const rectangles = (p5) => {
       // make the width of the stroke interactive
       strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
       p5.strokeWeight(strokeThickness);
-      console.log(strokeThickness);
       //reduce the opacity over time
       this.strokecolor-= 10; 
       p5.stroke(237,30,90, this.strokecolor);   
@@ -87967,6 +87962,7 @@ const webeditorLink = (p5) => {
 	let webeditorLinkText;
 	let downloadLinkText;
 	let linkHidden=true;
+
 	p5.setup  = () => {
 		p5.pixelDensity(1);
 		let windowWidth = document.documentElement.clientWidth;
@@ -87987,6 +87983,7 @@ const webeditorLink = (p5) => {
 		// Create the upper link on load (note the styling is done with css)
 		webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation"><span>' + webeditorLinkText + '</span> >> </div></a>');
 		webeditorLinkDiv.parent('video-overlay');
+		webeditorLinkDiv.addClass("sketch-link-container")
 	};
 
 
@@ -87997,6 +87994,7 @@ const webeditorLink = (p5) => {
 			if(linkHidden){
 			downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + downloadLinkText + '</span> >> </div></a>');
 			downloadLinkDiv.parent('video-overlay');
+			downloadLinkDiv.addClass("sketch-link-container")
 			linkHidden = false;
 			}
 		}

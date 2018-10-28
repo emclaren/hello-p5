@@ -30,7 +30,7 @@ const forumLink = (p5) => {
 		// Create the upper link on load (note the styling is done with css)
 		forumLinkDiv = p5.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-link-upper sketch-link sketch-link-animation"><span>' + forumLinkText + '</span> >> </div></a>');
 		forumLinkDiv.parent('video-overlay');
-		forumLinkDiv.class('test2');
+		forumLinkDiv.addClass("sketch-link-container")
 	};
 
 
@@ -41,6 +41,7 @@ const forumLink = (p5) => {
 			if(linkHidden){
 			communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>'+communityLinkText+'</span> >> </a>');
 			communityLinkDiv.parent('video-overlay');
+			communityLinkDiv.addClass("sketch-link-container")
 			linkHidden = false;
 			}
 		}

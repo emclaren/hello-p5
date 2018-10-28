@@ -42,7 +42,6 @@ const rectangles = (p5) => {
       // make the width of the stroke interactive
       strokeThickness = p5.map(p5.mouseX, 0, p5.width, 40, 300); 
       p5.strokeWeight(strokeThickness);
-      console.log(strokeThickness);
       //reduce the opacity over time
       this.strokecolor-= 10; 
       p5.stroke(237,30,90, this.strokecolor);   

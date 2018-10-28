@@ -208,7 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
       for(let i=0; i<sceneChangeMap.length; i++){
         if(videoCurrentTime == sceneChangeMap[i].time){
           // Remove any p5 sketches currently playing
-          console.log(scene)
           if(scene){
             scene.remove();
           }
