@@ -27,20 +27,17 @@ video{
 }
 
 
-
+// Link on bottom of main page to
 .sketches-links{
   text-align: right;
   background-color: #ed225d;
   color: #fff;
-  // position: absolute;
   right: 0;
   top: 0;
   padding: 0 1rem;
-  
   font-size: 0.8rem;
-  /* margin: .5rem; */
-  /* width: 100%; */
-  opacity: .8;
+  opacity: 0.95;
+  z-index: 2147483647;
   a{
     color:white;
   }

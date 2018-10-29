@@ -9,6 +9,10 @@
   <link rel="manifest" href="manifest.json">
   <meta name="Description" content="Introduction video for p5js">
   <meta name="theme-color" content="#ED225D">
+  <meta property="og:title" content="Hello p5js">
+  <meta property="og:description" content="Learn more about p5js">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
 </head>
 
 <body id="body">
@@ -51,41 +55,42 @@
       <!--This project uses the PLYR video player https://github.com/sampotts/plyr for HTML video styling -->
       <video  id="player" poster="dist/assets/img/poster.jpg" playsinline controls >
         
-          <!--Create different Sizes-->
-   
-            <source src="dist/assets/video/p5video_1024.mp4" type="video/mp4" id="mp4">
+        <!--Create different Sizes-->
+        
+        <source src="dist/assets/video/p5video_1024.mp4" type="video/mp4" id="mp4">
           <source src="dist/assets/video/p5video.webm" type="video/webm">  
-                  
-           <!-- CAPTION FILES -->
-           <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en" default>
-           <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es">
-           <track kind="captions" label="French" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr"> 
-       </video>
-                                                 
-         <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
-         <div id="video-overlay" class="video-overlay"></div>
-            <div id="loader-container">
-              
-                <div id="loader"> 
-                  <h2 id="loader-text">
-                    <span> . </span>
-                    <span> . </span>
-                    <span> . </span>
-                  </h2>
-                  <div id="loader-svg-container">
-                   <svg class="loader-svg" id="loader-svg" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 28 28"><path fill="#fff" stroke="#fff" stroke-miterlimit="20" d="M16.909 10.259l8.533-2.576 1.676 5.156-8.498 2.899 5.275 7.48-4.447 3.225-5.553-7.348-5.408 7.155-4.318-3.289 5.275-7.223L.88 12.647l1.678-5.16 8.598 2.771V1.364h5.754v8.895z"/> </svg></div>
-                  </div>
-                <div class="loader-section "></div> 
-            </div>
-                
-           <!-- Empty p5_loading div to prevent the the text: "Loading..." from appearing during preload -->
-             <div id="p5_loading" class="loadingclass"></div>
-             <div class="sketches-links"><a href="links.html" target="_blank"><span>View Code</span> >> </a></div>
             
-      </div>
-
-  <script src="dist/js/bundle.js" ></script>
+            <!-- CAPTION FILES -->
+            <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en" default>
+              <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es">
+                <track kind="captions" label="French" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr"> 
+                </video>
+                
+                <!--P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
+                <div id="video-overlay" class="video-overlay"></div>
+                <div id="loader-container">
+                  
+                  <div id="loader"> 
+                    <h2 id="loader-text">
+                      <span> . </span>
+                      <span> . </span>
+                      <span> . </span>
+                    </h2>
+                    <div id="loader-svg-container">
+                      <svg class="loader-svg" id="loader-svg" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 28 28"><path fill="#fff" stroke="#fff" stroke-miterlimit="20" d="M16.909 10.259l8.533-2.576 1.676 5.156-8.498 2.899 5.275 7.48-4.447 3.225-5.553-7.348-5.408 7.155-4.318-3.289 5.275-7.223L.88 12.647l1.678-5.16 8.598 2.771V1.364h5.754v8.895z"/> </svg></div>
+                    </div>
+                    <div class="loader-section "></div> 
+                  </div>
+                  
+                  <!-- Empty p5_loading div to prevent the the text: "Loading..." from appearing during preload -->
+                  <div id="p5_loading" class="loadingclass"></div>
+                  <div class="sketches-links"><a href="links.html" target="_blank"><span>View Code</span> >> </a></div>
+                  
+                </div>
+                
+                <script src="dist/js/bundle.js" ></script>
+                
+                <!-- TO DO: Add Google Analytics When Launched -->
+              </body>
+              </html>
               
-   <!-- TO DO: Add Google Analytics When Launched -->
-   </body>
-</html>

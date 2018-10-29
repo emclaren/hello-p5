@@ -1,18 +1,14 @@
 
 .sketch-link-grid-container{
     display: flex;
-    /*Must!!!! on the container, in order to turn it to flex*/
-    // flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     margin:1rem 0;
+    opacity:0.95;
 }
 
 .sketch-link-item{
 max-width:40%;
-// width: 50%;
-// display:inline-block;
-// flex-basis: 50%;
 margin:.5rem;
 padding:.2rem;
 transition:transform .5s ease;
