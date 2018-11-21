@@ -2,300 +2,321 @@
 HEADER STYLING
 *********************/
 
-header{	
-	display:block;
-	width:100%;
-	background-color:$background-color-main;
-	justify-content:space-around;
-	align-items:center;
-	text-align:center;
-	top:0;
-	left: 0;
-	transition: all .5s ease;
-	z-index: 2147483647 !important;
-} 
-
-header .logo{
-	max-width: 6rem;
-	margin:1.5rem auto;
-	display:flex;
+header {
+  display: block;
+  width: 100%;
+  background-color: $background-color-main;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
+  z-index: 2147483647 !important;
 }
 
-header nav{
-	display:block;
-	height:100%;
+header .logo {
+  max-width: 6rem;
+  margin: 1.5rem auto;
+  display: flex;
 }
 
-header nav ul{
-	list-style: none;
-	margin: 0rem auto 1rem auto;
-	padding:0;
-	max-width: 19rem;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;	
+header nav {
+  display: block;
+  height: 100%;
 }
 
-header nav li{
-	font-family: "AvenirNextLTW01-Medium", sans-serif;
-	list-style-type:none;	
-	display: inline-block;
-	color: $brand-color-main;
-	margin:0 .2rem 1rem;
+header nav ul {
+  list-style: none;
+  margin: 0 auto 1rem auto;
+  padding: 0;
+  max-width: 19rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+header nav li {
+  font-family: "AvenirNextLTW01-Medium", sans-serif;
+  list-style-type: none;
+  display: inline-block;
+  color: $brand-color-main;
+  margin: 0 0.2rem 1rem;
 }
 
 //Hide-On-Mobile class is used to hide some asterisk separators from the header
-header nav .hide-on-mobile{
-	display:none;
+header nav .hide-on-mobile {
+  display: none;
 }
 
-//nth-child classes style nav menu into grid on mobile 
-header nav li:nth-child(odd){
-	width:5.2rem;
+//nth-child classes style nav menu into grid on mobile
+header nav li:nth-child(odd) {
+  width: 5.2rem;
 }
 
 header nav li:nth-child(3n+1) {
-	text-align:left;
+  text-align: left;
 }
+
 header nav li:nth-child(3n+2) {
-	text-align:right;
+  text-align: right;
 }
 
-header nav .language-list-container{
-	width:100% !important;
-	margin:0 auto;
+header nav .language-list-container {
+  width: 100% !important;
+  margin: 0 auto;
 }
 
-header nav .language-list{
-	display:flex;
-	flex-wrap:wrap;
-	width:12.5rem;
-	text-align:center;
-	margin:0 auto;
+header nav .language-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 12.5rem;
+  text-align: center;
+  margin: 0 auto;
 }
 
 // Used to style ES/EN/FR in nav as though they are a link, required because they are not <a> elements
-header nav li.language-link{
-	margin:.3rem;
-	font-size:1rem;
-	display:block;
-	width:auto;
+header nav li.language-link {
+  margin: 0.3rem;
+  font-size: 1rem;
+  display: block;
+  width: auto;
 }
 
 header nav li.language-link:hover {
-	width:auto !important;
-	cursor:pointer;
+  width: auto !important;
+  cursor: pointer;
 }
 
-header nav a, header nav a:link, header nav a:visited {
-	color: $brand-color-main;
-	text-decoration: none;
-	user-select: none;
-	font-size: 1rem;
+header nav a,
+header nav a:link,
+header nav a:visited {
+  color: $brand-color-main;
+  text-decoration: none;
+  user-select: none;
+  font-size: 1rem;
 }
 
-header nav	a:active, header nav a:hover, header nav a:focus, header nav .language-link:hover,  header nav .language-link:active,header nav .language-link:focus {
-	outline:0;
-	text-decoration:none;
-	padding-bottom:.11rem;
-	border-bottom:.11rem dashed;
-	border-bottom-color:$brand-color-main;
+header nav a:active,
+header nav a:hover,
+header nav a:focus,
+header nav .language-link:hover,
+header nav .language-link:active,
+header nav .language-link:focus {
+  outline: 0;
+  text-decoration: none;
+  padding-bottom: 0.11rem;
+  border-bottom: 0.11rem dashed;
+  border-bottom-color: $brand-color-main;
 }
 
 // Header text doesn't fit properly in french, this styling reduced french font size so the text fits
-.french a, .french a:link,.french a:visited,.french .language-link{
-	font-size: .8rem;
+header.french nav a,
+header.french nav a:link,
+header.french nav a:visited,
+header.french nav .language-link {
+  font-size: 0.8rem;
 }
 
 @include breakpoint(portrait) {
-	header{	
-		display:block;
-		text-align:center;	
-		position:relative;
-	}
-	
-	header .logo{
-		margin:3.5rem auto 1.5rem auto;
-		max-width:6rem;	
-	}
+  header {
+    display: block;
+    text-align: center;
+    position: relative;
+  }
 
+  header .logo {
+    margin: 3.5rem auto 1.5rem auto;
+    max-width: 6rem;
+  }
 }
-
 
 @include breakpoint(sm) {
-	header .logo{
-		max-width: 5.63rem;
-	}
-	header nav ul{
-		margin:.5rem auto;
-	}
-	
-	@include breakpoint(portrait) {
-		header{
-			padding: 1rem 0
-		}
-	}
+  header .logo {
+    max-width: 5.63rem;
+  }
+
+  header nav ul {
+    margin: 0.5rem auto;
+  }
+
+  @include breakpoint(portrait) {
+    header {
+      padding: 1rem 0;
+    }
+  }
 }
-
-
 
 @include breakpoint(md) {
+  header .logo {
+    max-width: 4rem;
+    margin: 1rem auto;
+  }
 
-	header .logo{
-		max-width:4rem;
-		margin:1rem auto;	
-	}
-	
-	header nav ul{
-		flex-wrap: none;
-		max-width:100%;	
-		align-items:center;	
-	}
-	
+  header nav ul {
+    flex-wrap: none;
+    max-width: 100%;
+    align-items: center;
+  }
 
-	.french a, .french a:link,.french a:visited,.french .language-link{
-		font-size:.9rem;
-	}
-	
-	@include breakpoint(landscape){
-		header{
-			display:flex;
-			height:5rem;
-			text-align:left;	
-		}
-		header nav{
-			display:flex; //fixes the glitch on firefox that adds extra space to bottom of the li items
-		}
-		
-		header nav .hide-on-mobile{
-			display:inline-block;
-		}
-		
-		header.shrink{
-			height:2.5rem;
-			transition: height .5s ease;
-		}
+  header.french nav a,
+  header.french nav a:link,
+  header.french nav a:visited,
+  header.french .language-link {
+    font-size: 0.9rem;
+  }
 
-		header nav .language-list-container{
-			width:auto !important;
-		}
-		
-		header nav .language-list{
-			width:7.5rem;
-			height: 1.4rem;
-		}	
-		
-		header.shrink	.language-link {
-			height:1.5rem;
-		}
-		
-		header.shrink	#menu li a:link,header.shrink #menu li a:visited,header.shrink .language-link{
-			font-size: 1.1em;
-			transition: font-size .5s ease, height .5s ease;	
-		}
-		
-		header nav li{
-			margin:0 .3rem;
-		}
-		
-		header nav li:nth-child(odd){
-			width:auto;
-		}
-		
-		header.shrink .logo{
-			max-width: 3rem;
-			margin:0 auto;	
-			transition: height .5s ease, margin .5 ease;	
-		}
-		
-		header nav li.language-link{
-			height:1.7rem;
-		}
-		
-	}
-	
-	@include breakpoint(portrait) {
-		header{
-			padding: 4rem 0
-		}
-		
-		header nav ul{
-			flex-wrap: wrap;
-			max-width:20rem;
-		}
-		
-		header nav .language-list{
-			display:flex;
-			flex-wrap:wrap;
-			width: 12.5rem;
-			text-align:center;
-			margin: 0 auto;
-		}
+  @include breakpoint(landscape) {
+    header {
+      display: flex;
+      height: 5rem;
+      text-align: left;
+    }
 
-		header nav .language-list-container li{
-			margin: 0 auto;
-		}
-		
-	}
+    header nav {
+      display: flex; //fixes the glitch on firefox that adds extra space to bottom of the li items
+    }
+
+    header nav .hide-on-mobile {
+      display: inline-block;
+    }
+
+    header.shrink {
+      height: 2.5rem;
+      transition: height 0.5s ease;
+    }
+
+    header nav .language-list-container {
+      width: auto !important;
+    }
+
+    header nav .language-list {
+      width: 7.5rem;
+      height: 1.4rem;
+    }
+
+    header.shrink .language-link {
+      height: 1.5rem;
+    }
+
+    header.shrink #menu li a:link,
+    header.shrink #menu li a:visited,
+    header.shrink .language-link {
+      font-size: 1.1em;
+      transition:
+        font-size 0.5s ease,
+        height 0.5s ease;
+    }
+
+    header nav li {
+      margin: 0 0.3rem;
+    }
+
+    header nav li:nth-child(odd) {
+      width: auto;
+    }
+
+    header.shrink .logo {
+      max-width: 3rem;
+      margin: 0 auto;
+      transition:
+        height 0.5s ease,
+        margin 0.5 ease;
+    }
+
+    header nav li.language-link {
+      height: 1.7rem;
+    }
+  }
+
+  @include breakpoint(portrait) {
+    header {
+      padding: 4rem 0;
+    }
+
+    header nav ul {
+      flex-wrap: wrap;
+      max-width: 20rem;
+    }
+
+    header nav .language-list {
+      display: flex;
+      flex-wrap: wrap;
+      width: 12.5rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    header nav .language-list-container li {
+      margin: 0 auto;
+    }
+  }
 }
 
-
-
 @include breakpoint(lg) {
-	header .logo{
-		max-width: 5rem;
-	}
-	
-	header nav	a, header nav a:link, header nav a:visited {
-		font-size:1.3rem;
-	}
-	
-	.french a, .french a:link,.french a:visited,.french .language-link{
-		font-size:1.1rem;
-	}
-	.french header .logo{
-		font-size:4rem;
-	}
-	header nav .language-list{
-		width:8.75rem!important;
-	}
-	
-	header nav li.language-link{
-		font-size:1.3rem;
-		width:auto !important;
-	}
-	
-	@include breakpoint(landscape) {
-		header nav .language-list{
-			margin-left: .5rem;
-		}
-	}
+  header .logo {
+    max-width: 5rem;
+  }
 
-	@include breakpoint(portrait) {
-		header nav ul{
-			max-width:25rem
-		}
-		header nav li:nth-child(odd){
-			width:6.5rem;
-		}
-	}
+  header nav a,
+  header nav a:link,
+  header nav a:visited {
+    font-size: 1.3rem;
+  }
+
+  header.french nav a,
+  header.french nav a:link,
+  header.french nav a:visited,
+  header.french .language-link {
+    font-size: 1.1rem;
+  }
+
+  .french header .logo {
+    font-size: 4rem;
+  }
+
+  header nav .language-list {
+    width: 8.75rem !important;
+  }
+
+  header nav li.language-link {
+    font-size: 1.3rem;
+    width: auto !important;
+  }
+
+  @include breakpoint(landscape) {
+    header nav .language-list {
+      margin-left: 0.5rem;
+    }
+  }
+
+  @include breakpoint(portrait) {
+    header nav ul {
+      max-width: 25rem;
+    }
+
+    header nav li:nth-child(odd) {
+      width: 6.5rem;
+    }
+  }
 }
 
 @include breakpoint(xl) {
-	@include breakpoint(landscape) {
-		header.shrink{
-			height:3.13rem;
-		}
-		
-		header.shrink .logo{
-			max-width: 4rem;
-		}	
-		.french a, .french a:link,.french a:visited,.french .language-link{
-			font-size:1.3rem;
-		}
-		
-	}
+  @include breakpoint(landscape) {
+    header.shrink {
+      height: 3.13rem;
+    }
 
+    header.shrink .logo {
+      max-width: 4rem;
+    }
 
+    .french a,
+    .french a:link,
+    .french a:visited,
+    .french .language-link {
+      font-size: 1.3rem;
+    }
+  }
 }

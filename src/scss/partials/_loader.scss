@@ -2,155 +2,133 @@
 CSS LOADING ANIMATION STYLING
 *********************/
 
-
 /********************* While loading *********************/
-
 #loader-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
 }
 
 #loader {
-    display: block;
-    position: relative;
-    left: 50%;
-    left:0;
-    width:100%;
-    top:60%;
-    border-radius: 50%;
-    border: 3px solid transparent; 
+  display: block;
+  position: relative;
+  left: 50%;
+  left: 0;
+  width: 100%;
+  top: 60%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  z-index: 2147483647 !important;
 }
 
 // loading animation
 #loader-container .loader-section {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: $brand-color-main;
-    z-index: 2147483646 !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $brand-color-main;
+  z-index: 2147483646 !important;
+  left: 0;
 }
 
-#loader-container .loader-section{
-    left: 0;
+#loader-text {
+  color: $background-color-main;
+  text-align: center;
+  margin: 0 auto;
 }
 
-#loader {
-    z-index: 2147483647 !important;
-}
-#loader-text{
-    color:#FFF;
-    text-align:center;
-    margin:0 auto;
-}
-#loader-text:first-child{
-    opacity:0;
-    animation: fade-text 6s ease-in infinite; 
-    
-}
-#loader-text:second-child{
-    opacity:0;
-    animation-delay: 2s;
-    animation: fade-text 6s ease-in infinite; 
-    
-}
-#loader-text:third-child{
-    opacity:0;
-    animation-delay: 4s;
-    animation: fade-text 6s ease-in infinite;   
+#loader-text:first-child {
+  opacity: 0;
+  animation: fade-text 6s ease-in infinite;
 }
 
-#loader-svg-container{
-    width:100%;
-    margin:0 auto;
+#loader-svg-container {
+  width: 100%;
+  margin: 0 auto;
 }
 
-#loader-svg{
-    animation: animate-icon 6s linear infinite;
-    margin: -100px 0 0 40%;
-    width: 20%;
-    height: 50px;
+#loader-svg {
+  animation: animate-icon 6s linear infinite;
+  margin: -100px 0 0 40%;
+  width: 20%;
+  height: 50px;
 }
 
-@include breakpoint(lg){
-    #loader {
-        top: 40%;
-    }
+@include breakpoint(lg) {
+  #loader {
+    top: 40%;
+  }
 }
 
 @keyframes animate-icon {
-    0%   {
-        transform: translate(-50%, 0)scale(0) rotate(0); 
-        opacity:0;
-    }
-    
-    25% {
-        transform: translate(-5%, 0%) scale(.95) rotate(80deg);    opacity:1;
-    }
-    
-    30% {
-        transform: translate(0%, 0%) scale(1) rotate(130deg);  opacity:1;
-    }
-    
-    35% {
-        transform: translate(5%, 0%) scale(.95) rotate(200deg);  opacity:1;
-    }
+  0% {
+    transform: translate(-50%, 0) scale(0) rotate(0);
+    opacity: 0;
+  }
 
-    60% {
-        transform: translate(50%, 0) scale(0) rotate(360deg);  opacity:0;
-    }
-    
-    100% {
-        transform: translate(50%, 0) scale(0) rotate(360deg);  opacity:0;
-    }
+  25% {
+    transform: translate(-5%, 0%) scale(0.95) rotate(80deg);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translate(0%, 0%) scale(1) rotate(130deg);
+    opacity: 1;
+  }
+
+  35% {
+    transform: translate(5%, 0%) scale(0.95) rotate(200deg);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate(50%, 0) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(50%, 0) scale(0) rotate(360deg);
+    opacity: 0;
+  }
 }
 
-@keyframes fade-text{
-    0%   {
-        opacity:0;
-    }
+@keyframes fade-text {
+  0% {
+    opacity: 0;
+  }
 
-    60% {
-        opacity:0;
-    }
-    
-    80% {
-        opacity:1;
-    }
-    
-    100% {
-        opacity:0;
-    }
+  60% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
-
 
 /********************* After Load *********************/
-.loaded #loader-container .loader-section{
-    transform: translate(0, 100%);  
-}
 
-.loaded #loader {
-    opacity: 0;
-}
-
-// hide icon 
+// hide icon
 .loaded #loader-container {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-// fade out of icon 
+// fade out of icon
 .loaded #loader {
-    opacity: 0;
-    -webkit-transition: all 0.3s ease-out; 
-    transition: all 0.3s ease-out;
+  opacity: 0;
+  transition: all 0.3s ease-out;
 }
 
 // speed the background leaves
 .loaded #loader-container .loader-section {
-    -webkit-transition: all .3s ease-out; 
-    transition: all .3s ease-out;
+  transform: translate(0, 100%);
+  transition: all 0.3s ease-out;
 }

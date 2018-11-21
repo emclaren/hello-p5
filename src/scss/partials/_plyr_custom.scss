@@ -2,58 +2,67 @@
 CUSTOM OVERRIDE OF PLYR DEFAULT STYLES
 *********************/
 
-
 // Change color of plyr control icons
-.plyr__control--overlaid{
-    background: $brand-color-main;
-    z-index:500;
+.plyr__control--overlaid {
+  background: $brand-color-main;
+  z-index: 500;
 }
 
-.plyr__control--overlaid:hover, .plyr__control--overlaid:focus, .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true]{
-    background: $brand-color-hover;
+.plyr__control--overlaid:hover,
+.plyr__control--overlaid:focus,
+.plyr--video .plyr__control.plyr__tab-focus,
+.plyr--video .plyr__control:hover,
+.plyr--video .plyr__control[aria-expanded=true] {
+  background: $brand-color-hover;
 }
 
 // Change background from default black
-.plyr__video-wrapper, .plyr__poster{
-    background: $background-color-main;
+.plyr__video-wrapper,
+.plyr__poster {
+  background: $background-color-main;
 }
 
 //Prevent unnecessary controls from loading
-.plyr [data-plyr=fullscreen], .plyr [data-plyr=settings], .plyr [data-plyr=pip], .plyr [data-plyr=airplay]   {
-    display:none;  
+.plyr [data-plyr=fullscreen],
+.plyr [data-plyr=settings],
+.plyr [data-plyr=pip],
+.plyr [data-plyr=airplay] {
+  display: none;
 }
 
 // make sure the poster thumbnail loads correctly
-.plyr__poster{
-    top:0;
-    background-size: 100% 100%;
-    filter: blur(5px);
-    transform: scale(1.1); 
+.plyr__poster {
+  top: 0;
+  background-size: 100% 100%;
+  filter: blur(5px);
+  transform: scale(1.1);
 }
 
 // make progress bars match brand colors
 .plyr--full-ui input[type=range] {
-    color: $brand-color-main;
+  color: $brand-color-main;
 }
 
 // remove grey border at top on mobile
-.plyr--video, .plyr__video-wrapper{
-    background-color:#fff;
+.plyr--video,
+.plyr__video-wrapper {
+  background-color: #fff;
 }
 
 // Ensure the captions are above the canvas element and don't take up too much space
-.plyr__captions{
-    z-index:2147483647;
-    padding:0;
-
+.plyr__captions {
+  z-index: 2147483647;
+  padding: 0;
 }
+
 @include breakpoint(md) {
-    .plyr__captions{
-    padding:10px;
-    }
-}   
+  .plyr__captions {
+    padding: 10px;
+  }
+}
+
 @include breakpoint(lg) {
-    .plyr__captions{
-    padding:20px;
-    }
+  .plyr__captions {
+    padding: 20px;
+  }
 }

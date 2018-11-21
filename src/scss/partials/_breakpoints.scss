@@ -8,26 +8,32 @@ BREAKPOINTS
   $bp-md: "800px";
   $bp-lg: "992px";
   $bp-xl: "1250px";
-  
+
   @if $point == xs {
     @media only screen and (min-width: $bp-xs) { @content; }
   }
+
   @else if $point == sm {
     @media only screen and (min-width: $bp-sm) { @content; }
   }
-  @else if $point == md{
+
+  @else if $point == md {
     @media only screen and (min-width: $bp-md) { @content; }
   }
-  @else if $point == lg{
-    @media only screen and (min-width: $bp-lg)  { @content; }
+
+  @else if $point == lg {
+    @media only screen and (min-width: $bp-lg) { @content; }
   }
-  @else if $point == xl{
-    @media only screen and (min-width: $bp-xl)  { @content; }
+
+  @else if $point == xl {
+    @media only screen and (min-width: $bp-xl) { @content; }
   }
-  @else if $point == landscape{
-    @media only screen and (orientation:landscape)  { @content; }
+
+  @else if $point == landscape {
+    @media only screen and (orientation: landscape) { @content; }
   }
-  @else if $point == portrait{
-    @media only screen and (orientation:portrait)  { @content; }
+
+  @else if $point == portrait {
+    @media only screen and (orientation: portrait) { @content; }
   }
 }

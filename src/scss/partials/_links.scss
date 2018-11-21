@@ -1,73 +1,77 @@
+/*********************
+Links Page Styling (sketch thumbnails
+*********************/
 
-.sketch-link-grid-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin:1rem 0;
-    opacity:0.95;
+.sketch-link-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1rem 0;
+  opacity: 0.95;
 }
 
-.sketch-link-item{
-max-width:40%;
-margin:.5rem;
-padding:.2rem;
-transition:transform .5s ease;
-// transition:all .5s ease;
-
-
-img{
-    width:100%;
-    transition:all .5s ease;
-}
-h3{
-    margin:0;
-    font-size:.8rem;
-    
-}
-a, a:visited{
-    transition:all .5s ease;
-    color: $brand-color-main;
-    }
-    text-align:center;
-    text-decoration:none
-   
+.sketch-link-item {
+  max-width: 40%;
+  margin: 0.5rem;
+  padding: 0.2rem;
+  transition: transform -0.5s ease;
+  text-align: center;
+  text-decoration: none;
 }
 
-.sketch-link-item:hover, .sketch-link-item:active{
-background-color:rgba(237, 34, 93, .9); 
-a{
-    color:#FFF;
+.sketch-link-item img {
+  width: 100%;
+  transition: all 0.5s ease;
 }
 
-    transform: scale(1.1);
-
+.sketch-link-item h3 {
+  margin: 0;
+  font-size: 0.8rem;
 }
 
-.sketches-links.back-button{
-    text-align:left
+.sketch-link-item a,
+.sketch-link-item a:visited {
+  transition: all 0.5s ease;
+  color: $brand-color-main;
 }
+
+.sketch-link-item:hover,
+.sketch-link-item:active {
+  background-color: $brand-color-hover;
+  transform: scale(1.1);
+}
+
+.sketch-link-item:hover a,
+.sketch-link-item:active a {
+  color: $background-color-main;
+}
+
+.sketches-links.back-button {
+  text-align: left;
+}
+
 @include breakpoint(sm) {
-    .sketch-link-item{
-        max-width:30%;
-        h3{
-            font-size:1rem;
-        }
+  .sketch-link-item {
+    max-width: 30%;
+  }
+
+  .sketch-link-item h3 {
+    font-size: 1rem;
+  }
 }
-}
+
 @include breakpoint(md) {
-    .sketch-link-item{
-        max-width:20%;
+  .sketch-link-item {
+    max-width: 20%;
+  }
+}
 
-}
-}
 @include breakpoint(lg) {
-    .sketch-link-item{
-        max-width:15%;
-
+  .sketch-link-item {
+    max-width: 15%;
+  }
 }
-}
 
-body.links{
-    height:auto;
-
+body.links {
+  height: auto;
 }

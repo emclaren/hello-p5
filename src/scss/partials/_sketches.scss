@@ -5,124 +5,121 @@ P5-DOM SKETCHES CSS STYLING
 /********************* La Monster *********************/
 
 // add space between end of screen and La Monster canvas
-.la-monster-sketch{
-  top:4vw;
-  left:3vw;
+.la-monster-sketch {
+  top: 4vw;
+  left: 3vw;
 }
 
 /********************* Single Circle *********************/
 
 // Styling for single circle text box
-
-.p5-single-circle-code-example{
+.p5-single-circle-code-example {
   position: absolute;
   z-index: 3000000;
-  background-color: rgba(237,34,93,.7);
-  padding:1%;
+  background-color: rgba(237, 34, 93, 0.7);
+  padding: 1%;
   font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
   width: 30%;
-  top:7%;
-  left:65%;
+  top: 7%;
+  left: 65%;
 }
-.p5-single-circle-code-example a{
+
+.p5-single-circle-code-example a {
   color: $background-color-main;
 }
-.p5-single-circle-code-example ul{
-  margin:.1rem;
-  padding-left: calc(10px + 6 * ((100vw - 320px) / 680))
+
+.p5-single-circle-code-example ul {
+  margin: 0.1rem;
+  padding-left: calc(10px + 6 * ((100vw - 320px) / 680));
 }
-.p5-single-circle-code-example li{
-  list-style:none;
+
+.p5-single-circle-code-example li {
+  list-style: none;
 }
 
 @include breakpoint(lg) {
-  .p5-single-circle-code-example{
-    top:15%;
+  .p5-single-circle-code-example {
+    top: 15%;
   }
 }
 
 /********************* Webeditor-Link && Forum Link *********************/
 
-// Styling for the links that slide in 
-
-.sketch-link-animation{
+// Styling for the links that slide in
+.sketch-link-animation {
   animation-name: slide-in;
-  animation-duration: .3s; 
-  animation-timing-function: ease-out; 
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
   animation-iteration-count: 1;
 }
 
-.sketch-link-container{
+.sketch-link-container {
   position: absolute;
-  top:0;
-  width:100%;
-  height:0;
+  top: 0;
+  width: 100%;
+  height: 0;
 }
 
-.sketch-link{
-  text-align:center;
-  text-decoration:none;
-  float:right;
+.sketch-link {
+  text-align: center;
+  text-decoration: none;
+  float: right;
   font-size: 3.2vw;
-  top:2vw;
-  padding:5vw .8vw;
-  transition: all .5s ease;
+  top: 2vw;
+  padding: 5vw 0.8vw;
+  transition: all 0.5s ease;
   width: 30%;
-  color:white;
-  border-radius:3px;
+  color: white;
+  border-radius: 3px;
   position: relative;
-  background-color: rgba(237,34,93,.95);
-  border:2px solid $background-color-main;
+  background-color: rgba(237, 34, 93, 0.95);
+  border: 2px solid $background-color-main;
   z-index: 3000000;
-  line-height:3.3vw;
+  line-height: 3.3vw;
 }
 
-
-.sketch-link-upper{
+.sketch-link-upper {
   top: 1vw;
 }
 
-.sketch-link-lower{
+.sketch-link-lower {
   top: 20vw;
 }
 
-.sketch-link span{
-  text-decoration:underline;
+.sketch-link span {
+  text-decoration: underline;
 }
 
-.sketch-link a{
+.sketch-link a {
   color: $background-color-main;
-  
 }
 
-.sketch-link:hover{
-  background-color: rgba(237,34,93, 0.80);
+.sketch-link:hover {
+  background-color: rgba(237, 34, 93, 0.8);
   font-size: 3.3vw;
-}  
-
-
+}
 
 @include breakpoint(md) {
-  .sketch-link{
+  .sketch-link {
     width: 25%;
-    font-size:1.8vw;
-    top:3vw;
-    padding:2vw 1vw;
-    border:4px solid $background-color-main;
-    right:0;
-    line-height:2vw;
+    font-size: 1.8vw;
+    top: 3vw;
+    padding: 2vw 1vw;
+    border: 4px solid $background-color-main;
+    right: 0;
+    line-height: 2vw;
   }
-  
-  .sketch-link:hover{
-    font-size:1.85vw;
+
+  .sketch-link:hover {
+    font-size: 1.85vw;
   }
-  
-  .sketch-link-upper{
-    top:3vw;
+
+  .sketch-link-upper {
+    top: 3vw;
   }
-  
-  .sketch-link-lower{
-    top:11vw;
+
+  .sketch-link-lower {
+    top: 11vw;
   }
 }
 
@@ -130,16 +127,16 @@ P5-DOM SKETCHES CSS STYLING
   0% {
     transform: translate(100%, 0);
   }
+
   100% {
-    transform: translate(0%, 0)
+    transform: translate(0%, 0);
   }
 }
 
-
-/********************* Circle Explosion*********************/
+/********************* Circle Explosion *********************/
 
 // Layout for logo in circle-explosion sketch
-.p5-sketch-logo-parent{
+.p5-sketch-logo-parent {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,56 +144,52 @@ P5-DOM SKETCHES CSS STYLING
 
 .p5-sketch-logo {
   position: absolute;
-  top:35%;
-  max-width:30%;
-  text-align:center;
+  top: 35%;
+  max-width: 30%;
+  text-align: center;
   z-index: 3000000;
-  
 }
 
 @include breakpoint(md) {
   .p5-sketch-logo {
-    max-width:100%;
+    max-width: 100%;
   }
 }
-
 
 /********************* Credits *********************/
 
 // Credits Styling
-
 .credits-wrapper {
   position: absolute;
   top: 100%;
   text-align: center;
   text-transform: uppercase;
   color: $background-color-main;
-  animation: 30s credits linear ;
+  animation: 30s credits linear;
   width: 80%;
-  margin:0 auto;
+  margin: 0 auto;
   animation-iteration-count: 1;
 }
 
 .credits-title {
-  margin-top:2vw;
-  margin-bottom: .1vw;
+  margin-top: 2vw;
+  margin-bottom: 0.1vw;
   font-size: 2vw;
 }
 
 .credits-name {
-  margin-bottom: .75vw;
+  margin-bottom: 0.75vw;
   font-size: 2.75vw;
 }
 
-.paused{
-  -webkit-animation-play-state:paused;
-  -moz-animation-play-state:paused;
-  -o-animation-play-state:paused; 
-  animation-play-state:paused;
+.paused {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 @keyframes credits {
-  0% { top:  100%; }
+  0% { top: 100%; }
   100% { top: -500%; }
 }
-

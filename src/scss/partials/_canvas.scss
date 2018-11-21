@@ -3,32 +3,31 @@ VIDEO CONTAINER & CANVAS STYLING
 *********************/
 
 // Container to hold Plyr video & p5 sketches
-.container {
-	width:100%;
-  position:relative;
+#sketch-wrapper {
+  width: 100%;
+  position: relative;
   overflow: hidden;
 }
 
 //P5 Canvas Overlay
-canvas{
-	position: absolute; 
-	top: 0px; 
-  left: 0px;
-  z-index:20;
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
 }
 
-video{
-	width:100%;
+video {
+  width: 100%;
 }
 
-//  Prevents the default p5 loading text from appearing
-#p5_loading{
-  display:none;
+// Prevents the default p5 loading text from appearing
+#p5_loading {
+  display: none;
 }
-
 
 // Link on bottom of main page to
-.sketches-links{
+.sketches-links {
   text-align: right;
   background-color: #ed225d;
   color: #fff;
@@ -38,14 +37,12 @@ video{
   font-size: 0.8rem;
   opacity: 0.95;
   z-index: 2147483647;
-  a{
-    color:white;
-  }
-  span{
-    text-decoration:underline;
-  }
 }
 
+.sketches-links a {
+  color: white;
+}
 
-
-
+.sketches-links span {
+  text-decoration: underline;
+}
