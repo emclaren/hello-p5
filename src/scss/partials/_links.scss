@@ -1,5 +1,5 @@
 /*********************
-Links Page Styling (sketch thumbnails
+Links Page Styling (sketch thumbnails)
 *********************/
 
 .sketch-link-grid-container {
@@ -14,14 +14,14 @@ Links Page Styling (sketch thumbnails
   max-width: 40%;
   margin: 0.5rem;
   padding: 0.2rem;
-  transition: transform -0.5s ease;
+  transition: transform 0.5s ease;
   text-align: center;
   text-decoration: none;
 }
 
 .sketch-link-item img {
   width: 100%;
-  transition: all 0.5s ease;
+  // transition: all 0.5s ease;
 }
 
 .sketch-link-item h3 {
@@ -31,14 +31,14 @@ Links Page Styling (sketch thumbnails
 
 .sketch-link-item a,
 .sketch-link-item a:visited {
-  transition: all 0.5s ease;
+  // transition: all 0.5s ease;
   color: $brand-color-main;
 }
 
 .sketch-link-item:hover,
 .sketch-link-item:active {
   background-color: $brand-color-hover;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .sketch-link-item:hover a,
