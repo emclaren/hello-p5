@@ -17,10 +17,10 @@ const forumLink = (p5) => {
     p5.canvas = p5.createCanvas(windowWidth, windowHeight)
     p5.canvas.parent('video-overlay')
     // Change language of link text depending on the selected language
-    if (window.videoLanguage === 'es') {
+    if (window.videoLanguage == 'spanish') {
       forumLinkText = 'Foros'
       communityLinkText = 'Comunidad'
-    } else if (window.videoLanguage === 'fr') {
+    } else if (window.videoLanguage == 'french') {
       forumLinkText = 'Forum'
       communityLinkText = 'Communauté'
     } else {

@@ -81754,7 +81754,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** Plyr - triggered 4 times every second while playing, this is used to trigger p5 events **/
   player.on('timeupdate', event => {
-    console.log(player)
     let timeInVideo = event.detail.plyr.currentTime // Receive current time info from plyr
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
     let multipleTimeInVideo = timeInVideo * 4
@@ -81766,8 +81765,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSketch() // Function to see if a scene change should occur at the video CurrentTime
     // This part plays the correct sketch if a user jumps to a different part of the video
     if (videoTimeSeeked) {
-        reloadP5()
-        videoTimeSeeked = false // reset this variable to false so this if statement only runs once
+      reloadP5()
+      videoTimeSeeked = false // reset this variable to false so this if statement only runs once
     }
 
     // Reload P5 canvas when the window size changes
@@ -81837,43 +81836,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+
   /** Language Controls **/
   // Toggle Language of Header & Captions Based on Selection
-  document.getElementById('language-link-english').onclick = function () {
-    languageArray = ['Download', 'Start', 'Reference', 'Libraries', 'Learn', 'Community'] // Words that will replace the menu links
-    player.captions.currentTrack = 0
-    languageToggle()
-  }
-  document.getElementById('language-link-spanish').onclick = function () {
-    languageArray = ['Descargar', 'Empezar', 'Referencia', 'Bibliotecas', 'Aprender', 'Comunidad'] // Words that will replace the menu links
-    player.captions.currentTrack = 1
-    languageToggle()
-  }
-  document.getElementById('language-link-french').onclick = function () {
-    languageArray = ['Télécharger', 'Commencer', 'Référence', 'Bibliothèques', 'Apprendre', 'Communauté'] // Words that will replace the menu links
-    player.captions.language = 'fr'
-    player.captions.currentTrack = 2
-    languageToggle()
-    header.classList.add('french') // "french" class name is used to decrease header font size when French is selected
-  }
-  let languageToggle = () => {
-    // "french" class name is used to decrease header font size when French is selected, should be removed from EN & ES, and applied for FR
-    header.classList.remove('french')
-    // Swap out menu text
-    document.getElementById('nav-download').innerHTML = languageArray[0]
-    document.getElementById('nav-start').innerHTML = languageArray[1]
-    document.getElementById('nav-reference').innerHTML = languageArray[2]
-    document.getElementById('nav-libraries').innerHTML = languageArray[3]
-    document.getElementById('nav-learn').innerHTML = languageArray[4]
-    document.getElementById('nav-community').innerHTML = languageArray[5]
+  function toggleLanguage(e) {
+    e.preventDefault();
+    const lang = e.target.dataset.language;
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(elm) {
+      elm.innerHTML = elm.dataset[lang];
+    });
+    for(let i=0; i< document.querySelectorAll("[data-language]").length; i++) {
+      if(document.querySelectorAll("[data-language]")[i].dataset.language == e.target.dataset.language){
+        player.captions.currentTrack = i
+      }
+    }
+
+
     // Creates a global variable so we can access current language in p5 sketches
-    window.videoLanguage = player.captions.language
+    window.videoLanguage = e.target.dataset.language
     // Remove on-screen captions immediately from view when language is toggled
     let parentElement = document.getElementsByClassName('plyr__captions')[0]
     while (parentElement.hasChildNodes()) {
       parentElement.removeChild(parentElement.firstChild)
     }
+
+    // "french" class name is used to decrease header font size when French is selected, should be removed from EN & ES, and applied for FR
+    document.getElementById('header-wrapper').classList.remove('french')
+
+    if(lang=='french'){
+      document.getElementById('header-wrapper').classList.add('french')
+    }
   }
+
+  // Find all the elements on the page that include "data-language", and trigger the language toggle when they are clicked
+  document.querySelectorAll("[data-language]").forEach(function(elm) {
+    elm.onclick = toggleLanguage;
+  });
 })
 
 },{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle-explosion.js":5,"./sketches/credits.js":6,"./sketches/forum-link.js":7,"./sketches/heart-animation.js":8,"./sketches/hello-p5-title.js":9,"./sketches/la-monster":10,"./sketches/leaves.js":11,"./sketches/lerpColor.js":12,"./sketches/many-dots.js":13,"./sketches/pointillism-logo.js":14,"./sketches/rainbow.js":15,"./sketches/rectangles.js":16,"./sketches/sin-lines.js":17,"./sketches/single-circle.js":18,"./sketches/stars.js":20,"./sketches/target":21,"./sketches/visualizer.js":22,"./sketches/wavemaker.js":23,"./sketches/waves.js":24,"./sketches/webeditor-link.js":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
@@ -82098,10 +82096,10 @@ const forumLink = (p5) => {
     p5.canvas = p5.createCanvas(windowWidth, windowHeight)
     p5.canvas.parent('video-overlay')
     // Change language of link text depending on the selected language
-    if (window.videoLanguage === 'es') {
+    if (window.videoLanguage == 'spanish') {
       forumLinkText = 'Foros'
       communityLinkText = 'Comunidad'
-    } else if (window.videoLanguage === 'fr') {
+    } else if (window.videoLanguage == 'french') {
       forumLinkText = 'Forum'
       communityLinkText = 'Communauté'
     } else {
@@ -87844,10 +87842,10 @@ const webeditorLink = (p5) => {
     p5.canvas = p5.createCanvas(windowWidth, windowHeight)
     p5.canvas.parent('video-overlay')
     // Change language of link text depending on the selected language
-    if (window.videoLanguage === 'es') {
+    if (window.videoLanguage == 'spanish') {
       webeditorLinkText = 'Editor web p5'
       downloadLinkText = 'Descargar'
-    } else if (window.videoLanguage === 'fr') {
+    } else if (window.videoLanguage == 'french') {
       webeditorLinkText = 'P5 web editor'
       downloadLinkText = 'Télécharger'
     } else {
