@@ -14,7 +14,7 @@ const visualizer = function (p5) {
   p5.setup = () => {
     p5.pixelDensity(1)
     let windowWidth = window.innerWidth
-    let windowHeight = windowWidth * 0.562
+    let windowHeight = windowWidth * 0.5625
     p5.canvas = p5.createCanvas(windowWidth, windowHeight)
     p5.canvas.parent('video-overlay')
     cutoutSize = p5.width / 6

@@ -23,9 +23,10 @@ var singleCircle = function (p5) {
     p5.canvas = p5.createCanvas(windowWidth, windowHeight)
     p5.canvas.parent('video-overlay')
     // Change visible text based on language chosen
-    if (window.videoLanguage === 'es') {
+    let currentLanguage = localStorage.getItem('myLanguage')
+    if (currentLanguage === 'spanish') {
       languageText = 'haga clic aquí'
-    } else if (window.videoLanguage === 'fr') {
+    } else if (currentLanguage === 'french') {
       languageText = 'Voir ici'
     } else {
       languageText = 'Click here to try it'

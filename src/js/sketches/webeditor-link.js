@@ -17,10 +17,11 @@ const webeditorLink = (p5) => {
     p5.canvas = p5.createCanvas(windowWidth, windowHeight)
     p5.canvas.parent('video-overlay')
     // Change language of link text depending on the selected language
-    if (window.videoLanguage == 'spanish') {
+    let currentLanguage = localStorage.getItem('myLanguage')
+    if (currentLanguage == 'spanish') {
       webeditorLinkText = 'Editor web p5'
       downloadLinkText = 'Descargar'
-    } else if (window.videoLanguage == 'french') {
+    } else if (currentLanguage == 'french') {
       webeditorLinkText = 'P5 web editor'
       downloadLinkText = 'Télécharger'
     } else {

@@ -163,7 +163,7 @@ header.french nav .language-link {
   header.french nav a,
   header.french nav a:link,
   header.french nav a:visited,
-  header.french .language-link {
+  header.french nav .language-link {
     font-size: 0.9rem;
   }
 
@@ -268,7 +268,7 @@ header.french nav .language-link {
   header.french nav a,
   header.french nav a:link,
   header.french nav a:visited,
-  header.french .language-link {
+  header.french nav .language-link {
     font-size: 1.1rem;
   }
 
@@ -312,10 +312,10 @@ header.french nav .language-link {
       max-width: 4rem;
     }
 
-    .french a,
-    .french a:link,
-    .french a:visited,
-    .french .language-link {
+    header.french nav a,
+    header.french nav a:link,
+    header.french nav a:visited,
+    header.french nav .language-link {
       font-size: 1.3rem;
     }
   }

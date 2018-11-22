@@ -33,7 +33,7 @@ video {
   color: #fff;
   right: 0;
   top: 0;
-  padding: .2rem 1rem;
+  padding: .1rem 1rem;
   font-size: 0.8rem;
   opacity: 0.95;
   z-index: 2147483647;
@@ -45,4 +45,9 @@ video {
 
 .sketches-links span {
   text-decoration: underline;
+}
+
+#links-visible span,
+#links-hidden span {
+  cursor:pointer;
 }
