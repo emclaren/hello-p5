@@ -81612,6 +81612,7 @@ let languageArray // For toggling the text in the header on language change
 let scene // Name of current p5 sketch
 let noSketch // Placeholder variable when no p5 sketch required
 let wrapper // Wrapper for Credits Div on last scene
+let language = localStorage.getItem('myLanguage');
 
 /** Import P5 Sketch Files **/
 const laMonster = require('./sketches/la-monster')
@@ -81735,6 +81736,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wrapper = document.querySelector('#credits-wrapper')
       wrapper.classList.remove('paused')
     }
+
   })
 
   /** Plyr - triggered on video pause **/
@@ -81754,6 +81756,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** Plyr - triggered 4 times every second while playing, this is used to trigger p5 events **/
   player.on('timeupdate', event => {
+    console.log(language)
+    console.log(localStorage.getItem('myLanguage'))
+    if(language != localStorage.getItem('myLanguage')){
+      toggleLanguage();
+      language = localStorage.getItem('myLanguage');
+    }
+    console.log(player.captions.currentTrack)
+
     let timeInVideo = event.detail.plyr.currentTime // Receive current time info from plyr
     // Plyr's time in miliseconds is not always consistent, this standardizes it to always end with: 0, .25, .50,.75
     let multipleTimeInVideo = timeInVideo * 4
@@ -81787,6 +81797,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
+
 
     // Reload the sketch if the window size changes or scene is skipped
     function reloadP5 (){
@@ -81836,29 +81847,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /** Language Controls **/
-  // Toggle Language of Header & Captions Based on Selection
-  // function toggleLanguage(e) {
-    // e.preventDefault();
-    // const lang = e.target.dataset.language;
-    // document.querySelectorAll('[data-' + lang + ']').forEach(function(elm) {
-    //   elm.innerHTML = elm.dataset[lang];
-    // });
-
-
-
-    // "french" class name is used to decrease header font size when French is selected, should be removed from EN & ES, and applied for FR
-    // document.getElementById('header-wrapper').classList.remove('french')
-    // if(lang=='french'){
-    //   document.getElementById('header-wrapper').classList.add('french')
-    // }
-  // }
-
-
-  // // Find all the elements on the page that include "data-language", and trigger the language toggle when they are clicked
-  // document.querySelectorAll("[data-language]").forEach(function(elm) {
-  //   elm.onclick = toggleLanguage;
-  // });
+  function toggleLanguage () {
+    for(let i=0; i< document.querySelectorAll("[data-language]").length; i++) {
+      if(document.querySelectorAll("[data-language]")[i].dataset.language == localStorage.getItem('myLanguage')){
+        player.captions.currentTrack = i
+      }
+      //Remove on-screen captions immediately from view when language is toggled
+      let parentElement = document.getElementsByClassName('plyr__captions')[0];
+      while (parentElement.hasChildNodes()) {
+        parentElement.removeChild(parentElement.firstChild);
+      }
+    }
+  }
 })
 
 },{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle-explosion.js":5,"./sketches/credits.js":6,"./sketches/forum-link.js":7,"./sketches/heart-animation.js":8,"./sketches/hello-p5-title.js":9,"./sketches/la-monster":10,"./sketches/leaves.js":11,"./sketches/lerpColor.js":12,"./sketches/many-dots.js":13,"./sketches/pointillism-logo.js":14,"./sketches/rainbow.js":15,"./sketches/rectangles.js":16,"./sketches/sin-lines.js":17,"./sketches/single-circle.js":18,"./sketches/stars.js":20,"./sketches/target":21,"./sketches/visualizer.js":22,"./sketches/wavemaker.js":23,"./sketches/waves.js":24,"./sketches/webeditor-link.js":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
