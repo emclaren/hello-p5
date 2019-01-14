@@ -1,6 +1,5 @@
 # Hello P5.js Webpage
 
-
 ## Overview
 The goal of this project was to modernize the hello.p5js.org website though development of a new trailer featuring diverse members of the Processing community.
 
@@ -10,34 +9,34 @@ hello.p5js.org is likely to be many users’ first introduction to p5.js (and po
 ## Shout Outs
 I would like to thank my mentor Evelyn Masso, and Lauren McCarthy for their support and feedback. I would also like to acknowledge the awesome community members who contributed survey responses, videos and code:
 
-### Video & Code Contributors
-Mayra Barrera Machuca
-Uddipana Baishya
-Punyashlok Dash
-Miguel Elizalde
-Tristan Espinoza
-Max Frischknecht & Philipp Möckli (Début Début)
-Dongqi Han
-Kate Hollenbach
-Vincent Hopkins
-Cat Janowitz
-Brennan Jones
-Sam Kissee
-Zach Krall
-Ginger Kretschmer
-Gavin Mogan
-Peter Manson
-Seyitan Oke
-Suraj Rai
-@reona396
-Eliza Struthers-Jobin
-Dan Weiner
-Sailor Winkelman
-Computational Thinkers® of Hawaii
-STEM Coding
-Other members of the p5 community
-Music By Ah, Venice
-Video Consulting by Joey Chaos
+### Video & Code Contributors (in alphabetical order)
+Mayra Barrera Machuca\
+Uddipana Baishya\
+Punyashlok Dash\
+Miguel Elizalde\
+Tristan Espinoza\
+Max Frischknecht & Philipp Möckli (Début Début)\
+Dongqi Han\
+Kate Hollenbach\
+Vincent Hopkins\
+Cat Janowitz\
+Brennan Jones\
+Sam Kissee\
+Zach Krall\
+Ginger Kretschmer\
+Peter Manson\
+Gavin Mogan\
+Seyitan Oke\
+Suraj Rai\
+@reona396\
+Eliza Struthers-Jobin\
+Dan Weiner\
+Sailor Winkelman\
+Computational Thinkers® of Hawaii\
+STEM Coding\
+Other members of the p5 community\
+Music By Ah, Venice\
+Video Consulting by Joey Chaos\
 
 
 ## Tasks Completed
@@ -81,7 +80,7 @@ cd hello-p5
 npm install
 ```
 
-npm run watch will start a new server, open up a browser and watch for any SCSS or JS changes in the `src` directory , as well as any changes to the video fonts and captions in the `src` directory; once it compiles those changes, the browser will automatically inject the changed file(s)!
+```npm run watch``` will start a new server, open up a browser and watch for any SCSS or JS changes in the `src` directory , as well as any changes to the video fonts and captions in the `src` directory; once it compiles those changes, the browser will automatically inject the changed file(s)
 
 This project's Build Process is based of the NPM Build Boilerplate:
 https://github.com/damonbauer/npm-build-boilerplate

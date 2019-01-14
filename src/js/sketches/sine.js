@@ -1,11 +1,11 @@
 /*********************
-// Sin Lines
+// Sine
 // Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness.
 // Credit: Zach Krall https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
 // Try it: https://editor.p5js.org/emclaren/sketches/SyWdRnM3m
 *********************/
 
-const sinLines = (p5) => {
+const sine = (p5) => {
   let strokeThickness // thickness of the lines
   let lineSpacing // variable to store the space between the lines
   let move = 0 // variable to move the sinwave as the sketch draws
@@ -52,4 +52,4 @@ const sinLines = (p5) => {
   }
 }
 
-module.exports = sinLines
+module.exports = sine

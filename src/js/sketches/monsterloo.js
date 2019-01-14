@@ -1,12 +1,12 @@
 /*********************
-// La Monster Club Sketch
+// Monsterloo Sketch
 // Description: Game starring adorable monsters, direction & speed of monster changes based on mouse position
 // Credit: Seyitan Oke, source: http://oke.design/lamonsters
 *********************/
 
 const p5play = require('./sketch-libraries/play.js')
 
-var laMonster = function (p5) {
+var monsterloo = function (p5) {
   let monsterlooBackground // background image
   let fastmove = false // sprite moves faster depending on mouse position
   let standmonster // pink monster standing in background
@@ -114,4 +114,4 @@ var laMonster = function (p5) {
   }
 }
 
-module.exports = laMonster
+module.exports = monsterloo

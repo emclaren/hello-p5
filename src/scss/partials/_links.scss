@@ -26,6 +26,7 @@ Links Page Styling (sketch thumbnails)
 .sketch-link-item h3 {
   margin: 0;
   font-size: 0.8rem;
+  background-color: $background-color-main;
 }
 
 .sketch-link-item a,
@@ -37,6 +38,10 @@ Links Page Styling (sketch thumbnails)
 .sketch-link-item:active {
   background-color: $brand-color-hover;
   transform: scale(1.05);
+
+  h3 {
+    background-color: $brand-color-main;
+  }
 }
 
 .sketch-link-item:hover a,

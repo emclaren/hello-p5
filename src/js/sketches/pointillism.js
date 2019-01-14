@@ -1,11 +1,11 @@
 /*********************
-// P5 Logo Pointillism
+// P5 Pointillism
 // Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
 // Credit: P5 example sketch by Daniel Shiffman, source: https://p5jp5.org/examples/image-pointillism.html
 // Try it: https://editor.p5js.org/emclaren/sketches/HyU4C2M37
 *********************/
 
-const pointillismLogo = (p5) => {
+const pointillism = (p5) => {
   let smallDot = 5
   let largeDot = 40
   let dotNumber = 20
@@ -62,4 +62,4 @@ const pointillismLogo = (p5) => {
   }
 }
 
-module.exports = pointillismLogo
+module.exports = pointillism

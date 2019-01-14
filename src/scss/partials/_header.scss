@@ -2,6 +2,11 @@
 HEADER STYLING
 *********************/
 
+// Prevent default blue alt text from showing during page load
+img:-moz-loading {
+  visibility: hidden;
+}
+
 header {
   display: block;
   width: 100%;
@@ -106,8 +111,7 @@ header nav .language-link:active,
 header nav .language-link:focus {
   outline: 0;
   text-decoration: none;
-  padding-bottom: 0.11rem;
-  border-bottom: 0.11rem dashed;
+  border-bottom: 2px dashed;
   border-bottom-color: $brand-color-main;
 }
 
@@ -193,11 +197,13 @@ header.french nav .language-link {
 
     header nav .language-list {
       width: 7.5rem;
-      height: 1.4rem;
+      // height: 100%;
+      // padding-bottom: 0.2rem;
     }
 
     header.shrink .language-link {
       height: 1.5rem;
+      padding-bottom: 0.11rem;
     }
 
     header.shrink #menu li a:link,
@@ -226,7 +232,7 @@ header.french nav .language-link {
     }
 
     header nav li.language-link {
-      height: 1.7rem;
+      height: 1.4rem;
     }
   }
 
@@ -289,6 +295,10 @@ header.french nav .language-link {
     header nav .language-list {
       margin-left: 0.5rem;
     }
+
+    header nav li.language-link {
+      height: 1.8rem;
+    }
   }
 
   @include breakpoint(portrait) {
@@ -316,7 +326,7 @@ header.french nav .language-link {
     header.french nav a:link,
     header.french nav a:visited,
     header.french nav .language-link {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
   }
 }

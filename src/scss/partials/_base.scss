@@ -17,11 +17,14 @@ body {
   background-color: $background-color-main;
   font-family: $brand-font;
   flex-direction: column;
+  display: flex;
+}
+
+body#index-body {
   background-image: url(../assets/img/asterisk.svg);
   background-repeat: no-repeat; /* Prevent showing multiple background images */
   background-size: 83% 72%; /* Position the astricks */
   background-position: bottom -150% right -150%; /* Position the astricks */
-  display: flex;
 }
 
 @include breakpoint(landscape) {
@@ -37,6 +40,6 @@ body {
   }
 }
 
-.hidden{
-  display:none !important;
+.hidden {
+  display: none !important;
 }

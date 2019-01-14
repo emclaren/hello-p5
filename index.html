@@ -15,11 +15,11 @@
   <meta property="og:url" content="">
 </head>
 
-<body id="body">
+<body id="index-body">
   <!-- MAIN HEADER-->
   <header id="header-wrapper">
     <!-- P5JS LOGO -->
-    <h1><a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="P5.js Logo" id="logo_image" class="logo"></a></h1>
+    <h1><a href="https://p5js.org/"><img src="dist/assets/img/p5js.svg" alt="P5.js logo" id="logo_image" class="logo"></a></h1>
 
     <!-- NAVIGATION MENU -->
     <nav>
@@ -48,6 +48,9 @@
       </ul>
     </nav>
   </header>
+  <!-- LINK TO EXAMPLES PAGE-->
+  <!-- <div id="links-visible" class="sketches-links"><a href="links.html"><span data-english="View code" data-french="
+   Voir le code" data-spanish="Ver código">View Code</span> &gt;&gt;</a></div> -->
 
   <section id="video-section">
     <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
@@ -61,7 +64,7 @@
         <source src="dist/assets/video/p5video.webm" type="video/webm">
 
         <!-- CAPTION FILES -->
-        <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en" default>
+        <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en">
         <track kind="captions" label="Spanish" src="dist/assets/captions/hello-p5-spanish-captions.es.vtt" srclang="es">
         <track kind="captions" label="French" src="dist/assets/captions/hello-p5-french-captions.fr.vtt" srclang="fr">
       </video>
@@ -69,9 +72,6 @@
       <!-- P5 SKETCH OVERLAY IS PINNED TO THIS EMPTY DIV -->
       <div id="video-overlay" class="video-overlay"></div>
 
-      <!-- LINK TO EXAMPLES PAGE-->
-      <div id="links-visible" class="sketches-links"><a href="links.html"><span data-english="View code" data-french="
-        Voir le code" data-spanish="Ver código">View Code</span> &gt;&gt;</a></div>
 
       <!-- Loading Spinner -->
       <div id="loader-container">
@@ -91,10 +91,13 @@
       <!-- Empty p5_loading div to prevent the the text: "Loading..." from appearing during preload -->
       <div id="p5_loading" class="loadingclass"></div>
     </div>
+
+
   </section>
 
+<script src="dist/js/mainBundle.js" ></script>
 <script src="dist/js/language.js" ></script>
-<script src="dist/js/bundle.js" ></script>
+
 
 <!-- TO DO: Add Google Analytics When Launched -->
 </body>

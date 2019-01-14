@@ -1,10 +1,10 @@
 /*********************
-// Many Dots
-// Description: Draws interactive dots on the screen
+// Dots
+// Description: Draws many interactive dots on the screen
 // Try it: https://editor.p5js.org/emclaren/sketches/BJUGCnGnm
 *********************/
 
-const manyDots = (p5) => {
+const dots = (p5) => {
   let dot = [] // array to hold the dots
   let dotInitNumber = 60 // intial set of dots
   let leavingSpeed = 0.5 // speed dots leave the screen at end
@@ -106,4 +106,4 @@ const manyDots = (p5) => {
   }
 }
 
-module.exports = manyDots
+module.exports = dots

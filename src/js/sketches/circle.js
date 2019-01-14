@@ -1,10 +1,10 @@
 /*********************
-// Single Circle
+// Circle
 // Description: Pulsing Circle & Example Code Block
 // Try it: https://editor.p5js.org/emclaren/sketches/SkO-FKawQ
 *********************/
 
-var singleCircle = function (p5) {
+var circle = function (p5) {
   let fadeIn = 0
   let pulseSpeed = 0.5
   let sizeChange = 0
@@ -65,4 +65,4 @@ var singleCircle = function (p5) {
   }
 }
 
-module.exports = singleCircle
+module.exports = circle
