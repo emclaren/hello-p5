@@ -81588,6 +81588,8 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],4:[function(require,module,exports){
+
+
 /** Loading CSS Animation turns off when page is ready **/
 window.addEventListener('load', function (event) {
   setTimeout(function () {
@@ -81597,6 +81599,19 @@ window.addEventListener('load', function (event) {
     }, 500)
   }, 50)
 })
+
+/** Dynamically adjust video size to download  **/
+/* did not use Plyr code, as the size/quality feature was under active development */
+let source = document.getElementById('mp4')
+if (document.documentElement.clientWidth <= 480) {
+  source.setAttribute('src', 'dist/assets/video/p5video_480.mp4')
+} else if (document.documentElement.clientWidth <= 720) {
+  source.setAttribute('src', 'dist/assets/video/p5video_720.mp4')
+} else if (document.documentElement.clientWidth <= 720) {
+  source.setAttribute('src', 'dist/assets/video/p5video_1080.mp4')
+} else {
+  source.setAttribute('src', 'dist/assets/video/p5video.mp4')
+}
 
 /** Required JS libraries **/
 const Plyr = require('plyr') // Plyr Video Player Source Code
@@ -81670,19 +81685,6 @@ let sceneChangeMap = [
   { time: 142, sketchfile: credits },
   { time: 168, sketchfile: noSketch }
 ]
-
-/** Dynamically adjust video size to download  **/
-/* did not use Plyr code, as the size/quality f eature was under active development */
-let source = document.getElementById('mp4')
-if (document.documentElement.clientWidth <= 480) {
-  source.setAttribute('src', 'dist/assets/video/p5video_480.mp4')
-} else if (document.documentElement.clientWidth <= 720) {
-  source.setAttribute('src', 'dist/assets/video/p5video_720.mp4')
-} else if (document.documentElement.clientWidth <= 720) {
-  source.setAttribute('src', 'dist/assets/video/p5video_1080.mp4')
-} else {
-  source.setAttribute('src', 'dist/assets/video/p5video_1440.mp4')
-}
 
 /** Plyr Set-up code **/
 document.addEventListener('DOMContentLoaded', () => {
@@ -81846,17 +81848,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update language of the video captions when language buttons are clicked
   window.toggleCaptionsLanguage = function (e) {
     // update the language
-
-
-
     player.captions.currentTrack = e
-    // player.captions.language = "es"
-    player.captions.toggleCaptions();
-    // remove old captions from the screen immediately
-    // let parentElement = document.getElementsByClassName('plyr__captions')[0]
-    // while (parentElement.hasChildNodes()) {
-    //   parentElement.removeChild(parentElement.firstChild)
-    // }
+    // remove old captions from the screen immediately when language changes
+    let parentElement = document.getElementsByClassName('plyr__captions')[0]
+    while (parentElement.hasChildNodes()) {
+      parentElement.removeChild(parentElement.firstChild)
+    }
 
   }
 })

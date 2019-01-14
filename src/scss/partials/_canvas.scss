@@ -36,13 +36,15 @@ video {
   padding: 0.1rem 1rem;
   font-size: 1rem;
   opacity: 0.95;
-  z-index: 2147483647;
+  // z-index: 2147483640;
 }
 
-#index-body .sketches-links {
-  position: absolute;
-  top: 5rem;
-}
+// #index-body .sketches-links {
+//   // position: fixed;
+//   // top: 5rem;
+//   // z-index:
+//   // margin: 0 50px;
+// }
 
 .sketches-links a {
   color: white;
@@ -50,6 +52,7 @@ video {
 
 .sketches-links span {
   text-decoration: underline;
+  // margin: 0 50px;
 }
 
 #links-visible span,
