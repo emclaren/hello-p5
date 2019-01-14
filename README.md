@@ -36,7 +36,7 @@ Computational Thinkers® of Hawaii\
 STEM Coding\
 Other members of the p5 community\
 Music By Ah, Venice\
-Video Consulting by Joey Chaos\
+Video Consulting by Joey Chaos
 
 
 ## Tasks Completed

@@ -22,7 +22,7 @@ pour créer des
 
 6
 00:00:14.000 --> 00:00:15.500
-expériences interactives en ligne 
+expériences interactives en ligne
 
 7
 00:00:15.500 --> 00:00:17.250
@@ -30,7 +30,7 @@ et s'amuser avec le code.
 
 8
 00:00:17.500 --> 00:00:19.000
-Avec p5js, on peut facilement créer et concevoir 
+Avec p5js, on peut facilement créer et concevoir
 
 9
 00:00:19.000 --> 00:00:21.250
@@ -38,17 +38,15 @@ des animations, jeux,
 
 10
 00:00:21.250 --> 00:00:22.250
-des images à base de données numériques 
+des images à base de données numériques
 
 11
 00:00:22.250 --> 00:00:24.000
 l'art génératif, et bien plus encore.
 
-
 12
 00:00:24.250 --> 00:00:27.000
-P5js est un programme incroyable 
-
+P5js est un programme incroyable
 
 13
 00:00:27.000 --> 00:00:28.500
@@ -56,7 +54,7 @@ pour vous aider à démarrer
 
 14
 00:00:28.500 --> 00:00:30.500
-une animation ou 
+une animation ou
 
 15
 00:00:30.500 --> 00:00:31.750
@@ -72,11 +70,11 @@ Programmer avec p5 fonctionne
 
 18
 00:00:34.500 --> 00:00:35.750
-pareillement à javascript, 
+pareillement à javascript,
 
 19
 00:00:35.750 --> 00:00:36.750
-mais avec des outils 
+mais avec des outils
 
 20
 00:00:36.750 --> 00:00:38.000
@@ -92,11 +90,11 @@ pour les débutants,
 
 23
 00:00:40.750 --> 00:00:42.000
-mais assez technique et détaillé 
+mais assez technique et détaillé
 
 24
 00:00:42.000 --> 00:00:44.000
-pour les développeurs, 
+pour les développeurs,
 
 25
 00:00:44.000 --> 00:00:46.000
@@ -108,7 +106,7 @@ Puisque les navigateurs communique
 
 27
 00:00:48.000 --> 00:00:49.750
-en javascript, on peut partager  
+en javascript, on peut partager
 
 28
 00:00:49.750 --> 00:00:51.000
@@ -118,68 +116,67 @@ son travail et ses créations en ligne.
 00:00:51.000 --> 00:00:53.000
 Cela marche aussi sur les téléphones portables
 
-
 30
 00:00:53.500 --> 00:00:55.500
 La limite, c'est votre imagination!
 
 31
 00:00:55.750 --> 00:00:57.000
-Avec rien de plus que quelques lignes de codage, 
+Avec rien de plus que quelques lignes de codage,
 
 32
 00:00:57.000 --> 00:00:58.000
-on peut créer des formes 
+on peut créer des formes
 
 33
 00:00:58.000 --> 00:01:00.000
-- tel que ce cercle apparaissant à l'écran. 
+- tel que ce cercle apparaissant à l'écran.
 
 34
 00:01:00.000 --> 00:01:01.000
-Sans p5, cette tâche 
+Sans p5, cette tâche
 
 35
 00:01:01.000 --> 00:01:02.750
 exigerait bien plus de codage.
 
-36 
-00:01:03.250 --> 00:01:05.000 
+36
+00:01:03.250 --> 00:01:05.000
 Il peut se multiplier à partir de là.
 
 37
 00:01:05.000 --> 00:01:07.500
-Les rendre vivants grâce au mouvement. 
+Les rendre vivants grâce au mouvement.
 
 38
 00:01:07.500 --> 00:01:08.250
-Ou les rendre interactifs. 
+Ou les rendre interactifs.
 
 39
-00:01:08.250 --> 00:01:10.260 
+00:01:08.250 --> 00:01:10.260
 Essayez de déplacer votre souris sur l'écran.
 
 40
 00:01:10.750 --> 00:01:12.250
-P5js vous aide à ce que vos 
+P5js vous aide à ce que vos
 
 41
 00:01:12.250 --> 00:01:14.250
-idées passent rapidement à l'écran. 
+idées passent rapidement à l'écran.
 
 42
 00:01:14.250 --> 00:01:15.250
-Étant donné que vous pouvez 
+Étant donné que vous pouvez
 
 43
 00:01:15.250 --> 00:01:16.270
-visualisez votre codage, 
+visualisez votre codage,
 
 44
 00:01:16.270 --> 00:01:17.250
-il sert dont très bien à apprendre 
+il sert dont très bien à apprendre
 
-45 
+45
 00:01:17.250 --> 00:01:18.750
 de nouveaux concepts en programmation.
 
@@ -193,13 +190,13 @@ Vous pouvez faire n'importe quoi avec p5js
 
 48
 00:01:23.000 --> 00:01:25.500
-P5js est également utilisé par 
+P5js est également utilisé par
 
-49 
+49
 00:01:25.500 --> 00:01:28.250
 les graphistes qui ne sont pas habitués à coder
 
-50 
+50
 00:01:28.500 --> 00:01:30.250
 p5js m'excite.
 
@@ -209,15 +206,15 @@ p5js m'excite.
 
 52
 00:01:32.000 --> 00:01:35.250
-P5js est gratuit et facile à installer. 
+P5js est gratuit et facile à installer.
 
 53
 00:01:35.250 --> 00:01:37.500
-On peut coder directement dans son navigateur 
+On peut coder directement dans son navigateur
 
 54
 00:01:37.500 --> 00:01:39.100
-grâce au p5 web editor, 
+grâce au p5 web editor,
 
 55
 00:01:39.100 --> 00:01:41.500
@@ -225,23 +222,23 @@ ou télécharger les bibliothèques javascript
 
 56
 00:01:41.500 --> 00:01:42.500
-à son ordinateur. 
+à son ordinateur.
 
 57
 00:01:42.500 --> 00:01:44.250
-Aucun logiciel spécial n'est requis. 
+Aucun logiciel spécial n'est requis.
 
 58
 00:01:44.500 --> 00:01:45.500
-On offre de nombreux didacticiels 
+On offre de nombreux didacticiels
 
 59
 00:01:45.500 --> 00:01:47.000
-afin de vous aider à mettre les choses en marche. 
+afin de vous aider à mettre les choses en marche.
 
 60
 00:01:47.000 --> 00:01:49.070
-Et, en cas de pépin, pas de souci! 
+Et, en cas de pépin, pas de souci!
 
 61
 00:01:49.070 --> 00:01:50.500
@@ -249,7 +246,7 @@ Vous pouvez avoir recours à notre expertise
 
 62
 00:01:50.500 --> 00:01:51.750
-dans notre forum communataire. 
+dans notre forum communataire.
 
 63
 00:01:52.000 --> 00:01:53.000
@@ -257,11 +254,11 @@ P5 est logiciel à source ouverte.
 
 64
 00:01:53.000 --> 00:01:54.500
-Si vous vous intéressez 
+Si vous vous intéressez
 
 65
 00:01:54.500 --> 00:01:55.100
-à contribuer, 
+à contribuer,
 
 66
 00:01:55.100 --> 00:01:56.750
@@ -269,7 +266,7 @@ consultez notre page communautaire.
 
 67
 00:01:57.000 --> 00:01:59.000
-Nous sommes une communauté diverse et inclusive, 
+Nous sommes une communauté diverse et inclusive,
 
 68
 00:01:59.000 --> 00:02:00.250
@@ -281,22 +278,22 @@ Si vous voulez utilisez p5, c'est pour vous!
 
 70
 00:02:02.500 --> 00:02:04.500
-Si ça vous tente de contribuer à p5, 
+Si ça vous tente de contribuer à p5,
 
 71
 00:02:04.500 --> 00:02:05.750
 on vous y encourage!
 
 72
-00:02:06.000 --> 00:02:07.250 
-La communauté p5 est 
+00:02:06.000 --> 00:02:07.250
+La communauté p5 est
 
 73
-00:02:07.250 --> 00:02:08.250 
+00:02:07.250 --> 00:02:08.250
 intentionnellement inclusive.
 
 74
-00:02:08.250  --> 00:02:09.750 
+00:02:08.250  --> 00:02:09.750
 Si vous cherchez à vous joindre à nous, c'est chose faite!
 
 75
@@ -308,12 +305,12 @@ Si vous cherchez à vous joindre à nous, c'est chose faite!
 Si vous cherchez à vous joindre à nous, c'est chose faite!
 
 77
-00:02:16.250 --> 00:02:17.750 
-Merci d'avoir consulté p5js. 
+00:02:16.250 --> 00:02:17.750
+Merci d'avoir consulté p5js.
 
 78
 00:02:17.750 --> 00:02:19.250
-On a hâte de découvrir vos créations! 
+On a hâte de découvrir vos créations!
 
 79
 00:02:20.500 --> 00:02:22.000
