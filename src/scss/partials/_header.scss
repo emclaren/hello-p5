@@ -293,10 +293,6 @@ header.french nav .language-link {
   }
 
   @include breakpoint(landscape) {
-    header nav .language-list {
-      margin-left: 0.5rem;
-    }
-
     header nav li.language-link {
       height: 1.8rem;
     }
