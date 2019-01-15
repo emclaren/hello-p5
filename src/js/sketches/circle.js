@@ -1,7 +1,7 @@
 /*********************
 // Circle
 // Description: Pulsing Circle & Example Code Block
-// Try it: https://editor.p5js.org/emclaren/sketches/SkO-FKawQ
+// Try it: https://editor.p5js.org/hello-p5/sketches/r1niD9cME
 *********************/
 
 var circle = function (p5) {
@@ -32,9 +32,9 @@ var circle = function (p5) {
       languageText = 'Click here to try it'
     }
     // Create example html code block, styling can be found in canvas.scss
-    p5.div = p5.createDiv('<code>function setup() { <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}<br> <a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank"><strong>' + languageText + '</a></strong></code>')
+    p5.div = p5.createDiv('<a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank"> <div class="p5-single-circle-code-example"> <code>function setup() { <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}</code><br> <span>' + languageText + '</span></div></a>')
     p5.div.parent('video-overlay')
-    p5.div.addClass('p5-single-circle-code-example')
+    // p5.div.addClass('p5-single-circle-code-example')
     lineThickness = p5.width / 350
   }
 

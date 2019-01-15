@@ -1,5 +1,3 @@
-
-
 /** Loading CSS Animation turns off when page is ready **/
 window.addEventListener('load', function (event) {
   setTimeout(function () {
@@ -12,16 +10,25 @@ window.addEventListener('load', function (event) {
 
 /** Dynamically adjust video size to download  **/
 /* did not use Plyr code, as the size/quality feature was under active development */
-let source = document.getElementById('mp4')
-if (document.documentElement.clientWidth <= 480) {
-  source.setAttribute('src', 'dist/assets/video/p5video_480.mp4')
-} else if (document.documentElement.clientWidth <= 720) {
-  source.setAttribute('src', 'dist/assets/video/p5video_720.mp4')
-} else if (document.documentElement.clientWidth <= 720) {
-  source.setAttribute('src', 'dist/assets/video/p5video_1080.mp4')
-} else {
-  source.setAttribute('src', 'dist/assets/video/p5video.mp4')
-}
+  let mp4Source = document.getElementById('mp4')
+  if (document.documentElement.clientWidth <= 480) {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video_480.mp4')
+  } else if (document.documentElement.clientWidth <= 720) {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video_720.mp4')
+  } else if (document.documentElement.clientWidth <= 1024) {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video_1024.mp4')
+  } else {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video.mp4')
+  }
+
+  let webmSource = document.getElementById('webm')
+  if (document.documentElement.clientWidth <= 1080) {
+    webmSource.setAttribute('src', 'dist/assets/video/p5video-small.webm')
+  } else {
+    webmSource.setAttribute('src', 'dist/assets/video/p5video.webm')
+  }
+
+
 
 /** Required JS libraries **/
 const Plyr = require('plyr') // Plyr Video Player Source Code
@@ -43,7 +50,7 @@ let language = localStorage.getItem('myLanguage')
 const monsterloo = require('./sketches/monsterloo')
 const visualizer = require('./sketches/visualizer')
 const helloP5Title = require('./sketches/hello-p5-title')
-const heartAnimation = require('./sketches/heart-animation')
+const heart = require('./sketches/heart')
 const leaves = require('./sketches/leaves')
 const pointillism = require('./sketches/pointillism')
 const grid = require('./sketches/grid')
@@ -69,7 +76,7 @@ let sceneChangeMap = [
   { time: 7.75, sketchfile: noSketch },
   { time: 8.00, sketchfile: helloP5Title },
   { time: 9.75, sketchfile: noSketch },
-  { time: 10.75, sketchfile: heartAnimation },
+  { time: 10.75, sketchfile: heart },
   { time: 17.50, sketchfile: leaves },
   { time: 24.50, sketchfile: noSketch },
   { time: 24.75, sketchfile: pointillism },
@@ -99,7 +106,7 @@ let sceneChangeMap = [
 /** Plyr Set-up code **/
 document.addEventListener('DOMContentLoaded', () => {
   const player = new Plyr('#player', {
-    'debug': true,
+    'debug': false,
     'fullscreen': {
       'enabled': false
     },
@@ -132,11 +139,12 @@ document.addEventListener('DOMContentLoaded', () => {
       header.classList.add('shrink')
       container.classList.add('shrink')
 
-      // Scroll to the bottom of the page when the player starts to simulate full-screen
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth'
-      })
+      // Scroll to the bottom of the page when the player starts
+      document.getElementById('video-overlay').scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest"
+      });
     }
     // Start P5 Sketch if it is paused
     if (scene) {
@@ -175,8 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // // Uncomment this when testing:
     // console.log("video current time" + videoCurrentTime)
 
-  console.log(player.captions.currentTrack)
-  console.log(player)
     window.videoCurrentTimeGlobal = videoCurrentTime // create a global variable so that current time can be used within p5 sketches
     updateSketch() // Function to see if a scene change should occur at the video CurrentTime
     // This part plays the correct sketch if a user jumps to a different part of the video
@@ -264,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
     while (parentElement.hasChildNodes()) {
       parentElement.removeChild(parentElement.firstChild)
     }
-
   }
 })
 

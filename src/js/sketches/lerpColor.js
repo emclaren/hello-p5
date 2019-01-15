@@ -2,7 +2,7 @@
 // Lerp Color
 // Description: Random shapes in four colors, MouseX and MouseY affect the number of shapes and the size
 // Credit: Based on the P5 Lerp Color example sketch, available here: https://p5js.org/examples/color-lerp-color.html
-// Try it: https://editor.p5js.org/emclaren/sketches/BkEgChzn7
+// Try it: https://editor.p5js.org/hello-p5/sketches/rJtdOq5fN
 *********************/
 
 const lerpColor = (p5) => {

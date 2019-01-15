@@ -2,7 +2,7 @@
 // Grid
 // Description: Draws a wavey interactive grid of rectangles around the perimeter of the screen
 // Credit: Based on the P5js Wavemaker example by Aatish Bhatia  https://p5js.org/examples/interaction-wavemaker.html
-// Try it: https://editor.p5js.org/emclaren/sketches/Hy4uT2z2Q
+// Try it: https://editor.p5js.org/hello-p5/sketches/Skred55ME
 *********************/
 
 const grid = (p5) => {

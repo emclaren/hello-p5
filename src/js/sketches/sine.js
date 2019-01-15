@@ -2,7 +2,7 @@
 // Sine
 // Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness.
 // Credit: Zach Krall https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
-// Try it: https://editor.p5js.org/emclaren/sketches/SyWdRnM3m
+// Try it: https://editor.p5js.org/hello-p5/sketches/HkzHuc5zN
 *********************/
 
 const sine = (p5) => {

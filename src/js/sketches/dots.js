@@ -1,7 +1,7 @@
 /*********************
 // Dots
 // Description: Draws many interactive dots on the screen
-// Try it: https://editor.p5js.org/emclaren/sketches/BJUGCnGnm
+// Try it: https://editor.p5js.org/hello-p5/sketches/HkC6w9qM4
 *********************/
 
 const dots = (p5) => {

@@ -25,37 +25,3 @@ video {
 #p5_loading {
   display: none;
 }
-
-// Link on bottom of main page to
-.sketches-links {
-  text-align: right;
-  background-color: #ed225d;
-  color: #fff;
-  right: 0;
-  top: 0;
-  padding: 0.1rem 1rem;
-  font-size: 1rem;
-  opacity: 0.95;
-  // z-index: 2147483640;
-}
-
-// #index-body .sketches-links {
-//   // position: fixed;
-//   // top: 5rem;
-//   // z-index:
-//   // margin: 0 50px;
-// }
-
-.sketches-links a {
-  color: white;
-}
-
-.sketches-links span {
-  text-decoration: underline;
-  // margin: 0 50px;
-}
-
-#links-visible span,
-#links-hidden span {
-  cursor: pointer;
-}

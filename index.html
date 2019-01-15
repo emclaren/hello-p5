@@ -48,9 +48,10 @@
       </ul>
     </nav>
   </header>
+
   <!-- LINK TO EXAMPLES PAGE-->
-  <div id="links-visible" class="sketches-links"><a href="links.html"><span data-english="View code" data-french="
-   Voir le code" data-spanish="Ver código">View Code</span> &gt;&gt;</a></div>
+  <a href="links.html"><div id="links-visible" class="sketches-links"><span data-english="View code" data-french="
+    Voir le code" data-spanish="Ver código">View Code</span></div></a>
 
   <section id="video-section">
     <!-- CONTAINER FOR THE VIDEO AND P5 OVERLAYS -->
@@ -59,12 +60,9 @@
       <!--This project uses the PLYR video player https://github.com/sampotts/plyr for HTML video styling -->
       <video  id="player" poster="dist/assets/img/poster.jpg" playsinline controls >
 
-        <!-- DIFFERENT FORMATS FOR MULTIPLE BROWSERS -->
-        <!-- <source src="dist/assets/video/p5video.mp4" type="video/mp4" id="mp4">
-        <source src="dist/assets/video/p5video.webm" type="video/webm"> -->
-
+        <!-- DIFFERENT FORMATS FOR MULTIPLE BROWSERS - USES JS TO POPULATE VIDEO SOURCE -->
         <source src="" type="video/mp4" id="mp4">
-        <source src="" type="video/webm">
+        <source src="dist/assets/video/p5video.webm" type="video/webm" id="webm">
 
         <!-- CAPTION FILES -->
         <track kind="captions" label="English" src="dist/assets/captions/hello-p5-english-captions.en.vtt" srclang="en">
@@ -94,13 +92,10 @@
       <!-- Empty p5_loading div to prevent the the text: "Loading..." from appearing during preload -->
       <div id="p5_loading" class="loadingclass"></div>
     </div>
-
-
   </section>
 
 <script src="dist/js/mainBundle.js" ></script>
 <script src="dist/js/language.js" ></script>
-
 
 <!-- TO DO: Add Google Analytics When Launched -->
 </body>

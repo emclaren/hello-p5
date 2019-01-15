@@ -1,7 +1,7 @@
 /*********************
 // Rectangles
 // Description: Interactive rectangles coming out of the center of the screen
-// Try it: https://editor.p5js.org/emclaren/sketches/BJXIA3M2Q
+// Try it: https://editor.p5js.org/hello-p5/sketches/H1j8_c5f4
 *********************/
 
 const rectangles = (p5) => {

@@ -2,6 +2,40 @@
 Links Page Styling (sketch thumbnails)
 *********************/
 
+// Link on main page to sketch examples
+.sketches-links {
+  text-align: center;
+  background-color: $brand-color-main;
+  color: #fff;
+  right: 0;
+  top: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  opacity: 0.95;
+  transition: all .3s ease;
+  // height: 2.5rem;
+}
+
+.sketches-links:hover {
+  background-color: $brand-color-hover;
+}
+
+.sketches-links a {
+  color: white;
+  text-decoration:none;
+}
+
+.sketches-links span {
+  text-decoration: underline;
+  // margin: 0 50px;
+}
+
+#links-visible span,
+#links-hidden span {
+  cursor: pointer;
+}
+
+
 .sketch-link-grid-container {
   display: flex;
   flex-wrap: wrap;
@@ -47,10 +81,6 @@ Links Page Styling (sketch thumbnails)
 .sketch-link-item:hover a,
 .sketch-link-item:active a {
   color: $background-color-main;
-}
-
-.sketches-links.back-button {
-  text-align: left;
 }
 
 @include breakpoint(sm) {

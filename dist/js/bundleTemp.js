@@ -81588,8 +81588,6 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],4:[function(require,module,exports){
-
-
 /** Loading CSS Animation turns off when page is ready **/
 window.addEventListener('load', function (event) {
   setTimeout(function () {
@@ -81602,16 +81600,25 @@ window.addEventListener('load', function (event) {
 
 /** Dynamically adjust video size to download  **/
 /* did not use Plyr code, as the size/quality feature was under active development */
-let source = document.getElementById('mp4')
-if (document.documentElement.clientWidth <= 480) {
-  source.setAttribute('src', 'dist/assets/video/p5video_480.mp4')
-} else if (document.documentElement.clientWidth <= 720) {
-  source.setAttribute('src', 'dist/assets/video/p5video_720.mp4')
-} else if (document.documentElement.clientWidth <= 720) {
-  source.setAttribute('src', 'dist/assets/video/p5video_1080.mp4')
-} else {
-  source.setAttribute('src', 'dist/assets/video/p5video.mp4')
-}
+  let mp4Source = document.getElementById('mp4')
+  if (document.documentElement.clientWidth <= 480) {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video_480.mp4')
+  } else if (document.documentElement.clientWidth <= 720) {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video_720.mp4')
+  } else if (document.documentElement.clientWidth <= 1024) {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video_1024.mp4')
+  } else {
+    mp4Source.setAttribute('src', 'dist/assets/video/p5video.mp4')
+  }
+
+  let webmSource = document.getElementById('webm')
+  if (document.documentElement.clientWidth <= 1080) {
+    webmSource.setAttribute('src', 'dist/assets/video/p5video-small.webm')
+  } else {
+    webmSource.setAttribute('src', 'dist/assets/video/p5video.webm')
+  }
+
+
 
 /** Required JS libraries **/
 const Plyr = require('plyr') // Plyr Video Player Source Code
@@ -81633,7 +81640,7 @@ let language = localStorage.getItem('myLanguage')
 const monsterloo = require('./sketches/monsterloo')
 const visualizer = require('./sketches/visualizer')
 const helloP5Title = require('./sketches/hello-p5-title')
-const heartAnimation = require('./sketches/heart-animation')
+const heart = require('./sketches/heart')
 const leaves = require('./sketches/leaves')
 const pointillism = require('./sketches/pointillism')
 const grid = require('./sketches/grid')
@@ -81659,7 +81666,7 @@ let sceneChangeMap = [
   { time: 7.75, sketchfile: noSketch },
   { time: 8.00, sketchfile: helloP5Title },
   { time: 9.75, sketchfile: noSketch },
-  { time: 10.75, sketchfile: heartAnimation },
+  { time: 10.75, sketchfile: heart },
   { time: 17.50, sketchfile: leaves },
   { time: 24.50, sketchfile: noSketch },
   { time: 24.75, sketchfile: pointillism },
@@ -81689,7 +81696,7 @@ let sceneChangeMap = [
 /** Plyr Set-up code **/
 document.addEventListener('DOMContentLoaded', () => {
   const player = new Plyr('#player', {
-    'debug': true,
+    'debug': false,
     'fullscreen': {
       'enabled': false
     },
@@ -81722,11 +81729,12 @@ document.addEventListener('DOMContentLoaded', () => {
       header.classList.add('shrink')
       container.classList.add('shrink')
 
-      // Scroll to the bottom of the page when the player starts to simulate full-screen
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth'
-      })
+      // Scroll to the bottom of the page when the player starts
+      document.getElementById('video-overlay').scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest"
+      });
     }
     // Start P5 Sketch if it is paused
     if (scene) {
@@ -81765,8 +81773,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // // Uncomment this when testing:
     // console.log("video current time" + videoCurrentTime)
 
-  console.log(player.captions.currentTrack)
-  console.log(player)
     window.videoCurrentTimeGlobal = videoCurrentTime // create a global variable so that current time can be used within p5 sketches
     updateSketch() // Function to see if a scene change should occur at the video CurrentTime
     // This part plays the correct sketch if a user jumps to a different part of the video
@@ -81854,16 +81860,15 @@ document.addEventListener('DOMContentLoaded', () => {
     while (parentElement.hasChildNodes()) {
       parentElement.removeChild(parentElement.firstChild)
     }
-
   }
 })
 
 
-},{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle":5,"./sketches/credits":6,"./sketches/dots":7,"./sketches/explosion":8,"./sketches/forum-link":9,"./sketches/grid":10,"./sketches/heart-animation":11,"./sketches/hello-p5-title":12,"./sketches/leaves":13,"./sketches/lerpColor":14,"./sketches/monsterloo":15,"./sketches/pointillism":16,"./sketches/rainbow":17,"./sketches/rectangles":18,"./sketches/sine":19,"./sketches/stars":21,"./sketches/target":22,"./sketches/visualizer":23,"./sketches/waves":24,"./sketches/webeditor-link":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
+},{"../../node_modules/p5/lib/addons/p5.dom.min":1,"./sketches/circle":5,"./sketches/credits":6,"./sketches/dots":7,"./sketches/explosion":8,"./sketches/forum-link":9,"./sketches/grid":10,"./sketches/heart":11,"./sketches/hello-p5-title":12,"./sketches/leaves":13,"./sketches/lerpColor":14,"./sketches/monsterloo":15,"./sketches/pointillism":16,"./sketches/rainbow":17,"./sketches/rectangles":18,"./sketches/sine":19,"./sketches/stars":21,"./sketches/target":22,"./sketches/visualizer":23,"./sketches/waves":24,"./sketches/webeditor-link":25,"p5":2,"plyr":3}],5:[function(require,module,exports){
 /*********************
 // Circle
 // Description: Pulsing Circle & Example Code Block
-// Try it: https://editor.p5js.org/emclaren/sketches/SkO-FKawQ
+// Try it: https://editor.p5js.org/hello-p5/sketches/r1niD9cME
 *********************/
 
 var circle = function (p5) {
@@ -81894,9 +81899,9 @@ var circle = function (p5) {
       languageText = 'Click here to try it'
     }
     // Create example html code block, styling can be found in canvas.scss
-    p5.div = p5.createDiv('<code>function setup() { <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}<br> <a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank"><strong>' + languageText + '</a></strong></code>')
+    p5.div = p5.createDiv('<a href="https://editor.p5js.org/emclaren/sketches/SkO-FKawQ" target="_blank"> <div class="p5-single-circle-code-example"> <code>function setup() { <ul><li>createCanvas(400, 400);</li><li>strokeWeight(4);</li><li> stroke(255,255,255); </li><li>   fill(237,34,93);</li></ul>} </br> function draw(){<ul><li>  ellipse(200, 200, 100, 100);</li></ul>}</code><br> <span>' + languageText + '</span></div></a>')
     p5.div.parent('video-overlay')
-    p5.div.addClass('p5-single-circle-code-example')
+    // p5.div.addClass('p5-single-circle-code-example')
     lineThickness = p5.width / 350
   }
 
@@ -82059,7 +82064,7 @@ module.exports = credits
 /*********************
 // Dots
 // Description: Draws many interactive dots on the screen
-// Try it: https://editor.p5js.org/emclaren/sketches/BJUGCnGnm
+// Try it: https://editor.p5js.org/hello-p5/sketches/HkC6w9qM4
 *********************/
 
 const dots = (p5) => {
@@ -82170,7 +82175,7 @@ module.exports = dots
 /*********************
 // Explosion
 // Description: Draws random exploding circles on the screen. After a set amount of time, the circles grow in size and the p5 logo appears
-// Try it: https://editor.p5js.org/emclaren/sketches/B1j0a3f2X
+// Try it: https://editor.p5js.org/hello-p5/sketches/rkH2OqczE
 *********************/
 
 const explosion = (p5) => {
@@ -82285,6 +82290,7 @@ const forumLink = (p5) => {
   let forumLinkText
   let communityLinkText
   let linkHidden = true
+  let downloadLinkDiv
 
   p5.setup = () => {
     p5.pixelDensity(1)
@@ -82305,7 +82311,7 @@ const forumLink = (p5) => {
       communityLinkText = 'Community'
     }
     // Create the upper link on load (note the styling is done with css)
-    forumLinkDiv = p5.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-link-upper sketch-link sketch-link-animation"><span>' + forumLinkText + '</span> >> </div></a>')
+    forumLinkDiv = p5.createDiv('<a href="https://discourse.processing.org/"  target="_blank"><div class="sketch-link-upper sketch-link sketch-link-animation"><span>' + forumLinkText + '</span>  </div></a>')
     forumLinkDiv.parent('video-overlay')
     forumLinkDiv.addClass('sketch-link-container')
   }
@@ -82314,8 +82320,14 @@ const forumLink = (p5) => {
     p5.clear()
     // Create the lower link when the time is appropriate, if statement prevents it from continuously running
     if (window.videoCurrentTimeGlobal > 113) {
+      // if (linkHidden) {
+      //   communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + communityLinkText + '</span> <div></a>')
+      //   communityLinkDiv.parent('video-overlay')
+      //   communityLinkDiv.addClass('sketch-link-container')
+      //   linkHidden = false
+      // }
       if (linkHidden) {
-        communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + communityLinkText + '</span> >> </a>')
+        communityLinkDiv = p5.createDiv('<a href="http://p5js.org/community/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + communityLinkText  + '</span></div></a>')
         communityLinkDiv.parent('video-overlay')
         communityLinkDiv.addClass('sketch-link-container')
         linkHidden = false
@@ -82331,7 +82343,7 @@ module.exports = forumLink
 // Grid
 // Description: Draws a wavey interactive grid of rectangles around the perimeter of the screen
 // Credit: Based on the P5js Wavemaker example by Aatish Bhatia  https://p5js.org/examples/interaction-wavemaker.html
-// Try it: https://editor.p5js.org/emclaren/sketches/Hy4uT2z2Q
+// Try it: https://editor.p5js.org/hello-p5/sketches/Skred55ME
 *********************/
 
 const grid = (p5) => {
@@ -82401,7 +82413,7 @@ module.exports = grid
 // Heart Animation Sketch
 // Description: Draws randomly coloured, interactive hearts on screen
 // Credit: @reona396, source: https://www.openprocessing.org/sketch/561609
-// Try it: https://editor.p5js.org/emclaren/sketches/SkJaphG3X
+// Try it: https://editor.p5js.org/hello-p5/sketches/rkHv3F5G4
 *********************/
 
 const heart = (p5) => {
@@ -82518,7 +82530,7 @@ module.exports = heart
 // Hello P5 Title Sketch
 // Description: Interactive Title Text for the Video
 // Credit: Based on a sketch by Zach Krall, source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
-// Try it: https://editor.p5js.org/emclaren/sketches/ryNss2G37
+// Try it: https://editor.p5js.org/hello-p5/sketches/S1t4nFczV
 *********************/
 
 const helloP5Title = (p5) => {
@@ -82593,7 +82605,7 @@ module.exports = helloP5Title
 // Leaves
 // Description: Draws randomly falling confetti-like leaves
 // Credit: based on a sketch by @reona396 https://www.openprocessing.org/sketch/521545
-// Try It: https://editor.p5js.org/emclaren/sketches/HJaP2dgL7
+// Try It: https://editor.p5js.org/hello-p5/sketches/SyE6C5qMN
 *********************/
 
 const leaves = (p5) => {
@@ -82710,7 +82722,7 @@ module.exports = leaves
 // Lerp Color
 // Description: Random shapes in four colors, MouseX and MouseY affect the number of shapes and the size
 // Credit: Based on the P5 Lerp Color example sketch, available here: https://p5js.org/examples/color-lerp-color.html
-// Try it: https://editor.p5js.org/emclaren/sketches/BkEgChzn7
+// Try it: https://editor.p5js.org/hello-p5/sketches/rJtdOq5fN
 *********************/
 
 const lerpColor = (p5) => {
@@ -82799,6 +82811,7 @@ module.exports = lerpColor
 // Monsterloo Sketch
 // Description: Game starring adorable monsters, direction & speed of monster changes based on mouse position
 // Credit: Seyitan Oke, source: http://oke.design/lamonsters
+// Try it: https://editor.p5js.org/hello-p5/sketches/SJlX5tcz4
 *********************/
 
 const p5play = require('./sketch-libraries/play.js')
@@ -82918,7 +82931,7 @@ module.exports = monsterloo
 // P5 Pointillism
 // Description: Uses dots to create a p5 logo on screen, dots grow when mouse is moved
 // Credit: P5 example sketch by Daniel Shiffman, source: https://p5jp5.org/examples/image-pointillism.html
-// Try it: https://editor.p5js.org/emclaren/sketches/HyU4C2M37
+// Try it: https://editor.p5js.org/hello-p5/sketches/By6hnYqG4
 *********************/
 
 const pointillism = (p5) => {
@@ -82985,7 +82998,7 @@ module.exports = pointillism
 // Rainbow
 // Description: Rainbow made out of ellipses in a sine wave pattern.
 // Credit: Dan Weiner, source https://www.openprocessing.org/sketch/565531
-// Try it: https://editor.p5js.org/emclaren/sketches/B1ksahf3m
+// Try it: https://editor.p5js.org/hello-p5/sketches/SkOX_c5zV
 *********************/
 
 const rainbow = (p5) => {
@@ -83047,7 +83060,7 @@ module.exports = rainbow
 /*********************
 // Rectangles
 // Description: Interactive rectangles coming out of the center of the screen
-// Try it: https://editor.p5js.org/emclaren/sketches/BJXIA3M2Q
+// Try it: https://editor.p5js.org/hello-p5/sketches/H1j8_c5f4
 *********************/
 
 const rectangles = (p5) => {
@@ -83110,7 +83123,7 @@ module.exports = rectangles
 // Sine
 // Description: vertical Lines in a sin wave formation. Extend to the top of the screen. Interactive thickness.
 // Credit: Zach Krall https://zachkrall.github.io/sketchbook/p5/sin-lines/index.html
-// Try it: https://editor.p5js.org/emclaren/sketches/SyWdRnM3m
+// Try it: https://editor.p5js.org/hello-p5/sketches/HkzHuc5zN
 *********************/
 
 const sine = (p5) => {
@@ -87517,7 +87530,7 @@ http://molleindustria.org/
 // Stars
 // Description: Draws ellipses in a circle on the screen with a cutout for the video
 // Credit: @reona396, source https://www.openprocessing.org/sketch/559382
-// Try it: https://editor.p5js.org/emclaren/sketches/SklF22G2Q
+// Try it: https://editor.p5js.org/hello-p5/sketches/ryzc2tqMN
 *********************/
 
 const stars = (p5) => {
@@ -87642,7 +87655,7 @@ module.exports = stars
 // Target Sketch
 // Description: Randomly colored ellipses increasing in size
 // Credit:  Zach Krall
-// Try it: https://editor.p5js.org/emclaren/sketches/H1Xin3Gh7
+// Try it: https://editor.p5js.org/hello-p5/sketches/HJ2ZdcqzV
 *********************/
 
 const targetSketch = (p5) => {
@@ -87679,7 +87692,7 @@ module.exports = targetSketch
 // Visualizer
 // Description: Pulsing visualization of audio track data, modified to bypass audio input so it could be in the background without there being additional noise
 // Credit: Sailor Winkelman, Cat Janowitz, Ginger Kretschmer, and Sam Kissee source: https://epi-js-gro.firebaseapp.com
-// Try it: https://editor.p5js.org/emclaren/sketches/HyKEF2f2Q
+// Try it: https://editor.p5js.org/hello-p5/sketches/H1LXnY9zE
 *********************/
 
 const visualizer = function (p5) {
@@ -87756,7 +87769,7 @@ module.exports = visualizer
 // Waves
 // Description: Draws interactive waves on the screen
 // Credit: @reona396 https:// www.openprocessing.org/sketch/521545
-// Try it: https:// editor.p5js.org/emclaren/sketches/rJsL63fhX
+// Try it: https://editor.p5js.org/hello-p5/sketches/ry6K_c9zE
 *********************/
 
 const waves = (p5) => {
@@ -87872,7 +87885,7 @@ const webeditorLink = (p5) => {
       downloadLinkText = 'Download'
     }
     // Create the upper link on load (note the styling is done with css)
-    webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation"><span>' + webeditorLinkText + '</span> >> </div></a>')
+    webeditorLinkDiv = p5.createDiv('<a href="https://editor.p5js.org/"  target="_blank"><div class="sketch-link sketch-link-upper sketch-link-animation"><span>' + webeditorLinkText + '</span></div></a>')
     webeditorLinkDiv.parent('video-overlay')
     webeditorLinkDiv.addClass('sketch-link-container')
   }
@@ -87882,7 +87895,7 @@ const webeditorLink = (p5) => {
     // Create the lower link when the time is appropriate
     if (window.videoCurrentTimeGlobal > 98) {
       if (linkHidden) {
-        downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + downloadLinkText + '</span> >> </div></a>')
+        downloadLinkDiv = p5.createDiv('<a href="http://p5js.org/download/"  target="_blank"><div class="sketch-link-lower sketch-link sketch-link-animation"><span>' + downloadLinkText + '</span></div></a>')
         downloadLinkDiv.parent('video-overlay')
         downloadLinkDiv.addClass('sketch-link-container')
         linkHidden = false

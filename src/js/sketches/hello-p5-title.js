@@ -2,7 +2,7 @@
 // Hello P5 Title Sketch
 // Description: Interactive Title Text for the Video
 // Credit: Based on a sketch by Zach Krall, source: https://zachkrall.github.io/sketchbook/p5/hello/index.html
-// Try it: https://editor.p5js.org/emclaren/sketches/ryNss2G37
+// Try it: https://editor.p5js.org/hello-p5/sketches/S1t4nFczV
 *********************/
 
 const helloP5Title = (p5) => {

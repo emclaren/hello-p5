@@ -2,6 +2,7 @@
 // Monsterloo Sketch
 // Description: Game starring adorable monsters, direction & speed of monster changes based on mouse position
 // Credit: Seyitan Oke, source: http://oke.design/lamonsters
+// Try it: https://editor.p5js.org/hello-p5/sketches/SJlX5tcz4
 *********************/
 
 const p5play = require('./sketch-libraries/play.js')

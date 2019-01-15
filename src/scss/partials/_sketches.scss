@@ -16,16 +16,28 @@ P5-DOM SKETCHES CSS STYLING
 .p5-single-circle-code-example {
   position: absolute;
   z-index: 3000000;
-  background-color: rgba(237, 34, 93, 0.7);
+  background-color: $brand-color-main;
   padding: 1%;
   font-size: calc(8px + 6 * ((100vw - 320px) / 680)); // This allows the font to scale with the page
   width: 30%;
   top: 7%;
   left: 65%;
+  border-radius: 1px;
+  transition: all 0.5s ease;
 }
 
-.p5-single-circle-code-example a {
+.p5-single-circle-code-example:hover {
+  background-color: $brand-color-hover;
+}
+
+.p5-single-circle-code-example code {
+  color: #000;
+  text-decoration: none;
+}
+
+.p5-single-circle-code-example span {
   color: $background-color-main;
+  text-decoration: underline;
 }
 
 .p5-single-circle-code-example ul {
@@ -70,10 +82,10 @@ P5-DOM SKETCHES CSS STYLING
   transition: all 0.5s ease;
   width: 30%;
   color: white;
-  border-radius: 3px;
+  border-radius: 1px;
   position: relative;
   background-color: rgba(237, 34, 93, 0.95);
-  border: 2px solid $background-color-main;
+  // border: 2px solid $background-color-main;
   z-index: 3000000;
   line-height: 3.3vw;
 }
@@ -95,8 +107,7 @@ P5-DOM SKETCHES CSS STYLING
 }
 
 .sketch-link:hover {
-  background-color: rgba(237, 34, 93, 0.8);
-  font-size: 3.3vw;
+  background-color: $brand-color-hover;
 }
 
 @include breakpoint(md) {
@@ -105,13 +116,9 @@ P5-DOM SKETCHES CSS STYLING
     font-size: 1.8vw;
     top: 3vw;
     padding: 2vw 1vw;
-    border: 4px solid $background-color-main;
+    // border: 4px solid $background-color-main;
     right: 0;
     line-height: 2vw;
-  }
-
-  .sketch-link:hover {
-    font-size: 1.85vw;
   }
 
   .sketch-link-upper {
