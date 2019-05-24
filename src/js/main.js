@@ -133,11 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
   player.on('playing', event => {
     if ((document.documentElement.clientWidth / document.documentElement.clientHeight) >= 1.65) {
       window.videoPlaying = true
-      // adds the class of hide on play, to make the header shrink on play
-      let header = document.querySelector('#header-wrapper')
-      let container = document.querySelector('#sketch-wrapper')
-      header.classList.add('shrink')
-      container.classList.add('shrink')
+      // adds the class of shrink on play, to make the header shrink on play
+      // let header = document.querySelector('#header-wrapper')
+      // let container = document.querySelector('#sketch-wrapper')
+      // header.classList.add('shrink')
+      // container.classList.add('shrink')
 
       // Scroll to the bottom of the page when the player starts
       document.getElementById('video-overlay').scrollIntoView({

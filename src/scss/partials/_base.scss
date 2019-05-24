@@ -20,6 +20,10 @@ body {
   display: flex;
 }
 
+a {
+  text-decoration: none;
+}
+
 body#index-body {
   background-image: url(../assets/img/asterisk.svg);
   background-repeat: no-repeat; /* Prevent showing multiple background images */

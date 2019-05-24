@@ -9,11 +9,10 @@ Links Page Styling (sketch thumbnails)
   color: #fff;
   right: 0;
   top: 0;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 2rem 1rem;
+  font-size: 1.3rem;
   opacity: 0.95;
   transition: all .3s ease;
-  // height: 2.5rem;
 }
 
 .sketches-links:hover {
@@ -22,19 +21,13 @@ Links Page Styling (sketch thumbnails)
 
 .sketches-links a {
   color: white;
-  text-decoration:none;
-}
-
-.sketches-links span {
-  text-decoration: underline;
-  // margin: 0 50px;
+  text-decoration: none;
 }
 
 #links-visible span,
 #links-hidden span {
   cursor: pointer;
 }
-
 
 .sketch-link-grid-container {
   display: flex;
@@ -46,9 +39,9 @@ Links Page Styling (sketch thumbnails)
 
 .sketch-link-item {
   max-width: 40%;
-  margin: 0.5rem;
+  margin: 1rem 0.5rem;
   padding: 0.2rem;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
   text-align: center;
   text-decoration: none;
 }
@@ -66,11 +59,12 @@ Links Page Styling (sketch thumbnails)
 .sketch-link-item a,
 .sketch-link-item a:visited {
   color: $brand-color-main;
+  text-decoration: none;
 }
 
 .sketch-link-item:hover,
 .sketch-link-item:active {
-  background-color: $brand-color-hover;
+  background-color: $brand-color-main;
   transform: scale(1.05);
 
   h3 {
@@ -83,19 +77,33 @@ Links Page Styling (sketch thumbnails)
   color: $background-color-main;
 }
 
+#links-section a {
+  text-decoration: none;
+}
+
 @include breakpoint(sm) {
   .sketch-link-item {
-    max-width: 30%;
+    max-width: 90%;
+    width: 90%;
   }
 
   .sketch-link-item h3 {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 }
 
 @include breakpoint(md) {
+  .sketches-links {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
   .sketch-link-item {
     max-width: 20%;
+  }
+
+  .sketch-link-item h3 {
+    font-size: 1rem;
   }
 }
 
